@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/open-xuanling/gate_decision.schema.json",
+  "title": "Open XuanLing Gate Review / Gate Decision",
+  "description": "Candidate schema. Not Approved. No Runtime.",
+  "type": "object",
+  "required": ["item_id", "decision", "return_packet_required"],
+  "properties": {
+    "item_id": {"type": "string"},
+    "source_card_id": {"type": "string"},
+    "source_card": {"type": "string"},
+    "proposal": {"type": "string"},
+    "carrier": {"type": "string"},
+    "authority": {"type": "string"},
+    "requested_action": {"type": "string"},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "risks": {"type": "array", "items": {"type": "string"}},
+    "decision": {
+      "type": "string",
+      "enum": ["Go", "Conditional_Go", "Park", "Stop", "Needs_Human_Approval", "Review_Needed", "Candidate_Review"]
+    },
+    "reason": {"type": "array", "items": {"type": "string"}},
+    "conditions": {"type": "array", "items": {"type": "string"}},
+    "required_conditions": {"type": "array", "items": {"type": "string"}},
+    "red_doors": {"type": "array", "items": {"type": "string"}},
+    "reviewer": {"type": "string"},
+    "reviewed_at": {"type": "string"},
+    "return_packet_required": {"type": "boolean"}
+  },
+  "additionalProperties": false
+}

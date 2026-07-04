@@ -1,0 +1,58 @@
+# Settings Inventory Return Schema Candidate
+status: Candidate
+master_gate: "#297"
+runtime: false
+external_writeback: false
+
+Settings_Inventory_Return:
+  Gate: null
+  Owner: "Vitas"
+  Surface_Group: null
+  Surfaces_Checked: []
+  Existing_Settings: []
+  Candidate_Changes: []
+  Red_Gates: []
+  Codex_Needed: []
+  Mirror_Review_Needed: []
+  User_Decisions: []
+  Risks: []
+  What_Not_To_Claim: []
+  Next_Action: null
+
+Surface_Groups:
+  allowed_values:
+    - G_Ecosystem
+    - Personal_M
+    - Company_M365
+    - Unknown_M
+    - Mirror_Review
+    - GitHub_DCP
+
+G_Ecosystem_Surfaces:
+  allowed_values:
+    - Gmail
+    - Drive
+    - Calendar
+    - Contacts
+
+Mirror_Review:
+  type: "review_node"
+  role: "second opinion only"
+
+M_Ecosystem_Surfaces:
+  allowed_values:
+    - Outlook
+    - Teams
+    - SharePoint_OneDrive
+    - Outlook_Calendar
+    - Lists_Planner_ToDo
+    - Power_Platform
+
+Hard_Rules:
+  - "Inventory is not settings change"
+  - "Candidate change is not approval"
+  - "Dry-run is not deployment"
+  - "Manual guide is not completed build"
+  - "Mirror review is not a G operational surface"
+  - "G ecosystem and M ecosystem may share syntax, not data or authority"
+  - "Unknown_M is not an operational carrier"

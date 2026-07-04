@@ -1,0 +1,86 @@
+# Status: Candidate / Daily Signal Gate Example / Not Approved / No Runtime / Not Investment Advice
+
+source_card:
+  id: "SRC-DAILY-SIGNAL-2026-07-01"
+  title: "AI capability enters carrier verification phase"
+  source_type: "external_signal_absorption"
+  source_location: "user-provided three-Qinyi review package"
+  carrier: "internal absorption draft / GitHub candidate"
+  owner: "Vitas"
+  received_at: "2026-07-01"
+  evidence_level: "User_Relay"
+  summary: "External signals across AI model governance, AI cloud monetization, memory supply, data-center power, grid stress, Taiwan risk, and market repricing."
+  supports:
+    - "Capability must be carried, authorized, verified, and returned before stable use."
+  does_not_support:
+    - "Does not authorize investment action."
+    - "Does not authorize company strategy or runtime."
+    - "Does not confirm all reported plans."
+  restrictions:
+    - "Separate Facts / Inferences / To_Verify."
+    - "No investment advice."
+    - "No external writeback."
+  needs_verification:
+    - "Meta compute cloud confirmation."
+    - "US model standards official policy status."
+    - "Market snapshot via finance tool before market claims."
+    - "Attach evidence artifact before claiming an evidence-check surface was read."
+  next_gate: "Gate_Review"
+
+gate_review:
+  item_id: "DAILY-SIGNAL-GATE-2026-07-01"
+  source_card: "SRC-DAILY-SIGNAL-2026-07-01"
+  proposal: "Absorb the signal as a candidate external signal index entry."
+  carrier: "GitHub candidate docs/signals"
+  authority: "Vitas"
+  requested_action: "index_only"
+  evidence:
+    - "user-provided review package"
+  risks:
+    - "reported plans may be misread as confirmed execution"
+    - "market price signal may be misread as industry truth"
+    - "infrastructure announcement may be misread as commissioned facility"
+  red_doors:
+    - "Reported Plan != Confirmed Execution"
+    - "Market Signal != Truth"
+    - "Infrastructure Announcement != Delivery"
+    - "Capability != Authority"
+  decision: "Conditional_Go"
+  conditions:
+    - "Mark as Candidate."
+    - "Keep Facts / Inferences / To_Verify separated."
+    - "No investment advice."
+    - "No Drive writeback claim."
+  return_packet_required: true
+  reviewer: "Review Qinyi"
+  reviewed_at: "TBD"
+
+return_packet:
+  item_id: "DAILY-SIGNAL-GATE-2026-07-01"
+  gate_decision: "Conditional_Go"
+  action_taken: "candidate_signal_doc_created"
+  carrier: "GitHub PR #298"
+  files_or_surfaces_read:
+    - "user-provided review package"
+  files_or_surfaces_changed:
+    - "docs/signals/xuanling-signal-absorption-2026-07-01.md"
+  what_changed:
+    - "Added a candidate signal absorption document."
+  what_did_not_change:
+    - "No Drive writeback."
+    - "No investment action."
+    - "No runtime."
+    - "No company strategy approval."
+  evidence:
+    - "evidence boundary kept as candidate / pending verification"
+  needs_verification:
+    - "actual evidence-check artifact if future review wants to cite one"
+  risks:
+    - "requires future update if official facts change"
+  rollback_or_rebuild_path: "revise or supersede the candidate signal note"
+  needs_human_decision:
+    - "whether to manually store in Drive"
+    - "whether to promote to Approved Brief or BuildReady Structure"
+  next_action: "Qinyi review / Hazumi index candidate"
+  returned_to: "#298 / Qinyi review"
+  returned_at: "TBD"

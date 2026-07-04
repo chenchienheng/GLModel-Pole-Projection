@@ -1,0 +1,32 @@
+# Status: Candidate / G Ecosystem Example / Not Approved / No Runtime
+
+signal_record:
+  signal_id: "G-SIGNAL-EXAMPLE-001"
+  received_from: "Gmail"
+  signal_type: "Document"
+  source_summary: "An email contains a candidate document signal that may need long-term carrier storage."
+  current_carrier: "Gmail"
+  status: "Signal"
+  requires_qinyi_judgment: true
+  requires_gemini_mirror_review: false
+  requires_vitas_decision: true
+
+carrier_decision:
+  decision: "Drive"
+  reason:
+    - "May need long-term carrier storage."
+    - "Not a direct task approval."
+  red_doors:
+    - "Gmail Signal != Task Approval"
+    - "Drive File != Closeout"
+
+return_packet:
+  signal_id: "G-SIGNAL-EXAMPLE-001"
+  what_changed:
+    - "Candidate routing identified."
+  what_did_not_change:
+    - "No file was moved by this example."
+    - "No Drive writeback claimed."
+    - "No approval granted."
+  next_action: "Vitas decides whether to manually move or store the material."
+  returned_to: "Qinyi / Vitas"

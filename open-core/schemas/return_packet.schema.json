@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/open-xuanling/return_packet.schema.json",
+  "title": "Open XuanLing Return Packet",
+  "description": "Candidate schema. Not Approved. No Runtime.",
+  "type": "object",
+  "required": ["item_id", "gate_decision", "what_changed", "what_did_not_change", "returned_to"],
+  "properties": {
+    "item_id": {"type": "string"},
+    "gate_decision": {"type": "string"},
+    "action_taken": {"type": "string"},
+    "carrier": {"type": "string"},
+    "files_or_surfaces_read": {"type": "array", "items": {"type": "string"}},
+    "files_or_surfaces_changed": {"type": "array", "items": {"type": "string"}},
+    "what_changed": {"type": "array", "items": {"type": "string"}},
+    "what_did_not_change": {"type": "array", "items": {"type": "string"}},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "risks": {"type": "array", "items": {"type": "string"}},
+    "rollback_or_rebuild_path": {"type": "string"},
+    "needs_human_decision": {"type": "array", "items": {"type": "string"}},
+    "next_action": {"type": "string"},
+    "returned_to": {"type": "string"},
+    "returned_at": {"type": "string"}
+  },
+  "additionalProperties": false
+}

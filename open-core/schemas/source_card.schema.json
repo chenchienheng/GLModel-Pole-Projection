@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/open-xuanling/source_card.schema.json",
+  "title": "Open XuanLing Source Card",
+  "description": "Candidate schema. Not Approved. No Runtime.",
+  "type": "object",
+  "required": ["id", "title", "source_type", "carrier", "evidence_level", "summary"],
+  "properties": {
+    "id": {"type": "string"},
+    "title": {"type": "string"},
+    "source_type": {"type": "string"},
+    "source_location": {"type": "string"},
+    "carrier": {"type": "string"},
+    "owner": {"type": "string"},
+    "received_at": {"type": "string"},
+    "evidence_level": {
+      "type": "string",
+      "enum": ["Primary_Record", "Direct_Material", "Metadata", "Secondary_Source", "User_Relay", "Model_Inference", "Pending_Verification"]
+    },
+    "summary": {"type": "string"},
+    "supports": {"type": "array", "items": {"type": "string"}},
+    "does_not_support": {"type": "array", "items": {"type": "string"}},
+    "restrictions": {"type": "array", "items": {"type": "string"}},
+    "needs_verification": {"type": "array", "items": {"type": "string"}},
+    "next_gate": {"type": "string"}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,41 @@
+# Status: Candidate / M Ecosystem Example / Not Approved / No Runtime / No Company Authorization
+
+m_ecosystem_record:
+  signal_id: "M-SIGNAL-EXAMPLE-001"
+  mode: "Personal_M"
+  source_surface: "Outlook"
+  current_carrier: "Outlook"
+  authority: "Vitas personal authority"
+  data_boundary: "personal cloud material only"
+  proposed_action: "classify signal and decide carrier"
+  allowed_now:
+    - "read and classify user-provided or authorized material"
+    - "suggest OneDrive / Calendar / To Do / archive routing"
+  forbidden_now:
+    - "company tenant operation"
+    - "runtime automation"
+    - "external writeback without approval"
+  return_path: "Qinyi review / Vitas decision"
+  needs_vitas_or_company_decision: true
+
+gate_review:
+  decision: "Conditional_Go"
+  conditions:
+    - "Keep personal and company modes separate."
+    - "Do not infer company authorization from personal M capability."
+    - "Return with state and carrier decision."
+  red_doors:
+    - "Personal M != Company M"
+    - "Outlook category != responsibility"
+    - "Calendar event != execution"
+    - "Manual guide != system built"
+
+return_packet:
+  what_changed:
+    - "Example M signal classified as personal M carrier candidate."
+  what_did_not_change:
+    - "No M365 company operation."
+    - "No runtime."
+    - "No company authorization."
+  next_action: "Vitas may decide whether to build a personal M carrier workflow candidate."
+  returned_to: "Qinyi / Vitas"

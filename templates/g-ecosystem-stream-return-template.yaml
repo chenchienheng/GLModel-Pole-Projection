@@ -1,0 +1,45 @@
+# Status: Candidate / G Ecosystem Stream Return Template / No Runtime / No External Writeback
+
+G_Ecosystem_Stream_Return:
+  Phase: null
+  Stream: "Gmail | Drive | Calendar | Contacts | Mirror_Review | GitHub_DCP"
+  Source: null
+  Carrier: null
+  Authority: null
+  Current_State: "Signal | Candidate | Review_Needed | Evidence_Pending | Human_Gate_Required | Return_Packet_Prepared | Park | Red_Gate | Needs_Vitas_Decision"
+  Proposed_Action: null
+  Evidence_Boundary:
+    evidence_level: null
+    source_ref: null
+    user_reported: null
+    qinyi_verified: null
+    verification_status: null
+  Allowed_Now: []
+  Forbidden_Now: []
+  Red_Doors: []
+  What_Can_Move_To_M:
+    - "governance syntax"
+    - "classification model"
+    - "manual guide language"
+    - "return packet format"
+  What_Cannot_Move_To_M:
+    - "raw company data"
+    - "private mail contents"
+    - "company permissions"
+    - "account secrets or tokens"
+    - "unreviewed private origin material"
+  Needs_Vitas_Decision: []
+  Return_To: "G ecosystem integration window"
+  Next_Action: null
+
+Red_Door_Checks:
+  - "same window phase progress is not ecosystem completion"
+  - "Gmail cleanup is not G ecosystem governance completion"
+  - "G ecosystem maturity is not M ecosystem implementation approval"
+  - "personal authority is not company authority"
+  - "Google-side summary is not Microsoft-side evidence"
+  - "Mirror review is not approval"
+  - "Drive folder is not SharePoint permission model"
+  - "Calendar reminder is not company commitment"
+  - "manual guide is not workflow runtime"
+  - "company data must remain in company carrier"

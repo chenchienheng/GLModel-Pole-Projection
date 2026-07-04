@@ -1,0 +1,72 @@
+# Status: Candidate / Example / Not Approved / No Runtime
+# This example uses fictional generic company workflow data only.
+
+source_card:
+  id: "SRC-EXAMPLE-COMPANY-WORKFLOW-001"
+  title: "Shared work order intake candidate"
+  source_type: "workflow_proposal"
+  source_location: "fictional_example"
+  carrier: "document"
+  owner: "human_reviewer"
+  received_at: "TBD"
+  evidence_level: "Model_Inference"
+  summary: "A proposal to create a manual shared work order intake model for a company environment."
+  supports:
+    - "A governance chain can classify the proposal before any setup."
+  does_not_support:
+    - "Does not authorize company system changes."
+    - "Does not move company data."
+  restrictions:
+    - "Use mock data only."
+    - "Manual build guide only."
+  needs_verification:
+    - "Company permissions and approved surfaces."
+  next_gate: "Gate_Review"
+
+gate_review:
+  item_id: "TASK-EXAMPLE-COMPANY-WORKFLOW-001"
+  source_card: "SRC-EXAMPLE-COMPANY-WORKFLOW-001"
+  proposal: "Draft a manual shared work order intake guide."
+  carrier: "document"
+  authority: "human_reviewer"
+  requested_action: "draft_manual_guide"
+  evidence:
+    - "fictional workflow proposal"
+  risks:
+    - "May be mistaken for company approval."
+    - "May be mistaken for system deployment."
+  red_doors:
+    - "company_raw_data"
+    - "external_writeback"
+  decision: "Conditional_Go"
+  conditions:
+    - "Use mock data only."
+    - "No company system changes."
+    - "Label as manual guide candidate."
+  return_packet_required: true
+  reviewer: "review_surface"
+  reviewed_at: "TBD"
+
+return_packet:
+  item_id: "TASK-EXAMPLE-COMPANY-WORKFLOW-001"
+  gate_decision: "Conditional_Go"
+  action_taken: "manual_guide_candidate_drafted"
+  carrier: "document"
+  files_or_surfaces_read:
+    - "fictional proposal"
+  files_or_surfaces_changed: []
+  what_changed:
+    - "Created candidate guide text only."
+  what_did_not_change:
+    - "No company system changed."
+    - "No company data moved."
+  evidence:
+    - "fictional example"
+  risks:
+    - "Requires human/company approval before any actual setup."
+  rollback_or_rebuild_path: "discard or rewrite candidate guide"
+  needs_human_decision:
+    - "whether to adapt for a real company surface"
+  next_action: "human review"
+  returned_to: "human_reviewer"
+  returned_at: "TBD"

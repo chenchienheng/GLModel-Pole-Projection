@@ -1,0 +1,79 @@
+# Status: Candidate / MEP Bid Governance Example / Not Approved / No Runtime
+
+source_card:
+  id: "SRC-MEP-BID-GOV-001"
+  title: "MEP pricing maturity and submission gate"
+  source_type: "domain_learning_packet"
+  source_location: "user-provided Qinyi learning review"
+  carrier: "domain_packs/mep_bid_governance"
+  owner: "Vitas"
+  evidence_level: "User_Relay"
+  summary: "A learning case about pricing maturity, authorization, backing, and submission state."
+  supports:
+    - "Pricing should be classified by maturity before submission wording is chosen."
+  does_not_support:
+    - "Does not authorize submission."
+    - "Does not provide pricing basis."
+    - "Does not replace management approval."
+  restrictions:
+    - "Use sanitized structure only."
+  next_gate: "Gate_Review"
+
+pricing_maturity:
+  current_label: "External-Sanitized-Candidate"
+  candidates:
+    - Vendor_Backed
+    - ROM_Budgetary
+    - Internal_Estimate
+    - Provisional_Sum
+    - TBC_Exclusion
+  required_decision: "choose maturity before owner-facing language"
+
+authority_required:
+  needs_management_approval: true
+  needs_vendor_backing: true
+  risk_acceptance_owner: "TBD"
+
+evidence_gap_register:
+  missing_vendor_quote: "TBD"
+  missing_internal_authorization: "TBD"
+  missing_risk_acceptance: "TBD"
+  missing_submission_boundary: "TBD"
+
+gate_review:
+  item_id: "MEP-BID-GOV-001"
+  source_card: "SRC-MEP-BID-GOV-001"
+  proposal: "Review whether a conditional framework could be considered if evidence, maturity, authorization, and risk acceptance are defined."
+  carrier: "domain pack example"
+  authority: "TBD / Human Gate Required"
+  requested_action: "domain_learning_only"
+  risks:
+    - "Option C may be mistaken for an approved answer."
+    - "Internal estimate may be mistaken for vendor-backed price."
+  red_doors:
+    - "Internal Estimate != Vendor-backed Price"
+    - "Management-Reviewed != Management-Approved"
+    - "Owner-Facing Draft != External Submission"
+    - "AI Draft != Submission Strategy"
+  decision: "Review_Needed"
+  conditions:
+    - "Keep as learning example."
+    - "Do not use as submission."
+  return_packet_required: true
+
+return_packet:
+  item_id: "MEP-BID-GOV-001"
+  gate_decision: "Review_Needed"
+  action_taken: "domain example revised"
+  carrier: "GitHub PR #298"
+  what_changed:
+    - "Kept example in review-needed state."
+  what_did_not_change:
+    - "No submission."
+    - "No pricing basis."
+    - "No management approval."
+    - "No runtime."
+  needs_human_decision:
+    - "whether to expand this domain pack"
+  next_action: "Review Qinyi gate review"
+  returned_to: "#298"

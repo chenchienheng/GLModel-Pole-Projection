@@ -1,0 +1,80 @@
+# Return Packet Schema Candidate
+status: Candidate
+master_gate: "#297"
+runtime: false
+external_writeback: false
+
+Return_Packet:
+  Gate: null
+  Scope: null
+  Carrier: null
+  Source: null
+  Authority: null
+  Files_Read: []
+  Issues_Read: []
+  PRs_Read: []
+  Comments_Read: []
+  Files_Changed: []
+  What_Changed: []
+  What_Did_Not_Change: []
+
+  Evidence_Registry:
+    - evidence_id:
+      source_ref:
+      carrier:
+      evidence_level:
+      evidence_note:
+      user_reported:
+      qinyi_verified:
+      verification_status:
+
+  Facts:
+    - claim:
+      evidence_refs: []
+      evidence_level:
+  Inferences:
+    - claim:
+      evidence_refs: []
+      evidence_level:
+  To_Verify:
+    - claim:
+      evidence_refs: []
+      evidence_level: Pending_Verification
+      required_verification:
+
+  Risks: []
+  What_Not_To_Claim: []
+  Pending_Vitas_Decision: []
+  Rollback: null
+  Next_Action: null
+
+Evidence_Level:
+  allowed_values:
+    - Primary_Record
+    - Direct_Material
+    - Metadata
+    - Model_Inference
+    - External_Unverified
+    - Pending_Verification
+    - Verified_Surface
+    - Verified_Surface_Not_Authorized
+    - Secondary_Source
+    - Anecdotal
+    - User_Relay
+
+Repo_State:
+  allowed_values:
+    - Keep
+    - Merge
+    - Supersede
+    - Park
+    - Red_Gate
+    - Needs_Vitas_Decision
+
+Hard_Rules:
+  - "Candidate is not Approved"
+  - "BuildReady is not Runtime"
+  - "Return Packet is not Closeout"
+  - "Review is not Human Approval"
+  - "Capability is not Permission"
+  - "Every returned claim must include evidence_refs"

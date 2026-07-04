@@ -1,0 +1,20 @@
+# Status: Superseded / Historical Candidate / No Runtime / No External Writeback
+# Superseded_By: templates/g-ecosystem-stream-return-template.yaml
+
+Supersession_Note: >
+  This v0.1 bridge template can imply separate ecosystem windows. The corrected active template is
+  the G Ecosystem Stream Return Template, based on one integration window moving through multiple phases
+  and streams.
+
+Use_Instead: "templates/g-ecosystem-stream-return-template.yaml"
+
+Historical_Core: >
+  G ecosystem and M ecosystem may share governance syntax, but must not share data, authority,
+  or responsibility.
+
+Not_To_Claim:
+  - "This v0.1 template is not the active return template"
+  - "This v0.1 template is not approval for Gmail settings changes"
+  - "This v0.1 template is not M365 authorization"
+  - "This v0.1 template is not Gemini final authority"
+  - "This v0.1 template is not company deployment"

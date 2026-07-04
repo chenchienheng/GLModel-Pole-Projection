@@ -1,0 +1,67 @@
+# Status: Candidate / Example / Not Approved / No Runtime
+
+source_card:
+  id: "SRC-EXAMPLE-AI-TOOL-001"
+  title: "Summarize an uploaded report"
+  source_type: "user_request"
+  source_location: "chat"
+  carrier: "assistant_conversation"
+  owner: "human_user"
+  received_at: "TBD"
+  evidence_level: "Direct_Material"
+  summary: "User asks an AI assistant to summarize an uploaded report and identify action items."
+  supports:
+    - "A gate review can decide whether summarization is allowed."
+  does_not_support:
+    - "Does not authorize external writeback."
+    - "Does not approve publication."
+  restrictions:
+    - "No external posting."
+    - "No claims beyond the source file."
+  needs_verification:
+    - "Confirm file scope and sensitivity."
+  next_gate: "Gate_Review"
+
+gate_review:
+  item_id: "TASK-EXAMPLE-AI-TOOL-001"
+  source_card: "SRC-EXAMPLE-AI-TOOL-001"
+  proposal: "Summarize uploaded report and list action candidates."
+  carrier: "assistant_conversation"
+  authority: "human_user"
+  requested_action: "read_and_summarize"
+  evidence:
+    - "uploaded file"
+  risks:
+    - "source may contain private data"
+  red_doors: []
+  decision: "Conditional_Go"
+  conditions:
+    - "Do not publish or write back externally."
+    - "Separate Facts / Inferences / To_Verify."
+  return_packet_required: true
+  reviewer: "review_surface"
+  reviewed_at: "TBD"
+
+return_packet:
+  item_id: "TASK-EXAMPLE-AI-TOOL-001"
+  gate_decision: "Conditional_Go"
+  action_taken: "summary_candidate_created"
+  carrier: "assistant_conversation"
+  files_or_surfaces_read:
+    - "uploaded report"
+  files_or_surfaces_changed: []
+  what_changed:
+    - "No external system changed."
+  what_did_not_change:
+    - "No publication."
+    - "No external writeback."
+  evidence:
+    - "uploaded report only"
+  risks:
+    - "summary may require user verification"
+  rollback_or_rebuild_path: "revise summary or discard"
+  needs_human_decision:
+    - "whether to use action candidates"
+  next_action: "human review"
+  returned_to: "human_user"
+  returned_at: "TBD"

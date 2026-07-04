@@ -1,0 +1,73 @@
+name: Gate Review
+description: Submit a candidate task, source, proposal, or change for Open XuanLing gate review.
+title: "GATE-REVIEW｜<short title>"
+labels: ["gate-review", "candidate"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Status: Candidate issue template. This does not approve runtime, merge, external writeback, or company-system action.
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: Where did this item come from?
+      placeholder: chat / document / issue / PR / email / meeting / external signal
+    validations:
+      required: true
+  - type: input
+    id: carrier
+    attributes:
+      label: Carrier
+      description: Where does it currently live?
+      placeholder: GitHub issue / document / Drive / calendar / chat / other
+    validations:
+      required: true
+  - type: input
+    id: authority
+    attributes:
+      label: Authority
+      description: Who can decide the next state?
+      placeholder: owner / reviewer / unknown
+    validations:
+      required: true
+  - type: dropdown
+    id: requested_decision
+    attributes:
+      label: Requested Gate Decision
+      options:
+        - Go
+        - Conditional_Go
+        - Park
+        - Stop
+        - Needs_Human_Approval
+    validations:
+      required: true
+  - type: textarea
+    id: requested_action
+    attributes:
+      label: Requested Action
+      description: What action is being proposed?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: What evidence supports this proposal?
+    validations:
+      required: false
+  - type: textarea
+    id: red_doors
+    attributes:
+      label: Red Doors
+      description: List any risk involving authority, private material, company data, runtime, identity, or external writeback.
+    validations:
+      required: false
+  - type: textarea
+    id: return_path
+    attributes:
+      label: Return Path
+      description: Where should the result return for review?
+    validations:
+      required: true

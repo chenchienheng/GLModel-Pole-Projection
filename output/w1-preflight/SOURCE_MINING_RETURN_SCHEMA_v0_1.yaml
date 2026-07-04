@@ -1,0 +1,45 @@
+# SOURCE_MINING_RETURN_SCHEMA_v0_1
+# Status: Candidate / Local-only / Not Approved / No Runtime / No External Writeback
+Source_Mining_Return:
+  window_name: null
+  window_role: null
+  source_carrier: null
+  source_anchor: null
+  source_summary_zh: null
+  full_chinese_body_available: null
+  evidence_level:
+    allowed_values:
+      - Primary_Record
+      - Direct_Material
+      - Metadata
+      - Model_Inference
+      - External_Unverified
+      - Pending_Verification
+      - Verified_Surface
+      - Verified_Surface_Not_Authorized
+    selected: null
+  candidate_value: null
+  risk: null
+  contains_company_data: null
+  needs_deidentification: null
+  needs_human_decision: null
+  suggested_decision:
+    allowed_values:
+      - Import
+      - Park
+      - Archive
+      - Reject
+      - Return_to_Vitas
+    selected: null
+  reason: null
+  related_main_window:
+    allowed_values:
+      - W1
+      - W2
+      - W3
+      - W7
+    selected: []
+  not_to_claim: []
+  stopped_at: null
+  return_to: W1
+  next_action_candidate: null

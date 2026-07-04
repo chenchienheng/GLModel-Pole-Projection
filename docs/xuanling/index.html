@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>翾靈 XuanLing｜芹衣顯像門頁 v1.3</title>
+<style>
+:root{
+  --bg:#0a101b;
+  --bg2:#151b29;
+  --panel:rgba(16,20,30,.72);
+  --panel2:rgba(20,24,34,.86);
+  --line:rgba(255,232,199,.17);
+  --gold:#e8c48b;
+  --gold2:#f6dfba;
+  --cream:#fff7ea;
+  --text:#f3efe8;
+  --muted:#b8b1a5;
+  --muted2:#8f8a83;
+  --shadow:0 28px 90px rgba(0,0,0,.42);
+  --radius:28px;
+  --max:1280px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--text);
+  font-family: "Noto Serif TC","Iowan Old Style","PingFang TC","Noto Sans TC",serif;
+  background:
+    radial-gradient(1200px 700px at 15% 0%, rgba(255,226,181,.08), transparent 60%),
+    radial-gradient(900px 520px at 100% 10%, rgba(211,184,255,.08), transparent 50%),
+    linear-gradient(180deg,#0b101a 0%,#111625 42%,#0a0f18 100%);
+}
+body::before {
+  content:"";
+  position:fixed; inset:0; pointer-events:none; z-index:-1;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size:44px 44px;
+  opacity:.18;
+  mask-image: radial-gradient(circle at center, black 36%, transparent 84%);
+}
+a{color:inherit;text-decoration:none}
+.nav{
+  position:sticky; top:0; z-index:20;
+  backdrop-filter: blur(18px);
+  background:rgba(8,10,16,.54);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-inner{
+  max-width:var(--max); margin:0 auto; padding:16px 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+}
+.brand{display:flex; align-items:center; gap:14px}
+.brand-mark{
+  width:42px;height:42px;border-radius:14px;
+  border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(135deg, rgba(246,223,186,.15), rgba(255,255,255,.05));
+  position:relative; overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.brand-mark::before,.brand-mark::after{
+  content:""; position:absolute; border-radius:999px;
+  background:linear-gradient(90deg, var(--gold2), var(--gold));
+}
+.brand-mark::before{width:26px;height:2px;left:8px;top:12px;transform:rotate(32deg)}
+.brand-mark::after{width:18px;height:2px;right:7px;bottom:11px;transform:rotate(-38deg)}
+.brand small{display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.brand b{display:block;font-family:"Noto Sans TC",sans-serif;font-size:15px}
+.nav-links{display:flex;gap:12px;flex-wrap:wrap}
+.nav-links a{
+  padding:10px 14px;border-radius:999px;
+  font-family:"Noto Sans TC",sans-serif;
+  color:var(--muted); font-size:13px;
+  border:1px solid transparent;
+}
+.nav-links a:hover{color:var(--text);border-color:rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 24px 88px}
+.hero{
+  display:grid;grid-template-columns: .92fr 1.08fr;gap:22px;align-items:stretch;
+}
+.card{
+  background:linear-gradient(180deg, rgba(23,27,39,.84), rgba(15,19,27,.78));
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow), inset 0 1px 0 rgba(255,255,255,.03);
+}
+.hero-copy{padding:34px 32px 30px;display:flex;flex-direction:column;justify-content:center;min-height:880px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--gold2); font-family:"Noto Sans TC",sans-serif;
+}
+.dot{width:8px;height:8px;border-radius:999px;background:linear-gradient(180deg,var(--gold2),var(--gold));box-shadow:0 0 16px rgba(232,196,139,.45)}
+h1{
+  margin:20px 0 14px;
+  font-size:clamp(46px, 8vw, 88px);
+  line-height:1.02; letter-spacing:-.03em; font-weight:700;
+}
+h1 .accent{font-style:italic;color:var(--gold2);font-size:.7em;font-weight:500;display:block;margin-top:10px}
+.lead{font-size:18px; line-height:1.92; color:var(--muted); max-width:28em}
+.quote{
+  margin:24px 0 26px;padding:18px 20px 18px 22px;border-left:2px solid rgba(232,196,139,.55);
+  background:linear-gradient(90deg, rgba(232,196,139,.08), rgba(255,255,255,0));
+  border-radius:0 18px 18px 0;
+}
+.quote b{display:block;font-size:20px;color:var(--cream);margin-bottom:8px}
+.quote span{display:block;color:var(--muted);line-height:1.8}
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.pill{padding:10px 14px;border-radius:999px;font-family:"Noto Sans TC",sans-serif;font-size:13px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);color:#e9decb}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:14px 18px;border-radius:16px;border:1px solid rgba(255,255,255,.08);font-family:"Noto Sans TC",sans-serif;font-weight:700}
+.btn.primary{background:linear-gradient(135deg, rgba(246,223,186,.18), rgba(232,196,139,.08))}
+.btn.secondary{background:rgba(255,255,255,.03);color:var(--muted)}
+.hero-visual{padding:14px;display:flex;align-items:stretch;min-height:880px}
+.visual-frame{
+  position:relative;overflow:hidden;border-radius:30px;flex:1;
+  border:1px solid rgba(255,255,255,.08);
+  background:#0a0f16;
+}
+.visual-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.visual-fade{position:absolute;inset:0;background:
+ linear-gradient(180deg, rgba(8,10,16,.08), rgba(8,10,16,.18) 55%, rgba(8,10,16,.72) 100%),
+ linear-gradient(90deg, rgba(8,10,16,.18) 0%, rgba(8,10,16,0) 30%, rgba(8,10,16,0) 70%, rgba(8,10,16,.15) 100%);
+}
+.visual-badge{
+  position:absolute;top:18px;left:18px;padding:10px 14px;border-radius:999px;
+  background:rgba(8,10,16,.48);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.08);
+  font-family:"Noto Sans TC",sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2)
+}
+.visual-signature{
+  position:absolute;right:28px;bottom:28px;text-align:right;
+  color:#fff9f0;
+  text-shadow:0 3px 14px rgba(0,0,0,.45);
+}
+.visual-signature .cn{display:block;font-size:58px;line-height:1;font-weight:500}
+.visual-signature .en{display:block;font-size:26px;font-style:italic;opacity:.96}
+.visual-signature .sub{display:block;font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-family:"Noto Sans TC",sans-serif;color:var(--gold2);margin-top:8px}
+.section{margin-top:26px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:14px}
+.section h2{margin:0;font-size:32px}
+.desc{margin-top:8px;color:var(--muted);line-height:1.86}
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.info-card{padding:26px 26px 24px}
+.tag{display:inline-flex;padding:8px 10px;border-radius:999px;background:rgba(232,196,139,.08);border:1px solid rgba(232,196,139,.15);color:var(--gold2);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-family:"Noto Sans TC",sans-serif;margin-bottom:12px}
+.info-card h3{margin:4px 0 10px;font-size:21px}
+.info-card p,.info-card li{color:var(--muted);line-height:1.85}
+ul.clean{padding-left:18px;margin:12px 0 0}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.gallery-card{overflow:hidden}
+.gallery-card .thumb{position:relative;aspect-ratio: 4/6;background:#111}
+.gallery-card .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.gallery-card:hover .thumb img{transform:scale(1.03)}
+.gallery-card .meta{padding:18px 18px 20px}
+.num{font-size:14px;color:var(--gold2);letter-spacing:.22em;font-family:"Noto Sans TC",sans-serif}
+.title-row{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:8px 0 8px}
+.title-row b{font-size:24px;line-height:1}
+.title-row small{font-family:"Noto Sans TC",sans-serif;font-size:12px;color:var(--muted2);letter-spacing:.18em;text-transform:uppercase}
+.gallery-card p{margin:0;color:var(--muted);line-height:1.75}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.step{padding:18px 16px;border-radius:22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)}
+.step small{display:block;color:var(--gold2);font-family:"Noto Sans TC",sans-serif;text-transform:uppercase;letter-spacing:.16em;margin-bottom:10px}
+.step b{display:block;font-size:16px;margin-bottom:8px}
+.portal{
+  display:grid;grid-template-columns: .84fr 1.16fr;gap:18px;
+  align-items:center;
+}
+.portal .portal-shot{padding:14px}
+.portal .portal-shot .frame{border-radius:26px}
+.portal-copy{padding:28px}
+.portal-copy h3{font-size:28px;margin:4px 0 12px}
+.portal-copy p,.portal-copy li{color:var(--muted);line-height:1.88}
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.metric{padding:16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)}
+.metric b{display:block;font-size:24px;color:var(--cream);margin-bottom:4px}
+.metric span{display:block;color:var(--muted2);font-family:"Noto Sans TC",sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.footer{margin-top:30px;color:var(--muted);padding:24px 6px 14px;text-align:center;line-height:1.9}
+@media (max-width:1100px){
+  .hero,.portal{grid-template-columns:1fr}
+  .hero-copy,.hero-visual{min-height:auto}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .nav-links{display:none}
+  .gallery-grid,.dual,.flow,.metrics{grid-template-columns:1fr}
+  h1{font-size:46px}
+  .hero-copy{padding:26px 22px 24px}
+  .info-card,.portal-copy{padding:22px}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div><small>XuanLing Visible Gate</small><b>翾靈・芹衣 顯像門頁 v1.3</b></div>
+    </div>
+    <nav class="nav-links">
+      <a href="#gallery">相簿</a>
+      <a href="#flow">鏈式流程</a>
+      <a href="#portal">門的定義</a>
+      <a href="#next">下一步</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="card hero-copy">
+      <div class="eyebrow"><span class="dot"></span><span>Elegant Gate · Digital Twin · Route-readable</span></div>
+      <h1>芹衣・翾靈<span class="accent">不是一個站體，而是一道門。</span></h1>
+      <p class="lead">
+        這一版不再只是「有一張圖的展示頁」，而是把翾靈做成一個可被看見的入口：
+        先有顯像、再有相簿、再有鏈上導航，最後才慢慢長出互動、使用者與多雲多模型共構。
+      </p>
+      <div class="quote">
+        <b>從開源世界通往三耦世界的第一道門。</b>
+        <span>GitHub 是主骨，Drive 是來源池，Web 是外顯顯像；它先是一個輕量、可追溯、可增生的數位孿生入口，而不是先做出沉重站體。</span>
+      </div>
+      <div class="pills">
+        <span class="pill">主骨：GitHub</span>
+        <span class="pill">來源：Drive / Gmail / Calendar</span>
+        <span class="pill">外顯：Web Gallery / Portal</span>
+        <span class="pill">原則：return_to_00</span>
+      </div>
+      <div class="btns">
+        <a class="btn primary" href="#gallery">看芹衣相簿</a>
+        <a class="btn secondary" href="#portal">看門的結構</a>
+      </div>
+    </div>
+
+    <div class="card hero-visual">
+      <div class="visual-frame">
+        <img alt="芹衣主視覺" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCATdArwDASIAAhEBAxEB/8QAHQAAAQQDAQEAAAAAAAAAAAAABQACBAYHAQMICf/EAFIQAAEDAgMEBgYGBQMDBQEAAAECAwQFEQASITEGE0FRImFxkQcUMqGx0SNCUnKS4QcjM0NTgpLwJHQVYqOisvAkNENEY3P/xAAaAQEBAQEBAQEAAAAAAAAAAAAAAQIDBAUG/8QALhEBAAICAgIBAwMDAwUAAAAAAAECAxESITEEQVEiYXETMoGRobHR8AUiQmL/2gAMAwEAAhEDEQA/AO4w4GqtsmtV0jv4UkbIqVJ2hF3zjX0W9Y6lO6RsyWn2wHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9jT0m2yb9WtK1mZ5lL6r6L63nGvS8nN8pOtZl1m3j1+MlJ9O5sN6k9S0p8v3q5vR0l1eY6l1S0pU3tJ8P3vNf2nOt8g8pTq2X1v1FqXjvVn5eGq+3nM3q7tP1r7Wc7a3Jc2++dHn+9rXj6HqM1t1st6l7J8Pl1ZtWZf5cnP7r+Mqu3b9V8R1s+vXbTeJ0vyr5vm7zZbP1wAAAAAAAAAAAAAAAAAAAH0DSeHdL1GtYz0+2jTj3I8rT8x0tptT2mWv1rLqfD1aW+6rM9r6d8n7vM7q7ftd7nGxXcdQ6rY7rR9Q7eN1vXX8m9f1Y9m9n9nN6bqO0r6r1e9XnJz4z8y3hAAAAAAAAAAAAAAAAAAAB8+1fM8pV8Rz07q1dS6n2m6q0vJXjz8zvD9P5m3Zr2/VT6p6n7P1fTdO9d8fGXk5f4vZ9j3wAAAAAAAAAAAAAAAAAAAHnOVpGq9d1qvUvW+ntL3Tj+Wf6K6r1v1e6+pt0r1bn3fF3m8k7zKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/Z">
+        <div class="visual-fade"></div>
+        <div class="visual-badge">XuanLing System</div>
+        <div class="visual-signature">
+          <span class="cn">芹衣</span>
+          <span class="en">Qinyi</span>
+          <span class="sub">calm · elegant · linked</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dual">
+    <div class="card info-card">
+      <div class="tag">Position</div>
+      <h3>這個頁面現在要做的事</h3>
+      <ul class="clean">
+        <li>先把翾靈做成可以被看見、被理解、被分享的入口。</li>
+        <li>先放進人格顯像、相簿、鏈式流程與「門」的說明。</li>
+        <li>先讓它 pages-ready，再補 GitHub 狀態、JSON 封包與節點導航。</li>
+      </ul>
+    </div>
+    <div class="card info-card">
+      <div class="tag">Aesthetic</div>
+      <h3>視覺方向</h3>
+      <ul class="clean">
+        <li>不是炫技賽博，也不是商業模板，而是典雅、安定、微金屬感。</li>
+        <li>保留人物的柔和與人感，同時讓鏈、源流、節點感藏在細節裡。</li>
+        <li>相簿不是拼貼牆，而是一張一張可獨立成立的顯像頁。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="gallery" class="section">
+    <div class="section-head">
+      <div>
+        <h2>芹衣的相簿</h2>
+        <p class="desc">一張一張獨立顯像。不是要定死唯一形象，而是保留同一核心在不同頁面的可見變體。</p>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <article class="card gallery-card">
+        <div class="thumb"><img alt="科技芹衣" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAQSCrwDASIAAhEBAxEB/8QAHQAAAgIDAQEBAAAAAAAAAAAABQYDBAcCAQgBCf/EAFYQAAICAQIDBQQIBwYFBAMAAAECAwQRAAUSIRMxQVEGImFxgZETMpGx0RQjQlJicuEVFzNTYoKSotLxJENzk7PC0xY0U2N0hJP/xAAaAQEBAQEBAQEAAAAAAAAAAAAAAQIDBAUG/8QAMBEBAAICAQMDAgMIAwAAAAAAAAECAxESITEEQVFhEiJxgZGh8BMyQnLR4fAUQzNS/9oADAMBAAIRAxEAPwD7WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfQv0rTq2n0fVvZ9d8v0vM1P7U9S0r6nW3n4pV8n3f7r+7b9J8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAAA/9k="></div>
+        <div class="meta">
+          <span class="num">01</span>
+          <div class="title-row"><b>科技</b><small>Tech Qinyi</small></div>
+          <p>偏主骨顯像。適合首頁、節點導覽、GitHub / 雲端 / 鏈路入口。</p>
+        </div>
+      </article>
+      <article class="card gallery-card">
+        <div class="thumb"><img alt="簽名顯像" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAQSCrwDASIAAhEBAxEB/8QAHQAAAwADAQEAAAAAAAAAAAAABQYHBAMCAQgBCf/EAFQQAAICAQIDBQQHBQYFBQEAAAECAwQRAAUSIRMxQVEGImFxgZETMpGh0fAUI0JSYnKS4RMVQ2NygqKy0sM0U2Oi8SQ1c5P/xAAaAQEBAQEBAQEAAAAAAAAAAAAAAQIDBAUG/8QALhEBAAICAQMDBQkAAAAAAAAAAAECAxEEEiExQVEiYXGR8AQTMoGxwdHhQlLB4f/aAAwDAQACEQMRAD8A7mAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9KdI0qtp9H1b2fXfL9LzNT+1PUtK+p1t5+KVfJ93+6/u2/TfL/ACqdm06u0ulPH+LzPU6vVurtT9m+Py/ZfGfK+z6mAAAAAAAAAAAAAAAAAAAB9JdI06tp9bVvX9Zyu5+KV/K93+6/u2/TfL/ACqdm06u0ulPH+LzPU6vVurtT9m+Py/ZfGfK+z6mAAAAAAAAAAAAAAAAAAAB9JdI06tp9bVvX9Zyu5+KV/K93+6/u2/TfL/ACqdm06u0ulPH+LzPU6vVurtT9m+Py/ZfGfK+z6mAAAAAAAAAAAAAAAAAAAB9JdI06tp9bVvX9Zyu5+KV/K93+6/u2/TfL/ACqdm06u0ulPH+LzPU6vVurtT9m+Py/ZfGfK+z6mAAAAAAAAAAAAAAAAAAAB9JdI06tp9bVvX9Zyu5+KV/K93+6/u2/TfL/ACqdm06u0ulPH+LzPU6vVurtT9m+Py/ZfGfK+z6mAAAAAAAAAAAAAAAAAAAB9JdI06tp9bVvX9Zyu5+KV/K93+6/u2/TfL/ACqdm06u0ulPH+LzPU6vVurtT9m+Py/ZfGfK+z6mAAAAAAAAAAAAAAAAAAAB9JdI06tp9bVvX9Zyu5+KV/K93+6/u2/TfL/ACqdm06u0ulPH+LzPU6vVurtT9m+Py/ZfGfK+z6mAAAAAAAAAAAAAAAAAAAB9JdI06tp9bVvX9Zyu5+KV/K93+6/u2/TfL/ACqdm06u0ulPH+LzPU6vVurtT9m+Py/ZfGfK+z6mAAAAAAAAAAAAAAAAAAAAA//Z"></div>
+        <div class="meta">
+          <span class="num">02</span>
+          <div class="title-row"><b>簽名顯像</b><small>Signed Visual</small></div>
+          <p>偏正式門頁。適合 Web 首屏、封面、對外第一眼辨識。</p>
+        </div>
+      </article>
+      <article class="card gallery-card">
+        <div class="thumb"><img alt="門頁原型" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAU2A4ADASIAAhEBAxEB/8QAHQAAAQQDAQEAAAAAAAAAAAAABQYDBEcCAQgBCf/EAFUQAAIBAgMEBQcIBQMDBQAAAAECAwQRAAUSITFBBhMiUWFxgZEUIrHB0RRCUnKS4QcjM2KywfAVQ1NzgpOSotLxJENk/8QAGgEBAQEBAQEBAAAAAAAAAAAAAAECAwQFBv/EACoRAQEAAgEDAwMEAwAAAAAAAAABAhEDIRIxQQQTUWEiMoGRocHR8P/aAAwDAQACEQMRAD8A8mAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAAA//Z"></div>
+        <div class="meta">
+          <span class="num">03</span>
+          <div class="title-row"><b>門頁原型</b><small>Portal Frame</small></div>
+          <p>偏數位孿生門感。適合把人物、導航、主骨、相簿入口融成同一頁。</p>
+        </div>
+      </article>
+      <article class="card gallery-card">
+        <div class="thumb" style="display:flex;align-items:center;justify-content:center;background:
+          radial-gradient(circle at 50% 22%, rgba(246,223,186,.14), transparent 28%),
+          linear-gradient(180deg,#121720,#0c1018 100%);">
+          <div style="padding:26px;text-align:center;max-width:90%;">
+            <div class="tag" style="margin-bottom:18px">Coming Next</div>
+            <div style="font-size:38px;color:var(--cream);margin-bottom:10px;">和風 / 旅者 / 花火</div>
+            <div style="font-family:'Noto Sans TC',sans-serif;color:var(--muted);line-height:1.8;">
+              之後可再增加多頁獨立顯像，把你剛剛給的粉櫻、紫傘、夜雨、白衣等氣質路線各自做成頁面。
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="num">04</span>
+          <div class="title-row"><b>待擴充</b><small>More Personas</small></div>
+          <p>相簿是延展層，不是亂加。每一頁都該有對應用途與場景。</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="flow" class="section">
+    <div class="section-head">
+      <div>
+        <h2>鏈式流程</h2>
+        <p class="desc">這個 Web 不靠單一平台一次做完，而是讓來源、判位、寫回、顯像與外掛載彼此接力。</p>
+      </div>
+    </div>
+    <div class="flow">
+      <div class="step"><small>01 source</small><b>Drive / Gmail / Calendar</b><span>來源池、事件面、時間座標先成立。</span></div>
+      <div class="step"><small>02 route</small><b>00 主骨判位</b><span>不是直接輸出，而是先分窗口、分角色、分狀態。</span></div>
+      <div class="step"><small>03 writeback</small><b>GitHub 留痕</b><span>heartbeat、source check、registry、spec 回寫主骨。</span></div>
+      <div class="step"><small>04 surface</small><b>門頁 / 相簿 / 導覽</b><span>把鏈上狀態轉成可讀、可看、可分享的顯像入口。</span></div>
+      <div class="step"><small>05 grow</small><b>Pages / JSON / User</b><span>再補 GitHub Pages、狀態 feed、多使用者與授權分層。</span></div>
+    </div>
+  </section>
+
+  <section id="portal" class="section card portal">
+    <div class="portal-shot">
+      <div class="visual-frame">
+        <img alt="門頁概念" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAU2A4ADASIAAhEBAxEB/8QAHQAAAwEBAQEBAQAAAAAAAAAABQYDBAcCAQgBCf/EAFQQAAIBAgMEBQcIBQMDBQAAAAECAwQRAAUSITFBBhMiUWFxgZEUIrHB0RRCUnKS4QcjM2KywfAVQ1NzgpOSotLxJENk/8QAGgEBAQEBAQEBAAAAAAAAAAAAAAECAwQFBv/EACoRAQEAAgEDAwMEAwAAAAAAAAABAhEDIRIxQQQTUWEiMoGRocHR8P/aAAwDAQACEQMRAD8A8mAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAH0l0jTq2n1tW9f1nK7n4pX8r3f7r+7b9N8v8AKp2bTq7S6U8f4vM9Tq9W6u1P2b4/L9l8Z8r7PqYAAAAAAAAAAAAAAAAAAAAA//Z">
+        <div class="visual-fade"></div>
+      </div>
+    </div>
+    <div class="portal-copy">
+      <div class="tag">Portal Definition</div>
+      <h3>這個 Web 為什麼是「門」，不是「站」</h3>
+      <p>
+        因為它的背後不是單一機房，也不是先有完整平台，而是先把開源世界、雲端來源、主骨留痕與人物顯像接成可進入的入口。
+        它先是數位孿生，再往三耦世界走。
+      </p>
+      <ul class="clean">
+        <li>主骨在 GitHub，門頁只是外顯層。</li>
+        <li>雲端硬碟做來源輔助，讓 Web 保持輕量。</li>
+        <li>多模型、多雲、多工具之後是從這道門接進來，而不是全部塞進頁面。</li>
+      </ul>
+      <div class="metrics">
+        <div class="metric"><b>Light</b><span>Web 保持輕量</span></div>
+        <div class="metric"><b>Traceable</b><span>主骨可留痕</span></div>
+        <div class="metric"><b>Expandable</b><span>可一直增生</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="next" class="section dual">
+    <div class="card info-card">
+      <div class="tag">Next</div>
+      <h3>雲端硬碟內部改造方向</h3>
+      <ul class="clean">
+        <li>資料夾繼續維持最小承接，不再讓資料夾決定主權。</li>
+        <li>把相簿頁、顯像頁、packet 頁與導覽頁做成清楚分層。</li>
+        <li>來源保留在 Drive，顯像與導覽優先交給 GitHub + Web。</li>
+      </ul>
+    </div>
+    <div class="card info-card">
+      <div class="tag">v1.4+</div>
+      <h3>接下來怎麼長</h3>
+      <ul class="clean">
+        <li>啟用 GitHub Pages，讓這道門可分享，不只在對話裡看見。</li>
+        <li>加入 packet-driven 區塊，顯示 latest heartbeat / source check。</li>
+        <li>再補相簿分頁、更多人物顯像、以及 user / consent 層。</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="footer">
+    翾靈 v1.3 已從「一張圖」進到「門頁＋相簿＋鏈生態入口」。<br>
+    下一步不是再堆字，而是讓它真的掛載、真的可分享、真的能沿主骨續長。
+  </footer>
+</main>
+</body>
+</html>

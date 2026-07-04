@@ -1,0 +1,51 @@
+# Gate 64 Binding Note
+
+> Durable note for mapping the 64-gate transition logic to the XLEN / Xuanling runtime.
+> This does not instantiate all 64 gates immediately, but reserves the structural binding space.
+
+---
+
+## 0. Note Status
+
+- note_version: v0.1
+- purpose: persist transition and gating logic
+- scope: upper-order logic integration
+- return_to_00: true
+
+---
+
+## 1. Core Concept
+
+The 64-gate framework provides a bounded matrix for transitions between the 12 windows and 3 coupling faces.
+
+A Gate defines:
+1. **Entry condition** (what state must exist before transition)
+2. **Transform rule** (what happens during transition)
+3. **Exit condition** (where the output lands)
+
+---
+
+## 2. Provisional Mapping
+
+| Gate Range | Primary Coupling Focus | Related Windows |
+|---|---|---|
+| 01 - 16 | Bone Coupling | `01`, `05`, `11` |
+| 17 - 48 | Event Coupling | `02`, `03`, `04`, `06`, `09`, `10` |
+| 49 - 64 | Writeback Coupling | `07`, `08`, `12` |
+
+*(This is an illustrative mapping; full 64-gate enumeration will follow in a subsequent phase).*
+
+---
+
+## 3. Current Discontinuity Resolution
+
+The creation of this artifact addresses discontinuity **D-008**.
+The transition/gating logic is now bound to a persistent artifact rather than remaining purely concept-heavy.
+
+---
+
+## 4. Status
+
+- gate_64_binding_note_created: true
+- full_gate_enumeration: pending
+- return_to_00: true

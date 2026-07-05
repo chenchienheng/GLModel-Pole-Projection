@@ -105,6 +105,24 @@ BookingCell:
   forbidden_actions:
     - "silent overwrite"
   next_cells:
+    - "PaymentCell"
+    - "PreTaskCell"
+    - "ReturnCell"
+
+PaymentCell:
+  status: "Candidate / Sensitive / No Runtime"
+  purpose: "track whether a settlement-related check is needed without storing financial detail"
+  visible_rings: ["owner"]
+  editable_rings: ["owner"]
+  allowed_actions:
+    - "mark check needed"
+    - "mark owner-reviewed"
+    - "move to return if unclear"
+  forbidden_actions:
+    - "store financial record in repo"
+    - "process transaction"
+    - "treat reminder as processing"
+  next_cells:
     - "PreTaskCell"
     - "ReturnCell"
 
@@ -166,8 +184,10 @@ ReturnCell:
 - Candidate Action != Confirmed Action.
 - Operator Action != Owner Decision.
 - App Note != Runtime Change.
-- BuildReady != Runtime.
+- BuildReady Candidate != Runtime.
 - Private Context != Repo Content.
+- PaymentCell Candidate != Financial System.
+- Payment Reminder != Payment Processing.
 
 ## Next Construction Targets
 

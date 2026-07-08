@@ -1,28 +1,34 @@
 # Yiyi Xiao-shi-guang CUI App
 
-Status: Private / Sanitized App Carrier / Candidate / No Runtime
+Status: Private / Sanitized Field Projection Carrier / Candidate / No Runtime / No Public Product Approval
+
+## One-line Description
+
+Private sanitized CUI guard field for availability, permission, maintenance, anti-error rules, and field-proof interaction patterns.
 
 ## Core
 
-This repository is the private carrier for a small-operator availability guard app pattern.
+This repository is the private field projection carrier for the Xiaoshiguang gift framework and small-operator guard app experiment.
 
-Its purpose is to reduce availability misreads, duplicate commitments, unreviewed message replies, and maintenance black boxes for a small lodging or similar operator.
+It explores OCF cells, CUI/GUI state boundaries, state cards, reply draft cards, problem return cards, owner-review gates, and maintenance boundaries for a small lodging or similar operator.
 
-It must not contain customer data, private messages, credentials, API keys, booking records, payment information, or unapproved social materials.
+It must not contain real guest data, private messages, credentials, API keys, booking records, payment information, official platform secrets, or unapproved social materials.
 
 ## Role
 
 ```yaml
 Repo_Role:
   name: "Yiyi_Xiao-shi-guang-CUI-App"
-  layer: "small-operator guard app carrier"
+  layer: "Field / Xiaoshiguang CUI Guard / OCF field proof"
   use_as:
-    - "availability guard app pattern"
-    - "GUI / PWA candidate"
-    - "permission and maintenance boundary"
+    - "OCF Cell Registry"
+    - "CUI / GUI State Boundary"
+    - "State Card candidate"
+    - "Reply Draft Card candidate"
+    - "Problem Return Card candidate"
+    - "Owner Review gate"
     - "anti-error rules"
-    - "problem return template"
-    - "sanitized schema candidate"
+    - "sanitized schema examples"
   do_not_use_as:
     - "production runtime"
     - "customer data storage"
@@ -30,6 +36,24 @@ Repo_Role:
     - "payment system"
     - "public booking platform"
     - "automatic messaging authority"
+    - "public product claim"
+```
+
+## First Field Proof
+
+```yaml
+First_Field_Proof:
+  cards:
+    - "State Card"
+    - "Reply Draft Card"
+    - "Problem Return Card"
+  do_not:
+    - "no full app"
+    - "no OTA"
+    - "no payment"
+    - "no real customer data"
+    - "no automatic promise"
+    - "no runtime claim"
 ```
 
 ## Core Gates
@@ -58,16 +82,19 @@ Repo_Role:
 - unredacted operational screenshots
 - unauthorized social content
 
-## Allowed Candidate Work
+## Current Active Reading Layer
 
-- sanitized GUI flow
-- anti-error gate rules
-- permission model candidate
-- non-technical operation cards
-- maintenance boundary notes
-- synthetic schema examples
-- problem-return format
+Start with:
+
+```yaml
+QHA_Read_Order:
+  1: "docs/alignment/yiyi-current-active-index-v0_1.md"
+  2: "docs/field/xiaoshiguang-gift-field-projection-intake-v0_1.md"
+  3: "docs/ocf/xiaoshiguang-ocf-cell-registry-v0_1-candidate.md"
+  4: "docs/ui/field-card-spec-v0_1.md"
+  5: "docs/return/problem-return-form-v0_1.md"
+```
 
 ## Final Rule
 
-This repository is for sanitized guard-app construction, not private operational data. AI may draft; humans decide and send. Maintainers may support the system; they do not become data owners.
+This repository is for sanitized no-runtime field proof, not private operational data. AI may draft; humans decide and send. Maintainers may support the system; they do not become data owners.

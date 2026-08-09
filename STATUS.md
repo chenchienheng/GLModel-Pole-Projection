@@ -1,3 +1,17 @@
+> [!WARNING]
+> **R1-05 Historical Reader Shield — cleanup branch only**
+>
+> - **Generation:** shared pre-role-differentiation snapshot.
+> - **Current:** no; this body is retained historical evidence and the default branch is unchanged.
+> - **Historical role:** shared architecture, coordination, registry, runtime-spine, and manifest baseline.
+> - **Meaning still valid:** provenance and bounded historical relations.
+> - **Assumptions no longer valid:** complete Current state, live runtime/control authority, one cross-repository identity, Git ancestry, Canon, or deletion readiness.
+> - **Reader-routing successor:** `docs/alignment/yiyi-current-active-index-v0_1.md` on this branch; this is not an identity-successor claim.
+> - **Read first:** this role index, then `docs/alignment/xl20-field-proof-boundary-v0_1.md`.
+> - **Do not treat as:** a current control plane, complete current manifest, runtime truth, authority registry, merge approval, semantic retirement, or deletion permission.
+>
+> Shield state: `READER_SHIELD_NATIVE_APPLIED_PR_BRANCH`; re-entry remains `PARTIAL` until native review/disposition.
+
 # Project Status
 
 This repository documents a conceptual and interpretive framework referred to as the **DCP (Decision / Constraint / Condition Processing) model**, together with its layered extensions.

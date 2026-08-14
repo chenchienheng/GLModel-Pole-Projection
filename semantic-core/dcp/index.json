@@ -1,23 +1,30 @@
 {
-  "profile":"DCP_SEMANTIC_CORE_INDEX",
-  "version":"0.1-candidate",
-  "runtime":false,
-  "native_authority":"CoreTri_DCP",
-  "current_surfaces":{
-    "dependency_families":"current/dependency-families.json",
-    "state_envelope":"current/state-envelope.json",
-    "return_closure":"current/return-closure-model.json",
-    "authority_gate":"current/authority-gate-matrix.json",
-    "growth_memory":"current/growth-memory-model.json",
-    "rebuild_reentry":"current/rebuild-reentry-model.json"
+  "profile": "DCP_SEMANTIC_CORE_INDEX",
+  "version": "0.2-candidate",
+  "runtime": false,
+  "native_authority": "CoreTri_DCP",
+  "current_surfaces": {
+    "dependency_families": "current/dependency-families.json",
+    "state_envelope": "current/state-envelope.json",
+    "return_closure": "current/return-closure-model.json",
+    "authority_gate": "current/authority-gate-matrix.json",
+    "growth_memory": "current/growth-memory-model.json",
+    "rebuild_reentry": "current/rebuild-reentry-model.json",
+    "context_assembly": "current/context-assembly-policy.json",
+    "reasoning_contamination_gates": "current/reasoning-contamination-gates.json"
   },
-  "support_surfaces":{
-    "receiver_projection_map":"current/receiver-projection-map.json",
-    "reader_manifest":"current/reader-manifest.json"
+  "instances": {
+    "active_state": "instances/active-state.json",
+    "return_ledger": "instances/return-ledger.json"
   },
-  "representation_rule":"STRUCTURED_MODEL_PLUS_HUMAN_ZH_TW_PROJECTION",
-  "external_release":"GATED_ONLY",
-  "native_source_root":"NOT_THIS_REPOSITORY",
-  "materiality_rule":"AFFECTED_EDGE_ONLY",
-  "reader_rule":"INDEX_FIRST_THEN_AFFECTED_SURFACE"
+  "support_surfaces": {
+    "receiver_projection_map": "current/receiver-projection-map.json",
+    "reader_manifest": "current/reader-manifest.json"
+  },
+  "representation_rule": "STRUCTURED_MODEL_PLUS_HUMAN_ZH_TW_PROJECTION",
+  "external_release": "GATED_ONLY",
+  "native_source_root": "NOT_THIS_REPOSITORY",
+  "materiality_rule": "AFFECTED_EDGE_ONLY",
+  "reader_rule": "INDEX_THEN_ACTIVE_INSTANCE_THEN_AFFECTED_SURFACE",
+  "historical_rule": "EXCLUDED_FROM_CURRENT_ASSEMBLY_UNLESS_EXPLICIT_REENTRY_PURPOSE"
 }

@@ -1,0 +1,9 @@
+{
+  "profile": "DCP_RETURN_CLOSURE_MODEL",
+  "version": "0.1-candidate",
+  "runtime": false,
+  "return_types": ["ACTION_RECEIPT","EVIDENCE_RETURN","LEARNING_RETURN","NATIVE_WRITEBACK_RETURN","RECEIVER_ACK","RECONCILIATION_OUTCOME"],
+  "closure_states": ["CLOSED_WITH_STATE_CHANGE","CLOSED_NO_MATERIAL_DELTA","RETURN_PENDING","RECONCILIATION_PENDING","HOLD_WITH_NEXT_TRIGGER","CONFLICT","REOPENED"],
+  "minimum_fields": ["return_id","source_pointer","receiver","return_type","materiality","evidence_pointer","closure_state","next_trigger"],
+  "invariants": ["RETURN_NOT_RECONCILIATION","ACK_NOT_RECONCILIATION","ACTION_SUCCESS_NOT_WORLD_STATE_CHANGE","NO_MATERIAL_DELTA_IS_VALID_CLOSURE"]
+}

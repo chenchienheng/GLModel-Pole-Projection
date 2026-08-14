@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "xuanling://semantic-core/semantic-object.schema.json",
+  "title": "XuanLing Semantic Object",
+  "type": "object",
+  "required": ["stable_id", "object_type", "native_home", "state", "authority", "evidence", "rebuild"],
+  "properties": {
+    "stable_id": {"type": "string", "minLength": 1},
+    "object_type": {"type": "string"},
+    "native_home": {
+      "type": "object",
+      "required": ["holder", "source_pointer"],
+      "properties": {
+        "holder": {"type": "string"},
+        "source_pointer": {"type": "string"},
+        "carrier": {"type": "string"},
+        "revision": {"type": ["string", "null"]},
+        "hash": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "state": {
+      "type": "object",
+      "properties": {
+        "lifecycle": {"type": "string"},
+        "authority": {"type": "string"},
+        "evidence": {"type": "string"},
+        "return": {"type": "string"},
+        "rebuild": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "authority": {
+      "type": "object",
+      "properties": {
+        "owner": {"type": "string"},
+        "read": {"type": "boolean"},
+        "copy": {"type": "boolean"},
+        "derive": {"type": "boolean"},
+        "learn": {"type": "boolean"},
+        "retain": {"type": "boolean"},
+        "mutate": {"type": "boolean"},
+        "write_back": {"type": "boolean"},
+        "delete": {"type": "boolean"},
+        "export": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "target"],
+        "properties": {
+          "type": {"type": "string"},
+          "target": {"type": "string"},
+          "state": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["pointer", "role", "claim_ceiling"],
+        "properties": {
+          "pointer": {"type": "string"},
+          "role": {"type": "string"},
+          "claim_ceiling": {"type": "string"},
+          "revision": {"type": ["string", "null"]},
+          "hash": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "rebuild": {
+      "type": "object",
+      "required": ["last_valid_checkpoint", "accepted_ordered_deltas", "holds"],
+      "properties": {
+        "last_valid_checkpoint": {"type": ["string", "null"]},
+        "accepted_ordered_deltas": {"type": "array", "items": {"type": "string"}},
+        "holds": {"type": "array", "items": {"type": "string"}},
+        "invalidations": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

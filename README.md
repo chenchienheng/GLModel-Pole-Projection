@@ -1,87 +1,55 @@
-# XuanLing-20 FieldProof / Xiaoshiguang
-# 私有驗證與內部投影載體
+# XuanLing-20 Internal Semantic Build Surface
+# 私有語義建造與驗證面
 
 **Repository class / 倉庫分類：** Private internal carrier  
 **Operational status / 運作狀態：** Non-production  
 **Authority model / 權限模型：** No implicit authority elevation
 
-## Overview / 概述
+## Current reader entry / 現行讀取入口
 
-XuanLing-20 is a private repository for bounded internal projections, validation evidence, failure analysis, release-support artifacts, and machine-readable semantic mappings that should not be exposed through public repositories.
+Read in this order: `CURRENT-SURFACE-MANIFEST.json` → `semantic-core/index.json` → affected family index. Legacy root-layer directories are retained as Historical／Compatibility material unless explicitly re-admitted.
 
-XuanLing-20 是私有的內部載體，用於承接有限的內部投影、驗證證據、失敗分析、發布支援資料，以及不適合直接出現在公開倉的機器可讀語義映射。
+請依序讀取：`CURRENT-SURFACE-MANIFEST.json` → `semantic-core/index.json` → 受影響 family index。根目錄保留的早期 layer/runtime/orchestration 族群，在沒有具名 re-admission 前只作 Historical／Compatibility material，不因仍存在於倉內而取得 Current 推理權。
 
-It is not a native source root. Source ownership, privacy, retention, learning, publication, and mutation rights remain governed by the lawful source and its authority chain.
+## Purpose / 目的
 
-本倉不是 Native Source Root。資料所有權、隱私、保留、學習、發布與修改權仍由合法來源及其權限鏈決定。
+This private repository is the current build and verification surface for bounded internal semantic projections. It hosts machine-readable models, validation evidence, failure memory, visual bindings, rebuild material, and human-readable internal views that should not be exposed through public repositories.
 
-## Internal semantic core / 內部語義核心
+本私有倉是目前有限內部語義投影的建造與驗證面，用於承載 machine-readable model、驗證證據、Failure Memory、Visual Binding、Rebuild material 與不適合直接公開的人類內部視圖。
 
-The `semantic-core/` directory is the current internal build surface for model-centric, multi-representation architecture. It separates semantic state from prose and allows one stable object to be represented consistently as graph, state, event, policy, evidence, rebuild, visual, and human-readable projections.
+It is not a Native Source Root, Canon, Runtime, or Promotion Authority.
 
-`semantic-core/` 是目前用來建造「模型中心、多表徵」架構的內部工作面。它把語義狀態從長篇文字中拆出，讓同一 Stable Object 可以一致投影成關係圖、狀態、事件、權限、證據、重建、視覺與人類可讀介面。
+它不是 Native Source Root、Canon、Runtime 或 Promotion Authority。
 
-Current internal schemas include:
+## Semantic core / 語義核心
 
-- `semantic-object.schema.json` — identity, native home, state, authority, relations, evidence, rebuild
-- `event.schema.json` — ordered observation/action/return/reconciliation/failure events
-- `policy-gate.schema.json` — purpose-, audience-, and rights-specific action gates
-- `capability.schema.json` — capability maturity and failure memory
-- `rebuild-manifest.schema.json` — checkpoint, accepted deltas, holds, invalidations, evidence
-- `visual-binding.schema.json` — stable object/view/revision/evidence-role binding
+`semantic-core/` separates reusable semantic components from long-form prose. Current families include Identity/Relation, State, Event, Policy/Gate, Return/Reconciliation, Capability/Failure Memory, Rebuild/Re-entry, Carrier abstraction, Projection binding, and bounded world specimens.
 
-The first bounded world specimen is under `semantic-core/specimens/gui-lu/`. It is a semantic identity and regression specimen, not a declaration of final geometry, BuildReady state, or Owner acceptance.
-
-第一個 bounded world specimen 位於 `semantic-core/specimens/gui-lu/`。它用來驗證世界身分、主要關係與視覺回歸綁定，不代表最終幾何、BuildReady 或 Owner 最終接受。
+`semantic-core/` 將可重用語義零件從長篇文字拆出。目前包含 Identity／Relation、State、Event、Policy／Gate、Return／Reconciliation、Capability／Failure Memory、Rebuild／Re-entry、Carrier abstraction、Projection binding 與有限 World specimen。
 
 ## Representation model / 表徵模型
 
-Each governed artifact may be expressed through aligned representation profiles:
+- **Human Profile / 人類層：** 繁體中文原生表達，用於理解、判斷、風險、狀態與下一步。
+- **External Profile / 外部層：** 英文 public-safe projection；必須通過具名 Release Gate 才能產生或發布。
+- **Canonical Machine Profile / 機器層：** Stable IDs、typed relations/states/events、authority、evidence pointer、revision/hash、rebuild relation。
+- **Visual/Spatial Profile / 視覺空間層：** Drawing、Model View、Camera、Render、Photo、GIS、Diagram 等，以 Stable Identity 與 Evidence Role 綁定。
 
-- **Human Profile / 人類閱讀層** — Traditional Chinese first for review, reasoning, state, risk, evidence, and next action.
-- **External Profile / 外部交換層** — English public-safe technical projection produced only after a release gate.
-- **Canonical Machine Profile / 機器規範層** — stable identifiers, typed relations/states/events, revisions/hashes, evidence pointers, and machine-consumable constraints.
-- **Visual/Spatial Profile / 視覺空間層** — drawings, model views, cameras, renders, photos, GIS or details that are explicitly bound to stable identity and evidence roles.
+這些 Profile 描述同一個 governed object，但不是互相逐句翻譯。Identity、State、Authority、Claim Ceiling、Successor／Re-entry、Rebuild Relation 或 Release Classification 若不一致，即為 `SURFACE_DRIFT`。
 
-All profiles share one semantic identity. A material inconsistency in identity, state, authority, claim ceiling, successor/re-entry, rebuild relation, or release classification is `SURFACE_DRIFT` and must be reconciled before further propagation.
+## Verification / 驗證
 
-所有表徵共用同一語義身分。Identity、State、Authority、Claim Ceiling、Successor／Re-entry、Rebuild Relation 或 Release Classification 若出現實質不一致，視為 `SURFACE_DRIFT`，需先完成 bounded reconciliation 才能繼續外傳或重建。
+GitHub Actions currently checks bounded semantic alignment, DCP invariants, carrier abstraction, projection freshness, visual-anchor consistency, and fail-closed public release behavior. Passing CI proves only the declared bounded checks; it does not establish Runtime or full-system maturity.
 
-## Appropriate contents / 適合內容
+目前 CI 會檢查有限語義對準、DCP invariant、Carrier abstraction、projection freshness、Visual Anchor consistency 與 fail-closed public release。CI 通過只證明具名檢查成立，不等於 Runtime 或完整系統成熟。
 
-- bounded internal evidence / 私有限定證據
-- validation and negative-test artifacts / 驗證與負向測試資料
-- failure-memory and capability projections / 失敗記憶與能力投影
-- machine mappings required for internal continuity / 內部連續性所需機器映射
-- source pointers and release receipts supporting public projections / 支撐公開投影的來源指標與發布回執
-- receiver-specific internal returns / 接收者限定內部回包
-- model-centric semantic specimens / 模型中心語義 specimen
+## Security and source boundary / 安全與來源邊界
 
-## Exclusions / 排除內容
+Private placement does not create unrestricted rights. Credentials, unauthorized source bodies, confidential material without a lawful placement basis, and data exceeding its rights/retention scope must not be copied here. Native ownership and authority remain with the lawful source domain.
 
-This repository must not contain credentials, unrestricted secrets, or source bodies whose placement is not authorized. Repository privacy does not create permission to copy, learn from, retain, publish, or redistribute data beyond its governing rights.
-
-本倉不得存放憑證、無限制秘密資料，或未取得放置授權的 Source Body。私有倉屬性不會自動產生超出原權限的複製、學習、保留、發布或再散布權。
-
-## Relationship to public repositories / 與公開倉的關係
-
-Public repositories carry release-appropriate research, documentation, coordination patterns, schemas/examples selected for release, and approved evidence. XuanLing-20 may retain the richer internal projection required to support those public surfaces, but only through bounded references to lawful native sources.
-
-公開倉承載適合發布的研究、文件、協調模式、經選擇可發布的 schema／example 與核准證據；XuanLing-20 可承接支撐公開面的較完整內部投影，但仍只能透過對合法 Native Source 的有限引用維持。
-
-## Machine metadata / 機器中繼資料
-
-```yaml
-repository_class: private_internal_carrier
-runtime: false
-authority_elevation: none
-semantic_core: semantic-core/
-native_source_root: external_to_repository
-external_release: gated
-```
+私有倉不會自動產生無限制權利。憑證、未授權 Source Body、沒有合法 placement basis 的機密資料，以及超出 Rights／Retention 範圍的資料不得因私有狀態而搬入。本體所有權與 Authority 仍留在合法 Native Domain。
 
 ## Governing principle / 核心原則
 
-A private carrier may hold deeper internal representations, but it does not become the system's source of truth. Identity, authority, evidence, lifecycle state, and rebuild validity remain anchored to lawful native sources and explicit relations.
+The repository may carry deeper internal representations, but completeness comes from valid semantic relations, authority, evidence, reconciliation, and rebuild—not from possessing more files.
 
-私有載體可以承載較深的內部表徵，但不因此成為系統唯一真實來源；Identity、Authority、Evidence、Lifecycle State 與 Rebuild Validity 仍由合法 Native Source 與明確關係維持。
+本倉可以承載較深的內部表徵，但完整性來自有效的 Semantic Relation、Authority、Evidence、Reconciliation 與 Rebuild，而不是「擁有更多檔案」。

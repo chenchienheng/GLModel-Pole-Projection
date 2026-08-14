@@ -1,0 +1,26 @@
+name: Semantic Core Verify
+
+on:
+  push:
+    paths:
+      - 'semantic-core/**'
+      - '.github/workflows/semantic-core-verify.yml'
+  pull_request:
+    paths:
+      - 'semantic-core/**'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-gui-lu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify cross-surface semantic alignment
+        run: node semantic-core/tools/verify-specimen.mjs

@@ -37,6 +37,21 @@ jobs:
           if(!Array.isArray(m.legacy_root_families)||!m.legacy_root_families.length){throw new Error('LEGACY_CLASSIFICATION_MISSING')}
           console.log('CURRENT_SURFACE_MANIFEST_OK');
           NODE
+      - name: Verify legacy disposition and delete gates
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const d=JSON.parse(fs.readFileSync('semantic-core/disposition/legacy-family-disposition.json','utf8'));
+          const g=JSON.parse(fs.readFileSync('semantic-core/disposition/legacy-gaps-to-build.json','utf8'));
+          if(d.delete_gate?.physical_delete_default!==false) throw new Error('PHYSICAL_DELETE_MUST_DEFAULT_FALSE');
+          if(!Array.isArray(d.families)||d.families.length<10) throw new Error('LEGACY_FAMILY_COVERAGE_INCOMPLETE');
+          for(const f of d.families){
+            if(!f.path_family||!f.disposition||!f.reclaim_state||!Array.isArray(f.successor_surface)) throw new Error(`INVALID_DISPOSITION:${f.path_family||'UNKNOWN'}`);
+          }
+          const blocking=(g.items||[]).filter(x=>x.blocks_delete===true);
+          if(!blocking.length) throw new Error('DELETE_BLOCKER_MODEL_MISSING');
+          console.log(`LEGACY_DISPOSITION_OK:${d.families.length}:BLOCKERS_${blocking.length}`);
+          NODE
       - name: Verify cross-surface semantic alignment
         run: node semantic-core/tools/verify-specimen.mjs
       - name: Verify DCP semantic core invariants

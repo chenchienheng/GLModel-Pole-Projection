@@ -1,0 +1,65 @@
+{
+  "artifact_id": "CONNECTOR-CAPABILITY-MATRIX-R1",
+  "state": "CANDIDATE_ACTIVE",
+  "runtime": false,
+  "native_source_root": false,
+  "purpose": "Separate generalized carrier/adapter capabilities from vendor-specific bridge specimens and prevent provider names from becoming architecture authority.",
+  "capability_axes": [
+    "DISCOVER",
+    "READ",
+    "WRITE",
+    "MUTATE_METADATA",
+    "MOVE_OR_REPARENT",
+    "DELETE",
+    "COMMENT_OR_REVIEW",
+    "VERSION_OR_REVISION_READ",
+    "EVENT_OR_WEBHOOK",
+    "BINARY_ARTIFACT",
+    "STRUCTURED_QUERY",
+    "PROJECTION_RENDER",
+    "IDENTITY_BINDING",
+    "WRITEBACK_RECEIPT",
+    "AUTHORITY_ENFORCEMENT"
+  ],
+  "authorization_rule": "Capability availability does not imply authorization. Each action still requires Purpose/Scope/Audience/Rights/State/Gate evaluation.",
+  "provider_specimens": [
+    {
+      "provider_family": "GitHub",
+      "role": "VERSIONED_CODE_AND_ARTIFACT_CARRIER",
+      "generalized_capabilities": ["DISCOVER","READ","WRITE","DELETE","COMMENT_OR_REVIEW","VERSION_OR_REVISION_READ","EVENT_OR_WEBHOOK","BINARY_ARTIFACT","IDENTITY_BINDING","WRITEBACK_RECEIPT"],
+      "not_authority_for": ["NATIVE_WORLD_IDENTITY","CURRENT_STATE_BY_RECENCY","RELEASE_APPROVAL","SOURCE_OWNERSHIP"],
+      "legacy_successor_of": ["04_adapter-layer/replit_relay_spec.md","03_board-orchestration/runtime-spine-era routing assumptions"]
+    },
+    {
+      "provider_family": "Google Drive / Docs / Sheets / Slides",
+      "role": "DOCUMENT_AND_WORKSPACE_CARRIER",
+      "generalized_capabilities": ["DISCOVER","READ","WRITE","MUTATE_METADATA","MOVE_OR_REPARENT","DELETE","COMMENT_OR_REVIEW","VERSION_OR_REVISION_READ","BINARY_ARTIFACT","STRUCTURED_QUERY","IDENTITY_BINDING","WRITEBACK_RECEIPT"],
+      "not_authority_for": ["NATIVE_WORLD_IDENTITY","CORE_ADMISSION","CURRENT_BY_FOLDER_POSITION","LEARN_OR_RETAIN_RIGHTS_BY_READABILITY"],
+      "legacy_successor_of": ["04_adapter-layer/drive-adapter.md","04_adapter-layer/gemini_gas_sheet_bridge_spec.md"]
+    },
+    {
+      "provider_family": "Local filesystem",
+      "role": "LOCAL_NATIVE_OR_WORKING_CARRIER",
+      "generalized_capabilities": ["READ","WRITE","MUTATE_METADATA","MOVE_OR_REPARENT","DELETE","BINARY_ARTIFACT","IDENTITY_BINDING"],
+      "not_authority_for": ["RIGHTS_BY_PATH","CURRENT_BY_MTIME","PUBLIC_RELEASE"]
+    },
+    {
+      "provider_family": "Database / Graph store",
+      "role": "STRUCTURED_STATE_RELATION_CARRIER",
+      "generalized_capabilities": ["READ","WRITE","STRUCTURED_QUERY","IDENTITY_BINDING","WRITEBACK_RECEIPT"],
+      "not_authority_for": ["SOURCE_OWNERSHIP","SEMANTIC_TRUTH_BY_STORAGE","RIGHTS_BY_SCHEMA"]
+    },
+    {
+      "provider_family": "CDE / BIM / PLM / GIS",
+      "role": "DOMAIN_NATIVE_WORLD_ARTIFACT_CARRIER",
+      "generalized_capabilities": ["READ","WRITE","BINARY_ARTIFACT","STRUCTURED_QUERY","PROJECTION_RENDER","IDENTITY_BINDING","VERSION_OR_REVISION_READ"],
+      "not_authority_for": ["DCP_ADMISSION","MEANING_AUTHORITY","CURRENT_WORLD_BY_VIEWER_OUTPUT"]
+    }
+  ],
+  "vendor_specimen_rule": "Provider-specific bridge documents are implementation specimens. Reusable capability primitives are absorbed here; provider names never become canonical architecture primitives.",
+  "next_gap": [
+    "Map actual connector evidence/limitations when a named integration is exercised",
+    "Separate capability existence from account authorization and project rights",
+    "Bind adapter failure evidence and retry semantics"
+  ]
+}

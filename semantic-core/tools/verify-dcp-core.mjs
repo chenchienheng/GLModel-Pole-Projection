@@ -24,6 +24,13 @@ for(const key of required) assert(Boolean(loaded[key]),`REQUIRED_DCP_SURFACE_MIS
 assert(index.native_source_root==='NOT_THIS_REPOSITORY','DCP_REPO_MUST_NOT_BE_NATIVE_SOURCE_ROOT');
 assert(index.materiality_rule==='AFFECTED_EDGE_ONLY','MATERIALITY_RULE_DRIFT');
 
+const triadic=new Set(index.triadic_core_profiles||[]);
+for(const profile of ['HUMAN_ZH_TW','PROFESSIONAL_EN','CANONICAL_MACHINE']) assert(triadic.has(profile),`TRIADIC_CORE_PROFILE_MISSING:${profile}`);
+assert(index.human_visual_surfaces?.human_zh_tw,'HUMAN_ZH_TW_SURFACE_MISSING');
+assert(index.human_visual_surfaces?.professional_en,'PROFESSIONAL_EN_SURFACE_MISSING');
+assert(index.professional_english_rule==='INTERNAL_PROFESSIONAL_PROFILE_NOT_PUBLIC_RELEASE','PROFESSIONAL_EN_PUBLIC_RELEASE_CONFLATION');
+assert(index.external_release==='GATED_ONLY','EXTERNAL_RELEASE_GATE_DRIFT');
+
 if(loaded.state_envelope){
   const forbidden=new Set(loaded.state_envelope.forbidden_inferences||[]);
   for(const x of ['READABLE_IMPLIES_COPYABLE','USER_LEARNED_IMPLIES_CORE_ADMITTED','ACK_IMPLIES_RECONCILED']) assert(forbidden.has(x),`STATE_INFERENCE_GUARD_MISSING:${x}`);
@@ -86,6 +93,6 @@ try{
   errors.push('READER_MANIFEST_UNREADABLE');
 }
 
-const result={profile:index.profile,status:errors.length?'FAIL':'PASS_BOUNDED',surface_count:Object.keys(loaded).length,required_surface_count:required.length,instance_count:Object.keys(loadedInstances).length,visual_surface_count:Object.keys(index.human_visual_surfaces||{}).length,errors};
+const result={profile:index.profile,status:errors.length?'FAIL':'PASS_BOUNDED',surface_count:Object.keys(loaded).length,required_surface_count:required.length,instance_count:Object.keys(loadedInstances).length,visual_surface_count:Object.keys(index.human_visual_surfaces||{}).length,triadic_core_profiles:[...triadic],errors};
 console.log(JSON.stringify(result,null,2));
 if(errors.length)process.exitCode=1;

@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const here=path.dirname(fileURLToPath(import.meta.url));
 const root=path.resolve(here,'..');
 const manifest=JSON.parse(await fs.readFile(path.join(root,'specimens/gui-lu/projection-manifest.json'),'utf8'));
-const external=(manifest.projections||[]).find(p=>p.profile==='EXTERNAL_EN');
+const external=(manifest.profiles||[]).find(p=>p.profile==='EXTERNAL_EN');
 if(!external){console.error('EXTERNAL_PROFILE_MISSING');process.exit(2)}
 if(external.release_state!=='APPROVED_BOUNDED'){
   console.error(`PUBLIC_PROJECTION_BLOCKED:${external.release_state}`);

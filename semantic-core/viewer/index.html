@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>XuanLing Semantic World Viewer</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <h1>翾靈語義世界檢視器</h1>
+        <p>同一 Stable Identity 的人類／機器／視覺投影檢查面</p>
+      </div>
+      <div id="status" class="status">載入中</div>
+    </header>
+
+    <section class="summary" id="summary"></section>
+
+    <section class="layout">
+      <article class="panel">
+        <h2>世界與主要關係</h2>
+        <div id="relations" class="list"></div>
+      </article>
+      <article class="panel">
+        <h2>Anchor 與漂移檢查</h2>
+        <div id="anchors" class="list"></div>
+      </article>
+    </section>
+
+    <section class="layout">
+      <article class="panel">
+        <h2>目前 Hold</h2>
+        <div id="holds" class="list"></div>
+      </article>
+      <article class="panel">
+        <h2>事件生命鏈</h2>
+        <div id="events" class="timeline"></div>
+      </article>
+    </section>
+
+    <section class="panel human-panel">
+      <h2>人類可讀說明</h2>
+      <div id="human" class="human-copy"></div>
+    </section>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

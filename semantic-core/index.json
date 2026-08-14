@@ -2,6 +2,7 @@
   "semantic_core_version": "0.2-candidate",
   "runtime": false,
   "native_source_root": "EXTERNAL_TO_REPOSITORY",
+  "human_zh_tw": "HUMAN.zh-TW.md",
   "representation_profiles": ["HUMAN_ZH_TW", "EXTERNAL_EN_GATED", "CANONICAL_MACHINE", "VISUAL_SPATIAL", "DOMAIN_NATIVE"],
   "schemas": {
     "semantic_object": "schema/semantic-object.schema.json",
@@ -29,6 +30,7 @@
     },
     "ARTIFACTS": {
       "registry": "artifacts/artifact-registry.json",
+      "selection_matrix": "artifacts/artifact-selection-matrix.csv",
       "principle": "artifact format follows semantic role, evidence need, audience and context; not document-first"
     },
     "ASSEMBLIES": {
@@ -41,6 +43,7 @@
   "specimens": {
     "WORLD-GUI-LU": {
       "machine": "specimens/gui-lu/world.json",
+      "triadic_representation_set": "specimens/gui-lu/triadic-representation-set.json",
       "visual_bindings": "specimens/gui-lu/visual-bindings.json",
       "events": "specimens/gui-lu/events.jsonl",
       "rebuild": "specimens/gui-lu/rebuild-manifest.json",

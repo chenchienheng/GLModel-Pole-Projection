@@ -1,0 +1,23 @@
+flowchart LR
+  A[Stable Identity] --> B[Dependency]
+  B --> C[Orthogonal State]
+  C --> D[Authority / Policy Gate]
+  D --> E[Action / Projection]
+  E --> F[Evidence / Return]
+  F --> G[Reconciliation]
+  G --> H[Re-entry / Rebuild]
+  H --> I[Growth / Failure Memory]
+  I --> A
+
+  L[Legacy / Historical Artifact] -. explicit provenance or rebuild purpose only .-> F
+  L -. blocked by default .-> C
+
+  X[Carrier: GitHub / Drive / Local / DB / CDE] --> E
+  X -. no authority by itself .-> D
+
+  U[User Learning] --> UC[Core Learning Candidate]
+  UC --> D
+  D --> CA[Core Admission]
+
+  R[Return Received] --> F
+  R -. not equal .-> G

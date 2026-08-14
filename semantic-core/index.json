@@ -17,6 +17,12 @@
       "index": "dcp/index.json",
       "human_zh_tw": "dcp/HUMAN.zh-TW.md",
       "verification": "tools/verify-dcp-core.mjs"
+    },
+    "CARRIERS": {
+      "capability_model": "carriers/carrier-capability-model.json",
+      "pointer_resolution": "carriers/pointer-resolution-model.json",
+      "adapter_contract": "carriers/adapter-contract.json",
+      "projection_envelope": "carriers/projection-envelope.json"
     }
   },
   "specimens": {
@@ -35,6 +41,7 @@
   "semantic_invariants": [
     "ONE_STABLE_IDENTITY",
     "NATIVE_SOURCE_ROOT_NOT_REPLACED",
+    "CARRIER_NOT_IDENTITY_OR_AUTHORITY",
     "PROJECTION_NOT_SECOND_TRUTH",
     "READ_RIGHTS_ORTHOGONAL",
     "RETURN_NOT_RECONCILIATION",

@@ -1,0 +1,9 @@
+{
+  "profile":"CARRIER_CAPABILITY_MODEL",
+  "version":"0.1-candidate",
+  "runtime":false,
+  "carrier_types":["GOOGLE_DRIVE","GITHUB","LOCAL_FILESYSTEM","OBJECT_STORAGE","DATABASE","CDE_BIM","ERP","SENSOR_STREAM","API_CONNECTOR"],
+  "capabilities":["READ","WRITE","VERSION","HASH","QUERY","GRAPH","EVENT_APPEND","BINARY_ARTIFACT","3D_MODEL","COMMENT","ACL","AUDIT_LOG","EXPORT","WATCH_CHANGE"],
+  "binding_fields":["carrier_id","carrier_type","native_domain","stable_identity_pointer","capability_set","authority_reference","revision_strategy","availability_state","exit_strategy"],
+  "invariants":["CARRIER_NOT_IDENTITY","CARRIER_NOT_AUTHORITY","PATH_NOT_STATE","HASH_NOT_SEMANTICS","RELOCATION_NOT_ARCHITECTURE_CHANGE_IF_BINDING_STABLE"]
+}

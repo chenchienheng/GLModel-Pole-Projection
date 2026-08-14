@@ -1,0 +1,42 @@
+{
+  "subject_id": "WORLD-GUI-LU",
+  "profiles": [
+    {
+      "projection_id": "GUI-LU-HUMAN-ZH-TW-01",
+      "profile": "HUMAN_ZH_TW",
+      "classification": "CONTROLLED_INTERNAL",
+      "pointer": "HUMAN.zh-TW.md",
+      "release_state": "DRAFT",
+      "semantic_invariants": ["WORLD-GUI-LU", "BLDG-MAIN", "BLDG-GUEST", "BLDG-UTILITY", "TEN_ANCHORS"],
+      "claim_ceiling": "Human-readable semantic world specimen; not final geometry or runtime"
+    },
+    {
+      "projection_id": "GUI-LU-MACHINE-01",
+      "profile": "CANONICAL_MACHINE",
+      "classification": "CONTROLLED_INTERNAL",
+      "pointer": "world.json",
+      "release_state": "DRAFT",
+      "semantic_invariants": ["ONE_STABLE_IDENTITY", "NATIVE_SOURCE_ROOT_NOT_REPLACED", "PROJECTION_NOT_SECOND_TRUTH"],
+      "claim_ceiling": "Bounded semantic identity/state/relation specimen"
+    },
+    {
+      "projection_id": "GUI-LU-VISUAL-01",
+      "profile": "VISUAL_SPATIAL",
+      "classification": "CONTROLLED_INTERNAL",
+      "pointer": "visual-bindings.json",
+      "release_state": "DRAFT",
+      "semantic_invariants": ["TEN_ANCHORS", "VISUAL_PROJECTION_NO_GEOMETRY_AUTHORITY"],
+      "claim_ceiling": "Visual binding identities and drift tests; no geometry authority"
+    },
+    {
+      "projection_id": "GUI-LU-EXTERNAL-EN-01",
+      "profile": "EXTERNAL_EN",
+      "classification": "PUBLIC",
+      "pointer": null,
+      "release_state": "APPROVAL_REQUIRED",
+      "semantic_invariants": ["ONE_STABLE_IDENTITY", "PUBLIC_SAFE_NOT_PUBLIC_APPROVED"],
+      "claim_ceiling": "No public projection generated yet"
+    }
+  ],
+  "surface_drift_policy": "Any mismatch in stable identity, lifecycle state, authority, claim ceiling, successor/re-entry, rebuild relation, or release state blocks propagation."
+}

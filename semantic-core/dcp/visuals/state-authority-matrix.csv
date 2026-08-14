@@ -1,0 +1,11 @@
+Dimension,Question,Current Rule,Failure If Collapsed
+Identity,What existence is this?,Stable ID first,Path/name drift becomes identity drift
+Lifecycle,What is its state?,Current/Historical/Superseded/Invalidated are distinct,Old knowledge re-enters current reasoning
+Authority,Who may decide or mutate?,Authority is independent from carrier and readability,Readable becomes writable or promotable
+Rights,What actions are permitted?,Read/Copy/Derive/Learn/Retain/Write-back/Delete/Export are orthogonal,Permission propagation leak
+Evidence,What can be claimed?,Claim ceiling follows evidence state,Projection/demo becomes proven truth
+Return,What came back?,Return receipt is distinct from reconciliation,ACK becomes closure
+Rebuild,Can it be reconstructed?,Last-valid checkpoint + accepted delta + holds/invalidations,Latest artifact becomes current truth
+Representation,How is it expressed?,Human zh-TW / External EN gated / Canonical machine / Visual-domain are aligned,Translation or surface drift changes meaning
+Carrier,Where is it stored?,GitHub/Drive/Local/DB/CDE are replaceable carriers,Repository or folder becomes authority
+Learning,What was learned?,Observation -> candidate -> gate -> admission -> behavior change,Read source becomes core learning

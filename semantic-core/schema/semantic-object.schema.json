@@ -59,6 +59,26 @@
         "additionalProperties": false
       }
     },
+    "representation": {
+      "type": "object",
+      "properties": {
+        "representation_set_pointer": {"type": ["string", "null"]},
+        "alignment_state": {"enum": ["ALIGNED", "PARTIAL", "SURFACE_DRIFT", "HOLD", "NOT_MIGRATED"]},
+        "artifact_ids": {"type": "array", "items": {"type": "string"}},
+        "context_assembly_ids": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "generated_by_event": {"type": ["string", "null"]},
+        "derived_from": {"type": "array", "items": {"type": "string"}},
+        "attributed_to": {"type": "array", "items": {"type": "string"}},
+        "invalidated_by_event": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
     "evidence": {
       "type": "array",
       "items": {

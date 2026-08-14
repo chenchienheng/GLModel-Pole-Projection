@@ -1,0 +1,83 @@
+{
+  "artifact_id": "LEGACY-PRIMITIVE-ABSORPTION-R1",
+  "state": "CANDIDATE_ACTIVE_REVIEW",
+  "runtime": false,
+  "promotion": false,
+  "purpose": "Separate reusable primitives from obsolete framing and provider-specific specimens before legacy family reclamation.",
+  "families": [
+    {
+      "path_family": "03_field-governance",
+      "preserve_primitives": [
+        "source/view separation",
+        "stable identity staging and promotion",
+        "constraint/dependency field reasoning",
+        "return packet typing",
+        "evidence-preserving analysis view",
+        "boundary and claim ceiling"
+      ],
+      "demote_framing": [
+        "commander/hierarchy framing",
+        "field naming treated as permanent architecture",
+        "QIN/View-specific routing as universal interface"
+      ],
+      "successor_surfaces": [
+        "semantic-core/dcp/dependency",
+        "semantic-core/dcp/state",
+        "semantic-core/dcp/authority",
+        "semantic-core/dcp/return",
+        "semantic-core/artifacts",
+        "semantic-core/carriers"
+      ],
+      "reclaim_gate": "FILE_LEVEL_SUCCESSOR_AND_CITATION_REVIEW"
+    },
+    {
+      "path_family": "04_adapter-layer",
+      "preserve_primitives": [
+        "carrier capability abstraction",
+        "adapter contract",
+        "source pointer mapping",
+        "write-back gate",
+        "multimodal output node",
+        "capability/authorization separation"
+      ],
+      "demote_framing": [
+        "Gemini/GAS/Sheet bridge as architecture primitive",
+        "Gamma/Replit/LINE/provider-specific names as canonical nodes",
+        "provider availability interpreted as admitted capability"
+      ],
+      "successor_surfaces": [
+        "semantic-core/carriers/connector-capability-matrix.json",
+        "semantic-core/carriers",
+        "semantic-core/policy",
+        "semantic-core/events",
+        "semantic-core/projections"
+      ],
+      "reclaim_gate": "VENDOR_SPECIMEN_SPLIT_AND_CAPABILITY_EVIDENCE"
+    },
+    {
+      "path_family": "05_topology",
+      "preserve_primitives": [
+        "triadic consistency",
+        "feasible-domain responsibility",
+        "time/order semantics",
+        "closed-loop return and re-entry",
+        "node/surface/link relational thinking"
+      ],
+      "demote_framing": [
+        "fixed ten-ring organ model as Current architecture",
+        "topology document path as authority",
+        "legacy Bone/Event/Writeback naming where superseded by typed state/return semantics"
+      ],
+      "successor_surfaces": [
+        "Cross-Sphere Contract Spine",
+        "semantic-core/dcp/dependency",
+        "semantic-core/dcp/state",
+        "semantic-core/dcp/growth",
+        "semantic-core/representations"
+      ],
+      "reclaim_gate": "PRIMITIVE_PRESERVATION_AND_REENTRY_CHECK"
+    }
+  ],
+  "absorption_rule": "Absorbing a primitive does not copy the legacy document into Current. Preserve the smallest reusable semantic unit, bind successor/evidence, then demote or reclaim the old carrier when citation and re-entry gates are clear.",
+  "physical_delete": false
+}

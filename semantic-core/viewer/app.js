@@ -32,7 +32,7 @@ async function loadWorld(){
 }
 
 async function loadDCP(){
-  const [index,families,state,authority,growth,active,returns,human]=await Promise.all([
+  const [index,families,state,authority,growth,active,returns,human,diagram,matrix]=await Promise.all([
     getJSON(dcpBase+'index.json'),
     getJSON(dcpBase+'current/dependency-families.json'),
     getJSON(dcpBase+'current/state-envelope.json'),
@@ -40,7 +40,9 @@ async function loadDCP(){
     getJSON(dcpBase+'current/growth-memory-model.json'),
     getJSON(dcpBase+'instances/active-state.json'),
     getJSON(dcpBase+'instances/return-ledger.json'),
-    getText(dcpBase+'HUMAN.zh-TW.md')
+    getText(dcpBase+'HUMAN.zh-TW.md'),
+    getText(dcpBase+'visuals/dependency-current.mmd'),
+    getText(dcpBase+'visuals/state-authority-matrix.csv')
   ]);
   $('dcp-summary').innerHTML=[
     metric('Profile',index.profile),
@@ -60,6 +62,8 @@ async function loadDCP(){
   $('dcp-returns').innerHTML=(returns.entries||[]).map(x=>row(x.return_id,`${x.state} · ${x.reconciliation}`)).join('');
   $('dcp-growth').innerHTML=[...(growth.capability_levels||[]).map(x=>row(x,'Capability maturity')),...(growth.growth_evidence||[]).map(x=>row(x,'Growth evidence'))].join('');
   $('dcp-claims').innerHTML=(active.not_to_claim||[]).map(x=>row(x)).join('');
+  $('dcp-diagram').textContent=diagram;
+  $('dcp-matrix').textContent=matrix;
   $('dcp-human').innerHTML=basicMarkdown(human);
 }
 

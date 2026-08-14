@@ -1,6 +1,6 @@
 {
   "profile": "DCP_SEMANTIC_CORE_INDEX",
-  "version": "0.5-candidate",
+  "version": "0.6-candidate",
   "runtime": false,
   "native_authority": "CoreTri_DCP",
   "current_surfaces": {
@@ -20,23 +20,20 @@
   },
   "human_visual_surfaces": {
     "human_zh_tw": "HUMAN.zh-TW.md",
+    "professional_en": "PROFESSIONAL.en.md",
     "dependency_lifecycle_diagram": "visuals/dependency-current.mmd",
     "state_authority_matrix": "visuals/state-authority-matrix.csv"
   },
-  "support_surfaces": {
-    "receiver_projection_map": "current/receiver-projection-map.json",
-    "reader_manifest": "current/reader-manifest.json",
-    "connector_capability_matrix": "../carriers/connector-capability-matrix.json",
-    "legacy_disposition": "../disposition/legacy-family-disposition.json",
-    "legacy_redirects": "../disposition/legacy-successor-redirects.json",
-    "legacy_primitive_absorption": "../disposition/legacy-primitive-absorption-r1.json",
-    "public_legacy_reference_compaction": "../disposition/public-legacy-reference-compaction.json",
-    "pointer_citation_scan": "../disposition/pointer-citation-scan-r1.json"
-  },
-  "representation_rule": "STRUCTURED_MODEL_PLUS_HUMAN_ZH_TW_PLUS_PURPOSE_FIT_VISUAL_OR_TABLE",
+  "triadic_core_profiles": [
+    "HUMAN_ZH_TW",
+    "PROFESSIONAL_EN",
+    "CANONICAL_MACHINE"
+  ],
+  "representation_rule": "ONE_STABLE_EXISTENCE_THREE_ALIGNED_CORE_PROFILES_PLUS_PURPOSE_FIT_VISUAL_OR_DOMAIN_NATIVE_PROJECTIONS",
+  "professional_english_rule": "INTERNAL_PROFESSIONAL_PROFILE_NOT_PUBLIC_RELEASE",
   "external_release": "GATED_ONLY",
   "native_source_root": "NOT_THIS_REPOSITORY",
   "materiality_rule": "AFFECTED_EDGE_ONLY",
-  "reader_rule": "INDEX_THEN_ACTIVE_INSTANCE_THEN_PURPOSE_FIT_SURFACE_THEN_AFFECTED_TECHNICAL_SLICE",
+  "reader_rule": "INDEX_THEN_ACTIVE_INSTANCE_THEN_TRIADIC_PURPOSE_FIT_SURFACE_THEN_AFFECTED_TECHNICAL_SLICE",
   "historical_rule": "EXCLUDED_FROM_CURRENT_ASSEMBLY_UNLESS_EXPLICIT_REENTRY_PURPOSE"
 }

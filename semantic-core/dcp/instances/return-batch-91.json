@@ -1,0 +1,12 @@
+{
+  "return_id":"DCP-RETURN-BATCH-91",
+  "source_pointer":"Drive:12mwuvtZlTh17-ZmyVPCFNBxA_68SBYoUlKe_8dByJTg#BATCH-91",
+  "receiver":"CoreTri_DCP",
+  "return_type":"RECONCILIATION_OUTCOME",
+  "materiality":"COMPILED_EDGE_UPDATE",
+  "evidence_pointer":"GitHub:chenchienheng/XuanLing-20-FieldProof-Xiaoshiguang@e405051902b3a7b0af37137f8cc7f995d806ae0a",
+  "closure_state":"CLOSED_WITH_STATE_CHANGE",
+  "next_trigger":"COMPILE_ACTIVE_POINTER_HOLD_CONFLICT_INSTANCES",
+  "claim_ceiling":"PROVEN_BOUNDED_NOT_RUNTIME_NOT_CANON",
+  "created_at":"2026-08-15T00:29:00+08:00"
+}

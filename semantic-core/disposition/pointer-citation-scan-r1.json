@@ -1,0 +1,37 @@
+{
+  "scan_id":"DCP-POINTER-CITATION-SCAN-R1",
+  "state":"BOUNDED_SCAN_COMPLETE",
+  "runtime":false,
+  "scope":["XL00","XL10","XL20"],
+  "query_family":"01_runtime-spine",
+  "finding_summary":{
+    "current_runtime_dependency_found":false,
+    "historical_inventory_references_found":true,
+    "current_surface_manifest_mentions_found":true,
+    "physical_delete_ready":false
+  },
+  "reference_classes":[
+    {
+      "class":"HISTORICAL_INVENTORY_OR_NORMALIZATION",
+      "examples":["REPOSITORY_CORPUS_INVENTORY_MAP.md","LEGACY_SEED_CONTAMINATION_TRIAGE.md","NAMING_DRIFT_RESOLUTION_REGISTER.md","CLEANUP_QUEUE_REGISTER.md"],
+      "disposition":"REDIRECT_THEN_RETAIN_AS_HISTORY_OR_COMPACT"
+    },
+    {
+      "class":"CURRENT_READER_CLASSIFICATION",
+      "examples":["CURRENT-SURFACE-MANIFEST.json"],
+      "disposition":"KEEP_UNTIL_LEGACY_REDIRECT_AND_RECLAIM_STATE_ARE_STABLE"
+    },
+    {
+      "class":"LEGACY_PATH_SELF_REFERENCE",
+      "examples":["01_runtime-spine/window_alignment_read_order.md"],
+      "disposition":"RECLAIM_ONLY_AFTER_EXTERNAL_REFERENCES_ARE_REDIRECTED"
+    }
+  ],
+  "next_gate":[
+    "replace active legacy-path references with successor/disposition pointers where safe",
+    "compact duplicate inventory/normalization references",
+    "re-scan XL00/XL10/XL20 for exact legacy path",
+    "only then consider physical reclaim"
+  ],
+  "not_to_claim":["NO_PHYSICAL_DELETE_AUTHORIZED","NO_COMPLETE_CITATION_GRAPH_YET"]
+}

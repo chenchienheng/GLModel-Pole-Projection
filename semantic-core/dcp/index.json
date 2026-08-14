@@ -1,6 +1,6 @@
 {
   "profile": "DCP_SEMANTIC_CORE_INDEX",
-  "version": "0.3-candidate",
+  "version": "0.4-candidate",
   "runtime": false,
   "native_authority": "CoreTri_DCP",
   "current_surfaces": {
@@ -25,8 +25,11 @@
   "support_surfaces": {
     "receiver_projection_map": "current/receiver-projection-map.json",
     "reader_manifest": "current/reader-manifest.json",
+    "connector_capability_matrix": "../carriers/connector-capability-matrix.json",
     "legacy_disposition": "../disposition/legacy-family-disposition.json",
     "legacy_redirects": "../disposition/legacy-successor-redirects.json",
+    "legacy_primitive_absorption": "../disposition/legacy-primitive-absorption-r1.json",
+    "public_legacy_reference_compaction": "../disposition/public-legacy-reference-compaction.json",
     "pointer_citation_scan": "../disposition/pointer-citation-scan-r1.json"
   },
   "representation_rule": "STRUCTURED_MODEL_PLUS_HUMAN_ZH_TW_PLUS_PURPOSE_FIT_VISUAL_OR_TABLE",

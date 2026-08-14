@@ -1,0 +1,30 @@
+flowchart LR
+    S[Stable Existence / 穩定存在] --> I[Identity / 身分]
+    I --> L[Lifecycle State / 生命狀態]
+    I --> A[Authority & Rights / 權限]
+    I --> E[Evidence & Provenance / 證據與來源]
+
+    I --> H[Human zh-TW / 人類中文表徵]
+    I --> X[External EN gated / 對外英文表徵]
+    I --> M[Canonical Machine / 機器規範表徵]
+    I --> V[Visual-Spatial / 圖像空間表徵]
+    I --> N[Domain Native / 領域原生表徵]
+
+    H --> C[Context Assembly / 條件場組裝]
+    X --> C
+    M --> C
+    V --> C
+    N --> C
+
+    L --> C
+    A --> C
+    E --> C
+
+    C --> P[Purpose-specific Projection / 用途投影]
+    P --> R[Return / 回流]
+    R --> Q[Reconcile / 校準]
+    Q --> G[Growth or Metabolism / 成長或代謝]
+    G --> I
+
+    O[Superseded / Historical / Failure] -. no current authority .-> E
+    O -. explicit request only .-> C

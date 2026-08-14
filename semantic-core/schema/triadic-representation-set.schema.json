@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "xuanling://schema/triadic-representation-set",
+  "title": "Triadic Representation Set",
+  "type": "object",
+  "required": ["stable_subject_id", "semantic_invariants", "profiles", "alignment_state"],
+  "properties": {
+    "stable_subject_id": {"type": "string", "minLength": 1},
+    "semantic_invariants": {
+      "type": "object",
+      "required": ["identity", "lifecycle_state", "authority", "claim_ceiling", "lineage"],
+      "properties": {
+        "identity": {"type": "string"},
+        "lifecycle_state": {"type": "string"},
+        "authority": {"type": "string"},
+        "claim_ceiling": {"type": ["string", "null"]},
+        "lineage": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "profiles": {
+      "type": "object",
+      "required": ["human_zh_tw", "canonical_machine"],
+      "properties": {
+        "human_zh_tw": {"$ref": "artifact-component.schema.json"},
+        "external_en_gated": {"anyOf": [{"$ref": "artifact-component.schema.json"}, {"type": "null"}]},
+        "canonical_machine": {"$ref": "artifact-component.schema.json"},
+        "visual_spatial": {"type": "array", "items": {"$ref": "artifact-component.schema.json"}},
+        "domain_native": {"type": "array", "items": {"$ref": "artifact-component.schema.json"}}
+      }
+    },
+    "alignment_state": {"enum": ["ALIGNED", "PARTIAL", "SURFACE_DRIFT", "HOLD"]},
+    "assembly_policy_id": {"type": ["string", "null"]},
+    "release_gate_id": {"type": ["string", "null"]}
+  }
+}

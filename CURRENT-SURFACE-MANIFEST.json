@@ -1,0 +1,35 @@
+{
+  "repository_role": "PRIVATE_INTERNAL_SEMANTIC_BUILD_SURFACE",
+  "runtime": false,
+  "native_source_root": false,
+  "reader_priority": [
+    "README.md",
+    "CURRENT-SURFACE-MANIFEST.json",
+    "semantic-core/index.json",
+    "semantic-core/dcp/index.json"
+  ],
+  "current_internal_surfaces": {
+    "human": ["README.md", "semantic-core/dcp/HUMAN.zh-TW.md", "semantic-core/specimens/gui-lu/HUMAN.zh-TW.md"],
+    "machine": ["semantic-core/index.json", "semantic-core/dcp/index.json"],
+    "visual": ["semantic-core/viewer/index.html", "semantic-core/specimens/gui-lu/visual-bindings.json"],
+    "verification": [".github/workflows/semantic-core-verify.yml"]
+  },
+  "legacy_root_families": [
+    "00_meta",
+    "00_mother-law",
+    "01_native-board",
+    "01_runtime-spine",
+    "02_runtime-ops",
+    "02_translation-layer",
+    "03_board-orchestration",
+    "03_field-governance",
+    "04_adapter-layer",
+    "04_interface-layer",
+    "05_XLEN_Reserve_Unenabled",
+    "05_topology"
+  ],
+  "legacy_interpretation": "HISTORICAL_OR_COMPATIBILITY_UNLESS_EXPLICITLY_RE-ADMITTED",
+  "private_does_not_mean_unrestricted": true,
+  "external_release": "EXPLICIT_GATE_ONLY",
+  "claim_ceiling": "Private semantic build and verification surface; not native source root, canon, promotion authority, or runtime"
+}

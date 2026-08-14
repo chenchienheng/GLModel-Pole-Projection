@@ -4,10 +4,14 @@ on:
   push:
     paths:
       - 'semantic-core/**'
+      - 'CURRENT-SURFACE-MANIFEST.json'
+      - 'README.md'
       - '.github/workflows/semantic-core-verify.yml'
   pull_request:
     paths:
       - 'semantic-core/**'
+      - 'CURRENT-SURFACE-MANIFEST.json'
+      - 'README.md'
 
 permissions:
   contents: read
@@ -22,6 +26,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verify repository current-surface manifest
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const m=JSON.parse(fs.readFileSync('CURRENT-SURFACE-MANIFEST.json','utf8'));
+          const required=['README.md','CURRENT-SURFACE-MANIFEST.json','semantic-core/index.json','semantic-core/dcp/index.json'];
+          if(m.native_source_root!==false){throw new Error('REPOSITORY_MUST_NOT_BECOME_NATIVE_SOURCE_ROOT')}
+          for(const p of required){if(!fs.existsSync(p))throw new Error(`CURRENT_SURFACE_POINTER_MISSING:${p}`)}
+          if(!Array.isArray(m.legacy_root_families)||!m.legacy_root_families.length){throw new Error('LEGACY_CLASSIFICATION_MISSING')}
+          console.log('CURRENT_SURFACE_MANIFEST_OK');
+          NODE
       - name: Verify cross-surface semantic alignment
         run: node semantic-core/tools/verify-specimen.mjs
       - name: Verify DCP semantic core invariants

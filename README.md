@@ -1,100 +1,116 @@
-# Yiyi Xiao-shi-guang CUI App
+# XuanLing-20 FieldProof / Xiaoshiguang
 
-Status: Private / Sanitized Field Projection Carrier / Candidate / No Runtime / No Public Product Approval
+**Status:** private field-proof carrier / sanitized bounded evidence / no production runtime / no automatic messaging authority / no public product claim
 
-## One-line Description
+## One-line description
 
-Private sanitized CUI guard field for availability, permission, maintenance, anti-error rules, and field-proof interaction patterns.
+This private repository holds **bounded field-proof artifacts** for testing how a real-world service context can be represented, reviewed, and returned without turning private operational data into a central XuanLing source.
 
-## Core
+---
 
-This repository is the private field projection carrier for the Xiaoshiguang gift framework and small-operator guard app experiment.
+## Core boundary
 
-It explores OCF cells, CUI/GUI state boundaries, state cards, reply draft cards, problem return cards, owner-review gates, and maintenance boundaries for a small lodging or similar operator.
-
-It must not contain real guest data, private messages, credentials, API keys, booking records, payment information, official platform secrets, or unapproved social materials.
-
-## Role
-
-```yaml
-Repo_Role:
-  name: "Yiyi_Xiao-shi-guang-CUI-App"
-  layer: "Field / Xiaoshiguang CUI Guard / OCF field proof"
-  use_as:
-    - "OCF Cell Registry"
-    - "CUI / GUI State Boundary"
-    - "State Card candidate"
-    - "Reply Draft Card candidate"
-    - "Problem Return Card candidate"
-    - "Owner Review gate"
-    - "anti-error rules"
-    - "sanitized schema examples"
-  do_not_use_as:
-    - "production runtime"
-    - "customer data storage"
-    - "credential storage"
-    - "payment system"
-    - "public booking platform"
-    - "automatic messaging authority"
-    - "public product claim"
+```text
+Native field source
+→ sanitized / authorized working projection
+→ bounded test or draft
+→ human / owner review
+→ evidence / receipt
+→ return
+→ reconciliation
 ```
 
-## First Field Proof
+The native source remains with its lawful owner/controller. This repository is a **private field projection and evidence carrier**, not the native customer-data root.
 
-```yaml
-First_Field_Proof:
-  cards:
-    - "State Card"
-    - "Reply Draft Card"
-    - "Problem Return Card"
-  do_not:
-    - "no full app"
-    - "no OTA"
-    - "no payment"
-    - "no real customer data"
-    - "no automatic promise"
-    - "no runtime claim"
-```
+---
 
-## Core Gates
+## What belongs here
 
-- Availability Gate: do not answer available before checking availability.
-- Unit Gate: do not confirm before a specific room/unit is identified.
-- Message Gate: generated replies are drafts only and require human review.
-- Duplicate Commitment Gate: do not double-hold or double-confirm the same unit and date.
-- Data Permission Gate: maintenance access is not customer-data access.
-- Material Truth Gate: display material must be official or authorized.
-- Social Content Gate: social content requires account-owner authorization before formal use.
+Examples of appropriate bounded material:
 
-## Not To Store
+- sanitized state and interaction specimens;
+- availability / permission / maintenance gate patterns;
+- anti-error and duplicate-commitment tests;
+- owner-review and human-send boundaries;
+- sanitized schema examples;
+- field failure cases and validation evidence;
+- bounded capability / build / test returns;
+- historical field-proof artifacts with preserved provenance.
 
-- guest names
-- phone numbers
-- LINE IDs
-- private message screenshots
-- booking details
-- payment records
-- passwords
-- API keys
-- tokens
-- Supabase URLs or keys
-- GitHub tokens
-- unredacted operational screenshots
-- unauthorized social content
+A file, card, build, or successful test remains evidence for its declared scope only.
 
-## Current Active Reading Layer
+---
 
-Start with:
+## What must not be inferred
 
-```yaml
-QHA_Read_Order:
-  1: "docs/alignment/yiyi-current-active-index-v0_1.md"
-  2: "docs/field/xiaoshiguang-gift-field-projection-intake-v0_1.md"
-  3: "docs/ocf/xiaoshiguang-ocf-cell-registry-v0_1-candidate.md"
-  4: "docs/ui/field-card-spec-v0_1.md"
-  5: "docs/return/problem-return-form-v0_1.md"
-```
+- Build return ≠ Runtime
+- Draft reply ≠ Message sent
+- Availability candidate ≠ Reservation confirmed
+- Permission to maintain ≠ Permission to access customer data
+- Sanitized ≠ Public-approved
+- Historical test ≠ Current production state
+- Repository access ≠ right to copy / learn / retain / publish all source material
+- Field proof ≠ product approval
 
-## Final Rule
+---
 
-This repository is for sanitized no-runtime field proof, not private operational data. AI may draft; humans decide and send. Maintainers may support the system; they do not become data owners.
+## Data / rights boundary
+
+Do not place unapproved sensitive native bodies here, including:
+
+- real guest or customer identity data;
+- phone numbers, private messaging IDs, or private message bodies;
+- unredacted booking / payment / insurance / operational records;
+- passwords, API keys, tokens, secrets, or private platform credentials;
+- proprietary or account-owner content without the relevant rights;
+- company or personal data outside the declared field-proof scope.
+
+When sensitive evidence is required, keep it in its lawful native source and use a bounded pointer, sanitized projection, or approved evidence return instead.
+
+---
+
+## Current field-proof gates
+
+A field interaction should explicitly separate at least:
+
+- **Source / State Gate** — what is actually known now?
+- **Identity / Unit Gate** — what exact object, room, unit, case, or service is being discussed?
+- **Authority Gate** — who may read, draft, mutate, promise, send, or publish?
+- **Commitment Gate** — has a real commitment been created, or only a candidate/draft?
+- **Evidence Gate** — what supports the statement?
+- **Duplicate / Conflict Gate** — could the action create a double booking, double promise, or contradictory state?
+- **Return Gate** — where does the result or failure go for review and reconciliation?
+
+Domain-specific gates may extend this list; they do not remove these distinctions.
+
+---
+
+## How to read this repository
+
+For a fresh reader:
+
+1. Identify the artifact's field-proof purpose and source boundary.
+2. Check whether it is a specimen, draft, evidence return, failure case, or historical artifact.
+3. Resolve the native owner / authority before interpreting any action as allowed.
+4. Treat old OCF/QHA/window/registry labels as historical or functional vocabulary unless a current reader explicitly re-enters them.
+5. Prefer current bounded return / successor pointers over filename, folder, modified time, or `CURRENT`-like labels.
+
+This repository must not be used to reconstruct a permanent OCF/QHA registry or a second customer-data store.
+
+---
+
+## Relation to the wider ecosystem
+
+- **DCP** may consume field-proof dependency/state/authority/failure deltas.
+- **Ideas** may consume human burden, experience, friction, and navigation deltas.
+- **GLModel** may consume world/object/system/correspondence evidence when materially relevant.
+- Rights/privacy/release decisions remain with the appropriate native authority.
+- Execution occurs only through a named bounded work contract; repository presence is not execution authorization.
+
+Only receiver-specific material should leave this repository. Private source bodies stay private.
+
+---
+
+## Final rule
+
+**This repository exists to prove or falsify bounded field behavior safely. It is not the field itself, not the customer-data root, and not a production runtime.**

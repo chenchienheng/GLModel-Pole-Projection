@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "xuanling://semantic-core/capability.schema.json",
+  "title": "XuanLing Capability Growth Record",
+  "type": "object",
+  "required": ["capability_id", "subject_id", "maturity", "evidence", "behavior_change", "revalidation"],
+  "properties": {
+    "capability_id": {"type": "string"},
+    "subject_id": {"type": "string"},
+    "capability_type": {"type": "string"},
+    "maturity": {"enum": ["CONCEPTUAL", "DOCUMENTED", "EXECUTABLE", "VERIFIED", "OPERATIONAL", "PORTABLE", "RUNTIME_PROVEN"]},
+    "failure_memory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["signature", "trigger", "mitigation", "regression_test"],
+        "properties": {
+          "signature": {"type": "string"},
+          "trigger": {"type": "string"},
+          "evidence": {"type": "array", "items": {"type": "string"}},
+          "mitigation": {"type": "string"},
+          "regression_test": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "behavior_change": {"type": "string"},
+    "revalidation": {"type": "string"},
+    "claim_ceiling": {"type": ["string", "null"]},
+    "status": {"enum": ["CANDIDATE", "ADMITTED_BOUNDED", "REVALIDATION_REQUIRED", "SUPERSEDED", "RETIRED"]}
+  },
+  "additionalProperties": false
+}

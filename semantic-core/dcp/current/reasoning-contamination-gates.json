@@ -1,0 +1,33 @@
+{
+  "profile": "DCP_REASONING_CONTAMINATION_GATES",
+  "version": "0.1-candidate",
+  "runtime": false,
+  "gates": [
+    {
+      "gate_id": "GATE-HISTORICAL-REENTRY",
+      "trigger": "Historical/superseded artifact enters Current assembly without explicit re-entry purpose",
+      "disposition": "BLOCK_AND_MARK_REASONING_CONTAMINATION"
+    },
+    {
+      "gate_id": "GATE-SURFACE-DRIFT",
+      "trigger": "Human/External/Machine/Visual/Domain-native projections disagree on Stable Identity, State, Authority or Evidence Ceiling",
+      "disposition": "BLOCK_PROPAGATION_AND_RECONCILE"
+    },
+    {
+      "gate_id": "GATE-CARRIER-AUTHORITY-CONFLATION",
+      "trigger": "Carrier path, folder, repository, file name or latest timestamp is used as authority/current-state proof",
+      "disposition": "REJECT_INFERENCE"
+    },
+    {
+      "gate_id": "GATE-LEARNING-INGESTION-CONFLATION",
+      "trigger": "User learning or model observation is treated as Core admission or source ingestion",
+      "disposition": "RETYPE_AS_CANDIDATE_AND_REQUIRE_ADMISSION"
+    },
+    {
+      "gate_id": "GATE-RETURN-CLOSURE-CONFLATION",
+      "trigger": "Return/ACK is treated as reconciliation or world-state change without closure evidence",
+      "disposition": "KEEP_PENDING"
+    }
+  ],
+  "allowed_reentry_requires": ["purpose", "receiver", "authority", "evidence_role", "claim_ceiling", "expiry_or_exit_condition"]
+}

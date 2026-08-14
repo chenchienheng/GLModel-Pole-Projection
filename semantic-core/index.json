@@ -12,6 +12,13 @@
     "visual_binding": "schema/visual-binding.schema.json",
     "projection_release": "schema/projection-release.schema.json"
   },
+  "families": {
+    "DCP": {
+      "index": "dcp/index.json",
+      "human_zh_tw": "dcp/HUMAN.zh-TW.md",
+      "verification": "tools/verify-dcp-core.mjs"
+    }
+  },
   "specimens": {
     "WORLD-GUI-LU": {
       "machine": "specimens/gui-lu/world.json",

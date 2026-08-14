@@ -1,8 +1,8 @@
 {
-  "semantic_core_version": "0.1-candidate",
+  "semantic_core_version": "0.2-candidate",
   "runtime": false,
   "native_source_root": "EXTERNAL_TO_REPOSITORY",
-  "representation_profiles": ["HUMAN_ZH_TW", "EXTERNAL_EN_GATED", "CANONICAL_MACHINE", "VISUAL_SPATIAL"],
+  "representation_profiles": ["HUMAN_ZH_TW", "EXTERNAL_EN_GATED", "CANONICAL_MACHINE", "VISUAL_SPATIAL", "DOMAIN_NATIVE"],
   "schemas": {
     "semantic_object": "schema/semantic-object.schema.json",
     "event": "schema/event.schema.json",
@@ -10,7 +10,10 @@
     "capability": "schema/capability.schema.json",
     "rebuild_manifest": "schema/rebuild-manifest.schema.json",
     "visual_binding": "schema/visual-binding.schema.json",
-    "projection_release": "schema/projection-release.schema.json"
+    "projection_release": "schema/projection-release.schema.json",
+    "artifact_component": "schema/artifact-component.schema.json",
+    "triadic_representation_set": "schema/triadic-representation-set.schema.json",
+    "context_assembly": "schema/context-assembly.schema.json"
   },
   "families": {
     "DCP": {
@@ -23,6 +26,16 @@
       "pointer_resolution": "carriers/pointer-resolution-model.json",
       "adapter_contract": "carriers/adapter-contract.json",
       "projection_envelope": "carriers/projection-envelope.json"
+    },
+    "ARTIFACTS": {
+      "registry": "artifacts/artifact-registry.json",
+      "principle": "artifact format follows semantic role, evidence need, audience and context; not document-first"
+    },
+    "ASSEMBLIES": {
+      "gui_lu_design_review": "assemblies/gui-lu-design-review.json"
+    },
+    "VISUALS": {
+      "triadic_life_dependency": "visuals/triadic-life-dependency.mmd"
     }
   },
   "specimens": {
@@ -40,6 +53,9 @@
   },
   "semantic_invariants": [
     "ONE_STABLE_IDENTITY",
+    "EVERY_EXISTENCE_HAS_LIFECYCLE_AUTHORITY_EVIDENCE_CONTEXT",
+    "TRIADIC_REPRESENTATIONS_ARE_NATIVE_PROJECTIONS_NOT_TRANSLATIONS",
+    "ARTIFACT_FORMAT_FOLLOWS_ROLE_AND_CONTEXT",
     "NATIVE_SOURCE_ROOT_NOT_REPLACED",
     "CARRIER_NOT_IDENTITY_OR_AUTHORITY",
     "PROJECTION_NOT_SECOND_TRUTH",
@@ -47,6 +63,7 @@
     "RETURN_NOT_RECONCILIATION",
     "VISUAL_PROJECTION_NO_GEOMETRY_AUTHORITY",
     "PUBLIC_SAFE_NOT_PUBLIC_APPROVED",
+    "SUPERSEDED_OR_HISTORICAL_HAS_NO_CURRENT_AUTHORITY_BY_DEFAULT",
     "SURFACE_DRIFT_BLOCKS_PROPAGATION"
   ]
 }

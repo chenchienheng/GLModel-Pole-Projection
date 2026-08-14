@@ -1,0 +1,42 @@
+{
+  "profile": "DCP_CONTEXT_ASSEMBLY_POLICY",
+  "version": "0.1-candidate",
+  "runtime": false,
+  "assembly_order": [
+    "STABLE_IDENTITY",
+    "CURRENT_STATE",
+    "AUTHORITY_AND_RIGHTS",
+    "ACTIVE_HOLD_CONFLICT_RETURN",
+    "AFFECTED_DEPENDENCY_CONE",
+    "REQUIRED_EVIDENCE",
+    "RECEIVER_SPECIFIC_ARTIFACTS",
+    "HUMAN_ZH_TW_PROJECTION"
+  ],
+  "default_exclusions": [
+    "SUPERSEDED",
+    "HISTORICAL",
+    "INVALIDATED",
+    "RETIRED",
+    "RECLAIM_CANDIDATE"
+  ],
+  "explicit_reentry_purposes": [
+    "PROVENANCE",
+    "AUDIT",
+    "FAILURE_LEARNING",
+    "REGRESSION",
+    "REBUILD",
+    "SUCCESSOR_VALIDATION"
+  ],
+  "minimum_current_inputs": [
+    "semantic-core/dcp/index.json",
+    "semantic-core/dcp/instances/active-state.json",
+    "semantic-core/dcp/instances/return-ledger.json"
+  ],
+  "rules": [
+    "LATEST_IS_NOT_CURRENT_WITHOUT_STATE_EVIDENCE",
+    "RETURN_IS_NOT_RECONCILED_WITHOUT_CLOSURE",
+    "READABLE_IS_NOT_AUTHORIZED_FOR_COPY_DERIVE_LEARN_RETAIN_WRITEBACK_EXPORT",
+    "CARRIER_LOCATION_CHANGE_DOES_NOT_TRIGGER_REBUILD_UNLESS_SEMANTIC_BINDING_CHANGES",
+    "HISTORICAL_ARTIFACT_REENTRY_REQUIRES_EXPLICIT_PURPOSE"
+  ]
+}

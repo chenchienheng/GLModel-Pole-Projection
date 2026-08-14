@@ -1,0 +1,35 @@
+{
+  "semantic_core_version": "0.1-candidate",
+  "runtime": false,
+  "native_source_root": "EXTERNAL_TO_REPOSITORY",
+  "representation_profiles": ["HUMAN_ZH_TW", "EXTERNAL_EN_GATED", "CANONICAL_MACHINE", "VISUAL_SPATIAL"],
+  "schemas": {
+    "semantic_object": "schema/semantic-object.schema.json",
+    "event": "schema/event.schema.json",
+    "policy_gate": "schema/policy-gate.schema.json",
+    "capability": "schema/capability.schema.json",
+    "rebuild_manifest": "schema/rebuild-manifest.schema.json",
+    "visual_binding": "schema/visual-binding.schema.json"
+  },
+  "specimens": {
+    "WORLD-GUI-LU": {
+      "machine": "specimens/gui-lu/world.json",
+      "visual_bindings": "specimens/gui-lu/visual-bindings.json",
+      "events": "specimens/gui-lu/events.jsonl",
+      "rebuild": "specimens/gui-lu/rebuild-manifest.json",
+      "human_zh_tw": "specimens/gui-lu/HUMAN.zh-TW.md",
+      "viewer": "viewer/index.html",
+      "verifier": "tools/verify-specimen.mjs",
+      "verification": "GITHUB_ACTIONS_REQUIRED"
+    }
+  },
+  "semantic_invariants": [
+    "ONE_STABLE_IDENTITY",
+    "NATIVE_SOURCE_ROOT_NOT_REPLACED",
+    "PROJECTION_NOT_SECOND_TRUTH",
+    "READ_RIGHTS_ORTHOGONAL",
+    "RETURN_NOT_RECONCILIATION",
+    "VISUAL_PROJECTION_NO_GEOMETRY_AUTHORITY",
+    "SURFACE_DRIFT_BLOCKS_PROPAGATION"
+  ]
+}

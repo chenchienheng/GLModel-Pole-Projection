@@ -1,0 +1,49 @@
+{
+  "stable_subject_id": "WORLD-GUI-LU",
+  "semantic_invariants": {
+    "identity": "WORLD-GUI-LU",
+    "lifecycle_state": "CURRENT_BOUNDED_SPECIMEN",
+    "authority": "GLModel_NATIVE_WITH_DCP_STATE_GATES",
+    "claim_ceiling": "Semantic/world-anchor specimen only; not BuildReady or Runtime",
+    "lineage": ["GUI-LU", "R0.10/R1 bounded continuity"]
+  },
+  "profiles": {
+    "human_zh_tw": {
+      "artifact_id": "GUI-LU-HUMAN-OVERVIEW-ZH",
+      "stable_subject_id": "WORLD-GUI-LU",
+      "artifact_kind": "PROSE",
+      "semantic_role": "EXPLANATION",
+      "lifecycle_state": "CURRENT",
+      "representation_profile": "HUMAN_ZH_TW",
+      "carrier_binding": {"carrier_type": "GITHUB", "pointer": "semantic-core/specimens/gui-lu/HUMAN.zh-TW.md"},
+      "evidence_role": "NONE"
+    },
+    "external_en_gated": null,
+    "canonical_machine": {
+      "artifact_id": "GUI-LU-WORLD-MACHINE",
+      "stable_subject_id": "WORLD-GUI-LU",
+      "artifact_kind": "DATASET",
+      "semantic_role": "STATE",
+      "lifecycle_state": "CURRENT",
+      "representation_profile": "CANONICAL_MACHINE",
+      "carrier_binding": {"carrier_type": "GITHUB", "pointer": "semantic-core/specimens/gui-lu/world.json"},
+      "evidence_role": "PROVENANCE_EVIDENCE"
+    },
+    "visual_spatial": [
+      {
+        "artifact_id": "GUI-LU-VISUAL-BINDINGS",
+        "stable_subject_id": "WORLD-GUI-LU",
+        "artifact_kind": "DIAGRAM",
+        "semantic_role": "REGRESSION_ANCHOR",
+        "lifecycle_state": "CURRENT",
+        "representation_profile": "VISUAL_SPATIAL",
+        "carrier_binding": {"carrier_type": "GITHUB", "pointer": "semantic-core/specimens/gui-lu/visual-bindings.json"},
+        "evidence_role": "REGRESSION_EVIDENCE"
+      }
+    ],
+    "domain_native": []
+  },
+  "alignment_state": "PARTIAL",
+  "assembly_policy_id": "GUI-LU-DESIGN-REVIEW-R1",
+  "release_gate_id": "GUI-LU-EXTERNAL-RELEASE"
+}

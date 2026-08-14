@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "xuanling://schema/context-assembly",
+  "title": "Context Assembly",
+  "type": "object",
+  "required": ["assembly_id", "purpose", "audience", "subject_ids", "selection_rules", "output_profiles", "state"],
+  "properties": {
+    "assembly_id": {"type": "string"},
+    "purpose": {"type": "string"},
+    "audience": {"type": "array", "items": {"type": "string"}},
+    "subject_ids": {"type": "array", "items": {"type": "string"}},
+    "selection_rules": {
+      "type": "object",
+      "required": ["allowed_lifecycle_states", "allowed_semantic_roles"],
+      "properties": {
+        "allowed_lifecycle_states": {"type": "array", "items": {"type": "string"}},
+        "allowed_semantic_roles": {"type": "array", "items": {"type": "string"}},
+        "required_evidence_roles": {"type": "array", "items": {"type": "string"}},
+        "exclude_superseded_without_explicit_request": {"type": "boolean"},
+        "exclude_invalidated": {"type": "boolean"},
+        "rights_gate_required": {"type": "boolean"}
+      }
+    },
+    "output_profiles": {"type": "array", "items": {"enum": ["HUMAN_ZH_TW", "EXTERNAL_EN_GATED", "CANONICAL_MACHINE", "VISUAL_SPATIAL", "DOMAIN_NATIVE"]}},
+    "preferred_artifact_kinds": {"type": "array", "items": {"type": "string"}},
+    "fallback_order": {"type": "array", "items": {"type": "string"}},
+    "state": {"enum": ["CANDIDATE", "VALIDATED", "HOLD", "RETIRED"]}
+  }
+}

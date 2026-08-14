@@ -24,3 +24,7 @@ jobs:
           node-version: '22'
       - name: Verify cross-surface semantic alignment
         run: node semantic-core/tools/verify-specimen.mjs
+      - name: Compile projections from canonical specimen
+        run: node semantic-core/tools/compile-projections.mjs
+      - name: Verify generated projections are current
+        run: git diff --exit-code -- semantic-core/generated

@@ -32,14 +32,34 @@ async function loadWorld(){
 }
 
 async function loadDCP(){
-  const [index,families,state,authority,growth,human]=await Promise.all([
-    getJSON(dcpBase+'index.json'),getJSON(dcpBase+'current/dependency-families.json'),getJSON(dcpBase+'current/state-envelope.json'),getJSON(dcpBase+'current/authority-gate-matrix.json'),getJSON(dcpBase+'current/growth-memory-model.json'),getText(dcpBase+'HUMAN.zh-TW.md')
+  const [index,families,state,authority,growth,active,returns,human]=await Promise.all([
+    getJSON(dcpBase+'index.json'),
+    getJSON(dcpBase+'current/dependency-families.json'),
+    getJSON(dcpBase+'current/state-envelope.json'),
+    getJSON(dcpBase+'current/authority-gate-matrix.json'),
+    getJSON(dcpBase+'current/growth-memory-model.json'),
+    getJSON(dcpBase+'instances/active-state.json'),
+    getJSON(dcpBase+'instances/return-ledger.json'),
+    getText(dcpBase+'HUMAN.zh-TW.md')
   ]);
-  $('dcp-summary').innerHTML=[metric('Profile',index.profile),metric('Current Surfaces',Object.keys(index.current_surfaces||{}).length),metric('Runtime',String(index.runtime)),metric('Reader Rule',index.reader_rule)].join('');
+  $('dcp-summary').innerHTML=[
+    metric('Profile',index.profile),
+    metric('Current Surfaces',Object.keys(index.current_surfaces||{}).length),
+    metric('Runtime',String(active.state?.runtime??index.runtime)),
+    metric('Historical Metabolism',active.state?.historical_metabolism||'UNKNOWN')
+  ].join('');
   $('dcp-families').innerHTML=(families.families||[]).map(f=>row(f.family_id,f.purpose)).join('');
   $('dcp-guards').innerHTML=(state.forbidden_inferences||[]).map(x=>row(x)).join('');
+  const holdRows=[
+    ...(active.active_holds||[]).map(x=>row(x.hold_id,`${x.owner} · ${x.reason}`)),
+    ...(active.active_conflicts||[]).map(x=>row(x.conflict_id||'CONFLICT',x.reason||JSON.stringify(x)))
+  ];
+  $('dcp-holds').innerHTML=holdRows.join('')||row('目前沒有 Hold／Conflict');
+  $('dcp-pending').innerHTML=(active.pending_returns||[]).map(x=>row(x.return_id,`${x.from} → ${x.to} · ${x.closure}`)).join('')||row('目前沒有 Pending Return');
   $('dcp-rights').innerHTML=(authority.rights||[]).map(x=>row(x)).join('');
+  $('dcp-returns').innerHTML=(returns.entries||[]).map(x=>row(x.return_id,`${x.state} · ${x.reconciliation}`)).join('');
   $('dcp-growth').innerHTML=[...(growth.capability_levels||[]).map(x=>row(x,'Capability maturity')),...(growth.growth_evidence||[]).map(x=>row(x,'Growth evidence'))].join('');
+  $('dcp-claims').innerHTML=(active.not_to_claim||[]).map(x=>row(x)).join('');
   $('dcp-human').innerHTML=basicMarkdown(human);
 }
 

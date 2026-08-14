@@ -1,0 +1,14 @@
+{
+  "profile": "DCP_AUTHORITY_GATE_MATRIX",
+  "version": "0.1-candidate",
+  "runtime": false,
+  "rights": ["READ","COPY","DERIVE","LEARN","RETAIN","MUTATE","WRITE_BACK","FORWARD_SHARE","AGGREGATE","DELETE","EXPORT_EXIT"],
+  "gate_dimensions": ["PURPOSE","SCOPE","AUDIENCE","SENSITIVITY","RIGHTS_PRIVACY","EVIDENCE_CLAIM_CEILING","LEASE_EXPIRY","OBLIGATION","REVOCATION","REENTRY_EXIT_CONDITION"],
+  "evaluation": {
+    "default":"DENY_UNLESS_EXPLICIT_OR_DERIVED_FROM_VALID_POLICY",
+    "orthogonal":true,
+    "inheritance":"PROHIBITED_BY_DEFAULT",
+    "carrier_authority_equivalence":false
+  },
+  "required_outputs":["decision","allowed_rights","prohibited_rights","expiry","revocation_condition","evidence_ceiling","audit_pointer"]
+}

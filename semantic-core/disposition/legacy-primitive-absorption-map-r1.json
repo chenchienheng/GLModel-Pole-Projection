@@ -1,0 +1,84 @@
+{
+  "artifact_id": "DCP-LEGACY-PRIMITIVE-ABSORPTION-MAP-R1",
+  "state": "CANDIDATE_ACTIVE_REVIEW",
+  "runtime": false,
+  "scope": ["03_field-governance", "04_adapter-layer", "05_topology"],
+  "rule": "PRESERVE_GENERALIZABLE_PRIMITIVE_SEPARATE_VENDOR_OR_OBSOLETE_FRAMING_THEN_REDIRECT_LEGACY_COPY",
+  "families": [
+    {
+      "path_family": "03_field-governance",
+      "preserve_primitives": [
+        "source/view gating",
+        "analysis-view separation",
+        "stable-id import staging",
+        "constraint/dependency field reasoning",
+        "typed return packet",
+        "external round/event ledger"
+      ],
+      "obsolete_or_demote": [
+        "commander hierarchy framing",
+        "window-era orchestration assumptions",
+        "field-as-central-control interpretation"
+      ],
+      "successors": [
+        "semantic-core/dcp/current/dependency-families.json",
+        "semantic-core/dcp/current/state-envelope.json",
+        "semantic-core/dcp/current/authority-gate-matrix.json",
+        "semantic-core/dcp/current/return-closure-model.json",
+        "semantic-core/dcp/instances/return-ledger.json",
+        "semantic-core/schema/semantic-object.schema.json"
+      ],
+      "next_gate": "COMPRESS_CITATIONS_AND_CONFIRM_UNIQUE_LINEAGE_BEFORE_RECLAIM"
+    },
+    {
+      "path_family": "04_adapter-layer",
+      "preserve_primitives": [
+        "carrier capability negotiation",
+        "adapter contract",
+        "source pointer mapping",
+        "write-back gating",
+        "multimodal output node",
+        "connector failure/limit memory"
+      ],
+      "vendor_specimen_only": [
+        "gemini/gas/sheet bridge",
+        "gamma entry",
+        "replit relay",
+        "calendar/drive named adapters when vendor-bound"
+      ],
+      "successors": [
+        "semantic-core/carriers/carrier-capability-model.json",
+        "semantic-core/carriers/pointer-resolution-model.json",
+        "semantic-core/carriers/adapter-contract-model.json",
+        "semantic-core/projections/projection-envelope.json",
+        "semantic-core/dcp/current/authority-gate-matrix.json"
+      ],
+      "next_gate": "BUILD_CONNECTOR_CAPABILITY_MATRIX_THEN_DEMOTE_VENDOR_FILES_TO_SPECIMEN_OR_HISTORY"
+    },
+    {
+      "path_family": "05_topology",
+      "preserve_primitives": [
+        "triadic consistency",
+        "feasible-domain responsibility",
+        "temporal ordering/time sovereignty",
+        "closed-loop return topology"
+      ],
+      "obsolete_or_demote": [
+        "fixed ten-ring organ model as current architecture",
+        "topology names treated as permanent identity"
+      ],
+      "successors": [
+        "GLOBAL Cross-Sphere Contract Spine",
+        "semantic-core/dcp/current/dependency-families.json",
+        "semantic-core/dcp/current/state-envelope.json",
+        "semantic-core/dcp/current/growth-memory-model.json"
+      ],
+      "next_gate": "PRESERVE_PRIMITIVE_REFERENCE_THEN_RECLAIM_FIXED_ORGAN_FRAMING_IF_CITATION_CLEAR"
+    }
+  ],
+  "not_to_claim": [
+    "Any family is fully delete-ready",
+    "Vendor specimen is current capability",
+    "Legacy topology names define current architecture"
+  ]
+}

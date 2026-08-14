@@ -16,47 +16,18 @@
   "families": [
     {
       "path_family": "01_runtime-spine",
-      "observed_contents": [
-        "github_delta_driven_pulse_rule.md",
-        "legacy_writeback_block_rule.md",
-        "window_alignment_read_order.md",
-        "window_linking_logic_01_07.md"
-      ],
-      "material_absorption": [
-        "delta-first processing",
-        "legacy write-back blocking",
-        "reader ordering",
-        "window-era linking lessons"
-      ],
-      "successor_surface": [
-        "semantic-core/dcp/dependency",
-        "semantic-core/dcp/return",
-        "semantic-core/carriers",
-        "CURRENT-SURFACE-MANIFEST.json"
-      ],
+      "observed_contents": ["github_delta_driven_pulse_rule.md","legacy_writeback_block_rule.md","window_alignment_read_order.md","window_linking_logic_01_07.md"],
+      "material_absorption": ["delta-first processing","legacy write-back blocking","reader ordering","window-era linking lessons"],
+      "successor_surface": ["semantic-core/dcp/dependency","semantic-core/dcp/return","semantic-core/carriers","CURRENT-SURFACE-MANIFEST.json"],
       "disposition": "ABSORBED_REFERENCE",
       "reclaim_state": "RECLAIM_CANDIDATE_AFTER_CITATION_AND_SUCCESSOR_CHECK",
       "gap": "verify no public citation or active automation still resolves this path"
     },
     {
       "path_family": "01_native-board",
-      "observed_contents": [
-        "blockers.md",
-        "board_index.md",
-        "permissions/",
-        "pulse_rollup.md"
-      ],
-      "material_absorption": [
-        "blocker visibility",
-        "bounded board indexing",
-        "permission separation",
-        "pulse aggregation lessons"
-      ],
-      "successor_surface": [
-        "semantic-core/dcp/state",
-        "semantic-core/dcp/authority",
-        "semantic-core/dcp/reader-manifest.json"
-      ],
+      "observed_contents": ["blockers.md","board_index.md","permissions/","pulse_rollup.md"],
+      "material_absorption": ["blocker visibility","bounded board indexing","permission separation","pulse aggregation lessons"],
+      "successor_surface": ["semantic-core/dcp/state","semantic-core/dcp/authority","semantic-core/dcp/reader-manifest.json"],
       "disposition": "ABSORBED_REFERENCE",
       "reclaim_state": "HOLD_FOR_EVIDENCE",
       "gap": "permissions subtree requires specific successor/evidence review before reclamation"
@@ -65,53 +36,83 @@
       "path_family": "02_runtime-ops",
       "observed_contents": ["task_follow_up.md"],
       "material_absorption": ["follow-up and return tracking lessons"],
-      "successor_surface": [
-        "semantic-core/dcp/return",
-        "semantic-core/dcp/events",
-        "semantic-core/dcp/active-instances"
-      ],
+      "successor_surface": ["semantic-core/dcp/return","semantic-core/dcp/events","semantic-core/dcp/active-instances"],
       "disposition": "ABSORBED_REFERENCE",
       "reclaim_state": "RECLAIM_CANDIDATE_AFTER_POINTER_CHECK",
       "gap": "confirm no active issue or workflow still points to task_follow_up.md"
     },
     {
       "path_family": "02_translation-layer",
-      "observed_contents": [
-        "BRIDGE_DRILL_TEMPLATE_v0_1.md",
-        "CLOUD_OVER_CLOUD_CONTROL_CENTER_SPEC.md",
-        "README.md"
-      ],
-      "material_absorption": [
-        "bridge drill method",
-        "carrier/control-center abstraction lessons"
-      ],
-      "successor_surface": [
-        "semantic-core/carriers",
-        "semantic-core/projections",
-        "representation profiles"
-      ],
+      "observed_contents": ["BRIDGE_DRILL_TEMPLATE_v0_1.md","CLOUD_OVER_CLOUD_CONTROL_CENTER_SPEC.md","README.md"],
+      "material_absorption": ["bridge drill method","carrier/control-center abstraction lessons"],
+      "successor_surface": ["semantic-core/carriers","semantic-core/projections","representation profiles"],
       "disposition": "REFERENCE_ONLY",
       "reclaim_state": "HOLD_FOR_EVIDENCE",
       "gap": "separate reusable cloud/control-center method from obsolete translation-era framing before any deletion"
+    },
+    {
+      "path_family": "03_board-orchestration",
+      "observed_contents": ["routing-logs/","runtime-spine/","window_binding_registry_01_07.md","window_delta_mapping_template.md"],
+      "material_absorption": ["receiver routing","delta mapping","binding registry lessons","ordered handoff/re-entry"],
+      "successor_surface": ["semantic-core/dcp/dependency","semantic-core/dcp/return","semantic-core/dcp/receiver-projection-map.json","semantic-core/dcp/events"],
+      "disposition": "ABSORBED_REFERENCE",
+      "reclaim_state": "HOLD_FOR_EVIDENCE",
+      "gap": "routing logs may contain unique historical lineage; preserve or compact before removal"
+    },
+    {
+      "path_family": "03_field-governance",
+      "observed_contents": ["ABUNDANCE_UNDER_CONSTRAINT_v0_1.md","ALL_CLOUD_BOUNDARY_REVIEW_v0_1.md","ANALYSIS_VIEW_MAP_v0_1.md","BASE_FIELD_CORE_v0_1.md","CLUSTER_INITIATIVE_RHYTHM_PROTOCOL_v0_1.md","COMMANDER_CARD_v0_1.md","COMMANDER_HIERARCHY_MODEL_v0_1.md","CO_FIELD_DEPENDENCY_MODEL_v0_1.md","EXPORT_RETURN_PACKET_SCHEMA_v0_1.md","EXTERNAL_ROUND_LEDGER_v0_1.md"],
+      "material_absorption": ["constraint-field reasoning","cloud boundary lessons","analysis-view separation","dependency field modeling","return packet structure","external round/event ledger lessons"],
+      "successor_surface": ["semantic-core/dcp/dependency","semantic-core/dcp/state","semantic-core/dcp/authority","semantic-core/dcp/return","semantic-core/dcp/growth","semantic-core/carriers"],
+      "disposition": "REFERENCE_ONLY",
+      "reclaim_state": "HOLD_FOR_EVIDENCE",
+      "gap": "large mixed research family; commander/hierarchy framing may be obsolete while constraint/dependency/return primitives remain reusable"
+    },
+    {
+      "path_family": "04_adapter-layer",
+      "observed_contents": ["VIDEO_OUTPUT_NODE_SPEC.md","activation_order.md","calendar-adapter.md","drive-adapter.md","gamma_entry_spec.md","gemini_gas_sheet_bridge_spec.md","google_ecosystem_absorption_schema.md","line_entry_chain_spec.md","replit_relay_spec.md","source_map.md","writeback_gate_spec.md"],
+      "material_absorption": ["carrier capability abstraction","adapter contracts","source pointer mapping","write-back gating","multimodal output nodes"],
+      "successor_surface": ["semantic-core/carriers","semantic-core/projections","semantic-core/policy","semantic-core/events"],
+      "disposition": "REFERENCE_ONLY",
+      "reclaim_state": "HOLD_FOR_EVIDENCE",
+      "gap": "vendor-specific bridge specs must be separated from reusable adapter primitives; current connector capability matrix is still incomplete"
+    },
+    {
+      "path_family": "04_interface-layer",
+      "observed_contents": ["QINYI_PUBLIC_CORE_VALUE_v0_1.md"],
+      "material_absorption": ["public-value projection lessons"],
+      "successor_surface": ["public release profiles","Ideas human/external projection","semantic-core/projections"],
+      "disposition": "RE_ADMIT_IF_TRIGGERED",
+      "reclaim_state": "HOLD_FOR_NATIVE_OWNER",
+      "gap": "belongs primarily to Ideas/public projection ownership; DCP must not decide semantic replacement alone"
+    },
+    {
+      "path_family": "05_topology",
+      "observed_contents": ["consistent-triad-principle.md","feasible-domain-and-responsibility.md","ten-ring-definition-v0-1.md","time-sovereignty.md","triad-closed-loop-topology.md"],
+      "material_absorption": ["triadic consistency","feasible-domain responsibility","temporal ordering","closed-loop topology"],
+      "successor_surface": ["Cross-Sphere Contract Spine","semantic-core/dcp/dependency","semantic-core/dcp/state","semantic-core/dcp/growth"],
+      "disposition": "REFERENCE_ONLY",
+      "reclaim_state": "PARTIAL_RECLAIM_CANDIDATE",
+      "gap": "ten-ring fixed-organ framing is likely superseded; triad/feasible-domain/time primitives require preservation or professional rewrite"
+    },
+    {
+      "path_family": "05_XLEN_Reserve_Unenabled",
+      "observed_contents": ["02_Gmail_Bridge/"],
+      "material_absorption": ["reserved bridge concept only"],
+      "successor_surface": ["carrier capability registry when/if Gmail bridge is explicitly admitted"],
+      "disposition": "RE_ADMIT_IF_TRIGGERED",
+      "reclaim_state": "HOLD_FOR_TRIGGER",
+      "gap": "unenabled reserve must not be interpreted as current capability; inspect contents only when a named bridge activation requirement exists"
     }
   ],
+  "cross_family_findings": {
+    "obsolete_framing_candidates": ["window-era permanent identity","commander hierarchy","fixed ten-ring organ model","translation-layer as canonical interface"],
+    "primitives_to_preserve": ["constraint/dependency","triadic consistency","feasible-domain responsibility","return packet typing","write-back gate","source/carrier separation","adapter capability abstraction","time/order semantics"],
+    "gaps_to_build": ["active pointer/citation scanner","connector capability matrix","legacy-to-successor redirect map","historical routing-log compaction","Ideas-owned public value re-admission review"]
+  },
   "delete_gate": {
-    "requires": [
-      "material_absorbed",
-      "named_successor_exists",
-      "active_pointer_scan_clear",
-      "citation_scan_clear_or_redirected",
-      "authority_and_evidence_review_complete",
-      "re-entry_not_required_or_rebuild_source_preserved"
-    ],
+    "requires": ["material_absorbed","named_successor_exists","active_pointer_scan_clear","citation_scan_clear_or_redirected","authority_and_evidence_review_complete","re-entry_not_required_or_rebuild_source_preserved"],
     "physical_delete_default": false
   },
-  "next_scan": [
-    "03_board-orchestration",
-    "03_field-governance",
-    "04_adapter-layer",
-    "04_interface-layer",
-    "05_topology",
-    "05_XLEN_Reserve_Unenabled"
-  ]
+  "next_scan": ["00_meta","00_mother-law","PDF/root publications","nested permissions","nested routing-logs","adapter vendor-specific files","public citation graph"]
 }

@@ -1,0 +1,36 @@
+{
+  "profile": "LEGACY_POINTER_CITATION_SCAN_BATCH",
+  "version": "0.1-candidate",
+  "runtime": false,
+  "as_of": "2026-08-15",
+  "scope": ["01_native-board", "02_runtime-ops", "03_board-orchestration"],
+  "source_repository": "chenchienheng/XuanLing-00-Foundation-DCP",
+  "findings": [
+    {
+      "family": "01_native-board",
+      "current_runtime_dependency_found": false,
+      "legacy_governance_references_found": true,
+      "reference_surfaces": ["UNIFIED_ARTIFACT_REGISTER.md", "current_files.txt", "REPOSITORY_CORPUS_INVENTORY_MAP.md", "REPOSITORY_CORPUS_INDEX.md"],
+      "disposition": "REFERENCE_COMPACTION_REQUIRED_BEFORE_RECLAIM",
+      "next_gate": "REDIRECT_LEGACY_REFERENCES_THEN_RESCAN"
+    },
+    {
+      "family": "02_runtime-ops",
+      "current_runtime_dependency_found": false,
+      "legacy_governance_references_found": true,
+      "reference_surfaces": ["UNIFIED_ARTIFACT_REGISTER.md", "current_files.txt", "REPOSITORY_CORPUS_INVENTORY_MAP.md", "REPOSITORY_CORPUS_INDEX.md"],
+      "disposition": "REFERENCE_COMPACTION_REQUIRED_BEFORE_RECLAIM",
+      "next_gate": "REDIRECT_LEGACY_REFERENCES_THEN_RESCAN"
+    },
+    {
+      "family": "03_board-orchestration",
+      "current_runtime_dependency_found": false,
+      "legacy_governance_references_found": true,
+      "reference_surfaces": ["UNIFIED_ARTIFACT_REGISTER.md", "current_files.txt", "REPOSITORY_CORPUS_INVENTORY_MAP.md", "REPOSITORY_CORPUS_INDEX.md"],
+      "disposition": "REFERENCE_COMPACTION_REQUIRED_BEFORE_RECLAIM",
+      "next_gate": "REDIRECT_LEGACY_REFERENCES_THEN_RESCAN"
+    }
+  ],
+  "claim_ceiling": "SEARCH_EVIDENCE_ONLY_NOT_FULL_REPOSITORY_PROOF",
+  "physical_delete_authorized": false
+}

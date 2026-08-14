@@ -4,11 +4,20 @@ const readJson = p => JSON.parse(fs.readFileSync(p, 'utf8'));
 const index = readJson('semantic-core/index.json');
 const registry = readJson('semantic-core/artifacts/artifact-registry.json');
 const assembly = readJson('semantic-core/assemblies/gui-lu-design-review.json');
+const triad = readJson('semantic-core/specimens/gui-lu/triadic-representation-set.json');
 
 const fail = msg => { console.error(msg); process.exit(1); };
 
 for (const p of ['HUMAN_ZH_TW','EXTERNAL_EN_GATED','CANONICAL_MACHINE','VISUAL_SPATIAL','DOMAIN_NATIVE']) {
   if (!index.representation_profiles.includes(p)) fail(`REPRESENTATION_PROFILE_MISSING:${p}`);
+}
+
+for (const p of [
+  'semantic-core/HUMAN.zh-TW.md',
+  'semantic-core/artifacts/artifact-selection-matrix.csv',
+  'semantic-core/visuals/triadic-life-dependency.mmd'
+]) {
+  if (!fs.existsSync(p)) fail(`MULTIMODAL_HUMAN_OR_VISUAL_SURFACE_MISSING:${p}`);
 }
 
 const artifacts = registry.artifacts || [];
@@ -37,9 +46,18 @@ if (!assembly.selection_rules.exclude_invalidated) fail('ASSEMBLY_MUST_EXCLUDE_I
 if (!assembly.output_profiles.includes('HUMAN_ZH_TW')) fail('ASSEMBLY_HUMAN_PROFILE_MISSING');
 if (!assembly.output_profiles.includes('CANONICAL_MACHINE')) fail('ASSEMBLY_MACHINE_PROFILE_MISSING');
 
+if (triad.stable_subject_id !== 'WORLD-GUI-LU') fail('TRIAD_STABLE_IDENTITY_DRIFT');
+if (triad.profiles.human_zh_tw?.stable_subject_id !== triad.stable_subject_id) fail('TRIAD_HUMAN_IDENTITY_DRIFT');
+if (triad.profiles.canonical_machine?.stable_subject_id !== triad.stable_subject_id) fail('TRIAD_MACHINE_IDENTITY_DRIFT');
+for (const a of triad.profiles.visual_spatial || []) {
+  if (a.stable_subject_id !== triad.stable_subject_id) fail(`TRIAD_VISUAL_IDENTITY_DRIFT:${a.artifact_id}`);
+}
+if (triad.profiles.external_en_gated !== null) fail('EXTERNAL_PROFILE_MUST_REMAIN_GATED_UNTIL_RELEASE');
+if (!['ALIGNED','PARTIAL','HOLD'].includes(triad.alignment_state)) fail('INVALID_TRIAD_ALIGNMENT_STATE');
+
 for (const key of ['artifact_component','triadic_representation_set','context_assembly']) {
   const p = index.schemas[key];
   if (!p || !fs.existsSync(`semantic-core/${p}`)) fail(`SCHEMA_POINTER_MISSING:${key}`);
 }
 
-console.log('ARTIFACT_ECOSYSTEM_OK');
+console.log(`ARTIFACT_ECOSYSTEM_OK:${triad.alignment_state}`);

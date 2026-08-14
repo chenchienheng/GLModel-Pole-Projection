@@ -1,6 +1,6 @@
 {
   "profile": "DCP_SEMANTIC_CORE_INDEX",
-  "version": "0.2-candidate",
+  "version": "0.3-candidate",
   "runtime": false,
   "native_authority": "CoreTri_DCP",
   "current_surfaces": {
@@ -17,14 +17,22 @@
     "active_state": "instances/active-state.json",
     "return_ledger": "instances/return-ledger.json"
   },
+  "human_visual_surfaces": {
+    "human_zh_tw": "HUMAN.zh-TW.md",
+    "dependency_lifecycle_diagram": "visuals/dependency-current.mmd",
+    "state_authority_matrix": "visuals/state-authority-matrix.csv"
+  },
   "support_surfaces": {
     "receiver_projection_map": "current/receiver-projection-map.json",
-    "reader_manifest": "current/reader-manifest.json"
+    "reader_manifest": "current/reader-manifest.json",
+    "legacy_disposition": "../disposition/legacy-family-disposition.json",
+    "legacy_redirects": "../disposition/legacy-successor-redirects.json",
+    "pointer_citation_scan": "../disposition/pointer-citation-scan-r1.json"
   },
-  "representation_rule": "STRUCTURED_MODEL_PLUS_HUMAN_ZH_TW_PROJECTION",
+  "representation_rule": "STRUCTURED_MODEL_PLUS_HUMAN_ZH_TW_PLUS_PURPOSE_FIT_VISUAL_OR_TABLE",
   "external_release": "GATED_ONLY",
   "native_source_root": "NOT_THIS_REPOSITORY",
   "materiality_rule": "AFFECTED_EDGE_ONLY",
-  "reader_rule": "INDEX_THEN_ACTIVE_INSTANCE_THEN_AFFECTED_SURFACE",
+  "reader_rule": "INDEX_THEN_ACTIVE_INSTANCE_THEN_PURPOSE_FIT_SURFACE_THEN_AFFECTED_TECHNICAL_SLICE",
   "historical_rule": "EXCLUDED_FROM_CURRENT_ASSEMBLY_UNLESS_EXPLICIT_REENTRY_PURPOSE"
 }

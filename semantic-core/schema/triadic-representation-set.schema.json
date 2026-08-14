@@ -22,8 +22,9 @@
       "required": ["human_zh_tw", "canonical_machine"],
       "properties": {
         "human_zh_tw": {"$ref": "artifact-component.schema.json"},
-        "external_en_gated": {"anyOf": [{"$ref": "artifact-component.schema.json"}, {"type": "null"}]},
+        "professional_en": {"anyOf": [{"$ref": "artifact-component.schema.json"}, {"type": "null"}]},
         "canonical_machine": {"$ref": "artifact-component.schema.json"},
+        "external_en_gated": {"anyOf": [{"$ref": "artifact-component.schema.json"}, {"type": "null"}]},
         "visual_spatial": {"type": "array", "items": {"$ref": "artifact-component.schema.json"}},
         "domain_native": {"type": "array", "items": {"$ref": "artifact-component.schema.json"}}
       }
@@ -31,5 +32,11 @@
     "alignment_state": {"enum": ["ALIGNED", "PARTIAL", "SURFACE_DRIFT", "HOLD"]},
     "assembly_policy_id": {"type": ["string", "null"]},
     "release_gate_id": {"type": ["string", "null"]}
-  }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"alignment_state": {"const": "ALIGNED"}}},
+      "then": {"properties": {"profiles": {"required": ["human_zh_tw", "professional_en", "canonical_machine"]}}}
+    }
+  ]
 }

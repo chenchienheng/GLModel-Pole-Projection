@@ -1,0 +1,18 @@
+{
+  "assembly_id": "GUI-LU-DESIGN-REVIEW-R1",
+  "purpose": "讓人與模型在不全文讀取歷史資料的情況下，判斷 GUI-LU 當前世界身分、設計錨點、已證明內容與未證明內容。",
+  "audience": ["Vitas", "GLModel", "DCP", "Ideas"],
+  "subject_ids": ["WORLD-GUI-LU"],
+  "selection_rules": {
+    "allowed_lifecycle_states": ["CURRENT", "HOLD", "CANDIDATE"],
+    "allowed_semantic_roles": ["DESIGN", "STATE", "DEPENDENCY", "EVIDENCE", "REGRESSION_ANCHOR", "FAILURE", "EXPLANATION"],
+    "required_evidence_roles": [],
+    "exclude_superseded_without_explicit_request": true,
+    "exclude_invalidated": true,
+    "rights_gate_required": true
+  },
+  "output_profiles": ["HUMAN_ZH_TW", "CANONICAL_MACHINE", "VISUAL_SPATIAL"],
+  "preferred_artifact_kinds": ["THREE_D_MODEL", "DRAWING", "DIAGRAM", "TABLE", "IMAGE", "TEST_RESULT", "PROSE"],
+  "fallback_order": ["DOMAIN_NATIVE", "VISUAL_SPATIAL", "CANONICAL_MACHINE", "HUMAN_ZH_TW"],
+  "state": "CANDIDATE"
+}

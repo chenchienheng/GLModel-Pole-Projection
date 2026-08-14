@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "xuanling://schema/artifact-component",
+  "title": "Artifact Component",
+  "type": "object",
+  "required": ["artifact_id", "stable_subject_id", "artifact_kind", "semantic_role", "lifecycle_state", "representation_profile", "carrier_binding", "evidence_role"],
+  "properties": {
+    "artifact_id": {"type": "string", "minLength": 1},
+    "stable_subject_id": {"type": "string", "minLength": 1},
+    "artifact_kind": {
+      "enum": ["PROSE", "TABLE", "DIAGRAM", "IMAGE", "DRAWING", "VIDEO", "AUDIO", "THREE_D_MODEL", "BIM_MODEL", "GIS_LAYER", "SPREADSHEET", "DATASET", "EVENT_STREAM", "SENSOR_SERIES", "CODE", "POLICY", "SCHEMA", "DASHBOARD_VIEW", "SIMULATION", "TEST_RESULT", "OTHER"]
+    },
+    "semantic_role": {
+      "enum": ["REQUIREMENT", "EXPLANATION", "DECISION", "DESIGN", "STATE", "DEPENDENCY", "AUTHORITY", "EVIDENCE", "FAILURE", "CAPABILITY", "PROJECTION", "REGRESSION_ANCHOR", "RETURN", "REBUILD_SOURCE", "REFERENCE"]
+    },
+    "lifecycle_state": {
+      "enum": ["CANDIDATE", "CURRENT", "HOLD", "SUPERSEDED", "HISTORICAL", "INVALIDATED", "RETIRED", "RECLAIM_CANDIDATE"]
+    },
+    "representation_profile": {
+      "enum": ["HUMAN_ZH_TW", "EXTERNAL_EN_GATED", "CANONICAL_MACHINE", "VISUAL_SPATIAL", "DOMAIN_NATIVE"]
+    },
+    "carrier_binding": {
+      "type": "object",
+      "required": ["carrier_type", "pointer"],
+      "properties": {
+        "carrier_type": {"enum": ["DRIVE", "GITHUB", "LOCAL", "DATABASE", "CDE", "BIM_PLATFORM", "OBJECT_STORAGE", "STREAM", "EXTERNAL_SOURCE", "OTHER"]},
+        "pointer": {"type": ["string", "null"]},
+        "revision": {"type": ["string", "null"]},
+        "hash": {"type": ["string", "null"]}
+      }
+    },
+    "evidence_role": {"enum": ["NONE", "SOURCE_EVIDENCE", "CORRESPONDENCE_EVIDENCE", "VALIDATION_EVIDENCE", "REGRESSION_EVIDENCE", "PROVENANCE_EVIDENCE"]},
+    "authority_owner": {"type": ["string", "null"]},
+    "claim_ceiling": {"type": ["string", "null"]},
+    "supersedes": {"type": "array", "items": {"type": "string"}},
+    "superseded_by": {"type": ["string", "null"]},
+    "context_tags": {"type": "array", "items": {"type": "string"}},
+    "rights_profile_id": {"type": ["string", "null"]},
+    "created_event_id": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}

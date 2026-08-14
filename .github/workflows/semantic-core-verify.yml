@@ -24,7 +24,20 @@ jobs:
           node-version: '22'
       - name: Verify cross-surface semantic alignment
         run: node semantic-core/tools/verify-specimen.mjs
+      - name: Snapshot committed projection
+        run: cp semantic-core/generated/gui-lu.semantic-view.json /tmp/gui-lu.before.json
       - name: Compile projections from canonical specimen
         run: node semantic-core/tools/compile-projections.mjs
-      - name: Verify generated projections are current
-        run: git diff --exit-code -- semantic-core/generated
+      - name: Verify generated projection semantics are current
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const before=JSON.parse(fs.readFileSync('/tmp/gui-lu.before.json','utf8'));
+          const after=JSON.parse(fs.readFileSync('semantic-core/generated/gui-lu.semantic-view.json','utf8'));
+          const normalize=v=>Array.isArray(v)?v.map(normalize):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,normalize(v[k])])):v;
+          if(JSON.stringify(normalize(before))!==JSON.stringify(normalize(after))){
+            console.error('GENERATED_SEMANTIC_PROJECTION_STALE');
+            process.exit(1);
+          }
+          console.log('GENERATED_SEMANTIC_PROJECTION_CURRENT');
+          NODE

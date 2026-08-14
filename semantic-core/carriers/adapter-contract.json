@@ -1,0 +1,9 @@
+{
+  "profile":"CARRIER_ADAPTER_CONTRACT",
+  "version":"0.1-candidate",
+  "runtime":false,
+  "adapter_responsibilities":["BIND_STABLE_IDENTITY","DECLARE_CAPABILITIES","RESOLVE_REVISION","PRESERVE_AUTHORITY_REFERENCE","EMIT_CHANGE_EVENT","RETURN_RECEIPT","SUPPORT_EXIT"],
+  "adapter_must_not":["CLAIM_NATIVE_OWNERSHIP","PROMOTE_PROJECTION_TO_TRUTH","INFER_RIGHTS_FROM_CONNECTIVITY","DROP_PROVENANCE","SILENTLY_MUTATE_NATIVE_SOURCE"],
+  "minimum_exchange_envelope":["stable_identity","source_pointer","carrier_pointer","revision_or_hash","authority_reference","requested_action","allowed_scope","evidence_pointer","return_pointer","timestamp"],
+  "failure_states":["UNRESOLVED_POINTER","AUTHORITY_MISSING","REVISION_DRIFT","CAPABILITY_UNSUPPORTED","WRITEBACK_DENIED","SOURCE_UNAVAILABLE","EXIT_NOT_PROVEN"]
+}

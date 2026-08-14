@@ -1,0 +1,26 @@
+{
+  "manifest_id": "RB-GUI-LU-SEMANTIC-01",
+  "subject_id": "WORLD-GUI-LU",
+  "last_valid_checkpoint": null,
+  "accepted_ordered_deltas": [],
+  "evidence_pointers": [
+    "semantic-core/specimens/gui-lu/world.json",
+    "semantic-core/specimens/gui-lu/visual-bindings.json",
+    "semantic-core/specimens/gui-lu/events.jsonl",
+    "semantic-core/specimens/gui-lu/HUMAN.zh-TW.md"
+  ],
+  "holds": [
+    "GLMODEL_EXACT_GEOMETRY_VALIDATION_PENDING",
+    "VISUAL_ARTIFACT_POINTERS_NOT_YET_BOUND",
+    "OWNER_ACCEPTANCE_PENDING"
+  ],
+  "invalidations": [],
+  "carrier_requirements": [
+    "At least one lawful Native Source pointer outside this repository",
+    "Stable identity mapping",
+    "Versioned evidence pointers",
+    "Receiver-specific reconciliation for material deltas"
+  ],
+  "rebuild_status": "PARTIALLY_PROVEN",
+  "claim_ceiling": "Can rebuild the semantic specimen structure, not the full GUI-LU geometry or runtime world"
+}

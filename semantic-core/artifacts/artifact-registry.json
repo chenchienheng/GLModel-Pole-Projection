@@ -52,6 +52,18 @@
       "claim_ceiling": "Human-readable projection"
     },
     {
+      "artifact_id": "DCP-PROFESSIONAL-OVERVIEW-EN",
+      "stable_subject_id": "DCP-SEMANTIC-CORE",
+      "artifact_kind": "PROSE",
+      "semantic_role": "EXPLANATION",
+      "lifecycle_state": "CURRENT",
+      "representation_profile": "PROFESSIONAL_EN",
+      "carrier_binding": {"carrier_type": "GITHUB", "pointer": "semantic-core/dcp/PROFESSIONAL.en.md", "revision": null, "hash": null},
+      "evidence_role": "NONE",
+      "authority_owner": "DCP",
+      "claim_ceiling": "Professional internal semantic projection; not public release"
+    },
+    {
       "artifact_id": "DCP-CORE-INDEX",
       "stable_subject_id": "DCP-SEMANTIC-CORE",
       "artifact_kind": "DATASET",

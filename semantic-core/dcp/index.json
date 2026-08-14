@@ -11,6 +11,10 @@
     "growth_memory":"current/growth-memory-model.json",
     "rebuild_reentry":"current/rebuild-reentry-model.json"
   },
+  "support_surfaces":{
+    "receiver_projection_map":"current/receiver-projection-map.json",
+    "reader_manifest":"current/reader-manifest.json"
+  },
   "representation_rule":"STRUCTURED_MODEL_PLUS_HUMAN_ZH_TW_PROJECTION",
   "external_release":"GATED_ONLY",
   "native_source_root":"NOT_THIS_REPOSITORY",

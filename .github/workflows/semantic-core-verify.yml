@@ -58,6 +58,8 @@ jobs:
         run: node semantic-core/tools/verify-dcp-core.mjs
       - name: Verify carrier abstraction invariants
         run: node semantic-core/tools/verify-carriers.mjs
+      - name: Verify multimodal triadic artifact ecosystem
+        run: node semantic-core/tools/verify-artifact-ecosystem.mjs
       - name: Verify public projection is fail-closed before approval
         run: |
           set +e

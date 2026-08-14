@@ -1,0 +1,67 @@
+{
+  "registry_id": "XL20-ARTIFACT-REGISTRY-R1",
+  "state": "CANDIDATE_ACTIVE",
+  "native_source_root": false,
+  "artifacts": [
+    {
+      "artifact_id": "GUI-LU-HUMAN-OVERVIEW-ZH",
+      "stable_subject_id": "WORLD-GUI-LU",
+      "artifact_kind": "PROSE",
+      "semantic_role": "EXPLANATION",
+      "lifecycle_state": "CURRENT",
+      "representation_profile": "HUMAN_ZH_TW",
+      "carrier_binding": {"carrier_type": "GITHUB", "pointer": "semantic-core/specimens/gui-lu/HUMAN.zh-TW.md", "revision": null, "hash": null},
+      "evidence_role": "NONE",
+      "authority_owner": "GLModel",
+      "claim_ceiling": "Human interpretation; not geometry authority"
+    },
+    {
+      "artifact_id": "GUI-LU-WORLD-MACHINE",
+      "stable_subject_id": "WORLD-GUI-LU",
+      "artifact_kind": "DATASET",
+      "semantic_role": "STATE",
+      "lifecycle_state": "CURRENT",
+      "representation_profile": "CANONICAL_MACHINE",
+      "carrier_binding": {"carrier_type": "GITHUB", "pointer": "semantic-core/specimens/gui-lu/world.json", "revision": null, "hash": null},
+      "evidence_role": "PROVENANCE_EVIDENCE",
+      "authority_owner": "GLModel",
+      "claim_ceiling": "Bounded semantic specimen; not Runtime or final geometry"
+    },
+    {
+      "artifact_id": "GUI-LU-VISUAL-BINDINGS",
+      "stable_subject_id": "WORLD-GUI-LU",
+      "artifact_kind": "DIAGRAM",
+      "semantic_role": "REGRESSION_ANCHOR",
+      "lifecycle_state": "CURRENT",
+      "representation_profile": "VISUAL_SPATIAL",
+      "carrier_binding": {"carrier_type": "GITHUB", "pointer": "semantic-core/specimens/gui-lu/visual-bindings.json", "revision": null, "hash": null},
+      "evidence_role": "REGRESSION_EVIDENCE",
+      "authority_owner": "GLModel",
+      "claim_ceiling": "Anchor identity/correspondence only until real model/drawing evidence is bound"
+    },
+    {
+      "artifact_id": "DCP-HUMAN-OVERVIEW-ZH",
+      "stable_subject_id": "DCP-SEMANTIC-CORE",
+      "artifact_kind": "PROSE",
+      "semantic_role": "EXPLANATION",
+      "lifecycle_state": "CURRENT",
+      "representation_profile": "HUMAN_ZH_TW",
+      "carrier_binding": {"carrier_type": "GITHUB", "pointer": "semantic-core/dcp/HUMAN.zh-TW.md", "revision": null, "hash": null},
+      "evidence_role": "NONE",
+      "authority_owner": "DCP",
+      "claim_ceiling": "Human-readable projection"
+    },
+    {
+      "artifact_id": "DCP-CORE-INDEX",
+      "stable_subject_id": "DCP-SEMANTIC-CORE",
+      "artifact_kind": "DATASET",
+      "semantic_role": "DEPENDENCY",
+      "lifecycle_state": "CURRENT",
+      "representation_profile": "CANONICAL_MACHINE",
+      "carrier_binding": {"carrier_type": "GITHUB", "pointer": "semantic-core/dcp/index.json", "revision": null, "hash": null},
+      "evidence_role": "PROVENANCE_EVIDENCE",
+      "authority_owner": "DCP",
+      "claim_ceiling": "Bounded internal semantic index"
+    }
+  ]
+}

@@ -1,11 +1,12 @@
 {
   "profile": "DCP_SEMANTIC_CORE_INDEX",
-  "version": "0.4-candidate",
+  "version": "0.5-candidate",
   "runtime": false,
   "native_authority": "CoreTri_DCP",
   "current_surfaces": {
     "dependency_families": "current/dependency-families.json",
     "state_envelope": "current/state-envelope.json",
+    "requirement_thread": "current/requirement-thread-model.json",
     "return_closure": "current/return-closure-model.json",
     "authority_gate": "current/authority-gate-matrix.json",
     "growth_memory": "current/growth-memory-model.json",

@@ -1,15 +1,100 @@
 {
   "profile": "DCP_DEPENDENCY_FAMILY_INDEX",
-  "version": "0.1-candidate",
+  "version": "0.2-candidate",
   "runtime": false,
   "families": [
-    {"family_id":"IDENTITY_RELATION","purpose":"Stable identity, native home, owner/receiver, successor and re-entry relations","canonical_surface":"graph","owner":"DCP","material_change":["STABLE_IDENTITY","NATIVE_HOME","OWNER_RECEIVER","SUCCESSOR_REENTRY"]},
-    {"family_id":"STATE_ORTHOGONALITY","purpose":"Lifecycle, authority, evidence, return and rebuild state without implicit value propagation","canonical_surface":"state_model","owner":"DCP","material_change":["LIFECYCLE_STATE","AUTHORITY_STATE","EVIDENCE_STATE","RETURN_STATE","REBUILD_STATE"]},
-    {"family_id":"AUTHORITY_POLICY","purpose":"Purpose/scope/audience/rights/expiry/revocation gates","canonical_surface":"policy_gate","owner":"DCP","material_change":["RIGHTS","AUDIENCE","SCOPE","REVOCATION","EXPIRY"]},
-    {"family_id":"RETURN_RECONCILIATION","purpose":"Typed return, receiver acknowledgement, reconciliation and closure","canonical_surface":"event_ledger","owner":"DCP","material_change":["RETURN_OWNER","RECEIVER","RECONCILIATION","CLOSURE"]},
-    {"family_id":"REBUILD_REENTRY","purpose":"Last-valid checkpoint, accepted ordered delta, holds/invalidations and successor source","canonical_surface":"rebuild_manifest","owner":"DCP","material_change":["LAST_VALID","ORDERED_DELTA","HOLD_INVALIDATION","REENTRY_SOURCE"]},
-    {"family_id":"REPRESENTATION_RELEASE","purpose":"Human, external, machine and visual projections with disclosure controls","canonical_surface":"projection_manifest","owner":"DCP","material_change":["DISCLOSURE_CLASS","RELEASE_GATE","SEMANTIC_INVARIANT"]}
+    {
+      "family_id": "IDENTITY_RELATION",
+      "purpose": "Stable identity, native home, owner/receiver, successor and re-entry relations",
+      "canonical_surface": "graph",
+      "owner": "DCP",
+      "material_change": [
+        "STABLE_IDENTITY",
+        "NATIVE_HOME",
+        "OWNER_RECEIVER",
+        "SUCCESSOR_REENTRY"
+      ]
+    },
+    {
+      "family_id": "STATE_ORTHOGONALITY",
+      "purpose": "Lifecycle, authority, evidence, return and rebuild state without implicit value propagation",
+      "canonical_surface": "state_model",
+      "owner": "DCP",
+      "material_change": [
+        "LIFECYCLE_STATE",
+        "AUTHORITY_STATE",
+        "EVIDENCE_STATE",
+        "RETURN_STATE",
+        "REBUILD_STATE"
+      ]
+    },
+    {
+      "family_id": "REQUIREMENT_THREAD",
+      "purpose": "Protected intent and requirement traced through affected object, function, constraints, evidence, admission, operation and return without copying native bodies",
+      "canonical_surface": "trace_model",
+      "owner": "DCP",
+      "material_change": [
+        "REQUIREMENT_BINDING",
+        "AFFECTED_OBJECT",
+        "ACCEPTANCE_CONDITION",
+        "EVIDENCE_REQUIREMENT",
+        "RETURN_REFLECTION"
+      ]
+    },
+    {
+      "family_id": "AUTHORITY_POLICY",
+      "purpose": "Purpose/scope/audience/rights/expiry/revocation gates",
+      "canonical_surface": "policy_gate",
+      "owner": "DCP",
+      "material_change": [
+        "RIGHTS",
+        "AUDIENCE",
+        "SCOPE",
+        "REVOCATION",
+        "EXPIRY"
+      ]
+    },
+    {
+      "family_id": "RETURN_RECONCILIATION",
+      "purpose": "Typed return, receiver acknowledgement, reconciliation and closure",
+      "canonical_surface": "event_ledger",
+      "owner": "DCP",
+      "material_change": [
+        "RETURN_OWNER",
+        "RECEIVER",
+        "RECONCILIATION",
+        "CLOSURE"
+      ]
+    },
+    {
+      "family_id": "REBUILD_REENTRY",
+      "purpose": "Last-valid checkpoint, accepted ordered delta, holds/invalidations and successor source",
+      "canonical_surface": "rebuild_manifest",
+      "owner": "DCP",
+      "material_change": [
+        "LAST_VALID",
+        "ORDERED_DELTA",
+        "HOLD_INVALIDATION",
+        "REENTRY_SOURCE"
+      ]
+    },
+    {
+      "family_id": "REPRESENTATION_RELEASE",
+      "purpose": "Human, external, machine and visual projections with disclosure controls",
+      "canonical_surface": "projection_manifest",
+      "owner": "DCP",
+      "material_change": [
+        "DISCLOSURE_CLASS",
+        "RELEASE_GATE",
+        "SEMANTIC_INVARIANT"
+      ]
+    }
   ],
-  "non_material_changes":["FOLDER_MOVE_SAME_SEMANTIC_COORDINATE","RENAME_ONLY","HUMAN_LABEL_ONLY","CARRIER_RELOCATION_WITH_STABLE_BINDING"],
-  "source_root_rule":"NATIVE_SOURCE_ROOT_IS_EXTERNAL_TO_DCP_PROJECTION"
+  "non_material_changes": [
+    "FOLDER_MOVE_SAME_SEMANTIC_COORDINATE",
+    "RENAME_ONLY",
+    "HUMAN_LABEL_ONLY",
+    "CARRIER_RELOCATION_WITH_STABLE_BINDING"
+  ],
+  "source_root_rule": "NATIVE_SOURCE_ROOT_IS_EXTERNAL_TO_DCP_PROJECTION"
 }

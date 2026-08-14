@@ -19,7 +19,7 @@ for(const [key,p] of Object.entries(index.instances||{})){
   catch(e){ errors.push(`MISSING_INSTANCE:${key}:${p}`); }
 }
 const assert=(c,m)=>{if(!c)errors.push(m)};
-const required=['dependency_families','state_envelope','return_closure','authority_gate','growth_memory','rebuild_reentry','context_assembly','reasoning_contamination_gates'];
+const required=['dependency_families','state_envelope','requirement_thread','return_closure','authority_gate','growth_memory','rebuild_reentry','context_assembly','reasoning_contamination_gates'];
 for(const key of required) assert(Boolean(loaded[key]),`REQUIRED_DCP_SURFACE_MISSING:${key}`);
 assert(index.native_source_root==='NOT_THIS_REPOSITORY','DCP_REPO_MUST_NOT_BE_NATIVE_SOURCE_ROOT');
 assert(index.materiality_rule==='AFFECTED_EDGE_ONLY','MATERIALITY_RULE_DRIFT');
@@ -27,6 +27,18 @@ assert(index.materiality_rule==='AFFECTED_EDGE_ONLY','MATERIALITY_RULE_DRIFT');
 if(loaded.state_envelope){
   const forbidden=new Set(loaded.state_envelope.forbidden_inferences||[]);
   for(const x of ['READABLE_IMPLIES_COPYABLE','USER_LEARNED_IMPLIES_CORE_ADMITTED','ACK_IMPLIES_RECONCILED']) assert(forbidden.has(x),`STATE_INFERENCE_GUARD_MISSING:${x}`);
+}
+if(loaded.requirement_thread){
+  assert(loaded.requirement_thread.profile==='DCP_REQUIREMENT_THREAD_MODEL','REQUIREMENT_THREAD_PROFILE_DRIFT');
+  const inv=new Set(loaded.requirement_thread.invariants||[]);
+  for(const x of ['MEANING_BODY_REMAINS_NATIVE','ENGINEERING_BODY_REMAINS_NATIVE','RENDER_OR_DOCUMENT_EXISTENCE_NOT_REQUIREMENT_SATISFACTION','MISSING_EVIDENCE_REMAINS_TO_VERIFY']) assert(inv.has(x),`REQUIREMENT_THREAD_GUARD_MISSING:${x}`);
+  const specimens=loaded.requirement_thread.active_specimens||[];
+  assert(specimens.length>0,'REQUIREMENT_THREAD_SPECIMEN_MISSING');
+  const invalid=specimens.filter(x=>x.thread_state==='RECONCILED' && (!x.reality_model_evidence_pointer || !x.acceptance_condition));
+  assert(invalid.length===0,'RECONCILED_REQUIREMENT_WITHOUT_EVIDENCE_OR_ACCEPTANCE');
+  const wpb=specimens.find(x=>x.thread_key==='WP-B-MOTHER-WINDOW');
+  assert(Boolean(wpb),'WP_B_MOTHER_WINDOW_THREAD_MISSING');
+  if(wpb) assert(wpb.thread_state==='TRACE_PARTIAL','WP_B_TRACE_STATE_OVERCLAIM');
 }
 if(loaded.return_closure){
   const inv=new Set(loaded.return_closure.invariants||[]);
@@ -53,6 +65,7 @@ if(loadedInstances.active_state){
   assert(loadedInstances.active_state.runtime===false,'ACTIVE_STATE_RUNTIME_OVERCLAIM');
   assert(loadedInstances.active_state.state?.promotion==='NONE','ACTIVE_STATE_PROMOTION_OVERCLAIM');
   assert(Array.isArray(loadedInstances.active_state.pending_returns),'PENDING_RETURN_INSTANCE_MISSING');
+  assert(loadedInstances.active_state.state?.requirement_thread==='TRACE_PARTIAL','ACTIVE_WP_B_TRACE_STATE_DRIFT');
 }
 if(loadedInstances.return_ledger){
   const bad=(loadedInstances.return_ledger.entries||[]).filter(x=>x.state==='CLOSED_WITH_STATE_CHANGE' && !x.reconciliation);
@@ -63,6 +76,14 @@ for(const [key,p] of Object.entries(index.human_visual_surfaces||{})){
 }
 for(const [key,p] of Object.entries(index.support_surfaces||{})){
   try{ await fs.access(path.resolve(dcpRoot,p)); }catch(e){ errors.push(`MISSING_SUPPORT_SURFACE:${key}:${p}`); }
+}
+
+try{
+  const reader=await read(index.support_surfaces?.reader_manifest||'current/reader-manifest.json');
+  const order=reader.read_order||[];
+  for(const p of ['../index.json','../instances/active-state.json','../instances/return-ledger.json','AFFECTED_SURFACE_ONLY']) assert(order.includes(p),`READER_ORDER_MISSING:${p}`);
+}catch(e){
+  errors.push('READER_MANIFEST_UNREADABLE');
 }
 
 const result={profile:index.profile,status:errors.length?'FAIL':'PASS_BOUNDED',surface_count:Object.keys(loaded).length,required_surface_count:required.length,instance_count:Object.keys(loadedInstances).length,visual_surface_count:Object.keys(index.human_visual_surfaces||{}).length,errors};

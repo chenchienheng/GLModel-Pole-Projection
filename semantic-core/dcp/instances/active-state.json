@@ -1,6 +1,6 @@
 {
   "profile": "DCP_ACTIVE_STATE_INSTANCE",
-  "version": "0.1-candidate",
+  "version": "0.2-candidate",
   "runtime": false,
   "as_of": "2026-08-15",
   "native_authority": "CoreTri_DCP",
@@ -10,6 +10,7 @@
     "existence_level_triadic_ecology": "CANDIDATE_ACTIVE",
     "historical_metabolism": "ACTIVE",
     "current_surface_compaction": "ACTIVE",
+    "requirement_thread": "TRACE_PARTIAL",
     "public_projection": "FAIL_CLOSED",
     "promotion": "NONE",
     "runtime": false
@@ -20,7 +21,20 @@
       "subject": "WORLD-GUI-LU",
       "reason": "Exact geometry and domain-native drawing/model evidence remain GLModel-native validation work.",
       "owner": "GLModel",
-      "blocks": ["GEOMETRY_AUTHORITY_PROMOTION", "WORLD_REBUILD_COMPLETE_CLAIM"]
+      "blocks": [
+        "GEOMETRY_AUTHORITY_PROMOTION",
+        "WORLD_REBUILD_COMPLETE_CLAIM"
+      ]
+    },
+    {
+      "hold_id": "HOLD-WP-B-MOTHER-WINDOW-TRACE",
+      "subject": "WORLD-GUI-LU/MOTHER_SUITE_WINDOW",
+      "reason": "A lawful requirement pointer and exact Mother Space plus Window/Host/Opening evidence are absent. DCP may trace the gap but cannot claim requirement satisfaction.",
+      "owner": "Ideas/Qinyi + GLModel",
+      "blocks": [
+        "REQUIREMENT_THREAD_RECONCILED_CLAIM",
+        "MOTHER_WINDOW_REQUIREMENT_SATISFIED_CLAIM"
+      ]
     }
   ],
   "active_conflicts": [],
@@ -42,6 +56,7 @@
   ],
   "current_pointers": {
     "dcp_index": "semantic-core/dcp/index.json",
+    "requirement_thread": "semantic-core/dcp/current/requirement-thread-model.json",
     "semantic_core_index": "semantic-core/index.json",
     "artifact_registry": "semantic-core/artifacts/artifact-registry.json",
     "ecosystem_migration": "semantic-core/migration/ecosystem-migration-map.json"
@@ -49,6 +64,7 @@
   "not_to_claim": [
     "Runtime proven",
     "Full GUI-LU geometry proven",
+    "WP-B requirement thread reconciled",
     "All historical contamination removed",
     "Public release approved"
   ]

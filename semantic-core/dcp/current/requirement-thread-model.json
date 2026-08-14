@@ -1,0 +1,144 @@
+{
+  "profile": "DCP_REQUIREMENT_THREAD_MODEL",
+  "version": "0.1-candidate",
+  "runtime": false,
+  "promotion": "NONE",
+  "native_authority": "CoreTri_DCP",
+  "purpose": "Trace protected intent and requirements through affected identity, function, constraints, evidence, admission, operation and return without copying Ideas/Qinyi meaning bodies or GLModel engineering bodies.",
+  "human_summary_zh_tw": "WP-B 已能明確指出母親套房窗需求鏈缺在哪裡，但目前仍沒有合法 Requirement ID、精確 Mother Space 與 Window／Host／Opening 證據；因此只能維持 TRACE_PARTIAL，不能宣稱需求已滿足。",
+  "professional_summary_en": "WP-B can now expose the exact gap in the Mother Suite window requirement thread. A lawful requirement identifier, exact Mother Space binding, and Window/Host/Opening evidence remain absent, so the thread stays TRACE_PARTIAL and cannot support a satisfaction or engineering-acceptance claim.",
+  "canonical_chain": [
+    "PROTECTED_INTENT_POINTER",
+    "REQUIREMENT",
+    "AFFECTED_STABLE_OBJECT",
+    "LIFE_FUNCTION_CAPABILITY",
+    "CONSTRAINT_INTERFACE_DEPENDENCY",
+    "ACTION_ENGINEERING",
+    "EVIDENCE",
+    "ADMISSION",
+    "STATE",
+    "OPERATION_MAINTENANCE",
+    "RETURN_RECEIPT",
+    "REFLECTION_REENTRY"
+  ],
+  "thread_states": [
+    "OBSERVED",
+    "HYPOTHESIZED",
+    "EDGE_MAPPED",
+    "GATE_DEFINED",
+    "EVIDENCE_BACKED",
+    "ACTIONABLE",
+    "RETURNED",
+    "RECONCILED",
+    "REENTERED",
+    "METABOLIZED",
+    "TRACE_PARTIAL",
+    "HOLD_WITH_NEXT_TRIGGER",
+    "CONFLICT"
+  ],
+  "minimum_fields": [
+    "thread_key",
+    "protected_intent_pointer",
+    "source_owner_sphere",
+    "affected_stable_object",
+    "life_function_capability",
+    "constraint_interface_dependency",
+    "acceptance_condition",
+    "evidence_required",
+    "authority",
+    "lifecycle_scope",
+    "operation_maintenance_implication",
+    "reality_model_evidence_pointer",
+    "return_target",
+    "reflection_trigger",
+    "claim_type",
+    "claim_ceiling",
+    "thread_state",
+    "next_trigger"
+  ],
+  "invariants": [
+    "MEANING_BODY_REMAINS_NATIVE",
+    "ENGINEERING_BODY_REMAINS_NATIVE",
+    "RENDER_OR_DOCUMENT_EXISTENCE_NOT_REQUIREMENT_SATISFACTION",
+    "MISSING_EVIDENCE_REMAINS_TO_VERIFY",
+    "THREAD_STATE_NOT_MATURITY",
+    "RETURN_NOT_REQUIREMENT_SATISFACTION",
+    "ONE_BLOCKER_STOPS_AFFECTED_BRANCH_ONLY"
+  ],
+  "active_specimens": [
+    {
+      "thread_key": "WP-B-MOTHER-WINDOW",
+      "requirement_id": null,
+      "protected_intent_pointer": null,
+      "source_pointer": {
+        "carrier": "Google Drive",
+        "file_id": "115ahFBABdcoH57vdobhDg47zQyf9KA6JurC6pVK7TMA",
+        "section": "WP-B Requirement Trace"
+      },
+      "source_owner_sphere": [
+        "Ideas/Qinyi",
+        "GLModel"
+      ],
+      "dcp_role": "TRACE_AND_GATE_ONLY",
+      "affected_stable_object": "WORLD-GUI-LU",
+      "affected_assembly": "MOTHER_SUITE_WINDOW_EXACT_ID_TO_VERIFY",
+      "life_function_capability": "PARTIAL_UNBOUND",
+      "constraint_interface_dependency": "PARTIAL_HOST_OPENING_ENGINEERING_UNPROVEN",
+      "acceptance_condition": null,
+      "evidence_required": [
+        "LAWFUL_REQUIREMENT_ID_AND_PROTECTED_MEANING_POINTER",
+        "EXACT_MOTHER_SPACE_BINDING",
+        "EXACT_WINDOW_HOST_OPENING_IDENTITIES",
+        "DOMAIN_NATIVE_DRAWING_OR_MODEL_EVIDENCE",
+        "ENGINEERING_ACCEPTANCE_AND_MAINTENANCE_EVIDENCE"
+      ],
+      "authority": {
+        "meaning": "Ideas/Qinyi",
+        "world_engineering": "GLModel",
+        "dependency_reconciliation": "DCP",
+        "promotion": "Vitas"
+      },
+      "lifecycle_scope": "WHOLE_LIFE_CANDIDATE",
+      "operation_maintenance_implication": "TO_VERIFY",
+      "reality_model_evidence_pointer": null,
+      "return_target": "CoreTri_DCP",
+      "reflection_trigger": "Ideas/Qinyi and GLModel native returns materially change the requirement binding or evidence state",
+      "claim_type": "DERIVED_GAP_TRACE",
+      "claim_ceiling": "PROVEN_REQUIREMENT_GAP_AND_NEGATIVE_NATIVE_EVIDENCE_ONLY",
+      "thread_state": "TRACE_PARTIAL",
+      "known_evidence": [
+        "mother_space_binding=null",
+        "window_host_opening_absent",
+        "mother_suite_geometry_authored=0",
+        "current_and_last_good_unchanged"
+      ],
+      "blocks": [
+        "REQUIREMENT_SATISFIED_CLAIM",
+        "ENGINEERING_ACCEPTANCE_CLAIM",
+        "RECONCILED_THREAD_CLAIM"
+      ],
+      "next_trigger": [
+        "Ideas/Qinyi provides a lawful requirement pointer and protected meaning binding",
+        "GLModel returns exact Mother Space plus Window/Host/Opening identities and domain-native evidence",
+        "DCP performs affected-edge admission and reconciliation"
+      ]
+    }
+  ],
+  "historical_conflict_disposition": {
+    "subject": "QIN-203_TO_QIN-204_RECEIVER_MISMATCH",
+    "current_state": "HISTORICAL_ONLY_NOT_ACTIVE_CONFLICT",
+    "evidence": [
+      "QIN-203 canceled 2026-08-12 and labeled absorbed-r0.10",
+      "QIN-204 canceled 2026-08-12 and labeled absorbed-r0.10"
+    ],
+    "reader_rule": "Historical mismatch may support audit/failure learning but must not re-enter active conflict assembly without a new material trigger"
+  },
+  "not_to_claim": [
+    "WP-B passed",
+    "Mother Suite window requirement satisfied",
+    "Exact Mother Space or Window/Host/Opening identity proven",
+    "Engineering acceptance proven",
+    "Ideas/Qinyi or GLModel native ACK performed by DCP",
+    "Runtime, BuildReady, Promotion, Canon or Closeout"
+  ]
+}

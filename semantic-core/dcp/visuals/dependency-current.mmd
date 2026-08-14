@@ -9,6 +9,13 @@ flowchart LR
   H --> I[Growth / Failure Memory]
   I --> A
 
+  Q[Protected Intent / Requirement] --> T[Requirement Thread]
+  B --> T
+  T --> C
+  T --> E
+  T --> F
+  T -. missing native evidence => TRACE_PARTIAL .-> H
+
   L[Legacy / Historical Artifact] -. explicit provenance or rebuild purpose only .-> F
   L -. blocked by default .-> C
 

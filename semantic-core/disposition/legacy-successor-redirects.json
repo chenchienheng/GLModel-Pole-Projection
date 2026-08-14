@@ -1,0 +1,43 @@
+{
+  "profile": "LEGACY_SUCCESSOR_REDIRECT_MAP",
+  "version": "0.1-candidate",
+  "runtime": false,
+  "rules": [
+    "REDIRECT_DOES_NOT_DELETE_SOURCE",
+    "REDIRECT_REQUIRES_SEMANTIC_EQUIVALENCE_OR_BOUNDED_ABSORPTION",
+    "HISTORICAL_SOURCE_REMAINS_PROVENANCE_UNTIL_DELETE_GATE_PASSES"
+  ],
+  "redirects": [
+    {
+      "legacy_family": "01_runtime-spine",
+      "successors": ["semantic-core/dcp/index.json", "semantic-core/carriers/pointer-resolution-model.json", "CURRENT-SURFACE-MANIFEST.json"],
+      "state": "ABSORBED_REFERENCE",
+      "delete_blockers": ["ACTIVE_POINTER_SCAN", "PUBLIC_CITATION_SCAN"]
+    },
+    {
+      "legacy_family": "01_native-board",
+      "successors": ["semantic-core/dcp/instances/active-state.json", "semantic-core/dcp/current/authority-gate-matrix.json", "semantic-core/dcp/current/reader-manifest.json"],
+      "state": "PARTIALLY_REDIRECTED",
+      "delete_blockers": ["PERMISSIONS_SUBTREE_EVIDENCE_REVIEW"]
+    },
+    {
+      "legacy_family": "02_runtime-ops",
+      "successors": ["semantic-core/dcp/instances/return-ledger.json", "semantic-core/dcp/current/return-closure-model.json"],
+      "state": "ABSORBED_REFERENCE",
+      "delete_blockers": ["ACTIVE_ISSUE_WORKFLOW_POINTER_SCAN"]
+    },
+    {
+      "legacy_family": "03_board-orchestration",
+      "successors": ["semantic-core/dcp/current/receiver-projection-map.json", "semantic-core/dcp/instances/return-ledger.json"],
+      "state": "PARTIALLY_REDIRECTED",
+      "delete_blockers": ["ROUTING_LOG_LINEAGE_COMPACTION"]
+    },
+    {
+      "legacy_family": "05_topology",
+      "successors": ["semantic-core/index.json", "semantic-core/dcp/current/dependency-families.json", "semantic-core/dcp/current/state-envelope.json"],
+      "state": "PARTIAL_RECLAIM_ONLY",
+      "preserve": ["triadic consistency", "feasible-domain responsibility", "time/order semantics"],
+      "retire_candidate": ["fixed ten-ring organ framing"]
+    }
+  ]
+}

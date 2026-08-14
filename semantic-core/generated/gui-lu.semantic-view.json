@@ -1,0 +1,53 @@
+{
+  "generated_from": {
+    "world": "specimens/gui-lu/world.json",
+    "visual": "specimens/gui-lu/visual-bindings.json",
+    "rebuild": "specimens/gui-lu/rebuild-manifest.json",
+    "events": "specimens/gui-lu/events.jsonl",
+    "projections": "specimens/gui-lu/projection-manifest.json"
+  },
+  "identity": {
+    "stable_id": "WORLD-GUI-LU",
+    "object_type": "PROJECT_WORLD",
+    "native_holder": "GLModel Native Sphere"
+  },
+  "state": {
+    "lifecycle": "WORKING_CANDIDATE",
+    "authority": "NATIVE_OWNER_BOUND",
+    "evidence": "PARTIAL",
+    "return": "RECONCILIATION_REQUIRED_ON_MATERIAL_DELTA",
+    "rebuild": "PARTIALLY_PROVEN"
+  },
+  "primary_organs": [
+    {"id": "BLDG-MAIN", "state": "PRESERVE_BY_DEFAULT"},
+    {"id": "BLDG-GUEST", "state": "PRESERVE_BY_DEFAULT"},
+    {"id": "BLDG-UTILITY", "state": "PRESERVE_BY_DEFAULT"}
+  ],
+  "anchors": [
+    {"id":"WORLD-AXON","state":"LOCK_CANDIDATE","binding_id":"VB-WORLD-AXON","evidence_role":"IDENTITY_ANCHOR","artifact_pointer":null,"revision":"CANDIDATE","drift_checks":["BUILDING_COUNT_DRIFT","PRIMARY_ORGAN_REPLACEMENT"]},
+    {"id":"SITE-PLAN","state":"LOCK_CANDIDATE","binding_id":"VB-SITE-PLAN","evidence_role":"IDENTITY_ANCHOR","artifact_pointer":null,"revision":"CANDIDATE","drift_checks":["SITE_RELATION_DRIFT","CENTRAL_GARDEN_AS_DRIVEWAY"]},
+    {"id":"ARRIVAL","state":"LOCK_CANDIDATE","binding_id":"VB-ARRIVAL","evidence_role":"IDENTITY_ANCHOR","artifact_pointer":null,"revision":"CANDIDATE","drift_checks":["ARRIVAL_SEQUENCE_DRIFT","PEDESTRIAN_VEHICLE_CONFLICT"]},
+    {"id":"CENTRAL-COMMONS","state":"LOCK_CANDIDATE","binding_id":"VB-CENTRAL-COMMONS","evidence_role":"IDENTITY_ANCHOR","artifact_pointer":null,"revision":"CANDIDATE","drift_checks":["COMMONS_REPLACED_BY_DRIVEWAY","CENTRAL_RELATION_DRIFT"]},
+    {"id":"MAIN-HOUSE-GARDEN","state":"LOCK_CANDIDATE","binding_id":"VB-MAIN-HOUSE-GARDEN","evidence_role":"IDENTITY_ANCHOR","artifact_pointer":null,"revision":"CANDIDATE","drift_checks":["MAIN_GARDEN_DISCONNECTION","LANDSCAPE_ORGAN_INFLATION"]},
+    {"id":"GUEST-HOUSE","state":"LOCK_CANDIDATE","binding_id":"VB-GUEST-HOUSE","evidence_role":"IDENTITY_ANCHOR","artifact_pointer":null,"revision":"CANDIDATE","drift_checks":["GUEST_HOUSE_IDENTITY_DRIFT","PAVILION_INFLATION"]},
+    {"id":"UTILITY-SERVICE","state":"LOCK_CANDIDATE","binding_id":"VB-UTILITY-SERVICE","evidence_role":"IDENTITY_ANCHOR","artifact_pointer":null,"revision":"CANDIDATE","drift_checks":["UTILITY_BUILDING_LOSS","SERVICE_ACCESS_INTERRUPTED"]},
+    {"id":"VEHICLE-PARK-TURN-EGRESS","state":"LOCK_CANDIDATE","binding_id":"VB-VEHICLE","evidence_role":"IDENTITY_ANCHOR","artifact_pointer":null,"revision":"CANDIDATE","drift_checks":["VEHICLE_PATH_INTERRUPTED","TURNING_NOT_PROVEN"]},
+    {"id":"SERVICE-MAINTENANCE","state":"LOCK_CANDIDATE","binding_id":"VB-SERVICE","evidence_role":"IDENTITY_ANCHOR","artifact_pointer":null,"revision":"CANDIDATE","drift_checks":["SERVICE_ROUTE_THROUGH_LIVING_CORE","MAINTENANCE_CLEARANCE_MISSING"]},
+    {"id":"MEP-CONCEALED-SECTION","state":"LOCK_CANDIDATE","binding_id":"VB-MEP","evidence_role":"IDENTITY_ANCHOR","artifact_pointer":null,"revision":"CANDIDATE","drift_checks":["EXPOSED_MEP_IN_LIVING_OR_GARDEN","UNMAINTAINABLE_ROUTE"]}
+  ],
+  "holds": [
+    "GLMODEL_EXACT_GEOMETRY_VALIDATION_PENDING",
+    "VISUAL_ARTIFACT_POINTERS_NOT_YET_BOUND",
+    "OWNER_ACCEPTANCE_PENDING"
+  ],
+  "rebuild_status": "PARTIALLY_PROVEN",
+  "recent_events": [
+    {"event_id":"EV-GUI-LU-0001","event_type":"OBSERVATION","state_after":"SEMANTIC_IDENTITY_BOUND_CANDIDATE","claim_ceiling":"Stable world identity and primary relation specimen only; no geometry authority","next_gate":"GLModel validates exact world/object bindings and visual anchors"},
+    {"event_id":"EV-GUI-LU-0002","event_type":"CAPABILITY_PROOF","state_after":"MULTI_REPRESENTATION_SPECIMEN_CREATED","claim_ceiling":"Representation architecture proven only as a bounded repository specimen; not runtime proven","next_gate":"Validate schema, graph/state/event/view reconstruction and cross-surface drift detection"}
+  ],
+  "release": {
+    "external_state": "APPROVAL_REQUIRED",
+    "external_pointer": null
+  },
+  "claim_ceiling": "Can rebuild the semantic specimen structure, not the full GUI-LU geometry or runtime world"
+}

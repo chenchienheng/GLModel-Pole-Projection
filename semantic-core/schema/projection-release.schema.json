@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "xuanling://semantic-core/projection-release.schema.json",
+  "title": "XuanLing Projection Release Gate",
+  "type": "object",
+  "required": ["projection_id", "subject_id", "profile", "classification", "semantic_invariants", "release_state", "source_bindings"],
+  "properties": {
+    "projection_id": {"type": "string"},
+    "subject_id": {"type": "string"},
+    "profile": {"enum": ["HUMAN_ZH_TW", "EXTERNAL_EN", "CANONICAL_MACHINE", "VISUAL_SPATIAL"]},
+    "classification": {"enum": ["PUBLIC", "CONTROLLED_INTERNAL", "RESTRICTED_NATIVE"]},
+    "audience": {"type": "array", "items": {"type": "string"}},
+    "semantic_invariants": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "redactions": {"type": "array", "items": {"type": "string"}},
+    "omissions": {"type": "array", "items": {"type": "string"}},
+    "claim_ceiling": {"type": "string"},
+    "release_state": {"enum": ["DRAFT", "PUBLIC_SAFE_CANDIDATE", "APPROVAL_REQUIRED", "APPROVED", "REVOKED"]},
+    "source_bindings": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "approval_evidence": {"type": "array", "items": {"type": "string"}},
+    "revocation_trigger": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

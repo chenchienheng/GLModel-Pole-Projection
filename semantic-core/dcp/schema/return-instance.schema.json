@@ -1,0 +1,20 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://xuanling.local/schema/dcp/return-instance.schema.json",
+  "title":"DCP Return Instance",
+  "type":"object",
+  "required":["return_id","source_pointer","receiver","return_type","materiality","closure_state","claim_ceiling"],
+  "properties":{
+    "return_id":{"type":"string"},
+    "source_pointer":{"type":"string"},
+    "receiver":{"type":"string"},
+    "return_type":{"enum":["ACTION_RECEIPT","EVIDENCE_RETURN","LEARNING_RETURN","NATIVE_WRITEBACK_RETURN","RECEIVER_ACK","RECONCILIATION_OUTCOME"]},
+    "materiality":{"type":"string"},
+    "evidence_pointer":{"type":["string","null"]},
+    "closure_state":{"enum":["CLOSED_WITH_STATE_CHANGE","CLOSED_NO_MATERIAL_DELTA","RETURN_PENDING","RECONCILIATION_PENDING","HOLD_WITH_NEXT_TRIGGER","CONFLICT","REOPENED"]},
+    "next_trigger":{"type":["string","null"]},
+    "claim_ceiling":{"type":"string"},
+    "created_at":{"type":["string","null"]}
+  },
+  "additionalProperties":false
+}

@@ -1,0 +1,9 @@
+{
+  "profile":"PROJECTION_ENVELOPE",
+  "version":"0.1-candidate",
+  "runtime":false,
+  "fields":["projection_id","stable_identity","profile_type","audience","disclosure_class","source_pointer","source_revision_or_hash","semantic_invariants","claim_ceiling","release_state","expiry","receiver","evidence_pointer"],
+  "profile_types":["HUMAN_ZH_TW","EXTERNAL_EN","CANONICAL_MACHINE","VISUAL_SPATIAL","ADAPTER_EXCHANGE"],
+  "release_states":["INTERNAL_ONLY","CANDIDATE","APPROVAL_REQUIRED","APPROVED_BOUNDED","REVOKED","EXPIRED"],
+  "invariants":["PROJECTION_NOT_SECOND_TRUTH","PROFILE_DEPTH_MAY_DIFFER_SEMANTICS_MUST_ALIGN","PUBLIC_SAFE_NOT_PUBLIC_APPROVED","REVOKED_PROJECTION_NOT_REUSABLE"]
+}

@@ -1,0 +1,60 @@
+{
+  "map_id": "XL-ECOSYSTEM-TRIADIC-MIGRATION-R1",
+  "state": "CANDIDATE_ACTIVE",
+  "runtime": false,
+  "restart": false,
+  "target_model": "STABLE_EXISTENCE -> TRIADIC_REPRESENTATION_SET -> MULTIMODAL_ARTIFACTS -> CONTEXT_ASSEMBLY -> RETURN_RECONCILE_REBUILD",
+  "domains": [
+    {
+      "domain": "DCP",
+      "native_truth": ["dependency", "state", "authority", "return", "rebuild", "growth/failure memory"],
+      "preferred_artifacts": ["DATASET", "DIAGRAM", "TABLE", "EVENT_STREAM", "POLICY", "SCHEMA", "DASHBOARD_VIEW", "PROSE"],
+      "migration_priority": "P0",
+      "next_material_work": ["typed Active Hold/Conflict/Pending Return instances", "dependency graph views", "state/authority dashboard", "historical contamination gates"]
+    },
+    {
+      "domain": "Ideas",
+      "native_truth": ["meaning", "life requirement", "experience", "navigation", "human learning", "friction"],
+      "preferred_artifacts": ["PROSE", "DIAGRAM", "TABLE", "IMAGE", "DASHBOARD_VIEW", "DATASET"],
+      "migration_priority": "P0",
+      "next_material_work": ["meaning components", "navigation graph", "human burden/friction table", "context-specific human assemblies"]
+    },
+    {
+      "domain": "GLModel",
+      "native_truth": ["world/object", "geometry", "assembly", "engineering", "quantity", "lifecycle", "correspondence"],
+      "preferred_artifacts": ["DRAWING", "THREE_D_MODEL", "BIM_MODEL", "GIS_LAYER", "IMAGE", "VIDEO", "TABLE", "SPREADSHEET", "SIMULATION", "TEST_RESULT", "DATASET"],
+      "migration_priority": "P0",
+      "next_material_work": ["bind real drawings/models/cameras to 10 GUI-LU anchors", "geometry regression", "MEP/structure/landscape domain-native artifacts", "quantity/cost/schedule bindings"]
+    },
+    {
+      "domain": "Carrier Network",
+      "native_truth": ["none by default; carrier capability and pointer only"],
+      "preferred_artifacts": ["DATASET", "SCHEMA", "POLICY", "EVENT_STREAM"],
+      "migration_priority": "P1",
+      "next_material_work": ["capability negotiation", "pointer resolver", "connector evidence", "carrier replacement tests"]
+    },
+    {
+      "domain": "Three Repositories",
+      "native_truth": ["none; repository-specific projections/build surfaces"],
+      "preferred_artifacts": ["PROSE", "DIAGRAM", "DATASET", "SCHEMA", "CODE", "TEST_RESULT"],
+      "migration_priority": "P1",
+      "next_material_work": ["public projection generators", "internal semantic build surface", "legacy disposition/reclaim", "repository naming only after stable content role emerges"]
+    },
+    {
+      "domain": "Historical Corpus",
+      "native_truth": ["provenance/failure/rebuild evidence only unless explicitly re-admitted"],
+      "preferred_artifacts": ["PROSE", "IMAGE", "VIDEO", "DATASET", "EVENT_STREAM", "TEST_RESULT", "REFERENCE"],
+      "migration_priority": "P1",
+      "next_material_work": ["successor binding", "citation/pointer scan", "historical reader shield", "safe archive/reclaim"]
+    }
+  ],
+  "global_rules": [
+    "NO_FORMAT_HAS_SEMANTIC_PRIVILEGE",
+    "NO_CARRIER_HAS_NATIVE_AUTHORITY_BY_DEFAULT",
+    "CURRENT_ASSEMBLY_EXCLUDES_SUPERSEDED_INVALIDATED_BY_DEFAULT",
+    "HUMAN_ZH_TW_AND_CANONICAL_MACHINE_REQUIRED_FOR_MIGRATED_CURRENT_EXISTENCE",
+    "EXTERNAL_EN_REQUIRES_RELEASE_GATE",
+    "VISUAL_OR_DOMAIN_NATIVE_ARTIFACT_REQUIRED_WHEN_TEXT_CANNOT_PRESERVE_THE_DOMAIN_TRUTH",
+    "REPRESENTATION_DRIFT_OR_CONTEXT_CONTAMINATION_BLOCKS_PROMOTION"
+  ]
+}

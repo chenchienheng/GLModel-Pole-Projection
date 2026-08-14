@@ -28,6 +28,18 @@ jobs:
         run: node semantic-core/tools/verify-dcp-core.mjs
       - name: Verify carrier abstraction invariants
         run: node semantic-core/tools/verify-carriers.mjs
+      - name: Verify public projection is fail-closed before approval
+        run: |
+          set +e
+          node semantic-core/tools/compile-public-projection.mjs >/tmp/public.out 2>/tmp/public.err
+          code=$?
+          set -e
+          cat /tmp/public.err || true
+          if [ "$code" -ne 3 ]; then
+            echo "EXPECTED_APPROVAL_REQUIRED_BLOCK_BUT_GOT_EXIT_${code}"
+            exit 1
+          fi
+          grep -q 'PUBLIC_PROJECTION_BLOCKED:APPROVAL_REQUIRED' /tmp/public.err
       - name: Snapshot committed projection
         run: cp semantic-core/generated/gui-lu.semantic-view.json /tmp/gui-lu.before.json
       - name: Compile projections from canonical specimen

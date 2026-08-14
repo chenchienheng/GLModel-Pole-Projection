@@ -1,0 +1,9 @@
+{
+  "profile": "DCP_REBUILD_REENTRY_MODEL",
+  "version": "0.1-candidate",
+  "runtime": false,
+  "rebuild_formula": ["NATIVE_SOURCE_OR_LAST_VALID_CHECKPOINT","ACCEPTED_ORDERED_DELTA","VALID_EVIDENCE_EXTERNAL_POINTER","HOLDS_INVALIDATIONS","REBUILD_MANIFEST"],
+  "required_bindings": ["stable_identity","native_source_pointer","source_revision_or_hash","last_valid_checkpoint","accepted_delta_order","hold_invalidation_set","successor_or_reentry_relation","claim_ceiling"],
+  "reentry_states": ["NOT_APPLICABLE","PENDING","READY_BOUNDED","BLOCKED","REOPENED","RECONCILED"],
+  "invariants": ["CARRIER_NOT_REBUILD_SOURCE_BY_DEFAULT","PROJECTION_NOT_NATIVE_BODY","LATEST_NOT_CURRENT","RETURN_NOT_REENTRY","REBUILD_REQUIRES_ORDERED_ACCEPTED_DELTA"]
+}

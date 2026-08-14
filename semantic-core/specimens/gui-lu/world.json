@@ -1,0 +1,52 @@
+{
+  "stable_id": "WORLD-GUI-LU",
+  "object_type": "PROJECT_WORLD",
+  "native_home": {
+    "holder": "GLModel Native Sphere",
+    "source_pointer": "drive://GLModel/GUI-LU/native",
+    "carrier": "MULTI_CARRIER",
+    "revision": null,
+    "hash": null
+  },
+  "state": {
+    "lifecycle": "WORKING_CANDIDATE",
+    "authority": "NATIVE_OWNER_BOUND",
+    "evidence": "PARTIAL",
+    "return": "RECONCILIATION_REQUIRED_ON_MATERIAL_DELTA",
+    "rebuild": "PARTIALLY_PROVEN"
+  },
+  "authority": {
+    "owner": "Vitas / GLModel bounded native authority",
+    "read": true,
+    "copy": false,
+    "derive": true,
+    "learn": true,
+    "retain": true,
+    "mutate": false,
+    "write_back": false,
+    "delete": false,
+    "export": false
+  },
+  "relations": [
+    {"type": "HAS_PRIMARY_ORGAN", "target": "BLDG-MAIN", "state": "PRESERVE_BY_DEFAULT"},
+    {"type": "HAS_PRIMARY_ORGAN", "target": "BLDG-GUEST", "state": "PRESERVE_BY_DEFAULT"},
+    {"type": "HAS_PRIMARY_ORGAN", "target": "BLDG-UTILITY", "state": "PRESERVE_BY_DEFAULT"},
+    {"type": "HAS_ANCHOR", "target": "WORLD-AXON", "state": "LOCK_CANDIDATE"},
+    {"type": "HAS_ANCHOR", "target": "SITE-PLAN", "state": "LOCK_CANDIDATE"},
+    {"type": "HAS_ANCHOR", "target": "ARRIVAL", "state": "LOCK_CANDIDATE"},
+    {"type": "HAS_ANCHOR", "target": "CENTRAL-COMMONS", "state": "LOCK_CANDIDATE"},
+    {"type": "HAS_ANCHOR", "target": "MAIN-HOUSE-GARDEN", "state": "LOCK_CANDIDATE"},
+    {"type": "HAS_ANCHOR", "target": "GUEST-HOUSE", "state": "LOCK_CANDIDATE"},
+    {"type": "HAS_ANCHOR", "target": "UTILITY-SERVICE", "state": "LOCK_CANDIDATE"},
+    {"type": "HAS_ANCHOR", "target": "VEHICLE-PARK-TURN-EGRESS", "state": "LOCK_CANDIDATE"},
+    {"type": "HAS_ANCHOR", "target": "SERVICE-MAINTENANCE", "state": "LOCK_CANDIDATE"},
+    {"type": "HAS_ANCHOR", "target": "MEP-CONCEALED-SECTION", "state": "LOCK_CANDIDATE"}
+  ],
+  "evidence": [],
+  "rebuild": {
+    "last_valid_checkpoint": null,
+    "accepted_ordered_deltas": [],
+    "holds": ["EXACT_GEOMETRY_REQUIRES_GLMODEL_NATIVE_VALIDATION", "OWNER_ACCEPTANCE_REQUIRED"],
+    "invalidations": []
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "profile": "DCP_GROWTH_MEMORY_MODEL",
+  "version": "0.1-candidate",
+  "runtime": false,
+  "capability_lifecycle": ["OBSERVED","CANDIDATE","MATERIALITY_TESTED","EXPERIMENTED","EVIDENCE_BOUND","ADMITTED_BOUNDED","BEHAVIOR_CHANGED","REUSED","REVALIDATED","SUPERSEDED","RETIRED"],
+  "capability_levels": ["CONCEPTUAL","DOCUMENTED","EXECUTABLE","VERIFIED","OPERATIONAL","PORTABLE","RUNTIME_PROVEN"],
+  "failure_memory": {
+    "minimum_fields":["failure_id","signature","trigger","affected_identity","evidence_pointer","mitigation","regression_test","disposition"],
+    "valid_dispositions":["FAILURE_LEARNED","MITIGATED","REJECTED","TO_VERIFY","SUPERSEDED"]
+  },
+  "growth_evidence": ["REPEATED_FAILURE_DOWN","DUPLICATE_REASONING_DOWN","READER_LOAD_DOWN","EVIDENCE_REUSE_UP","RECOVERY_ABILITY_UP","WORLD_CAPABILITY_UP","HUMAN_BURDEN_DOWN"],
+  "anti_pattern":"DOCUMENT_COUNT_IS_NOT_GROWTH"
+}

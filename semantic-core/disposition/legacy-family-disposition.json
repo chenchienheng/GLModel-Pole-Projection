@@ -1,0 +1,117 @@
+{
+  "artifact_id": "DCP-LEGACY-FAMILY-DISPOSITION-R1",
+  "state": "CANDIDATE_ACTIVE_REVIEW",
+  "runtime": false,
+  "promotion": false,
+  "native_source_root": false,
+  "scope": "root-level legacy families mirrored across XL00/XL10/XL20",
+  "decision_model": [
+    "RETAIN_CURRENT",
+    "REFERENCE_ONLY",
+    "ABSORBED_REFERENCE",
+    "RE_ADMIT_IF_TRIGGERED",
+    "RECLAIM_CANDIDATE",
+    "HOLD_FOR_EVIDENCE"
+  ],
+  "families": [
+    {
+      "path_family": "01_runtime-spine",
+      "observed_contents": [
+        "github_delta_driven_pulse_rule.md",
+        "legacy_writeback_block_rule.md",
+        "window_alignment_read_order.md",
+        "window_linking_logic_01_07.md"
+      ],
+      "material_absorption": [
+        "delta-first processing",
+        "legacy write-back blocking",
+        "reader ordering",
+        "window-era linking lessons"
+      ],
+      "successor_surface": [
+        "semantic-core/dcp/dependency",
+        "semantic-core/dcp/return",
+        "semantic-core/carriers",
+        "CURRENT-SURFACE-MANIFEST.json"
+      ],
+      "disposition": "ABSORBED_REFERENCE",
+      "reclaim_state": "RECLAIM_CANDIDATE_AFTER_CITATION_AND_SUCCESSOR_CHECK",
+      "gap": "verify no public citation or active automation still resolves this path"
+    },
+    {
+      "path_family": "01_native-board",
+      "observed_contents": [
+        "blockers.md",
+        "board_index.md",
+        "permissions/",
+        "pulse_rollup.md"
+      ],
+      "material_absorption": [
+        "blocker visibility",
+        "bounded board indexing",
+        "permission separation",
+        "pulse aggregation lessons"
+      ],
+      "successor_surface": [
+        "semantic-core/dcp/state",
+        "semantic-core/dcp/authority",
+        "semantic-core/dcp/reader-manifest.json"
+      ],
+      "disposition": "ABSORBED_REFERENCE",
+      "reclaim_state": "HOLD_FOR_EVIDENCE",
+      "gap": "permissions subtree requires specific successor/evidence review before reclamation"
+    },
+    {
+      "path_family": "02_runtime-ops",
+      "observed_contents": ["task_follow_up.md"],
+      "material_absorption": ["follow-up and return tracking lessons"],
+      "successor_surface": [
+        "semantic-core/dcp/return",
+        "semantic-core/dcp/events",
+        "semantic-core/dcp/active-instances"
+      ],
+      "disposition": "ABSORBED_REFERENCE",
+      "reclaim_state": "RECLAIM_CANDIDATE_AFTER_POINTER_CHECK",
+      "gap": "confirm no active issue or workflow still points to task_follow_up.md"
+    },
+    {
+      "path_family": "02_translation-layer",
+      "observed_contents": [
+        "BRIDGE_DRILL_TEMPLATE_v0_1.md",
+        "CLOUD_OVER_CLOUD_CONTROL_CENTER_SPEC.md",
+        "README.md"
+      ],
+      "material_absorption": [
+        "bridge drill method",
+        "carrier/control-center abstraction lessons"
+      ],
+      "successor_surface": [
+        "semantic-core/carriers",
+        "semantic-core/projections",
+        "representation profiles"
+      ],
+      "disposition": "REFERENCE_ONLY",
+      "reclaim_state": "HOLD_FOR_EVIDENCE",
+      "gap": "separate reusable cloud/control-center method from obsolete translation-era framing before any deletion"
+    }
+  ],
+  "delete_gate": {
+    "requires": [
+      "material_absorbed",
+      "named_successor_exists",
+      "active_pointer_scan_clear",
+      "citation_scan_clear_or_redirected",
+      "authority_and_evidence_review_complete",
+      "re-entry_not_required_or_rebuild_source_preserved"
+    ],
+    "physical_delete_default": false
+  },
+  "next_scan": [
+    "03_board-orchestration",
+    "03_field-governance",
+    "04_adapter-layer",
+    "04_interface-layer",
+    "05_topology",
+    "05_XLEN_Reserve_Unenabled"
+  ]
+}

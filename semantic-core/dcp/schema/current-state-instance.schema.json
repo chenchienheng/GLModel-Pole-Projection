@@ -1,0 +1,21 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://xuanling.local/schema/dcp/current-state-instance.schema.json",
+  "title":"DCP Current State Instance",
+  "type":"object",
+  "required":["instance_id","stable_identity","source_pointer","state","materiality","claim_ceiling","updated_at"],
+  "properties":{
+    "instance_id":{"type":"string"},
+    "stable_identity":{"type":"string"},
+    "source_pointer":{"type":"string"},
+    "source_revision_or_hash":{"type":["string","null"]},
+    "state":{"type":"object"},
+    "materiality":{"enum":["NO_MATERIAL_DELTA","CLARIFICATION_ONLY","COMPILED_EDGE_UPDATE","PATCH_CANDIDATE","CONFLICT","HOLD_WITH_NEXT_TRIGGER"]},
+    "affected_families":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+    "claim_ceiling":{"type":"string"},
+    "holds":{"type":"array","items":{"type":"string"}},
+    "next_trigger":{"type":["string","null"]},
+    "updated_at":{"type":"string"}
+  },
+  "additionalProperties":false
+}

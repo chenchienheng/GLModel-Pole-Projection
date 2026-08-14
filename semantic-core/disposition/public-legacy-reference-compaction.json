@@ -1,0 +1,36 @@
+{
+  "artifact_id": "PUBLIC-LEGACY-REFERENCE-COMPACTION-R1",
+  "state": "CANDIDATE_ACTIVE",
+  "runtime": false,
+  "scope": "XL00 public legacy indexes/registers that still preserve obsolete current-looking path semantics",
+  "problem": "Historical inventory documents can re-promote legacy families into reasoning when wording such as active, current, fully reconciled, primary, or canonical survives after successor admission.",
+  "source_examples": [
+    {
+      "path": "REPOSITORY_CORPUS_INDEX.md",
+      "observed_risk": ["status says fully reconciled (00-05)","02_runtime-ops described as Active follow-up task tracker","legacy family paths listed without current/historical distinction"],
+      "desired_state": "HISTORICAL_CORPUS_INDEX_WITH_REDIRECT",
+      "successor": "CURRENT-SURFACE-MANIFEST.json"
+    },
+    {
+      "path": "current_files.txt",
+      "observed_risk": ["filename itself can imply current authority","legacy paths may be surfaced without lifecycle typing"],
+      "desired_state": "HISTORICAL_INVENTORY_OR_REGENERATED_FROM_CURRENT_MANIFEST",
+      "successor": "CURRENT-SURFACE-MANIFEST.json"
+    },
+    {
+      "path": "UNIFIED_ARTIFACT_REGISTER.md",
+      "observed_risk": ["legacy path citation can block reclaim and reintroduce stale semantic authority"],
+      "desired_state": "REFERENCE_REGISTER_WITH_LIFECYCLE_AND_SUCCESSOR_COLUMNS",
+      "successor": "semantic-core/disposition/legacy-successor-redirects.json"
+    }
+  ],
+  "compaction_rules": [
+    "Do not delete source evidence before successor/lineage preservation",
+    "Replace current-looking wording with explicit HISTORICAL/REFERENCE_ONLY where verified",
+    "Route readers to Current Surface Manifest before legacy corpus indexes",
+    "Preserve stable lineage and citation evidence while removing legacy path authority",
+    "Re-run pointer/citation scan after each compaction batch"
+  ],
+  "physical_delete": false,
+  "next_gate": "XL00 protected-surface patch through permitted PR flow, then citation rescan"
+}

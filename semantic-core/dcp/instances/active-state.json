@@ -1,0 +1,55 @@
+{
+  "profile": "DCP_ACTIVE_STATE_INSTANCE",
+  "version": "0.1-candidate",
+  "runtime": false,
+  "as_of": "2026-08-15",
+  "native_authority": "CoreTri_DCP",
+  "state": {
+    "architecture": "R0.10_CONTINUITY_ACTIVE",
+    "model_centric_representation": "PROVEN_BOUNDED",
+    "existence_level_triadic_ecology": "CANDIDATE_ACTIVE",
+    "historical_metabolism": "ACTIVE",
+    "current_surface_compaction": "ACTIVE",
+    "public_projection": "FAIL_CLOSED",
+    "promotion": "NONE",
+    "runtime": false
+  },
+  "active_holds": [
+    {
+      "hold_id": "HOLD-GUI-LU-GEOMETRY-EVIDENCE",
+      "subject": "WORLD-GUI-LU",
+      "reason": "Exact geometry and domain-native drawing/model evidence remain GLModel-native validation work.",
+      "owner": "GLModel",
+      "blocks": ["GEOMETRY_AUTHORITY_PROMOTION", "WORLD_REBUILD_COMPLETE_CLAIM"]
+    }
+  ],
+  "active_conflicts": [],
+  "pending_returns": [
+    {
+      "return_id": "RET-GLMODEL-DOMAIN-NATIVE-BINDING",
+      "from": "GLModel",
+      "to": "DCP",
+      "expected_delta": "Drawing/3D/BIM/camera/system evidence bindings to stable GUI-LU identities and anchors",
+      "closure": "RETURN_PENDING"
+    },
+    {
+      "return_id": "RET-IDEAS-HUMAN-ASSEMBLY",
+      "from": "Ideas",
+      "to": "DCP",
+      "expected_delta": "Human meaning/friction/navigation projections suitable for context assembly",
+      "closure": "RETURN_PENDING"
+    }
+  ],
+  "current_pointers": {
+    "dcp_index": "semantic-core/dcp/index.json",
+    "semantic_core_index": "semantic-core/index.json",
+    "artifact_registry": "semantic-core/artifacts/artifact-registry.json",
+    "ecosystem_migration": "semantic-core/migration/ecosystem-migration-map.json"
+  },
+  "not_to_claim": [
+    "Runtime proven",
+    "Full GUI-LU geometry proven",
+    "All historical contamination removed",
+    "Public release approved"
+  ]
+}

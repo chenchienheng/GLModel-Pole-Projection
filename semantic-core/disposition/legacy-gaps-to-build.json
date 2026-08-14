@@ -1,0 +1,47 @@
+{
+  "artifact_id": "DCP-LEGACY-GAPS-TO-BUILD-R1",
+  "state": "ACTIVE_CANDIDATE",
+  "runtime": false,
+  "items": [
+    {
+      "id": "GAP-POINTER-CITATION-SCAN",
+      "purpose_zh": "在物理刪除前確認沒有 Active Pointer、README、Issue、Workflow、Citation 或外部文件仍解析到舊路徑。",
+      "purpose_en": "Detect active pointers, citations and workflow dependencies before physical reclamation.",
+      "receiver": "DCP/OCF",
+      "status": "TO_BUILD",
+      "blocks_delete": true
+    },
+    {
+      "id": "GAP-CONNECTOR-CAPABILITY-MATRIX",
+      "purpose_zh": "把舊 vendor-specific adapter 經驗抽象成可替換 Carrier Capability Matrix，避免平台名稱重新取得架構權。",
+      "purpose_en": "Abstract vendor-specific bridge knowledge into a replaceable carrier capability matrix.",
+      "receiver": "DCP/Carrier Layer",
+      "status": "TO_BUILD",
+      "blocks_delete": false
+    },
+    {
+      "id": "GAP-LEGACY-SUCCESSOR-REDIRECT",
+      "purpose_zh": "為仍可能被引用的舊 family 建立 Legacy → Current Successor 對照與 Reader Redirect。",
+      "purpose_en": "Provide legacy-to-current successor resolution and reader redirects.",
+      "receiver": "DCP/LOR",
+      "status": "TO_BUILD",
+      "blocks_delete": true
+    },
+    {
+      "id": "GAP-ROUTING-LOG-COMPACTION",
+      "purpose_zh": "將舊 routing logs 壓縮成可重建的事件／lineage evidence，而不是永久保留整包舊 orchestration body。",
+      "purpose_en": "Compact historical routing logs into reconstructable event and lineage evidence.",
+      "receiver": "DCP/LOR",
+      "status": "TO_BUILD",
+      "blocks_delete": true
+    },
+    {
+      "id": "GAP-IDEAS-PUBLIC-VALUE-READMISSION",
+      "purpose_zh": "04_interface-layer 的 Qinyi public-value material 由 Ideas 判斷哪些語義仍有效，再由 Release Gate 決定是否形成新的 public projection。",
+      "purpose_en": "Have Ideas re-evaluate legacy public-value semantics before any renewed external projection.",
+      "receiver": "Ideas",
+      "status": "NATIVE_OWNER_REVIEW_REQUIRED",
+      "blocks_delete": true
+    }
+  ]
+}

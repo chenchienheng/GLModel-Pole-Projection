@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "xuanling://semantic-core/visual-binding.schema.json",
+  "title": "XuanLing Visual Binding",
+  "type": "object",
+  "required": ["binding_id", "subject_id", "view_type", "view_id", "revision", "evidence_role", "projection_authority"],
+  "properties": {
+    "binding_id": {"type": "string"},
+    "subject_id": {"type": "string"},
+    "view_type": {"enum": ["CAMERA", "DRAWING", "MODEL_VIEW", "RENDER", "PHOTO", "GIS_VIEW", "DETAIL"]},
+    "view_id": {"type": "string"},
+    "camera_or_projection": {"type": ["object", "null"]},
+    "revision": {"type": "string"},
+    "artifact_pointer": {"type": ["string", "null"]},
+    "evidence_role": {"enum": ["IDENTITY_ANCHOR", "CORRESPONDENCE", "REGRESSION", "REFERENCE", "PRESENTATION"]},
+    "projection_authority": {"enum": ["NONE", "PRESENTATION_ONLY", "EVIDENCE_BOUND"]},
+    "geometry_authority": {"const": false},
+    "locked_relations": {"type": "array", "items": {"type": "string"}},
+    "drift_checks": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

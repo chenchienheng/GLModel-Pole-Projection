@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "xuanling://semantic-core/policy-gate.schema.json",
+  "title": "XuanLing Policy Gate",
+  "type": "object",
+  "required": ["gate_id", "subject_id", "purpose", "scope", "audience", "rights", "decision"],
+  "properties": {
+    "gate_id": {"type": "string"},
+    "subject_id": {"type": "string"},
+    "purpose": {"type": "string"},
+    "scope": {"type": "string"},
+    "audience": {"type": "string"},
+    "sensitivity": {"type": "string"},
+    "rights": {
+      "type": "object",
+      "required": ["read", "copy", "derive", "learn", "retain", "mutate", "write_back", "delete", "export"],
+      "properties": {
+        "read": {"type": "boolean"},
+        "copy": {"type": "boolean"},
+        "derive": {"type": "boolean"},
+        "learn": {"type": "boolean"},
+        "retain": {"type": "boolean"},
+        "mutate": {"type": "boolean"},
+        "write_back": {"type": "boolean"},
+        "delete": {"type": "boolean"},
+        "export": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "expiry": {"type": ["string", "null"]},
+    "revocation": {"type": ["string", "null"]},
+    "obligations": {"type": "array", "items": {"type": "string"}},
+    "decision": {"enum": ["ALLOW_BOUNDED", "DENY", "HOLD", "TO_VERIFY"]},
+    "evidence": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

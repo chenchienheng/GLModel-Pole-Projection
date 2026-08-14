@@ -42,11 +42,23 @@
     {"type": "HAS_ANCHOR", "target": "SERVICE-MAINTENANCE", "state": "LOCK_CANDIDATE"},
     {"type": "HAS_ANCHOR", "target": "MEP-CONCEALED-SECTION", "state": "LOCK_CANDIDATE"}
   ],
+  "representation": {
+    "representation_set_pointer": "semantic-core/specimens/gui-lu/triadic-representation-set.json",
+    "alignment_state": "PARTIAL",
+    "artifact_ids": ["GUI-LU-HUMAN-OVERVIEW-ZH", "GUI-LU-WORLD-MACHINE", "GUI-LU-VISUAL-BINDINGS"],
+    "context_assembly_ids": ["GUI-LU-DESIGN-REVIEW-R1"]
+  },
+  "provenance": {
+    "generated_by_event": null,
+    "derived_from": [],
+    "attributed_to": ["GLModel Native Sphere", "Vitas"],
+    "invalidated_by_event": null
+  },
   "evidence": [],
   "rebuild": {
     "last_valid_checkpoint": null,
     "accepted_ordered_deltas": [],
-    "holds": ["EXACT_GEOMETRY_REQUIRES_GLMODEL_NATIVE_VALIDATION", "OWNER_ACCEPTANCE_REQUIRED"],
+    "holds": ["EXACT_GEOMETRY_REQUIRES_GLMODEL_NATIVE_VALIDATION", "OWNER_ACCEPTANCE_REQUIRED", "DOMAIN_NATIVE_DRAWING_3D_VIDEO_EVIDENCE_NOT_YET_BOUND"],
     "invalidations": []
   }
 }

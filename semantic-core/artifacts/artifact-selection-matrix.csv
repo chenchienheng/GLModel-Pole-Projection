@@ -1,0 +1,14 @@
+condition,preferred_artifact_kind,primary_role,why_not_prose_only,current_authority_default
+Spatial layout / 空間配置,DRAWING|THREE_D_MODEL|BIM_MODEL,DESIGN|EVIDENCE,文字無法穩定表達幾何與相對位置,GLModel
+Visual consistency / 視覺一致性,IMAGE|DIAGRAM|THREE_D_MODEL,REGRESSION_ANCHOR,需要視覺對照與 anchor binding,GLModel
+Sequence / 流程順序,DIAGRAM|EVENT_STREAM,DEPENDENCY|RETURN,長文不利追蹤分支與狀態轉移,DCP
+Lifecycle state / 生命狀態,TABLE|DATASET|DASHBOARD_VIEW,STATE,狀態必須可查詢與機器驗證,DCP
+Authority and rights / 權限,POLICY|TABLE,AUTHORITY,權利不可從敘述語氣推定,DCP/QHA
+Requirement trace / 需求追溯,TABLE|DIAGRAM|DATASET,REQUIREMENT|EVIDENCE,需可追蹤 source-to-outcome,DCP/Native Owner
+Quantities and cost / 數量成本,SPREADSHEET|DATASET,STATE|EVIDENCE,需要公式與可重算性,Native Professional Owner
+Time and schedule / 時程,EVENT_STREAM|TABLE|SPREADSHEET,STATE|DEPENDENCY,需要日期與依存計算,Native Professional Owner
+Failure learning / 失敗學習,TEST_RESULT|IMAGE|VIDEO|EVENT_STREAM|PROSE,FAILURE|EVIDENCE,失敗需要 specimen 加解釋而非只有摘要,Native Owner
+Human rationale / 人類理由,PROSE|DIAGRAM,EXPLANATION|DECISION,語境與理由需要人類可讀敘事,Native Owner
+External collaboration / 外部協作,DOMAIN_NATIVE|DIAGRAM|TABLE|PROSE,PROJECTION,格式應跟專業標準與接收者走,Release-gated
+Sensor or runtime observation / 感測,SENSOR_SERIES|EVENT_STREAM|DATASET,EVIDENCE|STATE,連續資料不應壓成段落,Native Data Owner
+Construction or O&M record / 施工維運,IMAGE|VIDEO|BIM_MODEL|TABLE|EVENT_STREAM,EVIDENCE|RETURN,需位置時間責任與現場證據共同綁定,Native Project Owner

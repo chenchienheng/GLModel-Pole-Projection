@@ -1,0 +1,52 @@
+{
+  "profile": "DCP_COGNITIVE_SUPPORT_CONE_MODEL",
+  "version": "0.1-candidate",
+  "runtime": false,
+  "native_authority": "CoreTri_DCP",
+  "purpose": "Reconstructable cognitive support for claims, states and actions without promoting data, validation or recency into truth.",
+  "schema": "../schema/cognitive-support-cone.schema.json",
+  "invariants": [
+    "PROVENANCE_NE_COGNITIVE_AUTHORITY",
+    "OBSERVATION_NE_CAUSATION",
+    "EVIDENCE_EXISTS_NE_CLAIM_APPLICABLE",
+    "VALIDATION_PASS_NE_WORLD_TRUTH",
+    "LATEST_WRITE_NE_COGNITIVE_AUTHORITY",
+    "INVALIDATE_AFFECTED_SUPPORT_ONLY",
+    "RETURN_REQUIRES_IDENTITY_LINEAGE"
+  ],
+  "invalidation_policy": {
+    "default_mode": "AFFECTED_SUPPORT_CONE_ONLY",
+    "whole_world_rebuild_requires": "MATERIAL_COMMON_MODE_OR_BASELINE_INTEGRITY_FAILURE",
+    "recency_override": false,
+    "stale_evidence_action": "LOWER_OR_HOLD_CLAIM_CEILING_AND_RECOMPUTE_AFFECTED_SUPPORT"
+  },
+  "validation_policy": {
+    "default": "NON_MUTATING",
+    "pass_scope_rule": "PASS_APPLIES_ONLY_TO_DECLARED_RESULT_SCOPE",
+    "state_mutation_requires": [
+      "NAMED_AUTHORITY",
+      "ADMISSION_GATE",
+      "RETURN_RECONCILIATION"
+    ]
+  },
+  "causal_policy": {
+    "association_default": "NOT_CAUSAL",
+    "causal_claim_requires": [
+      "NAMED_MECHANISM_OR_INTERVENTION_LOGIC",
+      "APPLICABLE_EVIDENCE",
+      "CLAIM_CEILING_DECLARED"
+    ]
+  },
+  "failure_detectors": [
+    "PROVENANCE_GAP",
+    "ASSOCIATION_PROMOTED_TO_CAUSATION",
+    "VALIDATION_MUTATES_SOURCE",
+    "PASS_SCOPE_PROMOTED_TO_WORLD_TRUTH",
+    "STALE_SUPPORT_NOT_INVALIDATED",
+    "MODEL_OUTPUT_WITHOUT_METHOD_PEDIGREE",
+    "RETURN_WITHOUT_IDENTITY_PRESERVATION",
+    "LATEST_WRITE_WINS_COGNITION",
+    "EVIDENCE_EXISTS_WITHOUT_CLAIM_APPLICABILITY"
+  ],
+  "next_gate": "B109_LOCAL_COGNITIVE_INVALIDATION_SPECIMEN"
+}

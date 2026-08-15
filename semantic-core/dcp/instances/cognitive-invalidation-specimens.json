@@ -1,0 +1,87 @@
+{
+  "profile": "DCP_COGNITIVE_INVALIDATION_SPECIMENS",
+  "version": "0.1-candidate",
+  "runtime": false,
+  "native_authority": "CoreTri_DCP",
+  "specimens": [
+    {
+      "specimen_id": "B109-GUI-LU-MOTHER-WINDOW-HOLD",
+      "world_id": "WORLD-GUI-LU",
+      "basis": "Existing active hold HOLD-WP-B-MOTHER-WINDOW-TRACE; no new engineering fact is invented.",
+      "support_nodes": [
+        {
+          "support_id": "CSC-GUI-LU-MOTHER-WINDOW-REQ-GAP",
+          "stable_subject_id": "WORLD-GUI-LU/MOTHER_SUITE_WINDOW",
+          "claim": {
+            "claim_id": "CLM-MOTHER-WINDOW-REQ-GAP",
+            "claim_type": "STATE_CLAIM",
+            "statement_ref": "A lawful requirement pointer and exact Mother Space/Window/Host/Opening evidence are absent."
+          },
+          "state_anchor": {"identity_continuity": true, "anchor_state": "TRACE_PARTIAL", "effective_at": "2026-08-15", "expires_at": null},
+          "provenance": [{"source_pointer": "semantic-core/dcp/instances/active-state.json#HOLD-WP-B-MOTHER-WINDOW-TRACE", "source_revision": null, "source_role": "NATIVE_SOURCE", "method_pedigree": "DCP active-state readback"}],
+          "dependencies": [],
+          "evidence": [{"evidence_id": "EV-MOTHER-WINDOW-LAWFUL-POINTER", "role": "BOUNDARY", "applicability": "TO_VERIFY", "pointer": null}],
+          "claim_ceiling": "VERIFIED_BOUNDED",
+          "authority": {"owner": "CoreTri_DCP", "mutation_authorized": true, "gate": "DCP_MATERIALITY_AND_RECONCILIATION"},
+          "validation": {"mode": "NON_MUTATING", "source_mutation_allowed": false, "result_scope": "Requirement/evidence gap only"},
+          "invalidation": {"triggers": ["LAWFUL_REQUIREMENT_POINTER_APPEARS", "EXACT_ENGINEERING_EVIDENCE_APPEARS", "ACTIVE_HOLD_WITHDRAWN_BY_LAWFUL_RETURN"], "mode": "AFFECTED_SUPPORT_CONE_ONLY", "last_write_wins": false},
+          "return_rebuild": {"return_state": "ACTIVE_HOLD", "reconciliation": "NOT_RECONCILED", "rebuild_scope": "AFFECTED_CONE", "reentry_pointer": "semantic-core/dcp/instances/active-state.json"}
+        },
+        {
+          "support_id": "CSC-GUI-LU-MOTHER-WINDOW-SATISFACTION",
+          "stable_subject_id": "WORLD-GUI-LU/MOTHER_SUITE_WINDOW",
+          "claim": {
+            "claim_id": "CLM-MOTHER-WINDOW-SATISFIED",
+            "claim_type": "REQUIREMENT",
+            "statement_ref": "Mother Window requirement is satisfied."
+          },
+          "state_anchor": {"identity_continuity": true, "anchor_state": "TO_VERIFY", "effective_at": "2026-08-15", "expires_at": null},
+          "provenance": [{"source_pointer": "semantic-core/dcp/current/requirement-thread-model.json#WP-B-MOTHER-WINDOW", "source_revision": null, "source_role": "DERIVED_EVIDENCE", "method_pedigree": "Requirement thread"}],
+          "dependencies": [
+            {"edge_id": "EDGE-MW-SAT-REQ", "relation": "REQUIRES", "target": "CSC-GUI-LU-MOTHER-WINDOW-REQ-GAP", "assumption": "Gap must be closed by lawful pointer and exact evidence", "causal_status": "NOT_CAUSAL"}
+          ],
+          "evidence": [
+            {"evidence_id": "EV-MOTHER-WINDOW-EXACT-ENGINEERING", "role": "SUPPORT", "applicability": "TO_VERIFY", "pointer": null}
+          ],
+          "claim_ceiling": "TO_VERIFY",
+          "authority": {"owner": "Ideas/Qinyi + GLModel", "mutation_authorized": false, "gate": "NATIVE_RETURN_PLUS_DCP_RECONCILIATION"},
+          "validation": {"mode": "NON_MUTATING", "source_mutation_allowed": false, "result_scope": "Requirement satisfaction claim only"},
+          "invalidation": {"triggers": ["DEPENDENCY_SUPPORT_INVALIDATED", "EVIDENCE_STALE", "EVIDENCE_CONTRADICTED", "AUTHORITY_WITHDRAWN"], "mode": "AFFECTED_SUPPORT_CONE_ONLY", "last_write_wins": false},
+          "return_rebuild": {"return_state": "HOLD", "reconciliation": "PENDING_NATIVE_RETURN", "rebuild_scope": "AFFECTED_CONE", "reentry_pointer": "semantic-core/dcp/current/requirement-thread-model.json"}
+        },
+        {
+          "support_id": "CSC-GUI-LU-VEHICLE-INGRESS-INDEPENDENT",
+          "stable_subject_id": "WORLD-GUI-LU/VEHICLE_INGRESS",
+          "claim": {
+            "claim_id": "CLM-VEHICLE-INGRESS-INDEPENDENT",
+            "claim_type": "STATE_CLAIM",
+            "statement_ref": "Vehicle ingress is an independent affected branch for this specimen."
+          },
+          "state_anchor": {"identity_continuity": true, "anchor_state": "UNCHANGED_CONTROL", "effective_at": "2026-08-15", "expires_at": null},
+          "provenance": [{"source_pointer": "semantic-core/dcp/instances/active-state.json", "source_revision": null, "source_role": "NATIVE_SOURCE", "method_pedigree": "Bounded control branch"}],
+          "dependencies": [],
+          "evidence": [{"evidence_id": "EV-VEHICLE-CONTROL", "role": "BOUNDARY", "applicability": "PARTIAL", "pointer": null}],
+          "claim_ceiling": "CANDIDATE",
+          "authority": {"owner": "GLModel", "mutation_authorized": false, "gate": "GLMODEL_NATIVE_RETURN"},
+          "validation": {"mode": "NON_MUTATING", "source_mutation_allowed": false, "result_scope": "Control branch independence only"},
+          "invalidation": {"triggers": ["VEHICLE_BRANCH_NATIVE_DELTA"], "mode": "AFFECTED_SUPPORT_CONE_ONLY", "last_write_wins": false},
+          "return_rebuild": {"return_state": "UNCHANGED_CONTROL", "reconciliation": "NOT_APPLICABLE", "rebuild_scope": "NONE", "reentry_pointer": null}
+        }
+      ],
+      "event": {
+        "event_id": "EVT-B109-MOTHER-WINDOW-SUPPORT-NOT-APPLICABLE",
+        "type": "EVIDENCE_APPLICABILITY_FAILURE",
+        "targets": ["CSC-GUI-LU-MOTHER-WINDOW-SATISFACTION"],
+        "reason": "Exact engineering evidence is absent/TO_VERIFY under the current active hold; the satisfaction claim cannot remain supported.",
+        "does_not_mutate_native_source": true
+      },
+      "expected": {
+        "invalidate": ["CSC-GUI-LU-MOTHER-WINDOW-SATISFACTION"],
+        "preserve": ["CSC-GUI-LU-MOTHER-WINDOW-REQ-GAP", "CSC-GUI-LU-VEHICLE-INGRESS-INDEPENDENT"],
+        "recompute_scope": "AFFECTED_CONE",
+        "whole_world_rebuild": false,
+        "resulting_claim_ceiling": {"CSC-GUI-LU-MOTHER-WINDOW-SATISFACTION": "TO_VERIFY"}
+      }
+    }
+  ]
+}

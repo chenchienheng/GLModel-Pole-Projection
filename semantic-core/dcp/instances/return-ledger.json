@@ -1,87 +1,31 @@
 {
   "profile": "DCP_TYPED_RETURN_LEDGER",
-  "version": "0.3-candidate",
+  "version": "0.4-candidate",
   "runtime": false,
   "entries": [
+    {"return_id":"RET-B91-DCP-SEMANTIC-CORE","source":"DCP","receiver":"DCP","subject":"DCP_SEMANTIC_CORE","state":"CLOSED_WITH_STATE_CHANGE","evidence":["semantic-core/dcp/index.json"],"reconciliation":"ACCEPTED_BOUNDED","rebuild_impact":"READER_CAN_ENTER_BY_INDEX"},
+    {"return_id":"RET-B92-CARRIER-ABSTRACTION","source":"DCP","receiver":"DCP","subject":"CARRIER_ABSTRACTION","state":"CLOSED_WITH_STATE_CHANGE","evidence":["semantic-core/carriers/carrier-capability-model.json","semantic-core/carriers/pointer-resolution-model.json"],"reconciliation":"ACCEPTED_BOUNDED","rebuild_impact":"CARRIER_CHANGE_NO_LONGER_IMPLIES_IDENTITY_CHANGE"},
+    {"return_id":"RET-B93-CURRENT-SURFACE","source":"DCP","receiver":"TRI_REPOSITORY_ECOSYSTEM","subject":"CURRENT_SURFACE_MANIFESTS","state":"CLOSED_WITH_STATE_CHANGE","evidence":["CURRENT-SURFACE-MANIFEST.json"],"reconciliation":"ACCEPTED_BOUNDED","rebuild_impact":"LEGACY_ROOTS_LOSE_DEFAULT_CURRENT_AUTHORITY"},
+    {"return_id":"RET-B94-LEGACY-DISPOSITION","source":"DCP","receiver":"TRI_REPOSITORY_ECOSYSTEM","subject":"LEGACY_DISPOSITION","state":"CLOSED_WITH_STATE_CHANGE","evidence":["semantic-core/disposition/legacy-family-disposition.json","semantic-core/disposition/legacy-gaps-to-build.json"],"reconciliation":"ACCEPTED_BOUNDED","rebuild_impact":"DELETE_REQUIRES_SUCCESSOR_AND_POINTER_CLEARANCE"},
+    {"return_id":"RET-EXISTENCE-TRIADIC-ECOLOGY","source":"DCP","receiver":"Ideas/GLModel/DCP","subject":"EXISTENCE_LEVEL_TRIADIC_ECOLOGY","state":"RECONCILIATION_PENDING","evidence":["semantic-core/schema/triadic-representation-set.schema.json","semantic-core/schema/context-assembly.schema.json"],"reconciliation":"PENDING_NATIVE_RECEIVER_ABSORPTION","rebuild_impact":"MULTIMODAL_CONTEXT_ASSEMBLY_CANDIDATE"},
+    {"return_id":"RET-B103-WP-B-THREAD-SURFACE","source":"DCP","receiver":"DCP","subject":"WP_B_REQUIREMENT_THREAD_SURFACE","state":"CLOSED_WITH_STATE_CHANGE","evidence":["semantic-core/dcp/current/requirement-thread-model.json","semantic-core/dcp/current/dependency-families.json","semantic-core/dcp/instances/active-state.json","semantic-core/dcp/current/reader-manifest.json"],"reconciliation":"ACCEPTED_BOUNDED","rebuild_impact":"READER_CAN_RESOLVE_TRACE_PARTIAL_WITHOUT_FULL_PROOF_RETURN","claim_ceiling":"STRUCTURED_GAP_TRACE_ONLY","next_trigger":"Ideas/Qinyi lawful requirement pointer plus GLModel exact Mother Space/Window/Host/Opening evidence"},
+    {"return_id":"RET-B104-TRIADIC-LANGUAGE-CONTRACT","source":"DCP","receiver":"DCP","subject":"DCP_TRIADIC_LANGUAGE_CONTRACT","state":"CLOSED_WITH_STATE_CHANGE","evidence":["semantic-core/dcp/PROFESSIONAL.en.md","semantic-core/dcp/index.json","semantic-core/schema/triadic-representation-set.schema.json","semantic-core/artifacts/artifact-registry.json","semantic-core/tools/verify-dcp-core.mjs"],"reconciliation":"ACCEPTED_BOUNDED_READBACK","rebuild_impact":"DCP_READER_DISTINGUISHES_PROFESSIONAL_ENGLISH_FROM_EXTERNAL_PUBLIC_RELEASE","claim_ceiling":"BOUNDED_REPRESENTATION_CONTRACT_ONLY","next_trigger":"Ideas and GLModel native triadic adoption returns plus executable verifier evidence"},
     {
-      "return_id": "RET-B91-DCP-SEMANTIC-CORE",
+      "return_id": "RET-B108-COGNITIVE-SUPPORT-CONE",
       "source": "DCP",
-      "receiver": "DCP",
-      "subject": "DCP_SEMANTIC_CORE",
-      "state": "CLOSED_WITH_STATE_CHANGE",
-      "evidence": ["semantic-core/dcp/index.json"],
-      "reconciliation": "ACCEPTED_BOUNDED",
-      "rebuild_impact": "READER_CAN_ENTER_BY_INDEX"
-    },
-    {
-      "return_id": "RET-B92-CARRIER-ABSTRACTION",
-      "source": "DCP",
-      "receiver": "DCP",
-      "subject": "CARRIER_ABSTRACTION",
-      "state": "CLOSED_WITH_STATE_CHANGE",
-      "evidence": ["semantic-core/carriers/carrier-capability-model.json","semantic-core/carriers/pointer-resolution-model.json"],
-      "reconciliation": "ACCEPTED_BOUNDED",
-      "rebuild_impact": "CARRIER_CHANGE_NO_LONGER_IMPLIES_IDENTITY_CHANGE"
-    },
-    {
-      "return_id": "RET-B93-CURRENT-SURFACE",
-      "source": "DCP",
-      "receiver": "TRI_REPOSITORY_ECOSYSTEM",
-      "subject": "CURRENT_SURFACE_MANIFESTS",
-      "state": "CLOSED_WITH_STATE_CHANGE",
-      "evidence": ["CURRENT-SURFACE-MANIFEST.json"],
-      "reconciliation": "ACCEPTED_BOUNDED",
-      "rebuild_impact": "LEGACY_ROOTS_LOSE_DEFAULT_CURRENT_AUTHORITY"
-    },
-    {
-      "return_id": "RET-B94-LEGACY-DISPOSITION",
-      "source": "DCP",
-      "receiver": "TRI_REPOSITORY_ECOSYSTEM",
-      "subject": "LEGACY_DISPOSITION",
-      "state": "CLOSED_WITH_STATE_CHANGE",
-      "evidence": ["semantic-core/disposition/legacy-family-disposition.json","semantic-core/disposition/legacy-gaps-to-build.json"],
-      "reconciliation": "ACCEPTED_BOUNDED",
-      "rebuild_impact": "DELETE_REQUIRES_SUCCESSOR_AND_POINTER_CLEARANCE"
-    },
-    {
-      "return_id": "RET-EXISTENCE-TRIADIC-ECOLOGY",
-      "source": "DCP",
-      "receiver": "Ideas/GLModel/DCP",
-      "subject": "EXISTENCE_LEVEL_TRIADIC_ECOLOGY",
-      "state": "RECONCILIATION_PENDING",
-      "evidence": ["semantic-core/schema/triadic-representation-set.schema.json","semantic-core/schema/context-assembly.schema.json"],
-      "reconciliation": "PENDING_NATIVE_RECEIVER_ABSORPTION",
-      "rebuild_impact": "MULTIMODAL_CONTEXT_ASSEMBLY_CANDIDATE"
-    },
-    {
-      "return_id": "RET-B103-WP-B-THREAD-SURFACE",
-      "source": "DCP",
-      "receiver": "DCP",
-      "subject": "WP_B_REQUIREMENT_THREAD_SURFACE",
-      "state": "CLOSED_WITH_STATE_CHANGE",
-      "evidence": ["semantic-core/dcp/current/requirement-thread-model.json","semantic-core/dcp/current/dependency-families.json","semantic-core/dcp/instances/active-state.json","semantic-core/dcp/current/reader-manifest.json"],
-      "reconciliation": "ACCEPTED_BOUNDED",
-      "rebuild_impact": "READER_CAN_RESOLVE_TRACE_PARTIAL_WITHOUT_FULL_PROOF_RETURN",
-      "claim_ceiling": "STRUCTURED_GAP_TRACE_ONLY",
-      "next_trigger": "Ideas/Qinyi lawful requirement pointer plus GLModel exact Mother Space/Window/Host/Opening evidence"
-    },
-    {
-      "return_id": "RET-B104-TRIADIC-LANGUAGE-CONTRACT",
-      "source": "DCP",
-      "receiver": "DCP",
-      "subject": "DCP_TRIADIC_LANGUAGE_CONTRACT",
+      "receiver": "DCP|Ideas|GLModel",
+      "subject": "DCP_COGNITIVE_SUPPORT_CONE_TYPED_SURFACE",
       "state": "CLOSED_WITH_STATE_CHANGE",
       "evidence": [
-        "semantic-core/dcp/PROFESSIONAL.en.md",
+        "semantic-core/dcp/schema/cognitive-support-cone.schema.json",
+        "semantic-core/dcp/current/cognitive-support-cone-model.json",
         "semantic-core/dcp/index.json",
-        "semantic-core/schema/triadic-representation-set.schema.json",
-        "semantic-core/artifacts/artifact-registry.json",
-        "semantic-core/tools/verify-dcp-core.mjs"
+        "semantic-core/dcp/instances/active-state.json"
       ],
-      "reconciliation": "ACCEPTED_BOUNDED_READBACK",
-      "rebuild_impact": "DCP_READER_DISTINGUISHES_PROFESSIONAL_ENGLISH_FROM_EXTERNAL_PUBLIC_RELEASE",
-      "claim_ceiling": "BOUNDED_REPRESENTATION_CONTRACT_ONLY",
-      "next_trigger": "Ideas and GLModel native triadic adoption returns plus executable verifier evidence"
+      "reconciliation": "ACCEPTED_BOUNDED_DCP_NATIVE",
+      "rebuild_impact": "CLAIMS_CAN_BE_BOUND_TO_RECONSTRUCTABLE_SUPPORT_AND_AFFECTED_INVALIDATION",
+      "claim_ceiling": "STRUCTURED_CANDIDATE_NOT_BEHAVIOR_PROVEN",
+      "next_trigger": "B109 local invalidation/recompute specimen across GUI-LU, Enterprise World and Scientific Reasoning"
     }
   ]
 }

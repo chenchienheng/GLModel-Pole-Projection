@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://xuanling.local/semantic-core/dcp/schema/cognitive-support-cone.schema.json",
+  "title": "DCP Cognitive Support Cone",
+  "type": "object",
+  "required": [
+    "support_id",
+    "stable_subject_id",
+    "claim",
+    "state_anchor",
+    "provenance",
+    "dependencies",
+    "evidence",
+    "claim_ceiling",
+    "authority",
+    "validation",
+    "invalidation",
+    "return_rebuild"
+  ],
+  "properties": {
+    "support_id": {"type": "string", "minLength": 1},
+    "stable_subject_id": {"type": "string", "minLength": 1},
+    "claim": {
+      "type": "object",
+      "required": ["claim_id", "claim_type", "statement_ref"],
+      "properties": {
+        "claim_id": {"type": "string"},
+        "claim_type": {"enum": ["OBSERVATION", "INFERENCE", "CONSTRAINT", "DECISION", "REQUIREMENT", "STATE_CLAIM", "CAUSAL_CLAIM", "CAPABILITY_CLAIM"]},
+        "statement_ref": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "state_anchor": {
+      "type": "object",
+      "required": ["identity_continuity", "anchor_state"],
+      "properties": {
+        "identity_continuity": {"type": "boolean"},
+        "anchor_state": {"type": "string"},
+        "effective_at": {"type": ["string", "null"]},
+        "expires_at": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["source_pointer", "source_role"],
+        "properties": {
+          "source_pointer": {"type": "string"},
+          "source_revision": {"type": ["string", "null"]},
+          "source_role": {"enum": ["NATIVE_SOURCE", "OBSERVATION", "DERIVED_EVIDENCE", "EXTERNAL_REFERENCE", "RETURN", "DECISION_EVIDENCE"]},
+          "method_pedigree": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["edge_id", "relation", "target"],
+        "properties": {
+          "edge_id": {"type": "string"},
+          "relation": {"type": "string"},
+          "target": {"type": "string"},
+          "assumption": {"type": ["string", "null"]},
+          "causal_status": {"enum": ["NOT_CAUSAL", "CAUSAL_CANDIDATE", "CAUSAL_SUPPORTED", "UNKNOWN"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["evidence_id", "role", "applicability"],
+        "properties": {
+          "evidence_id": {"type": "string"},
+          "role": {"enum": ["SUPPORT", "CONTRADICT", "BOUNDARY", "VALIDATION", "PROVENANCE", "FAILURE"]},
+          "applicability": {"enum": ["APPLICABLE", "PARTIAL", "STALE", "OUT_OF_SCOPE", "TO_VERIFY"]},
+          "pointer": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "claim_ceiling": {"enum": ["UNKNOWN", "CANDIDATE", "TO_VERIFY", "CASE_SUPPORTED", "VERIFIED_BOUNDED", "APPROVED", "RUNTIME_PROVEN"]},
+    "authority": {
+      "type": "object",
+      "required": ["owner", "mutation_authorized"],
+      "properties": {
+        "owner": {"type": "string"},
+        "mutation_authorized": {"type": "boolean"},
+        "gate": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "validation": {
+      "type": "object",
+      "required": ["mode", "source_mutation_allowed", "result_scope"],
+      "properties": {
+        "mode": {"enum": ["NON_MUTATING", "MUTATING_WITH_AUTHORITY"]},
+        "source_mutation_allowed": {"type": "boolean"},
+        "result_scope": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "invalidation": {
+      "type": "object",
+      "required": ["triggers", "mode", "last_write_wins"],
+      "properties": {
+        "triggers": {"type": "array", "items": {"type": "string"}},
+        "mode": {"const": "AFFECTED_SUPPORT_CONE_ONLY"},
+        "last_write_wins": {"const": false}
+      },
+      "additionalProperties": true
+    },
+    "return_rebuild": {
+      "type": "object",
+      "required": ["return_state", "reconciliation", "rebuild_scope"],
+      "properties": {
+        "return_state": {"type": "string"},
+        "reconciliation": {"type": "string"},
+        "rebuild_scope": {"enum": ["NONE", "AFFECTED_EDGE", "AFFECTED_CONE", "WHOLE_WORLD_WITH_MATERIAL_JUSTIFICATION"]},
+        "reentry_pointer": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

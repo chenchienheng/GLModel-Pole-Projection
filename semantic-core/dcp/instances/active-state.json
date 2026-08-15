@@ -1,6 +1,6 @@
 {
   "profile": "DCP_ACTIVE_STATE_INSTANCE",
-  "version": "0.3-candidate",
+  "version": "0.4-candidate",
   "runtime": false,
   "as_of": "2026-08-15",
   "native_authority": "CoreTri_DCP",
@@ -11,7 +11,7 @@
     "historical_metabolism": "ACTIVE",
     "current_surface_compaction": "ACTIVE",
     "requirement_thread": "TRACE_PARTIAL",
-    "cognitive_support_cone": "STRUCTURED_CANDIDATE",
+    "cognitive_support_cone": "EXECUTABLE_BOUNDED_GUI_LU",
     "public_projection": "FAIL_CLOSED",
     "promotion": "NONE",
     "runtime": false
@@ -22,30 +22,21 @@
       "subject": "WORLD-GUI-LU",
       "reason": "Exact geometry and domain-native drawing/model evidence remain GLModel-native validation work.",
       "owner": "GLModel",
-      "blocks": [
-        "GEOMETRY_AUTHORITY_PROMOTION",
-        "WORLD_REBUILD_COMPLETE_CLAIM"
-      ]
+      "blocks": ["GEOMETRY_AUTHORITY_PROMOTION","WORLD_REBUILD_COMPLETE_CLAIM"]
     },
     {
       "hold_id": "HOLD-WP-B-MOTHER-WINDOW-TRACE",
       "subject": "WORLD-GUI-LU/MOTHER_SUITE_WINDOW",
       "reason": "A lawful requirement pointer and exact Mother Space plus Window/Host/Opening evidence are absent. DCP may trace the gap but cannot claim requirement satisfaction.",
       "owner": "Ideas/Qinyi + GLModel",
-      "blocks": [
-        "REQUIREMENT_THREAD_RECONCILED_CLAIM",
-        "MOTHER_WINDOW_REQUIREMENT_SATISFIED_CLAIM"
-      ]
+      "blocks": ["REQUIREMENT_THREAD_RECONCILED_CLAIM","MOTHER_WINDOW_REQUIREMENT_SATISFIED_CLAIM"]
     },
     {
-      "hold_id": "HOLD-B109-COGNITIVE-INVALIDATION-EVIDENCE",
+      "hold_id": "HOLD-B109-HETEROGENEOUS-INVALIDATION-EVIDENCE",
       "subject": "DCP_COGNITIVE_SUPPORT_CONE",
-      "reason": "Typed support-cone structure exists, but local invalidation/recompute behavior has not yet been proven on heterogeneous specimens.",
+      "reason": "Executable local invalidation passed on the bounded GUI-LU specimen only. Enterprise World and Scientific Reasoning specimens remain unproven.",
       "owner": "CoreTri_DCP",
-      "blocks": [
-        "COGNITIVE_SUPPORT_CONE_VERIFIED_BOUNDED",
-        "COGNITIVE_RECOMPUTE_CAPABILITY_PROVEN"
-      ]
+      "blocks": ["COGNITIVE_SUPPORT_CONE_VERIFIED_BOUNDED_HETEROGENEOUS","COGNITIVE_RECOMPUTE_GENERALIZATION_CLAIM"]
     }
   ],
   "active_conflicts": [],
@@ -70,6 +61,8 @@
     "requirement_thread": "semantic-core/dcp/current/requirement-thread-model.json",
     "cognitive_support_cone": "semantic-core/dcp/current/cognitive-support-cone-model.json",
     "cognitive_support_cone_schema": "semantic-core/dcp/schema/cognitive-support-cone.schema.json",
+    "cognitive_invalidation_specimens": "semantic-core/dcp/instances/cognitive-invalidation-specimens.json",
+    "cognitive_invalidation_evaluator": "semantic-core/tools/evaluate-cognitive-invalidation.mjs",
     "semantic_core_index": "semantic-core/index.json",
     "artifact_registry": "semantic-core/artifacts/artifact-registry.json",
     "ecosystem_migration": "semantic-core/migration/ecosystem-migration-map.json"
@@ -78,8 +71,8 @@
     "Runtime proven",
     "Full GUI-LU geometry proven",
     "WP-B requirement thread reconciled",
-    "Cognitive support cone verified bounded",
-    "Local cognitive invalidation/recompute proven",
+    "Cognitive support cone heterogeneous verification complete",
+    "Enterprise or Scientific invalidation proven",
     "All historical contamination removed",
     "Public release approved"
   ]

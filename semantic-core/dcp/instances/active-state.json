@@ -1,6 +1,6 @@
 {
   "profile": "DCP_ACTIVE_STATE_INSTANCE",
-  "version": "0.2-candidate",
+  "version": "0.3-candidate",
   "runtime": false,
   "as_of": "2026-08-15",
   "native_authority": "CoreTri_DCP",
@@ -11,6 +11,7 @@
     "historical_metabolism": "ACTIVE",
     "current_surface_compaction": "ACTIVE",
     "requirement_thread": "TRACE_PARTIAL",
+    "cognitive_support_cone": "STRUCTURED_CANDIDATE",
     "public_projection": "FAIL_CLOSED",
     "promotion": "NONE",
     "runtime": false
@@ -35,6 +36,16 @@
         "REQUIREMENT_THREAD_RECONCILED_CLAIM",
         "MOTHER_WINDOW_REQUIREMENT_SATISFIED_CLAIM"
       ]
+    },
+    {
+      "hold_id": "HOLD-B109-COGNITIVE-INVALIDATION-EVIDENCE",
+      "subject": "DCP_COGNITIVE_SUPPORT_CONE",
+      "reason": "Typed support-cone structure exists, but local invalidation/recompute behavior has not yet been proven on heterogeneous specimens.",
+      "owner": "CoreTri_DCP",
+      "blocks": [
+        "COGNITIVE_SUPPORT_CONE_VERIFIED_BOUNDED",
+        "COGNITIVE_RECOMPUTE_CAPABILITY_PROVEN"
+      ]
     }
   ],
   "active_conflicts": [],
@@ -57,6 +68,8 @@
   "current_pointers": {
     "dcp_index": "semantic-core/dcp/index.json",
     "requirement_thread": "semantic-core/dcp/current/requirement-thread-model.json",
+    "cognitive_support_cone": "semantic-core/dcp/current/cognitive-support-cone-model.json",
+    "cognitive_support_cone_schema": "semantic-core/dcp/schema/cognitive-support-cone.schema.json",
     "semantic_core_index": "semantic-core/index.json",
     "artifact_registry": "semantic-core/artifacts/artifact-registry.json",
     "ecosystem_migration": "semantic-core/migration/ecosystem-migration-map.json"
@@ -65,6 +78,8 @@
     "Runtime proven",
     "Full GUI-LU geometry proven",
     "WP-B requirement thread reconciled",
+    "Cognitive support cone verified bounded",
+    "Local cognitive invalidation/recompute proven",
     "All historical contamination removed",
     "Public release approved"
   ]

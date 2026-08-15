@@ -9,6 +9,7 @@ const read = async p => JSON.parse(await fs.readFile(path.join(dcpRoot, p), 'utf
 const payload = await read('instances/cognitive-invalidation-specimens.json');
 const ceilingRank = ['UNKNOWN','CANDIDATE','TO_VERIFY','CASE_SUPPORTED','VERIFIED_BOUNDED','APPROVED','RUNTIME_PROVEN'];
 const capAt = (current, ceiling) => ceilingRank[Math.min(ceilingRank.indexOf(current), ceilingRank.indexOf(ceiling))];
+const degradingEvents = new Set(['EVIDENCE_APPLICABILITY_FAILURE','AUTHORITY_WITHDRAWN','EVIDENCE_STALE','EVIDENCE_CONTRADICTED']);
 const results = [];
 let failed = false;
 
@@ -39,12 +40,9 @@ for (const specimen of payload.specimens || []) {
   for (const id of affected) {
     const node = nodes.get(id);
     if (!node) continue;
-    const eventType = specimen.event?.type;
-    if (eventType === 'EVIDENCE_APPLICABILITY_FAILURE') {
-      recomputedCeilings[id] = capAt(node.claim_ceiling, 'TO_VERIFY');
-    } else {
-      recomputedCeilings[id] = node.claim_ceiling;
-    }
+    recomputedCeilings[id] = degradingEvents.has(specimen.event?.type)
+      ? capAt(node.claim_ceiling, 'TO_VERIFY')
+      : node.claim_ceiling;
   }
 
   const actualInvalidated = [...affected].sort();
@@ -74,7 +72,7 @@ for (const specimen of payload.specimens || []) {
 console.log(JSON.stringify({
   profile: 'DCP_COGNITIVE_INVALIDATION_EVALUATION',
   runtime: false,
-  scope: 'BOUNDED_SPECIMEN_ONLY',
+  scope: 'BOUNDED_SPECIMENS_ONLY',
   status: failed ? 'FAIL' : 'PASS_BOUNDED',
   results
 }, null, 2));

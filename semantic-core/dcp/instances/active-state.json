@@ -1,6 +1,6 @@
 {
   "profile": "DCP_ACTIVE_STATE_INSTANCE",
-  "version": "0.4-candidate",
+  "version": "0.5-candidate",
   "runtime": false,
   "as_of": "2026-08-15",
   "native_authority": "CoreTri_DCP",
@@ -11,7 +11,7 @@
     "historical_metabolism": "ACTIVE",
     "current_surface_compaction": "ACTIVE",
     "requirement_thread": "TRACE_PARTIAL",
-    "cognitive_support_cone": "EXECUTABLE_BOUNDED_GUI_LU",
+    "cognitive_support_cone": "VERIFIED_BOUNDED_HETEROGENEOUS",
     "public_projection": "FAIL_CLOSED",
     "promotion": "NONE",
     "runtime": false
@@ -32,29 +32,17 @@
       "blocks": ["REQUIREMENT_THREAD_RECONCILED_CLAIM","MOTHER_WINDOW_REQUIREMENT_SATISFIED_CLAIM"]
     },
     {
-      "hold_id": "HOLD-B109-HETEROGENEOUS-INVALIDATION-EVIDENCE",
+      "hold_id": "HOLD-B110-RUNTIME-REAL-WORLD-REUSE",
       "subject": "DCP_COGNITIVE_SUPPORT_CONE",
-      "reason": "Executable local invalidation passed on the bounded GUI-LU specimen only. Enterprise World and Scientific Reasoning specimens remain unproven.",
+      "reason": "Affected-cone invalidation is verified across bounded GUI-LU, synthetic Enterprise, and bounded Scientific specimens; runtime operation, real enterprise reuse, and general scientific validity remain unproven.",
       "owner": "CoreTri_DCP",
-      "blocks": ["COGNITIVE_SUPPORT_CONE_VERIFIED_BOUNDED_HETEROGENEOUS","COGNITIVE_RECOMPUTE_GENERALIZATION_CLAIM"]
+      "blocks": ["COGNITIVE_SUPPORT_CONE_RUNTIME_PROVEN","OPERATIONAL_GENERALIZATION_CLAIM"]
     }
   ],
   "active_conflicts": [],
   "pending_returns": [
-    {
-      "return_id": "RET-GLMODEL-DOMAIN-NATIVE-BINDING",
-      "from": "GLModel",
-      "to": "DCP",
-      "expected_delta": "Drawing/3D/BIM/camera/system evidence bindings to stable GUI-LU identities and anchors",
-      "closure": "RETURN_PENDING"
-    },
-    {
-      "return_id": "RET-IDEAS-HUMAN-ASSEMBLY",
-      "from": "Ideas",
-      "to": "DCP",
-      "expected_delta": "Human meaning/friction/navigation projections suitable for context assembly",
-      "closure": "RETURN_PENDING"
-    }
+    {"return_id":"RET-GLMODEL-DOMAIN-NATIVE-BINDING","from":"GLModel","to":"DCP","expected_delta":"Drawing/3D/BIM/camera/system evidence bindings to stable GUI-LU identities and anchors","closure":"RETURN_PENDING"},
+    {"return_id":"RET-IDEAS-HUMAN-ASSEMBLY","from":"Ideas","to":"DCP","expected_delta":"Human meaning/friction/navigation projections suitable for context assembly","closure":"RETURN_PENDING"}
   ],
   "current_pointers": {
     "dcp_index": "semantic-core/dcp/index.json",
@@ -71,8 +59,9 @@
     "Runtime proven",
     "Full GUI-LU geometry proven",
     "WP-B requirement thread reconciled",
-    "Cognitive support cone heterogeneous verification complete",
-    "Enterprise or Scientific invalidation proven",
+    "Real enterprise operational reuse proven",
+    "Riemann Hypothesis proved",
+    "General scientific reasoning validity proven",
     "All historical contamination removed",
     "Public release approved"
   ]

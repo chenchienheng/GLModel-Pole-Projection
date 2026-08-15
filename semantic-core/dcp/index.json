@@ -1,6 +1,6 @@
 {
   "profile": "DCP_SEMANTIC_CORE_INDEX",
-  "version": "0.6-candidate",
+  "version": "0.7-candidate",
   "runtime": false,
   "native_authority": "CoreTri_DCP",
   "current_surfaces": {
@@ -12,7 +12,11 @@
     "growth_memory": "current/growth-memory-model.json",
     "rebuild_reentry": "current/rebuild-reentry-model.json",
     "context_assembly": "current/context-assembly-policy.json",
-    "reasoning_contamination_gates": "current/reasoning-contamination-gates.json"
+    "reasoning_contamination_gates": "current/reasoning-contamination-gates.json",
+    "cognitive_support_cone": "current/cognitive-support-cone-model.json"
+  },
+  "schemas": {
+    "cognitive_support_cone": "schema/cognitive-support-cone.schema.json"
   },
   "instances": {
     "active_state": "instances/active-state.json",
@@ -34,6 +38,7 @@
   "external_release": "GATED_ONLY",
   "native_source_root": "NOT_THIS_REPOSITORY",
   "materiality_rule": "AFFECTED_EDGE_ONLY",
+  "cognition_rule": "CLAIM_REQUIRES_RECONSTRUCTABLE_SUPPORT_CONE_AND_AFFECTED_INVALIDATION",
   "reader_rule": "INDEX_THEN_ACTIVE_INSTANCE_THEN_TRIADIC_PURPOSE_FIT_SURFACE_THEN_AFFECTED_TECHNICAL_SLICE",
   "historical_rule": "EXCLUDED_FROM_CURRENT_ASSEMBLY_UNLESS_EXPLICIT_REENTRY_PURPOSE"
 }

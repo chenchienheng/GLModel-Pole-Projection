@@ -1,87 +1,44 @@
 {
   "profile": "DCP_COGNITIVE_INVALIDATION_SPECIMENS",
-  "version": "0.1-candidate",
+  "version": "0.2-candidate",
   "runtime": false,
   "native_authority": "CoreTri_DCP",
   "specimens": [
     {
       "specimen_id": "B109-GUI-LU-MOTHER-WINDOW-HOLD",
       "world_id": "WORLD-GUI-LU",
-      "basis": "Existing active hold HOLD-WP-B-MOTHER-WINDOW-TRACE; no new engineering fact is invented.",
+      "basis": "Existing active hold; no new engineering fact invented.",
       "support_nodes": [
-        {
-          "support_id": "CSC-GUI-LU-MOTHER-WINDOW-REQ-GAP",
-          "stable_subject_id": "WORLD-GUI-LU/MOTHER_SUITE_WINDOW",
-          "claim": {
-            "claim_id": "CLM-MOTHER-WINDOW-REQ-GAP",
-            "claim_type": "STATE_CLAIM",
-            "statement_ref": "A lawful requirement pointer and exact Mother Space/Window/Host/Opening evidence are absent."
-          },
-          "state_anchor": {"identity_continuity": true, "anchor_state": "TRACE_PARTIAL", "effective_at": "2026-08-15", "expires_at": null},
-          "provenance": [{"source_pointer": "semantic-core/dcp/instances/active-state.json#HOLD-WP-B-MOTHER-WINDOW-TRACE", "source_revision": null, "source_role": "NATIVE_SOURCE", "method_pedigree": "DCP active-state readback"}],
-          "dependencies": [],
-          "evidence": [{"evidence_id": "EV-MOTHER-WINDOW-LAWFUL-POINTER", "role": "BOUNDARY", "applicability": "TO_VERIFY", "pointer": null}],
-          "claim_ceiling": "VERIFIED_BOUNDED",
-          "authority": {"owner": "CoreTri_DCP", "mutation_authorized": true, "gate": "DCP_MATERIALITY_AND_RECONCILIATION"},
-          "validation": {"mode": "NON_MUTATING", "source_mutation_allowed": false, "result_scope": "Requirement/evidence gap only"},
-          "invalidation": {"triggers": ["LAWFUL_REQUIREMENT_POINTER_APPEARS", "EXACT_ENGINEERING_EVIDENCE_APPEARS", "ACTIVE_HOLD_WITHDRAWN_BY_LAWFUL_RETURN"], "mode": "AFFECTED_SUPPORT_CONE_ONLY", "last_write_wins": false},
-          "return_rebuild": {"return_state": "ACTIVE_HOLD", "reconciliation": "NOT_RECONCILED", "rebuild_scope": "AFFECTED_CONE", "reentry_pointer": "semantic-core/dcp/instances/active-state.json"}
-        },
-        {
-          "support_id": "CSC-GUI-LU-MOTHER-WINDOW-SATISFACTION",
-          "stable_subject_id": "WORLD-GUI-LU/MOTHER_SUITE_WINDOW",
-          "claim": {
-            "claim_id": "CLM-MOTHER-WINDOW-SATISFIED",
-            "claim_type": "REQUIREMENT",
-            "statement_ref": "Mother Window requirement is satisfied."
-          },
-          "state_anchor": {"identity_continuity": true, "anchor_state": "TO_VERIFY", "effective_at": "2026-08-15", "expires_at": null},
-          "provenance": [{"source_pointer": "semantic-core/dcp/current/requirement-thread-model.json#WP-B-MOTHER-WINDOW", "source_revision": null, "source_role": "DERIVED_EVIDENCE", "method_pedigree": "Requirement thread"}],
-          "dependencies": [
-            {"edge_id": "EDGE-MW-SAT-REQ", "relation": "REQUIRES", "target": "CSC-GUI-LU-MOTHER-WINDOW-REQ-GAP", "assumption": "Gap must be closed by lawful pointer and exact evidence", "causal_status": "NOT_CAUSAL"}
-          ],
-          "evidence": [
-            {"evidence_id": "EV-MOTHER-WINDOW-EXACT-ENGINEERING", "role": "SUPPORT", "applicability": "TO_VERIFY", "pointer": null}
-          ],
-          "claim_ceiling": "TO_VERIFY",
-          "authority": {"owner": "Ideas/Qinyi + GLModel", "mutation_authorized": false, "gate": "NATIVE_RETURN_PLUS_DCP_RECONCILIATION"},
-          "validation": {"mode": "NON_MUTATING", "source_mutation_allowed": false, "result_scope": "Requirement satisfaction claim only"},
-          "invalidation": {"triggers": ["DEPENDENCY_SUPPORT_INVALIDATED", "EVIDENCE_STALE", "EVIDENCE_CONTRADICTED", "AUTHORITY_WITHDRAWN"], "mode": "AFFECTED_SUPPORT_CONE_ONLY", "last_write_wins": false},
-          "return_rebuild": {"return_state": "HOLD", "reconciliation": "PENDING_NATIVE_RETURN", "rebuild_scope": "AFFECTED_CONE", "reentry_pointer": "semantic-core/dcp/current/requirement-thread-model.json"}
-        },
-        {
-          "support_id": "CSC-GUI-LU-VEHICLE-INGRESS-INDEPENDENT",
-          "stable_subject_id": "WORLD-GUI-LU/VEHICLE_INGRESS",
-          "claim": {
-            "claim_id": "CLM-VEHICLE-INGRESS-INDEPENDENT",
-            "claim_type": "STATE_CLAIM",
-            "statement_ref": "Vehicle ingress is an independent affected branch for this specimen."
-          },
-          "state_anchor": {"identity_continuity": true, "anchor_state": "UNCHANGED_CONTROL", "effective_at": "2026-08-15", "expires_at": null},
-          "provenance": [{"source_pointer": "semantic-core/dcp/instances/active-state.json", "source_revision": null, "source_role": "NATIVE_SOURCE", "method_pedigree": "Bounded control branch"}],
-          "dependencies": [],
-          "evidence": [{"evidence_id": "EV-VEHICLE-CONTROL", "role": "BOUNDARY", "applicability": "PARTIAL", "pointer": null}],
-          "claim_ceiling": "CANDIDATE",
-          "authority": {"owner": "GLModel", "mutation_authorized": false, "gate": "GLMODEL_NATIVE_RETURN"},
-          "validation": {"mode": "NON_MUTATING", "source_mutation_allowed": false, "result_scope": "Control branch independence only"},
-          "invalidation": {"triggers": ["VEHICLE_BRANCH_NATIVE_DELTA"], "mode": "AFFECTED_SUPPORT_CONE_ONLY", "last_write_wins": false},
-          "return_rebuild": {"return_state": "UNCHANGED_CONTROL", "reconciliation": "NOT_APPLICABLE", "rebuild_scope": "NONE", "reentry_pointer": null}
-        }
+        {"support_id":"CSC-GUI-LU-MOTHER-WINDOW-REQ-GAP","stable_subject_id":"WORLD-GUI-LU/MOTHER_SUITE_WINDOW","claim":{"claim_id":"CLM-MOTHER-WINDOW-REQ-GAP","claim_type":"STATE_CLAIM","statement_ref":"Lawful requirement pointer and exact engineering evidence are absent."},"state_anchor":{"identity_continuity":true,"anchor_state":"TRACE_PARTIAL","effective_at":"2026-08-15","expires_at":null},"provenance":[{"source_pointer":"semantic-core/dcp/instances/active-state.json#HOLD-WP-B-MOTHER-WINDOW-TRACE","source_revision":null,"source_role":"NATIVE_SOURCE","method_pedigree":"DCP active-state readback"}],"dependencies":[],"evidence":[{"evidence_id":"EV-MOTHER-WINDOW-LAWFUL-POINTER","role":"BOUNDARY","applicability":"TO_VERIFY","pointer":null}],"claim_ceiling":"VERIFIED_BOUNDED","authority":{"owner":"CoreTri_DCP","mutation_authorized":true,"gate":"DCP_MATERIALITY_AND_RECONCILIATION"},"validation":{"mode":"NON_MUTATING","source_mutation_allowed":false,"result_scope":"Requirement/evidence gap only"},"invalidation":{"triggers":["LAWFUL_REQUIREMENT_POINTER_APPEARS","EXACT_ENGINEERING_EVIDENCE_APPEARS"],"mode":"AFFECTED_SUPPORT_CONE_ONLY","last_write_wins":false},"return_rebuild":{"return_state":"ACTIVE_HOLD","reconciliation":"NOT_RECONCILED","rebuild_scope":"AFFECTED_CONE","reentry_pointer":"semantic-core/dcp/instances/active-state.json"}},
+        {"support_id":"CSC-GUI-LU-MOTHER-WINDOW-SATISFACTION","stable_subject_id":"WORLD-GUI-LU/MOTHER_SUITE_WINDOW","claim":{"claim_id":"CLM-MOTHER-WINDOW-SATISFIED","claim_type":"REQUIREMENT","statement_ref":"Mother Window requirement is satisfied."},"state_anchor":{"identity_continuity":true,"anchor_state":"TO_VERIFY","effective_at":"2026-08-15","expires_at":null},"provenance":[{"source_pointer":"semantic-core/dcp/current/requirement-thread-model.json#WP-B-MOTHER-WINDOW","source_revision":null,"source_role":"DERIVED_EVIDENCE","method_pedigree":"Requirement thread"}],"dependencies":[{"edge_id":"EDGE-MW-SAT-REQ","relation":"REQUIRES","target":"CSC-GUI-LU-MOTHER-WINDOW-REQ-GAP","assumption":"Gap must be closed by lawful pointer and exact evidence","causal_status":"NOT_CAUSAL"}],"evidence":[{"evidence_id":"EV-MOTHER-WINDOW-EXACT-ENGINEERING","role":"SUPPORT","applicability":"TO_VERIFY","pointer":null}],"claim_ceiling":"TO_VERIFY","authority":{"owner":"Ideas/Qinyi + GLModel","mutation_authorized":false,"gate":"NATIVE_RETURN_PLUS_DCP_RECONCILIATION"},"validation":{"mode":"NON_MUTATING","source_mutation_allowed":false,"result_scope":"Requirement satisfaction claim only"},"invalidation":{"triggers":["EVIDENCE_STALE","EVIDENCE_CONTRADICTED","AUTHORITY_WITHDRAWN"],"mode":"AFFECTED_SUPPORT_CONE_ONLY","last_write_wins":false},"return_rebuild":{"return_state":"HOLD","reconciliation":"PENDING_NATIVE_RETURN","rebuild_scope":"AFFECTED_CONE","reentry_pointer":"semantic-core/dcp/current/requirement-thread-model.json"}},
+        {"support_id":"CSC-GUI-LU-VEHICLE-INGRESS-INDEPENDENT","stable_subject_id":"WORLD-GUI-LU/VEHICLE_INGRESS","claim":{"claim_id":"CLM-VEHICLE-INGRESS-INDEPENDENT","claim_type":"STATE_CLAIM","statement_ref":"Independent control branch."},"state_anchor":{"identity_continuity":true,"anchor_state":"UNCHANGED_CONTROL","effective_at":"2026-08-15","expires_at":null},"provenance":[{"source_pointer":"semantic-core/dcp/instances/active-state.json","source_revision":null,"source_role":"NATIVE_SOURCE","method_pedigree":"Bounded control branch"}],"dependencies":[],"evidence":[{"evidence_id":"EV-VEHICLE-CONTROL","role":"BOUNDARY","applicability":"PARTIAL","pointer":null}],"claim_ceiling":"CANDIDATE","authority":{"owner":"GLModel","mutation_authorized":false,"gate":"GLMODEL_NATIVE_RETURN"},"validation":{"mode":"NON_MUTATING","source_mutation_allowed":false,"result_scope":"Control branch only"},"invalidation":{"triggers":["VEHICLE_BRANCH_NATIVE_DELTA"],"mode":"AFFECTED_SUPPORT_CONE_ONLY","last_write_wins":false},"return_rebuild":{"return_state":"UNCHANGED_CONTROL","reconciliation":"NOT_APPLICABLE","rebuild_scope":"NONE","reentry_pointer":null}}
       ],
-      "event": {
-        "event_id": "EVT-B109-MOTHER-WINDOW-SUPPORT-NOT-APPLICABLE",
-        "type": "EVIDENCE_APPLICABILITY_FAILURE",
-        "targets": ["CSC-GUI-LU-MOTHER-WINDOW-SATISFACTION"],
-        "reason": "Exact engineering evidence is absent/TO_VERIFY under the current active hold; the satisfaction claim cannot remain supported.",
-        "does_not_mutate_native_source": true
-      },
-      "expected": {
-        "invalidate": ["CSC-GUI-LU-MOTHER-WINDOW-SATISFACTION"],
-        "preserve": ["CSC-GUI-LU-MOTHER-WINDOW-REQ-GAP", "CSC-GUI-LU-VEHICLE-INGRESS-INDEPENDENT"],
-        "recompute_scope": "AFFECTED_CONE",
-        "whole_world_rebuild": false,
-        "resulting_claim_ceiling": {"CSC-GUI-LU-MOTHER-WINDOW-SATISFACTION": "TO_VERIFY"}
-      }
+      "event":{"event_id":"EVT-B109-MOTHER-WINDOW-SUPPORT-NOT-APPLICABLE","type":"EVIDENCE_APPLICABILITY_FAILURE","targets":["CSC-GUI-LU-MOTHER-WINDOW-SATISFACTION"],"reason":"Exact engineering evidence absent/TO_VERIFY.","does_not_mutate_native_source":true},
+      "expected":{"invalidate":["CSC-GUI-LU-MOTHER-WINDOW-SATISFACTION"],"preserve":["CSC-GUI-LU-MOTHER-WINDOW-REQ-GAP","CSC-GUI-LU-VEHICLE-INGRESS-INDEPENDENT"],"recompute_scope":"AFFECTED_CONE","whole_world_rebuild":false,"resulting_claim_ceiling":{"CSC-GUI-LU-MOTHER-WINDOW-SATISFACTION":"TO_VERIFY"}}
+    },
+    {
+      "specimen_id":"B110-ENTERPRISE-AUTHORITY-WITHDRAWAL",
+      "world_id":"SYNTHETIC-ENTERPRISE-WORLD",
+      "basis":"Structural synthetic specimen only; contains no user or company data.",
+      "support_nodes":[
+        {"support_id":"CSC-ENT-ROLE-ENTITLEMENT","stable_subject_id":"SYNTHETIC-ENTERPRISE/ROLE-A","claim":{"claim_id":"CLM-ENT-ENTITLEMENT","claim_type":"AUTHORITY_CLAIM","statement_ref":"Role A has entitlement E."},"state_anchor":{"identity_continuity":true,"anchor_state":"CANDIDATE","effective_at":"2026-08-15","expires_at":null},"provenance":[{"source_pointer":"synthetic://enterprise/authority","source_revision":"v1","source_role":"SYNTHETIC_SPECIMEN","method_pedigree":"B110 structural test"}],"dependencies":[],"evidence":[{"evidence_id":"EV-ENT-AUTH","role":"SUPPORT","applicability":"FULL","pointer":"synthetic://enterprise/authority"}],"claim_ceiling":"CASE_SUPPORTED","authority":{"owner":"SYNTHETIC_AUTHORITY_OWNER","mutation_authorized":false,"gate":"AUTHORITY_GATE"},"validation":{"mode":"NON_MUTATING","source_mutation_allowed":false,"result_scope":"Entitlement only"},"invalidation":{"triggers":["AUTHORITY_WITHDRAWN"],"mode":"AFFECTED_SUPPORT_CONE_ONLY","last_write_wins":false},"return_rebuild":{"return_state":"CANDIDATE","reconciliation":"NOT_APPLICABLE","rebuild_scope":"AFFECTED_CONE","reentry_pointer":null}},
+        {"support_id":"CSC-ENT-ACTION-AUTHORIZED","stable_subject_id":"SYNTHETIC-ENTERPRISE/ACTION-X","claim":{"claim_id":"CLM-ENT-ACTION-AUTHORIZED","claim_type":"ACTION_CANDIDATE","statement_ref":"Action X is authorized by entitlement E."},"state_anchor":{"identity_continuity":true,"anchor_state":"CANDIDATE","effective_at":"2026-08-15","expires_at":null},"provenance":[{"source_pointer":"synthetic://enterprise/action","source_revision":"v1","source_role":"DERIVED_EVIDENCE","method_pedigree":"B110 structural test"}],"dependencies":[{"edge_id":"EDGE-ENT-AUTH-ACTION","relation":"REQUIRES","target":"CSC-ENT-ROLE-ENTITLEMENT","assumption":"Action requires active entitlement","causal_status":"NOT_CAUSAL"}],"evidence":[{"evidence_id":"EV-ENT-ACTION","role":"SUPPORT","applicability":"FULL","pointer":"synthetic://enterprise/action"}],"claim_ceiling":"CASE_SUPPORTED","authority":{"owner":"SYNTHETIC_ACTION_OWNER","mutation_authorized":false,"gate":"AUTHORITY_GATE"},"validation":{"mode":"NON_MUTATING","source_mutation_allowed":false,"result_scope":"Action authorization only"},"invalidation":{"triggers":["DEPENDENCY_SUPPORT_INVALIDATED","AUTHORITY_WITHDRAWN"],"mode":"AFFECTED_SUPPORT_CONE_ONLY","last_write_wins":false},"return_rebuild":{"return_state":"CANDIDATE","reconciliation":"NOT_APPLICABLE","rebuild_scope":"AFFECTED_CONE","reentry_pointer":null}},
+        {"support_id":"CSC-ENT-UNRELATED-PROCESS","stable_subject_id":"SYNTHETIC-ENTERPRISE/PROCESS-Y","claim":{"claim_id":"CLM-ENT-UNRELATED","claim_type":"STATE_CLAIM","statement_ref":"Process Y is independent of entitlement E."},"state_anchor":{"identity_continuity":true,"anchor_state":"UNCHANGED_CONTROL","effective_at":"2026-08-15","expires_at":null},"provenance":[{"source_pointer":"synthetic://enterprise/control","source_revision":"v1","source_role":"SYNTHETIC_SPECIMEN","method_pedigree":"B110 control"}],"dependencies":[],"evidence":[{"evidence_id":"EV-ENT-CONTROL","role":"BOUNDARY","applicability":"FULL","pointer":"synthetic://enterprise/control"}],"claim_ceiling":"CANDIDATE","authority":{"owner":"SYNTHETIC_PROCESS_OWNER","mutation_authorized":false,"gate":"NONE"},"validation":{"mode":"NON_MUTATING","source_mutation_allowed":false,"result_scope":"Control only"},"invalidation":{"triggers":["PROCESS_Y_DELTA"],"mode":"AFFECTED_SUPPORT_CONE_ONLY","last_write_wins":false},"return_rebuild":{"return_state":"UNCHANGED_CONTROL","reconciliation":"NOT_APPLICABLE","rebuild_scope":"NONE","reentry_pointer":null}}
+      ],
+      "event":{"event_id":"EVT-B110-ENTERPRISE-AUTHORITY-WITHDRAWN","type":"AUTHORITY_WITHDRAWN","targets":["CSC-ENT-ROLE-ENTITLEMENT"],"reason":"Synthetic entitlement E is withdrawn.","does_not_mutate_native_source":true},
+      "expected":{"invalidate":["CSC-ENT-ACTION-AUTHORIZED","CSC-ENT-ROLE-ENTITLEMENT"],"preserve":["CSC-ENT-UNRELATED-PROCESS"],"recompute_scope":"AFFECTED_CONE","whole_world_rebuild":false,"resulting_claim_ceiling":{"CSC-ENT-ROLE-ENTITLEMENT":"TO_VERIFY","CSC-ENT-ACTION-AUTHORIZED":"TO_VERIFY"}}
+    },
+    {
+      "specimen_id":"B110-SCIENTIFIC-EVIDENCE-BOUNDARY",
+      "world_id":"SCIENTIFIC-REASONING-RIEMANN-CANDIDATE",
+      "basis":"Uses only prior bounded Riemann reasoning methods; solution_claim=false and all mathematical content remains candidate/to-verify.",
+      "support_nodes":[
+        {"support_id":"CSC-SCI-SYMMETRY-REPRESENTATION","stable_subject_id":"RIEMANN-CANDIDATE/SYMMETRY","claim":{"claim_id":"CLM-SCI-SYMMETRY","claim_type":"STATE_CLAIM","statement_ref":"Symmetry representation is a reasoning candidate, not proof."},"state_anchor":{"identity_continuity":true,"anchor_state":"CANDIDATE","effective_at":"2026-08-15","expires_at":null},"provenance":[{"source_pointer":"GLOBAL_SHARED_MEMORY/RIEMANN_CANDIDATE","source_revision":null,"source_role":"REFERENCE","method_pedigree":"Bounded reasoning stress test"}],"dependencies":[],"evidence":[{"evidence_id":"EV-SCI-SYMMETRY","role":"SUPPORT","applicability":"PARTIAL","pointer":null}],"claim_ceiling":"CANDIDATE","authority":{"owner":"MATHEMATICAL_PROOF_AUTHORITY_NOT_DCP","mutation_authorized":false,"gate":"FORMAL_PROOF_GATE"},"validation":{"mode":"NON_MUTATING","source_mutation_allowed":false,"result_scope":"Representation candidate only"},"invalidation":{"triggers":["FORMAL_COUNTEREXAMPLE","SOURCE_REPRESENTATION_INVALIDATED"],"mode":"AFFECTED_SUPPORT_CONE_ONLY","last_write_wins":false},"return_rebuild":{"return_state":"CANDIDATE","reconciliation":"NOT_RECONCILED","rebuild_scope":"AFFECTED_CONE","reentry_pointer":null}},
+        {"support_id":"CSC-SCI-RIEMANN-PROOF-CLAIM","stable_subject_id":"RIEMANN-CANDIDATE/PROOF-CLAIM","claim":{"claim_id":"CLM-SCI-RH-PROOF","claim_type":"STATE_CLAIM","statement_ref":"Riemann Hypothesis has been proved by this candidate."},"state_anchor":{"identity_continuity":true,"anchor_state":"TO_VERIFY","effective_at":"2026-08-15","expires_at":null},"provenance":[{"source_pointer":"GLOBAL_SHARED_MEMORY/RIEMANN_CANDIDATE","source_revision":null,"source_role":"DERIVED_EVIDENCE","method_pedigree":"Bounded reasoning stress test"}],"dependencies":[{"edge_id":"EDGE-SCI-REP-PROOF","relation":"DERIVES_FROM","target":"CSC-SCI-SYMMETRY-REPRESENTATION","assumption":"Representation alone is insufficient for proof","causal_status":"NOT_CAUSAL"}],"evidence":[{"evidence_id":"EV-SCI-FORMAL-PROOF","role":"SUPPORT","applicability":"TO_VERIFY","pointer":null}],"claim_ceiling":"TO_VERIFY","authority":{"owner":"MATHEMATICAL_PROOF_AUTHORITY_NOT_DCP","mutation_authorized":false,"gate":"FORMAL_PROOF_GATE"},"validation":{"mode":"NON_MUTATING","source_mutation_allowed":false,"result_scope":"Proof claim only"},"invalidation":{"triggers":["EVIDENCE_APPLICABILITY_FAILURE","FORMAL_COUNTEREXAMPLE"],"mode":"AFFECTED_SUPPORT_CONE_ONLY","last_write_wins":false},"return_rebuild":{"return_state":"HOLD","reconciliation":"NOT_RECONCILED","rebuild_scope":"AFFECTED_CONE","reentry_pointer":null}},
+        {"support_id":"CSC-SCI-NUMERICAL-OBSERVATION","stable_subject_id":"RIEMANN-CANDIDATE/NUMERICAL-OBSERVATION","claim":{"claim_id":"CLM-SCI-NUMERIC","claim_type":"STATE_CLAIM","statement_ref":"Finite numerical observation remains independent evidence and does not prove the infinite claim."},"state_anchor":{"identity_continuity":true,"anchor_state":"CANDIDATE","effective_at":"2026-08-15","expires_at":null},"provenance":[{"source_pointer":"GLOBAL_SHARED_MEMORY/RIEMANN_CANDIDATE","source_revision":null,"source_role":"REFERENCE","method_pedigree":"Bounded reasoning stress test"}],"dependencies":[],"evidence":[{"evidence_id":"EV-SCI-NUMERIC","role":"SUPPORT","applicability":"PARTIAL","pointer":null}],"claim_ceiling":"CASE_SUPPORTED","authority":{"owner":"SCIENTIFIC_EVIDENCE_OWNER","mutation_authorized":false,"gate":"SCIENTIFIC_EVIDENCE_GATE"},"validation":{"mode":"NON_MUTATING","source_mutation_allowed":false,"result_scope":"Finite observation only"},"invalidation":{"triggers":["NUMERICAL_EVIDENCE_INVALIDATED"],"mode":"AFFECTED_SUPPORT_CONE_ONLY","last_write_wins":false},"return_rebuild":{"return_state":"CANDIDATE","reconciliation":"NOT_APPLICABLE","rebuild_scope":"NONE","reentry_pointer":null}}
+      ],
+      "event":{"event_id":"EVT-B110-SCI-PROOF-EVIDENCE-NOT-APPLICABLE","type":"EVIDENCE_APPLICABILITY_FAILURE","targets":["CSC-SCI-RIEMANN-PROOF-CLAIM"],"reason":"No formal proof evidence is established; representation and finite observation cannot carry proof authority.","does_not_mutate_native_source":true},
+      "expected":{"invalidate":["CSC-SCI-RIEMANN-PROOF-CLAIM"],"preserve":["CSC-SCI-NUMERICAL-OBSERVATION","CSC-SCI-SYMMETRY-REPRESENTATION"],"recompute_scope":"AFFECTED_CONE","whole_world_rebuild":false,"resulting_claim_ceiling":{"CSC-SCI-RIEMANN-PROOF-CLAIM":"TO_VERIFY"}}
     }
   ]
 }

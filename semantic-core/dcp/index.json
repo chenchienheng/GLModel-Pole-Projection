@@ -1,6 +1,6 @@
 {
   "profile": "DCP_SEMANTIC_CORE_INDEX",
-  "version": "0.7-candidate",
+  "version": "0.8-candidate",
   "runtime": false,
   "native_authority": "CoreTri_DCP",
   "current_surfaces": {
@@ -20,7 +20,8 @@
   },
   "instances": {
     "active_state": "instances/active-state.json",
-    "return_ledger": "instances/return-ledger.json"
+    "return_ledger": "instances/return-ledger.json",
+    "cognitive_invalidation_specimens": "instances/cognitive-invalidation-specimens.json"
   },
   "human_visual_surfaces": {
     "human_zh_tw": "HUMAN.zh-TW.md",

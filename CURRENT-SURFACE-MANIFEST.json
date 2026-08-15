@@ -1,18 +1,33 @@
 {
-  "repository_role": "PRIVATE_INTERNAL_SEMANTIC_BUILD_SURFACE",
+  "repository_role": "PUBLIC_GLMODEL_POLE_PROJECTION_CARRIER",
+  "projection_focus": "GLModel",
   "runtime": false,
   "native_source_root": false,
+  "repo_is_pole_authority": false,
+  "tri_pole_architecture": true,
   "reader_priority": [
     "README.md",
     "CURRENT-SURFACE-MANIFEST.json",
     "semantic-core/index.json",
     "semantic-core/dcp/index.json"
   ],
-  "current_internal_surfaces": {
-    "human": ["README.md", "semantic-core/dcp/HUMAN.zh-TW.md", "semantic-core/specimens/gui-lu/HUMAN.zh-TW.md"],
-    "machine": ["semantic-core/index.json", "semantic-core/dcp/index.json"],
-    "visual": ["semantic-core/viewer/index.html", "semantic-core/specimens/gui-lu/visual-bindings.json"],
+  "current_public_surfaces": {
+    "human_zh_tw": ["README.md", "semantic-core/dcp/HUMAN.zh-TW.md", "semantic-core/specimens/gui-lu/HUMAN.zh-TW.md"],
+    "professional_en": ["README.md", "semantic-core/dcp/PROFESSIONAL.en.md"],
+    "canonical_machine": ["CURRENT-SURFACE-MANIFEST.json", "semantic-core/index.json", "semantic-core/dcp/index.json"],
+    "visual_world": ["semantic-core/viewer/index.html", "semantic-core/specimens/gui-lu/visual-bindings.json"],
     "verification": [".github/workflows/semantic-core-verify.yml"]
+  },
+  "tri_repository_projection_map": {
+    "DCP-Pole-Projection": "dependency_state_authority_return_rebuild_weighted",
+    "Ideas-Pole-Projection": "meaning_placement_navigation_experience_weighted",
+    "GLModel-Pole-Projection": "world_object_engineering_evidence_adapter_weighted"
+  },
+  "shared_belt_semantics": {
+    "is_fourth_pole": false,
+    "is_authority_root": false,
+    "allowed": ["pointer", "receipt", "receiver_state", "return", "reconciliation_status", "reentry_pointer", "rebuild_pointer"],
+    "native_body_copy_default": false
   },
   "legacy_root_families": [
     "00_meta",
@@ -29,7 +44,8 @@
     "05_topology"
   ],
   "legacy_interpretation": "HISTORICAL_OR_COMPATIBILITY_UNLESS_EXPLICITLY_RE-ADMITTED",
-  "private_does_not_mean_unrestricted": true,
   "external_release": "EXPLICIT_GATE_ONLY",
-  "claim_ceiling": "Private semantic build and verification surface; not native source root, canon, promotion authority, or runtime"
+  "public_does_not_mean_unrestricted": true,
+  "promotion_rule": "REPOSITORY_LOCATION_NAME_OR_RECENCY_DOES_NOT_ESTABLISH_CURRENT_OR_WORLD_AUTHORITY",
+  "claim_ceiling": "Public GLModel-oriented CoreTri projection/build surface; not GLModel Native Body, runtime, canon, promotion authority, or world authority root"
 }

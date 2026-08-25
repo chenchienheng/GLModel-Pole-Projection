@@ -1,72 +1,26 @@
-# Unified Artifact Register
+# Unified Artifact Register — Historical Evidence Tombstone
 
-> Unified register for the current durable architecture corpus.
-> Integrates writeback, runtime, seed-extraction, and governance notes.
+> lifecycle_state: `EVIDENCE_ONLY`
+> reader_disposition: `REMOVE_FROM_READER_PATH`
+> routing_disposition: `REMOVE_ROUTING_EDGE`
+> runtime: `false`
+> native_review: `NOT_PERFORMED`
+> approval: `NOT_CLAIMED`
+> repository: `chenchienheng/GLModel-Pole-Projection`
+> predecessor_commit: `6d64aad1af2c801fe96a3d85f8285581d6bd22f2`
+> predecessor_blob: `954745bc85cf9adb1aedc6ec6980677871b2afdf`
 
----
+This artifact no longer registers a current or durable architecture corpus. It preserves only the lineage that an earlier snapshot grouped materials into four families:
 
-## 1. Reconciled Groups
+- Group A — Re-anchor / Continuity
+- Group B — Runtime Structure & Topology
+- Group C — Operational Boards & Layers
+- Group D — Governance & Cleanup
 
-### Group A — Re-anchor / Continuity
-- QINYI_INTERFACE_SIGNATURE_REFERENCE.md
-- SIGNATURE_ALIGNMENT_NOTE.md
-- CHATGPT_GITHUB_BOOTSTRAP.md
-- GITHUB_CHAIN_MASTER_MAP.md
-- REPOSITORY_CORPUS_INDEX.md
-- JULES_TASKBOARD.md
-- SEMANTIC_COMPRESSION_REPORT.md
-- REPLAY_READINESS_REPORT.md
+The exact former membership list remains recoverable from predecessor commit `6d64aad1af2c801fe96a3d85f8285581d6bd22f2`.
 
-### Group B — Runtime Structure & Topology
-- XUANLING_LINGLUO_MASTER_MAP.md
-- XUANLING_OPERATIONAL_MODEL_CORE.md
-- XUANLING_VS_DIGITAL_TWIN_SPEC.md
-- TRI_COUPLING_STATE_SPEC.md
-- INTERNAL_RELATIONAL_MESH_SPEC.md
-- WORLD_CHAIN_MASTER_AXIS.md
-- THREE_COUPLING_RUNTIME_MAP.md
-- WINDOW_12_MASTER_TABLE.md
-- 00_meta/user_identity_anchor.md
-- 00_meta/FULL_LIFECYCLE_ASSET_MATRIX.md
-- WORLD_CHAIN_MASTER_AXIS.md
-- 01_runtime-spine/ (Pulse & Linking Rules)
-- 05_topology/ (Triad & Consistency Rules)
+## Lawful reader route
 
-### Group C — Operational Boards & Layers
-- docs/qinyi/ (Qinyi External Interface Subsystem)
-- WORK_OS_CHAIN_INTEGRATION_SPEC.md
-- TASK_ORCHESTRATION_BRIDGE_SPEC.md
-- CLOUDTOP_RELAY_CHANNEL_SPEC.md
--- REDUNDANT_LOAD_REDUCTION_SPEC.md
-- EXTERNAL_SIGNAL_ENTRY_CHAIN_SPEC.md
-- 01_native-board/ (Indices, Blockers, & Permissions)
-- 02_runtime-ops/ (Follow-up Tasks)
-- 02_translation-layer/CLOUD_OVER_CLOUD_CONTROL_CENTER_SPEC.md
-- 03_board-orchestration/ (Binding & Intake Contracts)
-- 04_adapter-layer/ (External Node Specs & Adapters)
-- 04_adapter-layer/gemini_gas_sheet_bridge_spec.md
-- 04_adapter-layer/VIDEO_OUTPUT_NODE_SPEC.md
-- PHYSICAL_SIGNAL_BOUNDARY_SPEC.md
-- 03_field-governance/ALL_CLOUD_BOUNDARY_REVIEW_v0_1.md
-- 03_field-governance/BASE_FIELD_CORE_v0_1.md
-- 03_field-governance/SOURCE_VIEW_GATE_v0_1.md
-- 03_field-governance/IMPORT_STAGING_AND_STABLE_ID_RULE_v0_1.md
-- 03_field-governance/ANALYSIS_VIEW_MAP_v0_1.md
-- 03_field-governance/EXPORT_RETURN_PACKET_SCHEMA_v0_1.md
-- 03_field-governance/MINIMAL_ROUTER_LAUNCHER_QIN_VIEW_GATE_v0_1.md
+`README.md` → `CURRENT-SURFACE-MANIFEST.json` → `semantic-core/index.json` → affected family.
 
-### Group D — Governance & Cleanup
-- MULTI_CHAIN_DISPATCH_GOVERNANCE.md
-- CLOUDTOP_PROTOCOL_HARDENING_NOTE.md
-- FULL_REPOSITORY_TOPOLOGY_ALIGNMENT.md
-- CLEANUP_QUEUE_REGISTER.md
-- NAMING_DRIFT_RESOLUTION_REGISTER.md
-- CLUSTER_COVERAGE_MATRIX.md
-- MERGE_LAW_PROPOSAL.md
-- SNAPSHOT_MECHANISM_PROPOSAL.md
-
----
-
-## 2. Status
-- register_synchronized: true
-- family_range: 00-05
+A candidate-only artifact-family lookup may continue through `semantic-core/index.json` → `families.ARTIFACTS.registry`. This is not an Approved successor and does not restore this file's Registry role.

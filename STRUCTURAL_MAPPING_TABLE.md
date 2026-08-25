@@ -1,5 +1,15 @@
 # Structural Mapping Table
 
+> lifecycle_state: `EVIDENCE_ONLY`
+> reader_disposition: `REMOVE_FROM_READER_PATH`
+> routing_disposition: `REMOVE_ROUTING_EDGE`
+> runtime: `false`
+> native_review: `NOT_PERFORMED`
+> approval: `NOT_CLAIMED`
+> repository: `chenchienheng/GLModel-Pole-Projection`
+> predecessor_commit: `6d64aad1af2c801fe96a3d85f8285581d6bd22f2`
+> predecessor_blob: `6ee1be6e68c53dea3b34d209597208cb0b1e42c7`
+
 > Phase 1: Mapping Only. Full repository structural clean classification.
 
 ## 0. Status
@@ -27,7 +37,7 @@
 *Structural bone and master axis layers.*
 
 - `00_mother-law/existence-chain-master-layer.md`
-- `GITHUB_CHAIN_MASTER_MAP.md`
+- Historical master-map evidence is recoverable from the predecessor commit; no active master-map reader role.
 - `REVIEW_CHAIN_MASTER_LAYER.md`
 - `SPACE_CHAIN_MASTER_LAYER.md`
 - `TIME_CHAIN_MASTER_LAYER.md`
@@ -80,7 +90,7 @@
 - `EXTERNAL_NODE_ONCHAIN_SPEC.md`
 - `EXTERNAL_API_VERSION_GOVERNANCE_NOTE.md`
 - `JULES_TASKBOARD.md` (Bounded Execution Node Tool)
-- `CHATGPT_GITHUB_BOOTSTRAP.md`
+- Historical bootstrap evidence is recoverable from the predecessor commit; no active bootstrap route.
 - `GITHUB_OPERATION_CAPABILITY_MATRIX.md`
 - `04_adapter-layer/gamma_entry_spec.md`
 - `04_adapter-layer/replit_relay_spec.md`
@@ -91,7 +101,7 @@
 
 - `REPOSITORY_CORPUS_INDEX.md`
 - `ROLE_CLASSIFICATION_TABLE.md`
-- `UNIFIED_ARTIFACT_REGISTER.md`
+- Historical unified-register evidence is recoverable from the predecessor commit; no active Registry role.
 - `CLEANUP_QUEUE_REGISTER.md`
 - `NAMING_DRIFT_RESOLUTION_REGISTER.md`
 - `NAMING_DRIFT_FILE_LEVEL_DIFFS.md`
@@ -117,11 +127,7 @@
 
 ### 4.2 Duplicated Logic
 
-- **Registers:** The overlapping indexing logic across `REPOSITORY_CORPUS_INDEX.md`,
-  `UNIFIED_ARTIFACT_REGISTER.md`, and `ROLE_CLASSIFICATION_TABLE.md` has been
-  identified. `REPOSITORY_CORPUS_INVENTORY_MAP.md` now serves as a non-binding
-  inventory reference for consolidation planning, while the source registers retain
-  their distinct roles.
+- **Registers:** Overlapping index/register roles were identified. The legacy mapping, role table, inventory, and unified register are historical evidence only; none is a Current, Registry, Index, Entry, or Authority.
 - **Scheduling/Topology:** Scheduling logic is split across
   `WINDOW_12_MASTER_TABLE.md`, `SCHEDULING_EFFECT_REGISTER.md`,
   and `PLATFORM_SCHEDULER_AND_TOOL_NAMING_MAP.md`.
@@ -141,12 +147,9 @@
   archive.
 - `xuanling-seed-v0-1` branch remaining references should be cleaned.
 
-### Next Recommended Action
+### Retired Recommendation
 
-**Update Core Registers:** Incorporate this structural mapping into
-`REPOSITORY_CORPUS_INDEX.md` and `UNIFIED_ARTIFACT_REGISTER.md` to
-formalize the domain bindings, while observing the constraint to
-not delete or merge files yet.
+The earlier instruction to update core registers is withdrawn. Re-entry occurs only through the current manifest route and an explicitly affected surface; no standing register synchronization remains.
 
 ---
 

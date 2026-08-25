@@ -1,31 +1,24 @@
-# ChatGPT GitHub Bootstrap
+# ChatGPT GitHub Bootstrap — Retired Bridge Evidence
 
-Purpose: provide a minimal persistent bridge note so future sessions can re-anchor this repository quickly.
+> lifecycle_state: `EVIDENCE_ONLY`
+> reader_disposition: `REMOVE_FROM_READER_PATH`
+> routing_disposition: `REMOVE_ROUTING_EDGE`
+> runtime: `false`
+> native_review: `NOT_PERFORMED`
+> approval: `NOT_CLAIMED`
+> repository: `chenchienheng/GLModel-Pole-Projection`
+> predecessor_commit: `6d64aad1af2c801fe96a3d85f8285581d6bd22f2`
+> predecessor_blob: `aa3599baea65499d56e4de79bac750ea546651eb`
 
-## Repository Anchor
-- repository_full_name: `chenchienheng/DCP-Framework`
-- default_branch: `main`
-- owner_login: `chenchienheng`
-- repository_role: active GitHub bridge / writeback anchor
+- freshness: `EXPIRED`
+- historical_date: `2026-04-20`
+- historical_binding: `chenchienheng/DCP-Framework`
+- binding_not_this_repository: `true`
+- historical_connector_check: `connector_verified + write_interface_verified at that time only`
+- no_current_write_authority_proof: `true`
 
-## Runtime Note
-- This file is a bridge note, not a sovereignty definition.
-- The broader system design may exceed this repository.
-- Suggested read order:
-  1. `README.md`
-  2. `CHATGPT_GITHUB_BOOTSTRAP.md`
-  3. `GITHUB_CHAIN_MASTER_MAP.md`
+This file is not a current bootstrap, permission check, writeback anchor, or re-entry instruction. Its only retained value is evidence that a connector/write interface was observed against the historical binding on 2026-04-20.
 
-## Minimal Re-anchor Rules
-- verify GitHub connector access
-- verify repository visibility and write permission
-- treat this repository as an available writeback anchor
-- do not assume this repository is the whole system
+## Lawful reader route
 
-## Status
-- connector_verified: true
-- write_interface_verified: true
-- created_via_connector: true
-- chain_master_map_linked: true
-- created_date: 2026-04-20
-- updated_date: 2026-04-20
+`README.md` → `CURRENT-SURFACE-MANIFEST.json` → `semantic-core/index.json` → affected family.

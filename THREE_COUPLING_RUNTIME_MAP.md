@@ -1,5 +1,15 @@
 # Three Coupling Runtime Map
 
+> lifecycle_state: `EVIDENCE_ONLY`
+> reader_disposition: `REMOVE_FROM_READER_PATH`
+> routing_disposition: `REMOVE_ROUTING_EDGE`
+> runtime: `false`
+> native_review: `NOT_PERFORMED`
+> approval: `NOT_CLAIMED`
+> repository: `chenchienheng/GLModel-Pole-Projection`
+> predecessor_commit: `6d64aad1af2c801fe96a3d85f8285581d6bd22f2`
+> predecessor_blob: `f9af346f7bc492b085dfaf9ed388c1f149cb246e`
+
 > Runtime note for the current XLEN / Xuanling continuity model.
 > This document does not define the whole final system.
 > It persists the current minimum runtime reading required to keep the broader weave coherent.
@@ -173,37 +183,15 @@ These require correction.
 
 ---
 
-## 7. Binding to Existing Repository Notes
+## 7. Historical binding disposition
 
-This runtime map should be read together with:
+This artifact no longer defines a normal read order or durable re-anchor layer. Former bindings and recommended next artifacts remain recoverable from the predecessor commit above.
 
-1. `README.md`
-2. `CHATGPT_GITHUB_BOOTSTRAP.md`
-3. `GITHUB_CHAIN_MASTER_MAP.md`
-4. `REPOSITORY_CORPUS_INDEX.md`
-5. `ROLE_CLASSIFICATION_TABLE.md`
-6. `DISCONTINUITY_REGISTER.md`
+Lawful reader route: `README.md` → `CURRENT-SURFACE-MANIFEST.json` → `semantic-core/index.json` → affected family.
 
-Together these files form the current durable re-anchor layer.
+## 8. Evidence status
 
----
-
-## 8. Next Runtime Bindings
-
-Recommended next artifacts:
-
-1. `WINDOW_12_MASTER_TABLE.md`
-2. `GATE_64_BINDING_NOTE.md`
-3. `EXTERNAL_NODE_ONCHAIN_SPEC.md`
-4. future corpus-wide runtime binding notes
-
----
-
-## 9. Status
-
-- single_chain_runtime_reading_persisted: true
-- three_coupling_faces_persisted: true
-- full_10_loop_definition: pending
-- full_12_window_definition: pending
-- full_64_gate_definition: pending
-- return_to_00: true
+- one-chain / three-coupling framing: historical evidence
+- 10-loop / 12-window / 64-gate expansion: incomplete historical frame
+- standing wake, bootstrap, master-map, registry, and writeback-anchor roles: removed
+- re-admission: explicit affected review only

@@ -1,5 +1,15 @@
 # Role Classification Table
 
+> lifecycle_state: `EVIDENCE_ONLY`
+> reader_disposition: `REMOVE_FROM_READER_PATH`
+> routing_disposition: `REMOVE_ROUTING_EDGE`
+> runtime: `false`
+> native_review: `NOT_PERFORMED`
+> approval: `NOT_CLAIMED`
+> repository: `chenchienheng/GLModel-Pole-Projection`
+> predecessor_commit: `6d64aad1af2c801fe96a3d85f8285581d6bd22f2`
+> predecessor_blob: `709c1cd94394b5e37413f5d619bedf902b6b9d31`
+
 > Full role classification for durable repository weaving.
 > This table expands on the initial set and covers the verified repository-wide corpus.
 
@@ -8,7 +18,7 @@
 ## 0. Status
 
 - table_version: v0.2
-- scope: repository-wide verified artifacts
+- scope: historical repository-wide classification snapshot
 - purpose: reduce role drift and complete full repository weaving
 
 ---
@@ -60,7 +70,7 @@ Used for persistent return notes, correction markers, index files, chain maps, a
 | `04_adapter-layer/VIDEO_OUTPUT_NODE_SPEC.md` | Interaction Surface | Bridge Chain | verified |
 | `AGENT_READINESS_CHECKLIST.md` | Writeback Artifact | Writeback Chain | verified |
 | `BRANCH_TOPOLOGY_AND_CLEANUP_REGISTER.md` | Writeback Artifact | Writeback Chain | verified |
-| `CHATGPT_GITHUB_BOOTSTRAP.md` | Transitional / Stage Note | Writeback Chain | verified |
+| `CHATGPT_GITHUB_BOOTSTRAP.md` | Historical Evidence | Removed Reader / Routing Edge | EVIDENCE_ONLY |
 | `CLEANUP_QUEUE_REGISTER.md` | Writeback Artifact | Writeback Chain | verified |
 | `CLUSTER_COVERAGE_MATRIX.md` | Writeback Artifact | Writeback Chain | verified |
 | `CLUSTER_COVERAGE_NOTE.md` | Transitional / Stage Note | Writeback Chain | verified |
@@ -71,7 +81,7 @@ Used for persistent return notes, correction markers, index files, chain maps, a
 | `ECOSYSTEM_FAMILY_ONBOARDING_ROADMAP.md` | Interaction Surface | Writeback Chain | verified |
 | `EXTERNAL_API_VERSION_GOVERNANCE_NOTE.md` | Transitional / Stage Note | Writeback Chain | verified |
 | `EXTERNAL_NODE_ONCHAIN_SPEC.md` | Structural Bone | Writeback Chain | verified |
-| `GITHUB_CHAIN_MASTER_MAP.md` | Writeback Artifact | Writeback Chain | verified |
+| `GITHUB_CHAIN_MASTER_MAP.md` | Historical Evidence | Removed Reader / Routing Edge | EVIDENCE_ONLY |
 | `GITHUB_NORMALIZATION_PHASE_PLAN.md` | Structural Bone | Writeback Chain | verified |
 | `GITHUB_OPERATION_CAPABILITY_MATRIX.md` | Writeback Artifact | Writeback Chain | verified |
 | `INTERNAL_RELATIONAL_MESH_SPEC.md` | Structural Bone | Bone Chain | verified |
@@ -99,8 +109,8 @@ Used for persistent return notes, correction markers, index files, chain maps, a
 | `STAGE_SYNC_SNAPSHOT_2026-04-21.md` | Transitional / Stage Note | Writeback Chain | verified |
 | `STATUS.md` | Writeback Artifact | Writeback Chain | verified |
 | `THIRD_RUNTIME_ENVIRONMENT_NOTE.md` | Transitional / Stage Note | Writeback Chain | verified |
-| `THREE_COUPLING_RUNTIME_MAP.md` | Writeback Artifact | Writeback Chain | verified |
-| `UNIFIED_ARTIFACT_REGISTER.md` | Writeback Artifact | Writeback Chain | verified |
+| `THREE_COUPLING_RUNTIME_MAP.md` | Historical Evidence | Removed Reader / Routing Edge | EVIDENCE_ONLY |
+| `UNIFIED_ARTIFACT_REGISTER.md` | Historical Evidence | Removed Reader / Routing Edge | EVIDENCE_ONLY |
 | `WINDOW_12_MASTER_TABLE.md` | Writeback Artifact | Writeback Chain | verified |
 | `XUANLING_WORLD_READINESS_MILESTONES.md` | Writeback Artifact | Writeback Chain | verified |
 

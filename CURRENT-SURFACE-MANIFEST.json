@@ -5,12 +5,7 @@
   "native_source_root": false,
   "repo_is_pole_authority": false,
   "tri_pole_architecture": true,
-  "reader_priority": [
-    "README.md",
-    "CURRENT-SURFACE-MANIFEST.json",
-    "semantic-core/index.json",
-    "semantic-core/dcp/index.json"
-  ],
+  "reader_priority": ["README.md", "CURRENT-SURFACE-MANIFEST.json", "semantic-core/index.json", "semantic-core/dcp/index.json"],
   "current_public_surfaces": {
     "human_zh_tw": ["README.md", "semantic-core/dcp/HUMAN.zh-TW.md", "semantic-core/specimens/gui-lu/HUMAN.zh-TW.md"],
     "professional_en": ["README.md", "semantic-core/dcp/PROFESSIONAL.en.md"],
@@ -29,20 +24,21 @@
     "allowed": ["pointer", "receipt", "receiver_state", "return", "reconciliation_status", "reentry_pointer", "rebuild_pointer"],
     "native_body_copy_default": false
   },
-  "legacy_root_families": [
-    "00_meta",
-    "00_mother-law",
-    "01_native-board",
-    "01_runtime-spine",
-    "02_runtime-ops",
-    "02_translation-layer",
-    "03_board-orchestration",
-    "03_field-governance",
-    "04_adapter-layer",
-    "04_interface-layer",
-    "05_XLEN_Reserve_Unenabled",
-    "05_topology"
-  ],
+  "semantic_control_plane": {
+    "mode": "BOUNDARY_FIRST_FEASIBLE_WITHIN_BOUNDARY",
+    "forbidden_inference": ["CARRIER_TO_IDENTITY", "CAPABILITY_TO_AUTHORITY", "HISTORICAL_TO_CURRENT", "SEARCH_HIT_TO_ADMISSION", "RETURN_WRITTEN_TO_RECEIVER_REBUILT", "PROJECTION_TO_TRUTH"],
+    "no_explicit_dependency": "KEEP",
+    "equivalent_semantic_delta": "DEDUPE_LINEAGE_ONLY",
+    "disjoint_delta": "COMMUTE_AND_MERGE",
+    "material_conflict": "LOCAL_CONFLICT_HOLD"
+  },
+  "failure_evolution": {
+    "success_rate_is_primary_kpi": false,
+    "required": ["cause", "affected_scope", "correction", "regression", "reentry", "successor_pointer"],
+    "known_failure_recurrence_requires_regression": true,
+    "release_is_evidence_freeze_point_not_final_form": true
+  },
+  "legacy_root_families": ["00_meta", "00_mother-law", "01_native-board", "01_runtime-spine", "02_runtime-ops", "02_translation-layer", "03_board-orchestration", "03_field-governance", "04_adapter-layer", "04_interface-layer", "05_XLEN_Reserve_Unenabled", "05_topology"],
   "legacy_interpretation": "HISTORICAL_OR_COMPATIBILITY_UNLESS_EXPLICITLY_RE-ADMITTED",
   "external_release": "EXPLICIT_GATE_ONLY",
   "public_does_not_mean_unrestricted": true,

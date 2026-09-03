@@ -5,11 +5,12 @@
   "native_source_root": false,
   "repo_is_pole_authority": false,
   "tri_pole_architecture": true,
-  "reader_priority": ["README.md", "CURRENT-SURFACE-MANIFEST.json", "semantic-core/index.json", "semantic-core/dcp/index.json"],
+  "reader_priority": ["README.md", "CURRENT-SURFACE-MANIFEST.json", "SEMANTIC-CONTROL-PLANE.json", "FAILURE-EVOLUTION-POLICY.md", "semantic-core/index.json", "semantic-core/dcp/index.json"],
   "current_public_surfaces": {
     "human_zh_tw": ["README.md", "semantic-core/dcp/HUMAN.zh-TW.md", "semantic-core/specimens/gui-lu/HUMAN.zh-TW.md"],
     "professional_en": ["README.md", "semantic-core/dcp/PROFESSIONAL.en.md"],
-    "canonical_machine": ["CURRENT-SURFACE-MANIFEST.json", "semantic-core/index.json", "semantic-core/dcp/index.json"],
+    "canonical_machine": ["CURRENT-SURFACE-MANIFEST.json", "SEMANTIC-CONTROL-PLANE.json", "semantic-core/index.json", "semantic-core/dcp/index.json"],
+    "failure_evolution": ["FAILURE-EVOLUTION-POLICY.md"],
     "visual_world": ["semantic-core/viewer/index.html", "semantic-core/specimens/gui-lu/visual-bindings.json"],
     "verification": [".github/workflows/semantic-core-verify.yml"]
   },
@@ -26,11 +27,12 @@
   },
   "semantic_control_plane": {
     "mode": "BOUNDARY_FIRST_FEASIBLE_WITHIN_BOUNDARY",
-    "forbidden_inference": ["CARRIER_TO_IDENTITY", "CAPABILITY_TO_AUTHORITY", "HISTORICAL_TO_CURRENT", "SEARCH_HIT_TO_ADMISSION", "RETURN_WRITTEN_TO_RECEIVER_REBUILT", "PROJECTION_TO_TRUTH"],
+    "forbidden_inference": ["CARRIER_TO_IDENTITY", "CAPABILITY_TO_AUTHORITY", "HISTORICAL_TO_CURRENT", "SEARCH_HIT_TO_ADMISSION", "RETURN_WRITTEN_TO_RECEIVER_REBUILT", "PROJECTION_TO_TRUTH", "PUBLIC_SAFE_TO_PUBLIC_APPROVED", "BUILDREADY_TO_RUNTIME"],
     "no_explicit_dependency": "KEEP",
     "equivalent_semantic_delta": "DEDUPE_LINEAGE_ONLY",
     "disjoint_delta": "COMMUTE_AND_MERGE",
-    "material_conflict": "LOCAL_CONFLICT_HOLD"
+    "material_conflict": "LOCAL_CONFLICT_HOLD",
+    "blocked_unchanged": "MEMOIZED_SLEEP_UNTIL_TRIGGER"
   },
   "failure_evolution": {
     "success_rate_is_primary_kpi": false,

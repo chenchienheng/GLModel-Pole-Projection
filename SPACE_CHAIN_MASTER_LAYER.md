@@ -1,28 +1,24 @@
-# Space Chain Master Layer
+# World Space / Geometry Relation — GLModel Successor Candidate
 
-> CoreTri Axis: Spatial positioning layer for the framework.
+**Lifecycle:** ACTIVE_SUCCESSOR_CANDIDATE  
+**GLModel scope:** World / Object / Relation / Reality / Geometry / Reconstruction  
+**Runtime / Authority:** false
 
-## 0. Purpose
+This file supersedes the first-generation `Space Chain Master Layer` that mixed repository topology, windows, boards, and world-space into one axis and returned it to `00`.
 
-Define topology, window, board, family and structural positioning.
+## Current GLModel reading
 
-## 1. Scope
+A world-space relation is claim-specific. When materially affected, resolve only what the world claim requires:
+- StableReferent / Occurrence identity
+- representation source + revision
+- location / coordinate / space relation
+- host / support relation when applicable
+- geometry / clearance / adjacency relation
+- RealityState
+- EvidenceClass
+- AdmissionEffect
+- falsification / reconstruction condition
 
-- corpus index
-- topology
-- window map
-- family structure
+No permanent window, board, or central return hub is required. Repository placement and navigation do not prove physical/world location.
 
-## 2. Linked execution
-
-- #1 corpus reindex
-- naming normalization
-
-## 3. Rule
-
-All artifacts must have a spatial position.
-
-## 4. Status
-
-- master_axis_created: true
-- return_to_00: true
+`Representation != Identity | Information placement != World location | Render visible != World admitted | Model geometry != As-built geometry`

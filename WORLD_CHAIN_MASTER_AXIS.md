@@ -1,51 +1,29 @@
-# World Chain Master Layer
+# World Chain Master Axis — Historical Projection / GLModel Boundary
 
-> CoreTri Axis-01: The World Chain
-> This document defines the minimal operating rules for the external environment
-> and ecosystem absorption within the DCP Framework.
+**Lifecycle:** HISTORICAL_LINEAGE_ONLY  
+**Normal Reader:** false  
+**Current routing / authority effect:** none
 
----
+This predecessor treated a `World Chain` as a master axis controlling external tools, reflection surfaces, review hooks and writeback routing, with `return_to_00=true`.
 
-## 1. Definition
+That control topology is superseded.
 
-The **World Chain** governs the outer boundaries of the system.
-It is the Master Axis responsible for absorbing external models, platforms, and
-tool chains.
+## Retained GLModel-side learning
 
-It enforces the rule that external entities are mapped as replaceable nodes
-rather than sovereign centers.
+Useful world-modeling distinctions remain:
+- external carriers and providers may represent world evidence without becoming World Truth;
+- replaceability of a carrier does not imply replaceability of the Stable Referent it represents;
+- external representations must back-map to World / Object / Relation / Reality claims;
+- visual or data reflection does not establish admission.
 
-## 2. Rules
+## Current GLModel scope
 
-- **Absorption without Expansion:** Ecosystems must be structurally mapped
-  (e.g., via `04_adapter-layer` schemas) before any tool integration.
-- **Anti-Capture Continuity:** No single external tool or platform may hold
-  absolute state authority over the core repository bone.
-- **Public Surfaces Reflection:** The World Chain controls how the repository
-  state is reflected outward to external boards or readable layers.
+GLModel evaluates World, Object, Relation, Reality, Geometry admission, Component / Adapter relation, Render / Parametric admission, and Reconstruction when materially affected.
 
-## 3. Dispatch Binding
+Carrier, repository, tool, model, window or review surface does not gain World authority by placement. Dependency / Authority / Action Effect remains DCP responsibility; Meaning / Identity / Reader placement remains Ideas responsibility.
 
-- entry condition: Bound to Primary Axis (AXIS-01).
-- dispatch priority: Core framework structural integrity supersedes external
-  exploratory branches.
-- review hook: Review Chain Master Layer (AXIS-05).
-- return path: Writeback packets or schema adapters.
-- failure route: return_failed -> AXIS-05
-- register surface: UNIFIED_ARTIFACT_REGISTER.md
+## Re-entry
 
-## 4. Status
+Use for lineage and anti-capture regression only. Do not restore AXIS numbering, fixed review hooks, predefined writeback routes, or `00` semantics.
 
-- master_axis_created: true
-- axis_number: 01
-- mapped_issues: #16
-- return_to_00: true
-
-## 4. Dispatch Binding
-
-- entry condition: Validated via structural maps before absorption.
-- dispatch priority: Subordinate to internal structure and human chains.
-- review hook: Required before structural integration.
-- return path: Must return via predefined schema adapters.
-- failure route: return_failed -> AXIS-05
-- register surface: UNIFIED_ARTIFACT_REGISTER.md
+Full predecessor body remains in Git history.

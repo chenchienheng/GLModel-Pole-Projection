@@ -18,6 +18,18 @@ assert(world.stable_id,'WORLD_STABLE_ID_MISSING');
 assert(visual.world_id===world.stable_id,`VISUAL_WORLD_DRIFT:${visual.world_id}!=${world.stable_id}`);
 assert(rebuild.subject_id===world.stable_id,`REBUILD_SUBJECT_DRIFT:${rebuild.subject_id}!=${world.stable_id}`);
 assert(projections.subject_id===world.stable_id,`PROJECTION_SUBJECT_DRIFT:${projections.subject_id}!=${world.stable_id}`);
+
+const nativeSource=rebuild.external_native_source;
+assert(nativeSource?.required===true,'EXTERNAL_NATIVE_SOURCE_NOT_REQUIRED');
+assert(typeof nativeSource?.binding_ref==='string'&&/^XL-BINDING:[A-Z0-9-]+:[A-Z0-9-]+:R[0-9]+$/.test(nativeSource.binding_ref),'EXTERNAL_NATIVE_BINDING_REF_INVALID');
+assert(nativeSource?.binding_ref?.includes(`:${world.stable_id}:`),`EXTERNAL_NATIVE_BINDING_SUBJECT_DRIFT:${nativeSource?.binding_ref??'MISSING'}`);
+assert(nativeSource?.resolution_scope==='AUTHORIZED_PRIVATE_CARRIER','EXTERNAL_NATIVE_RESOLUTION_SCOPE_INVALID');
+assert(nativeSource?.public_pointer_disclosed===false,'PRIVATE_NATIVE_POINTER_DISCLOSURE_VIOLATION');
+assert(nativeSource?.receiver_readback==='UNPROVEN','EXTERNAL_NATIVE_RECEIVER_READBACK_MUST_REMAIN_UNPROVEN');
+const nativeSourceFields=new Set(['binding_ref','required','resolution_scope','public_pointer_disclosed','receiver_readback']);
+for(const key of Object.keys(nativeSource||{}))assert(nativeSourceFields.has(key),`EXTERNAL_NATIVE_SOURCE_FIELD_NOT_ALLOWED:${key}`);
+assert((rebuild.holds||[]).includes('GLMODEL_EXTERNAL_NATIVE_SOURCE_RECEIVER_READBACK_UNPROVEN'),'EXTERNAL_NATIVE_SOURCE_HOLD_MISSING');
+assert(rebuild.rebuild_status!=='PROVEN_BOUNDED','EXTERNAL_NATIVE_SOURCE_UNPROVEN_BUT_REBUILD_PROVEN');
 for(const e of events)assert(e.subject_id===world.stable_id,`EVENT_SUBJECT_DRIFT:${e.event_id}`);
 
 const relationTargets=new Set((world.relations||[]).map(r=>r.target));

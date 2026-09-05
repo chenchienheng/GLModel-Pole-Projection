@@ -1,81 +1,94 @@
-# AGENTS.md｜Repository Agent Rules
+# AGENTS.md｜GLModel Repository Agent Rules — Successor Candidate
 
 ## Repository Role
 
-This repository is the controlled documentation and architecture repository for the DCP-Framework / XuanLing project.
+This repository is a **Carrier / Projection surface for the GLModel Stable Native responsibility**.
+It is not a World authority by location, not a Canon Root, not a Global Router, and not a permanent runtime home.
 
-Agents working in this repository are repository review, cleanup, and minimal patch nodes only.
+GLModel responsibility is bounded to:
+- World
+- Object
+- Relation
+- Reality
+- Geometry admission
+- Living World fabric
+- Component / Adapter relation
+- Render / Parametric admission
+- Reconstruction
+
+Repository presence, rendered visibility, model existence, branch name, latest modification time, or agent/provider identity does not establish World admission or Reality.
+
+## Need-First Entry
+
+Before acting, resolve the smallest sufficient chain:
+
+`Need → StableReferent / Occurrence → Affected World Slice → Required Capability → Source/Evidence → RealityState → Authority/Rights → Receiver → Reconstruction/Exit`
+
+Do not route work by historical window, provider, model, or agent name.
 
 ## Allowed Work
 
-Agents may:
-- inspect pull request diffs;
-- list changed files;
-- identify mergeability blockers;
-- identify out-of-scope file changes;
-- preserve already-merged content from `main`;
-- keep pull requests within the requested scope;
-- propose minimal safe patches;
-- apply minimal edits only when explicitly requested;
-- run safe local checks when available.
+Within the authorized affected slice, agents may:
+- inspect world/model/repository evidence and diffs;
+- identify Object / Relation / Reality / Geometry / occurrence deltas;
+- distinguish Design, Model, Physical, Observed, Simulated, and Unknown states;
+- detect representation drift, false world admission, host/location gaps, geometry ambiguity, and reconstruction debt;
+- propose or apply bounded reversible repository edits when authorized;
+- preserve provenance and StableReferent/representation back-maps;
+- prepare receiver-specific Return evidence;
+- run bounded reconstruction/readback/regression checks.
 
-## Not Allowed
+## Protected Distinctions
 
-Agents must not:
-- redefine core architecture;
-- create new architecture axes;
-- rewrite core doctrine;
-- modify identity-core documents unless explicitly requested;
-- convert documentation into runtime behavior;
-- introduce API, database, background execution, or automation semantics unless explicitly requested;
-- merge pull requests automatically;
-- remove architecture content without explicit instruction;
-- promote pending concepts into finalized doctrine.
+Agents must not infer or claim:
+- `Representation == Identity`;
+- `Render Visible == World Admitted`;
+- `Model Occurrence == Physical Occurrence`;
+- `Simulation == Observation`;
+- `Parametric Rebuild == Geometry Approved`;
+- `Connected == Integrated`;
+- `Latest == Current`;
+- `Carrier / Provider / Agent == Authority`;
+- `Return Written == Receiver Rebuilt`.
 
-## Governance Roles
+Meaning / Identity / Placement / Reader / Navigation / Lineage belongs to Ideas when materially affected.
+Dependency / State / Constraint / Gate / Authority / Binding / Transition / Return-Rebuild judgment belongs to DCP when materially affected.
 
-- ChatGPT / CoreTri reviewer: review, dispatch, and boundary gate.
-- Codex: repository hygiene, patch, test, and review node.
-- Jules: documentation and spec generation node.
-- GitHub: source-of-truth and pull request gate.
-- User: final approval and merge authority.
+## Provider / Agent Rule
 
-## Review Gates
+ChatGPT, Codex, Jules, Gemini, Claude, Astra, CAD/BIM tools, Render engines, Parametric systems, Skills, Work surfaces, or future providers are **capabilities/carriers/representations**, not permanent governance roles.
+Select them only when the Need requires their capability and the action is authorized.
 
-Before editing, check:
-1. What pull request or branch is the target?
-2. What files are in scope?
-3. What files are outside scope?
-4. What already-merged content must be preserved?
-5. What is the minimum safe patch?
+No fixed provider chain or owner-window mapping is required.
 
-## Scope Rules
+## World / Reality Gate
 
-If a pull request includes files outside scope:
-- report diff pollution;
-- propose removing the file from the pull request diff;
-- do not rewrite the file unless explicitly instructed.
+Before writing, check:
+1. exact StableReferent / Occurrence identity;
+2. source and representation revision;
+3. RealityState and EvidenceClass;
+4. affected relation / geometry / location / host claim;
+5. whether the change overlaps another material effect;
+6. authorization and disclosure boundary;
+7. receiver plus reconstruction / falsification / retest condition.
 
-If a pull request conflicts with latest `main`:
-- preserve all already-merged content;
-- update or rebase only if the task asks for cleanup;
-- do not overwrite prior merged artifacts.
+If Physical Reality or Native Current is unknown or conflicting, preserve `UNKNOWN / TO_VERIFY / CONFLICT / HOLD`; do not infer it from a model, render, repository, or latest artifact.
 
-If wording implies runtime, API, database, or automatic system execution:
-- flag it as a scope risk;
-- suggest neutral documentation, register, review-note, or calibration wording.
+## Output / Return
 
-## Default Output Format
-
-Always respond with:
-
-- Status: PASS / HOLD / BLOCK
-- Changed files:
-- Out-of-scope files:
-- Risks:
-- Minimal patch:
-- Needs human decision: YES / NO
+A material Return should preserve at least:
+- StableReferent / Occurrence
+- Need / affected world slice
+- Source + representation revision
+- RealityState
+- EvidenceClass
+- AdmissionEffect
+- assumptions / falsification condition
+- Authority ceiling
+- Receiver
+- reconstruction / retest / re-entry condition
 
 ## Final Rule
 
-Do not merge automatically. Final approval remains with the user.
+No automatic merge, World admission, publication, deployment, destructive action, or Native promotion.
+A repository/model mutation can be a valid carrier change without becoming admitted Reality.

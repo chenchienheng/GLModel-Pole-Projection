@@ -12,6 +12,7 @@ on:
       - 'semantic-core/**'
       - 'CURRENT-SURFACE-MANIFEST.json'
       - 'README.md'
+      - '.github/workflows/semantic-core-verify.yml'
 
 permissions:
   contents: read

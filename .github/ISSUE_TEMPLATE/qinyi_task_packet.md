@@ -1,23 +1,21 @@
-# Qinyi Task Packet
+---
+name: Qinyi 任務／問題回報
+about: 提出本倉有界修訂、問題或階段交付需求
+---
 
-## Task Name
+## 目的與範圍
 
-## Lane
-(structural_cleanup / dependency_link / state_register_update)
+說明目前問題、預期結果與涉及的檔案或接口；已有任務時引用原 Issue／PR，補充這次差異即可。
+只放已獲准公開的內容，私人原件與憑證不貼入本倉。
 
-## Scope
+## 階段與驗收
 
-## Constraints
-- no doctrine change
-- no architecture rewrite
-- no merge
+說明本階段要交付什麼、如何判斷可用，以及下一個必要檢查點。
+施工前核來源與條件；關鍵接合或難以回退前核受影響部分；階段交付時集中驗收。
+階段可跨回合，可逆小改合併處理；條件未變的有效證據可引用。實際異常或影響範圍改變時提前檢查，未驗項目保留待驗。
 
-## Deliverables
-- summary
-- affected files
-- mismatch_or_gap
-- unresolved risks
-- next recommended action
+## 限制與交付
 
-## Stop Condition
-- open PR and stop
+依本倉 AGENTS.md 與當次授權施工；不改核心教義、不重寫架構。
+保留改動摘要、受影響檔案、必要驗證、未解差異及適用的回復方式。
+需要 PR 時提交可審查改動並等待明確合併批准，不自行合併；其他不依賴該批准的已授權工作可續行。

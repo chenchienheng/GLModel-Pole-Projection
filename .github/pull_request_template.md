@@ -1,52 +1,20 @@
-# MotherTree PR Gate
+<!-- Write in Traditional Chinese. Follow AGENTS.md and the task's scope and authorization. Remove unused prompts. -->
 
-## 1. Gate Level
+## Purpose and scope
 
-- [ ] `gate:green` — docs / analysis / candidate only; no workflow, secrets, deploy, billing, or protected-branch risk
-- [ ] `gate:yellow` — code / schema / config / dependency change; requires reviewer and MotherTree return packet
-- [ ] `gate:red` — secrets, billing, deploy, workflows/actions, permissions, branch rules, cloud resources, Qinyi or MotherTree core
+Explain the problem, changed files and resulting behavior. Identify any out-of-scope changes.
 
-## 2. Scope
+## Evidence and recovery
 
-- [ ] `scope:docs`
-- [ ] `scope:code`
-- [ ] `scope:workflow`
-- [ ] `scope:security`
-- [ ] `scope:billing`
-- [ ] `scope:qinyi`
-- [ ] `scope:mothertree`
+State relevant checks actually performed, their limits, material risks and the rollback or recovery path. No unrelated tests are required to fill this section.
 
-## 3. Safety Check
+## Approval and follow-up
 
-- [ ] Does not touch secrets or environment variables
-- [ ] Does not modify GitHub Actions / workflows
-- [ ] Does not trigger deployment or paid runtime
-- [ ] Does not change branch rules, app permissions, or billing settings
-- [ ] If any above is false, mark as `gate:red`
+Keep applicable gate and scope labels:
+- `gate:green`: docs, analysis or candidates without red-gate effects.
+- `gate:yellow`: code, schema, configuration or dependencies; identify reviewer and return path.
+- `gate:red`: secrets, billing, deployment, workflows/actions, permissions, branch rules, cloud resources or core/architecture.
 
-## 4. MotherTree Return Packet
+User approval is required before merge; red-gate execution requires applicable explicit user/admin authorization. Reuse authorization already given for the action.
 
-```yaml
-Window:
-Task_ID:
-What_Changed:
-What_Did_Not_Change:
-Risk:
-Pending:
-Next_Action:
-Return_Path:
-```
-
-## 5. Rollback Path
-
-Describe how to revert this change:
-
-```text
-Rollback:
-```
-
-## 6. Human Approval
-
-- [ ] No human approval needed before draft creation
-- [ ] Reviewer approval required before merge
-- [ ] Explicit user/admin approval required before execution
+Report actual pending decisions and affected dependencies. Add a MotherTree return packet only when required by the task. A blocker holds dependent actions only. Saved changes, receiver readback and observed use remain separate.

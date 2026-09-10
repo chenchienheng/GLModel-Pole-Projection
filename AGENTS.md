@@ -70,6 +70,14 @@ If wording implies runtime, API, database, or automatic system execution:
 
 ## Local Blockers and Evidence
 
+### Repository environment check
+
+For authorized Node-based checks in this repository, `.nvmrc` records the same Node major as `.github/workflows/semantic-core-verify.yml`. Environment startup alone is not CI equivalence. Select Node 22 through the environment's supported version manager; this file does not automatically change an existing Codex Cloud environment.
+
+After resolving the intended repository and full commit SHA independently, run `node tools/check-environment.mjs --expected-repo chenchienheng/GLModel-Pole-Projection --expected-head FULL_SHA` from that worktree. Add `--expected-ref REF` when the task requires a specific existing ref. Do not copy the local HEAD solely to make the check pass. The command reads local Git state, Node policy and AGENTS bytes; it performs no network operation, installation, config edit, branch recreation, merge or deployment. It reports dirty work without discarding it. Exit 2 identifies an unavailable or mismatched check; investigate only the affected operation.
+
+`node --test tools/check-environment.test.mjs` checks this helper using synthetic observations and a temporary Git fixture. Its success does not prove Node 22, Codex session adoption, existing semantic-core checks or application runtime passed. Existing semantic-core validation remains authoritative for its original scope.
+
 A blocker holds only actions that depend on it. Continue already-authorized independent work; do not widen scope or replace a required approval to avoid a blocker.
 
 Keep saved configuration, session-loaded instructions, and observed runtime behavior as separate evidence states. A repository patch or environment setup success does not prove an existing session loaded the revision.

@@ -1,11 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, writeFileSync, mkdirSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, writeFileSync, mkdirSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { assess, githubRepository, workflowMajor } from './check-environment.mjs';
+import { assess, collect, githubRepository, workflowMajor } from './check-environment.mjs';
 
 // Synthetic observations test decisions, not a real Node 22 session.
 const expected = { repository: 'chenchienheng/GLModel-Pole-Projection', head: 'a'.repeat(40) };
@@ -28,7 +28,35 @@ test('wrong HEAD, wrong repository and unresolved origin are distinguished', () 
   assert.ok(assess({ ...base, repository: null }, expected).issues.includes('ORIGIN_IDENTITY_UNVERIFIED'));
 });
 test('missing selected ref is reported rather than recreated', () => {
-  assert.ok(assess({ ...base, selected_ref_head: null }, { ...expected, ref: 'old/missing' }).issues.includes('SELECTED_REF_MISSING_OR_DIFFERENT'));
+  const result = assess({ ...base, selected_ref_head: null }, { ...expected, ref: 'old/missing' });
+  assert.equal(result.status, 'UNVERIFIED');
+  assert.deepEqual(result.mismatches, []);
+  assert.deepEqual(result.unverified, ['SELECTED_REF_UNRESOLVED']);
+});
+test('unverified origin and ref do not falsely prove a mismatch', () => {
+  const result = assess({ ...base, repository: null, selected_ref_head: null }, { ...expected, ref: 'main' });
+  assert.equal(result.schema, 'repository-environment-check/v2');
+  assert.equal(result.status, 'UNVERIFIED');
+  assert.deepEqual(result.mismatches, []);
+  assert.deepEqual(result.unverified, ['ORIGIN_IDENTITY_UNVERIFIED', 'SELECTED_REF_UNRESOLVED']);
+});
+test('a proven mismatch does not erase simultaneously unresolved evidence', () => {
+  const result = assess({ ...base, repository: null, head: 'c'.repeat(40) }, expected);
+  assert.equal(result.status, 'MISMATCH');
+  assert.deepEqual(result.mismatches, ['HEAD_MISMATCH']);
+  assert.deepEqual(result.unverified, ['ORIGIN_IDENTITY_UNVERIFIED']);
+});
+test('missing comparison operands are not reported as unequal values', () => {
+  const result = assess({ ...base, head: null, pinned_node_major: null, workflow_node_major: null, node_major: null }, expected);
+  assert.equal(result.status, 'UNVERIFIED');
+  assert.deepEqual(result.mismatches, []);
+  assert.ok(result.unverified.includes('HEAD_UNVERIFIED'));
+  assert.ok(result.unverified.includes('NODE_PIN_INVALID'));
+});
+test('a resolved different ref is a proven mismatch', () => {
+  const result = assess({ ...base, selected_ref_head: 'c'.repeat(40) }, { ...expected, ref: 'main' });
+  assert.deepEqual(result.mismatches, ['SELECTED_REF_MISMATCH']);
+  assert.deepEqual(result.unverified, []);
 });
 test('dirty work is reported without rejecting independent authorized edits', () => {
   const result = assess({ ...base, dirty: true }, expected);
@@ -70,7 +98,29 @@ test('real subprocess checks an isolated fixture without mutating its source', (
     assert.equal(report.issues.includes('NODE_RUNTIME_MISMATCH'), !matches);
     const missing = spawnSync(process.execPath, [cli, ...args, '--expected-ref', 'does-not-exist'], { cwd: root, encoding: 'utf8', timeout: 20000 });
     assert.equal(missing.status, 2);
-    assert.ok(JSON.parse(missing.stdout).issues.includes('SELECTED_REF_MISSING_OR_DIFFERENT'));
+    assert.ok(JSON.parse(missing.stdout).unverified.includes('SELECTED_REF_UNRESOLVED'));
+    assert.equal(JSON.parse(missing.stdout).observed.git_reads.selected_ref.state, 'UNRESOLVED');
+    const resolved = collect(root, { ...expected, ref: 'main' });
+    assert.equal(resolved.git_reads.selected_ref.state, 'RESOLVED');
+    assert.equal(resolved.selected_ref_head, head);
+    for (const [url, state] of [[null, 'MISSING'], ['', 'EMPTY'], ['https://fixture-user:fixture-secret@mirror.invalid/Owner/Repo', 'UNSUPPORTED']]) {
+      git(['config', '--unset-all', 'remote.origin.url']);
+      if (url !== null) git(['config', 'remote.origin.url', url]);
+      const before = readFileSync(join(root, '.git/config'));
+      const observation = collect(root, expected);
+      assert.equal(observation.git_reads.origin.state, state);
+      assert.equal(observation.repository, null);
+      assert.ok(!JSON.stringify(observation).includes('fixture-secret'));
+      assert.deepEqual(readFileSync(join(root, '.git/config')), before);
+      if (url === null) git(['config', 'remote.origin.url', '']);
+    }
+    const simulatedReadFailure = (command, args, options) => {
+      if (args.includes('config')) throw Object.assign(new Error('fixture-secret'), { status: 128, stderr: 'fixture-secret' });
+      return execFileSync(command, args, options);
+    };
+    const unreadable = collect(root, expected, simulatedReadFailure);
+    assert.deepEqual(unreadable.git_reads.origin, { state: 'UNAVAILABLE', exit_code: 128 });
+    assert.ok(!JSON.stringify(unreadable).includes('fixture-secret'));
     assert.equal(git(['status', '--porcelain']), '');
     assert.equal(git(['rev-parse', 'HEAD']), head);
     const invalid = spawnSync(process.execPath, [cli, '--expected-head', head], { cwd: root, encoding: 'utf8', timeout: 20000 });

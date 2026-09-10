@@ -7,19 +7,30 @@ on:
       - 'CURRENT-SURFACE-MANIFEST.json'
       - 'README.md'
       - '.github/workflows/semantic-core-verify.yml'
+      - 'tools/check-environment.mjs'
+      - 'tools/check-environment.test.mjs'
+      - '.nvmrc'
   pull_request:
     paths:
       - 'semantic-core/**'
       - 'CURRENT-SURFACE-MANIFEST.json'
       - 'README.md'
       - '.github/workflows/semantic-core-verify.yml'
+      - 'tools/check-environment.mjs'
+      - 'tools/check-environment.test.mjs'
+      - '.nvmrc'
 
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   verify-gui-lu:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,6 +38,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verify environment diagnostic behavior
+        run: node --test tools/check-environment.test.mjs
       - name: Verify repository current-surface manifest
         run: |
           node --input-type=module <<'NODE'

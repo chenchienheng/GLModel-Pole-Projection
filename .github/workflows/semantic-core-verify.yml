@@ -22,6 +22,16 @@ on:
       - '.github/workflows/semantic-core-verify.yml'
       - 'tools/check-environment.mjs'
       - 'tools/check-environment.test.mjs'
+      - 'tools/check-legacy-hold-deletions.mjs'
+      - 'tools/check-legacy-hold-deletions.test.mjs'
+      # Keep these paths aligned with the explicitly declared HOLD families.
+      - '01_native-board/**'
+      - '02_translation-layer/**'
+      - '03_board-orchestration/**'
+      - '03_field-governance/**'
+      - '04_adapter-layer/**'
+      - '04_interface-layer/**'
+      - '05_XLEN_Reserve_Unenabled/**'
       - '.nvmrc'
 
 permissions:
@@ -38,6 +48,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          # A PR merge checkout includes its event base as a direct parent.
+          fetch-depth: 2
       - name: Setup Node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
@@ -70,6 +83,14 @@ jobs:
           if(!blocking.length) throw new Error('DELETE_BLOCKER_MODEL_MISSING');
           console.log(`LEGACY_DISPOSITION_OK:${d.families.length}:BLOCKERS_${blocking.length}`);
           NODE
+      - name: Verify PR deletions respect declared legacy HOLDs
+        if: github.event_name == 'pull_request'
+        env:
+          LEGACY_PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          LEGACY_CHECKOUT_SHA: ${{ github.sha }}
+        run: |
+          node --test tools/check-legacy-hold-deletions.test.mjs
+          node tools/check-legacy-hold-deletions.mjs --base "$LEGACY_PR_BASE_SHA" --head "$LEGACY_CHECKOUT_SHA"
       - name: Verify cross-surface semantic alignment
         run: node semantic-core/tools/verify-specimen.mjs
       - name: Verify DCP semantic core invariants

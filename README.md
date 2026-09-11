@@ -34,6 +34,10 @@ Read `CURRENT-SURFACE-MANIFEST.json` first, then `semantic-core/index.json` and 
 
 請先讀 `CURRENT-SURFACE-MANIFEST.json`，再進入 `semantic-core/index.json` 與 affected family index。根目錄舊 layer/runtime/orchestration family 在未具名 re-admission 前只作 Historical／Compatibility。
 
+`STATUS.md` retains historical DCP/M2 descriptions; it does not establish current runtime or this repository's Native identity. Use this README and `CURRENT-SURFACE-MANIFEST.json` for the current public projection boundary. [PR #8](https://github.com/chenchienheng/GLModel-Pole-Projection/pull/8) contains the existing status correction within a broader integration candidate and has not been merged into `main`.
+
+`STATUS.md` 保留歷史 DCP／M2 描述，不能據此認定本倉現行 Runtime 或 GLModel Native 身分；現行公開投影邊界依本 README 與 `CURRENT-SURFACE-MANIFEST.json` 判讀。[PR #8](https://github.com/chenchienheng/GLModel-Pole-Projection/pull/8) 已包含狀態修正，仍屬較大範圍的整合候選，尚未合併至 `main`。
+
 ## Semantic / World build surface
 
 `semantic-core/` is a machine-oriented projection and verification surface. It may host schemas, world specimens, validation evidence, failure memory, visual bindings, rebuild material and adapters. It is not a Native Source Root, Canon, Runtime, or Promotion Authority.

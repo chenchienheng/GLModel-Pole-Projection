@@ -34,6 +34,10 @@ Read `CURRENT-SURFACE-MANIFEST.json` first, then `semantic-core/index.json` and 
 
 請先讀 `CURRENT-SURFACE-MANIFEST.json`，再進入 `semantic-core/index.json` 與 affected family index。根目錄舊 layer/runtime/orchestration family 在未具名 re-admission 前只作 Historical／Compatibility。
 
+`STATUS.md` records this repository's carrier/projection status; it does not establish runtime or Native authority. Use this README and `CURRENT-SURFACE-MANIFEST.json` for the public projection boundary. A candidate branch remains subject to its own review and merge decision.
+
+`STATUS.md` 記錄本倉載體／投影狀態，不能據此認定 Runtime 或 GLModel Native 權限；公開投影邊界依本 README 與 `CURRENT-SURFACE-MANIFEST.json` 判讀。候選分支仍須依自身範圍審查與核准合併。
+
 ## Semantic / World build surface
 
 `semantic-core/` is a machine-oriented projection and verification surface. It may host schemas, world specimens, validation evidence, failure memory, visual bindings, rebuild material and adapters. It is not a Native Source Root, Canon, Runtime, or Promotion Authority.

@@ -2,6 +2,10 @@ name: Semantic Core Verify
 
 on:
   push:
+    branches:
+      - main
+    tags:
+      - '**'
     paths:
       - 'semantic-core/**'
       - 'CURRENT-SURFACE-MANIFEST.json'

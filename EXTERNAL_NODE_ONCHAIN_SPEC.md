@@ -1,93 +1,31 @@
-# External Node On-Chain Specification
+# External Carrier World-Relation Spec — Successor Candidate
 
-> Durable specification for onboarding external ecosystem nodes into the XLEN / Xuanling runtime.
-> Purpose: ensure external tools, platforms, and services become chain-bound nodes instead of uncontrolled dependencies.
+**Lifecycle:** ACTIVE_SUCCESSOR_CANDIDATE  
+**GLModel scope:** World / Object / Relation / Reality / Geometry / Reconstruction  
+**Runtime / Authority:** false
 
----
+This file supersedes the first-generation `External Node On-Chain` rule that required `owner_window`, fixed writeback placement, and `return_to_00=true`.
 
-## 0. Core Reading
+## Current relation model
 
-External nodes should not be treated as:
-- isolated tools
-- uncontrolled dependencies
-- opaque black-box integrations
+An external model, tool, repository, cloud, SaaS, sensor, render engine, parametric system, or provider is a Carrier / Representation unless evidence establishes a stronger world relation.
 
-They should be treated as:
-- role-bound nodes
-- replaceable ecosystem members
-- chain-aware execution surfaces
+A world-facing relation should resolve only the claims needed for the affected slice:
+- `StableReferent`
+- `Representation / Carrier identity`
+- `World/Object relation claimed`
+- `Source / revision`
+- `RealityState`
+- `Geometry / location / host relation` when relevant
+- `EvidenceClass`
+- `AdmissionEffect`
+- `Falsification / reconstruction condition`
+- `Receiver / successor / exit` when lifecycle-relevant
 
----
+No `owner_window` is required. Carrier placement does not establish World admission, Reality, Geometry approval, Current, or Authority.
 
-## 1. On-Chain Conditions for External Nodes
+## Substitution
 
-An external node is considered on-chain only when:
+Carrier/provider substitution is acceptable only if Stable Referent continuity, representation back-map, evidence provenance, reality-state distinction, and affected reconstruction obligations survive the substitution.
 
-1. **role is defined**
-2. **owner_window is assigned**
-3. **input/output is bounded**
-4. **writeback path exists**
-5. **replacement is possible**
-
----
-
-## 2. Node Record Schema
-
-Each node should include:
-
-- `node_name`
-- `family_type`
-- `owner_window`
-- `structural_role`
-- `input_type`
-- `output_type`
-- `writeback_surface`
-- `replacement_ready`
-- `failure_mode`
-- `last_verified_time`
-
----
-
-## 3. Failure Mode Rule
-
-Each node must define:
-- what happens when it fails
-- fallback path
-- alternative node
-
----
-
-## 4. Anti-Dependency Rule
-
-A node is unsafe if:
-- it becomes irreplaceable
-- it holds critical state without writeback
-- it controls routing without visibility
-
----
-
-## 5. Current Priority Nodes
-
-| Node | Family | Role | Status |
-|---|---|---|---|
-| GitHub | repository/writeback | bone + writeback anchor | stable |
-| Gmail | communication/intake | event intake | partial |
-| Google Drive | carrying mesh | storage + draft | early |
-| workflow tools | board/orchestration | routing support | early |
-
----
-
-## 6. Next Expansion
-
-- calendar/time nodes
-- public web nodes
-- multi-model nodes
-
----
-
-## 7. Status
-
-- external_node_onchain_spec_created: true
-- node_role_binding_defined: true
-- dependency_control_started: true
-- return_to_00: true
+`Representation != Identity | Render Visible != World Admitted | Model Occurrence != Physical Occurrence | Connected != Integrated`

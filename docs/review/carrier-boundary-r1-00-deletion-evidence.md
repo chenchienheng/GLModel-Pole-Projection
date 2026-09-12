@@ -1,5 +1,44 @@
 # Carrier-boundary deletion evidence / 載體邊界候選刪除證據
 
+## S76：撤回一項未具逐項收束證據的刪除提案
+
+Produced time: `2026-09-12T11:22:23Z`。本次沿原 PR #8 審查，不是新的 NFN GitHub mapping。
+
+| 有界裁定 | 證據 |
+| --- | --- |
+| 審查輸入 | candidate `57632c866cab6add818a9c7c096a4436022f57d2`；獨立解析 current main 仍為 `fdf3d2657b66d8480aeeb837194ec8cf64b2ba98` |
+| 撤回的刪除 | `02_runtime-ops/task_follow_up.md`；恢复原 main blob `a324b9b811545ec9d00838e3ad6bdb3d9335d233`，1327 bytes，不改原文 |
+| 結果 | 本次候選剩餘刪除由 56 減至 55；下方 56 列仍是 S70 固定版本的歷史證據表 |
+| 效力 | `WITHDRAW_DELETE_PROPOSAL / HISTORICAL_SOURCE_RETAINED`；不是 current 任務、排程、Runtime 或 Native 接用批准 |
+
+### 為何這個路徑尚不能憑現有替代記錄刪除
+
+在上述 candidate，`legacy-successor-redirects.json` 將 `02_runtime-ops` family 指向 `semantic-core/dcp/instances/return-ledger.json` 與 `semantic-core/dcp/current/return-closure-model.json`。本次已實讀這兩個 exact-head 檔案：closure model 提供 return 類型與狀態；ledger 的具名 entries 為 DCP 里程事件，未提供下列五項原 task 的逐項處置、承接或取消證據。這是所讀兩個替代檔案的缺口，不推論全域都不存在回執。
+
+| 原 task / 來源依存 | 原文所述用途 | 已讀替代的逐項覆蓋 |
+| --- | --- | --- |
+| TSK-001 / ADP-005 | 從 source_map 路徑讀 board_index 與 blockers | 未找到同 task 的 receiver、結果或承接／取消記錄 |
+| TSK-002 / BLK-001 | 觀測外部窗口首輪輸出 | 未找到同 task 的輸出／return 或結束處置 |
+| TSK-003 / BLK-003 | Google family route / report flow | 未找到同 task 的啟動與否及結束／轉移證據 |
+| TSK-004 / NBD-001 | Gamma visual mirror 的來源準備 | 未找到同 task 的 payload／receiver 處置 |
+| TSK-005 / NBD-001, ADP-006 | Replit interaction relay 的來源準備 | 未找到同 task 的 payload／receiver 處置 |
+
+原文 `Status: active`、`ready`、`observing` 與 Window W0 均是 v0.1 歷史內容。`CURRENT-SURFACE-MANIFEST.json` 已將 `02_runtime-ops` 定為 `HISTORICAL_OR_COMPATIBILITY_UNLESS_EXPLICITLY_RE-ADMITTED`；本次原文恢復沿用此界線，不重新招募、排程或執行任何 task。
+
+已讀 `semantic-core/disposition/pointer-scan-batch-02.json` 的 `source_repository` 為 `chenchienheng/XuanLing-00-Foundation-DCP`、as_of 為 2026-08-15，且明示 `physical_delete_authorized: false`。它可保留為自身來源的歷史觀測，不能充作本次 GLModel exact-head 的 active issue/workflow 或外部 citation clearance。`pointer-citation-scan-r1.json` 的 query family 則是 `01_runtime-spine`，也不覆蓋此 task 路徑。
+
+`04_adapter-layer/replit_relay_spec.md` 在 candidate 保留 task/log 輸入的歷史描述，但未具名 TSK-005；不能用平台同名或一般 task relay 描述推定替代等價或 caller 正在運作。
+
+### 第一個剩餘 Need
+
+如再次提議刪除這個路徑，先由既有責任面提供五個 task 的具名 disposition：已完成的固定結果／log、已取消的處置、或仍需重建的唯一 successor 與 receiver。只追真正仍受影響者；未知不形成自動重啟任務。再核該路徑在適用 GitHub issue/workflow 與已知外部 caller 的引用／redirect 證據，沿既有 delete gate 裁定。此段不新增檢查 gate，也不以一般 return schema 代替逐項原件。
+
+Read：上列固定來源與候選替代已實讀。Disposition：撤回本 PR 對單一路徑的刪除提案。Use：以原 main blob 恢復歷史載體並縮小 PR 刪除範圍。其他責任面 Read/Disposition/Use 尚未觀察。
+
+本段只改原件保留與審查證據；既有四項 delete-blocking gaps、GUI／部署 HOLD、NFN `ARCHITECTURE_CANDIDATE` 不變。沒有重跑 S75、生產者測試、舊 111 項原件驗證或手動 CI；舊 CI 僅證各自固定 head，不能移作本次提交的測試結果。
+
+## S70 固定版本證據快照
+
 這是既有 [PR #8](https://github.com/chenchienheng/GLModel-Pole-Projection/pull/8) 的有限證據快照，供逐檔審查與前身回取。來源可回取不等於代謝完成、刪除核准或成功重建。
 
 | 證據身分 | 值 |

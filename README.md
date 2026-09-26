@@ -30,19 +30,13 @@ Shared cross-repository material should remain bounded pointers, receipts, recei
 
 ## Current reader entry / 現行讀取入口
 
-Read `CURRENT-SURFACE-MANIFEST.json` first, then `semantic-core/index.json` and the affected family index. Legacy root-layer directories remain Historical／Compatibility unless explicitly re-admitted.
+Use this README for human orientation, then resolve Current-for-purpose from `CURRENT-SURFACE-MANIFEST.json`; for affected world/build material continue through `semantic-core/index.json` and the relevant family index. Legacy root-layer directories remain Historical／Compatibility unless explicitly re-admitted.
 
-請先讀 `CURRENT-SURFACE-MANIFEST.json`，再進入 `semantic-core/index.json` 與 affected family index。根目錄舊 layer/runtime/orchestration family 在未具名 re-admission 前只作 Historical／Compatibility。
+本 README 提供人類入口與倉庫定位；Current-for-purpose 請由 `CURRENT-SURFACE-MANIFEST.json` 解析，受影響的 World／Build Material 再進入 `semantic-core/index.json` 與相關 family index。根目錄舊 layer/runtime/orchestration family 在未具名 re-admission 前只作 Historical／Compatibility。
 
-`STATUS.md` retains historical DCP/M2 descriptions; it does not establish current runtime or this repository's Native identity. Use this README and `CURRENT-SURFACE-MANIFEST.json` for the current public projection boundary. [PR #8](https://github.com/chenchienheng/GLModel-Pole-Projection/pull/8) contains the existing status correction within a broader integration candidate and has not been merged into `main`.
+`STATUS.md` is a compatibility/status page and does not establish Runtime, Native identity or World Authority. Current public projection boundaries are defined by this README plus `CURRENT-SURFACE-MANIFEST.json`.
 
-`STATUS.md` 保留歷史 DCP／M2 描述，不能據此認定本倉現行 Runtime 或 GLModel Native 身分；現行公開投影邊界依本 README 與 `CURRENT-SURFACE-MANIFEST.json` 判讀。[PR #8](https://github.com/chenchienheng/GLModel-Pole-Projection/pull/8) 已包含狀態修正，仍屬較大範圍的整合候選，尚未合併至 `main`。
-
-## Semantic / World build surface
-
-`semantic-core/` is a machine-oriented projection and verification surface. It may host schemas, world specimens, validation evidence, failure memory, visual bindings, rebuild material and adapters. It is not a Native Source Root, Canon, Runtime, or Promotion Authority.
-
-`semantic-core/` 是 machine-oriented projection／verification surface，可承載 schema、world specimen、validation evidence、Failure Memory、Visual Binding、Rebuild Material 與 Adapter；它不是 Native Source Root、Canon、Runtime 或 Promotion Authority。
+`STATUS.md` 是相容／狀態頁，不建立 Runtime、Native Identity 或 World Authority；現行公開投影邊界以本 README 與 `CURRENT-SURFACE-MANIFEST.json` 為準。
 
 ## Continuity and replaceable carriers / 連續性與可替換載體
 

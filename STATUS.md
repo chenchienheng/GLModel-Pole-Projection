@@ -1,114 +1,34 @@
-# Project Status
+# Repository Status / 倉庫狀態
 
-This repository documents a conceptual and interpretive framework referred to as the **DCP (Decision / Constraint / Condition Processing) model**, together with its layered extensions.
+**Repository class / 倉庫分類:** Public GLModel-oriented CoreTri projection carrier  
+**Operational status / 運作狀態:** Non-production  
+**Runtime evidence / Runtime 證據:** Not established  
+**Native / World Authority / 原生與世界權限:** Not established by repository placement
 
-The materials collected here are intended to describe *structural principles, reasoning patterns, and interpretive frameworks*, rather than to provide a finished system, product, or implementation.
+## Current status / 現行狀態
 
----
+This repository is a public projection/build surface for World / Object / Geometry / Assembly / Engineering / Simulation / Evidence / Adapter material. It is not the GLModel Native Body, Runtime, Canon, Promotion Authority, or World Authority root.
 
-## Current Status
+本倉是 World／Object／Geometry／Assembly／Engineering／Simulation／Evidence／Adapter 的公開投影／建造表面；不是 GLModel Native Body、Runtime、Canon、Promotion Authority 或 World Authority Root。
 
-**Status:** Conceptually stable / exploratory / logic-active
-**Development phase:** Controlled structural convergence & rule rebinding
-**Implementation status:** M2 Runtime Spine partially implemented and synchronized
+Use `README.md` for human orientation and `CURRENT-SURFACE-MANIFEST.json` for Current-for-purpose. `semantic-core/index.json` and affected family indexes provide bounded machine/world entry after Current resolution.
 
-The current content represents a *theoretical and structural formulation* of a decision–constraint framework.
-While not a consumer software product, the repository now carries active structural rules (M2 layer) governing its own internal continuity and state transition.
+人類定位先讀 `README.md`；Current-for-purpose 由 `CURRENT-SURFACE-MANIFEST.json` 解析，再依需要進入 `semantic-core/index.json` 與 affected family index。
 
----
+## Historical compatibility / 歷史相容
 
-## Scope and Intent
+Earlier DCP/M2/layered-runtime descriptions are retained only as historical or compatibility lineage unless explicitly re-admitted by current evidence and authority. Phrases such as “M2 Runtime Spine partially implemented” do **not** establish this repository's present Runtime or Native identity.
 
-This project aims to:
+早期 DCP／M2／layered-runtime 描述只作 Historical／Compatibility Lineage，除非由現行 Evidence 與 Authority 具名 re-admit。「M2 Runtime Spine partially implemented」等歷史文字不建立本倉現在的 Runtime 或 Native Identity。
 
-- Describe a **generalized judgment and constraint framework** that can be applied across domains.
-- Provide a vocabulary and structure for expressing:
-  - conditions  
-  - constraints  
-  - dependencies  
-  - uncertainty  
-  - interpretive boundaries  
-- Support future exploration, discussion, or implementation by others.
+## Continuity / 連續性
 
-It does **not** aim to:
+Repository, model, renderer, tool and storage are replaceable carriers. World/Object continuity requires re-qualified Stable Identity, configuration/state, source/evidence scope, applicable Authority and rebuild/recovery relations after interruption or carrier replacement.
 
-- Provide production-ready software  
-- Replace professional judgment or domain expertise  
-- Offer legal, engineering, financial, or regulatory advice  
-- Guarantee correctness, safety, or compliance  
-- Function as an autonomous or decision-making system  
+Repository、Model、Renderer、Tool 與 Storage 都是可替換 Carrier。中斷或載體替換後，World／Object 的 Stable Identity、Configuration／State、Source／Evidence Scope、適用 Authority 與 Rebuild／Recovery 必須重新資格化。
 
----
+Visible render, export, save success, provider capability or repository presence proves only its demonstrated scope; none alone establishes engineering truth, Runtime, delivery/use, or World admission.
 
-## Layered Structure (Conceptual)
+## Claim ceiling / 聲明上限
 
-The repository is organized into conceptual layers:
-
-### Layer 0 — Core Model (DCP)
-Defines the abstract structure of judgment under constraints.  
-This layer focuses on *relations*, *conditions*, and *stability*, not domain rules.
-
-### Layer 1 — Interpretive / Operational Layer (Xuanling)
-Provides structured ways to express how the core model may be interpreted or applied within domains.  
-This layer introduces **prompt structures, reasoning templates, and interpretive patterns**, without binding to a specific implementation.
-
-### Layer 2 — Projection / Example Layer
-Contains illustrative examples, scenarios, or domain-specific projections that demonstrate how the framework *could* be used.
-These examples are:
-- non-normative  
-- non-binding  
-- incomplete by design  
-- replaceable or extensible  
-
-They exist to aid understanding, not to define correctness.
-
----
-
-## Non-Commitment Notice
-
-Nothing in this repository should be interpreted as:
-
-- a specification,
-- a standard,
-- a guarantee of correctness,
-- a promise of implementation,
-- or a claim of functional capability.
-
-Any resemblance to practical systems, tools, or workflows reflects *structural similarity*, not equivalence.
-
----
-
-## On Interpretation and Use
-
-Readers are encouraged to treat this material as:
-
-- a conceptual reference,
-- a design language,
-- or a thinking aid.
-
-Different readers may interpret or extend the framework differently.  
-Such divergence is expected and compatible with the intent of the model.
-
----
-
-## Authorship & Attribution
-
-This repository records the author's conceptual formulation and organization of the framework.
-
-Reuse, interpretation, or extension by others should acknowledge the original source where appropriate, while recognizing that implementations or derivatives may differ substantially.
-
----
-
-## Future Direction
-
-Future development, if any, may include:
-- refinement of conceptual definitions,
-- additional illustrative domains,
-- clarification of terminology,
-- or experimental implementations by third parties.
-
-There is no commitment to timelines or deliverables.
-
----
-
-*This document exists to stabilize meaning, not to finalize outcomes.*
+PUBLIC_GLMODEL_PROJECTION / NON_PRODUCTION / NOT_NATIVE_BODY / NOT_RUNTIME / NOT_CANON / NO_IMPLICIT_WORLD_AUTHORITY.

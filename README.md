@@ -44,6 +44,16 @@ Read `CURRENT-SURFACE-MANIFEST.json` first, then `semantic-core/index.json` and 
 
 `semantic-core/` 是 machine-oriented projection／verification surface，可承載 schema、world specimen、validation evidence、Failure Memory、Visual Binding、Rebuild Material 與 Adapter；它不是 Native Source Root、Canon、Runtime 或 Promotion Authority。
 
+## Continuity and replaceable carriers / 連續性與可替換載體
+
+Repository, model, renderer, tool, and storage locations are **replaceable carriers**, not permanent world topology. A World/Object/Assembly remains continuous only when Stable Identity, configuration/state, source/evidence scope, applicable Authority and rebuild/recovery relations can be re-qualified after interruption or carrier replacement.
+
+Repository、模型、Renderer、工具與儲存位置都是**可替換載體**，不是永久世界拓撲。World／Object／Assembly 只有在中斷或載體替換後，Stable Identity、Configuration／State、Source／Evidence Scope、適用 Authority 與 Rebuild／Recovery 關係仍可重新資格化時，才具有連續性。
+
+A visible render, exported file, successful save, or provider capability proves only its demonstrated scope. GLModel-oriented maturity is measured by whether world/object capability can be lawfully re-obtained, operated, exported, reloaded and recovered without silently changing identity or engineering claims.
+
+可見 Render、匯出檔、保存成功或 Provider Capability，只證明其已示範範圍。GLModel 極向的成熟度，以 World／Object 能力能否合法重取、操作、匯出、重載與恢復，且不暗中改變 Identity 或工程 Claim 來衡量。
+
 ## Representation architecture / 三極語
 
 - **Human zh-TW** — 人類理解、世界關係、工程判斷、風險與下一步。

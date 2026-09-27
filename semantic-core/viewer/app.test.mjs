@@ -6,7 +6,7 @@ import vm from 'node:vm';
 // Synthetic DOM/fetch checks only: not a browser or semantic validator.
 const source = readFileSync(new URL('./app.js', import.meta.url), 'utf8');
 
-async function render({ drift = false, failedURL, failedURLs = [], malformedURL } = {}) {
+async function render({ drift = false, failedURL, failedURLs = [], malformedURL, payloadOverrides = {} } = {}) {
   const elements = new Map();
   const document = {
     getElementById(id) {
@@ -24,7 +24,7 @@ async function render({ drift = false, failedURL, failedURLs = [], malformedURL 
     'world.json': { stable_id: 'TEST-WORLD-A', state: { lifecycle: 'TEST' }, relations: [] },
     'visual-bindings.json': { world_id: otherID, bindings: [] },
     'rebuild-manifest.json': { subject_id: otherID, rebuild_status: 'UNPROVEN', holds: ['TEST_WORLD_HOLD'] },
-    'active-state.json': { active_holds: [{ hold_id: 'TEST_DCP_HOLD', owner: 'fixture', reason: 'unresolved' }] },
+    'active-state.json': { active_holds: [{ hold_id: 'TEST_DCP_HOLD', owner: 'fixture', reason: 'unresolved' }], active_conflicts: [], pending_returns: [] },
   };
   await vm.runInNewContext(source, { document, fetch: async url => {
     const name = url.split('/').pop();
@@ -33,7 +33,7 @@ async function render({ drift = false, failedURL, failedURLs = [], malformedURL 
       status: name === failedURL || failedURLs.includes(name) ? 503 : 200,
       json: async () => {
         if (name === malformedURL) throw new SyntaxError('Invalid fixture JSON');
-        return payloads[name] ?? {};
+        return Object.hasOwn(payloadOverrides, name) ? payloadOverrides[name] : payloads[name] ?? {};
       },
       text: async () => '',
     };
@@ -104,3 +104,49 @@ for (const [failedURL, preservedSummary] of [
     assert.equal(failed.get('status').textContent, 'LOAD ERROR');
   });
 }
+
+const collectionCases = [
+  ['rebuild-manifest.json', 'holds', 'summary', 'holds', 'dcp-summary'],
+  ['active-state.json', 'active_holds', 'dcp-summary', 'dcp-holds', 'summary'],
+  ['active-state.json', 'active_conflicts', 'dcp-summary', 'dcp-holds', 'summary'],
+  ['active-state.json', 'pending_returns', 'dcp-summary', 'dcp-pending', 'summary'],
+];
+const collectionPayloads = {
+  'rebuild-manifest.json': JSON.parse(readFileSync(new URL('../specimens/gui-lu/rebuild-manifest.json', import.meta.url))),
+  'active-state.json': JSON.parse(readFileSync(new URL('../dcp/instances/active-state.json', import.meta.url))),
+};
+
+for (const [filename, field, failedSummary, list, unaffectedSummary] of collectionCases) {
+  for (const invalid of [undefined, null, false, 0, '', {}, 'not-an-array']) {
+    test(`${filename}.${field} rejects ${JSON.stringify(invalid)} instead of claiming no entries`, async () => {
+      const payload = { ...collectionPayloads[filename], [field]: invalid };
+      if (invalid === undefined) delete payload[field];
+      const baseline = await render();
+      const elements = await render({ payloadOverrides: { [filename]: payload } });
+      assert.equal(elements.get('status').textContent, 'LOAD ERROR');
+      assert.ok(elements.get('load-error').textContent.includes(`${filename}: ${field}`));
+      assert.match(elements.get(failedSummary).innerHTML, /錯誤/);
+      assert.equal(elements.get(list)?.innerHTML ?? '', '');
+      assert.equal(elements.get(unaffectedSummary).innerHTML, baseline.get(unaffectedSummary).innerHTML);
+    });
+  }
+}
+
+test('explicit empty arrays describe only absence in the loaded source', async () => {
+  const elements = await render({ payloadOverrides: {
+    'rebuild-manifest.json': { ...collectionPayloads['rebuild-manifest.json'], holds: [] },
+    'active-state.json': { ...collectionPayloads['active-state.json'], active_holds: [], active_conflicts: [], pending_returns: [] },
+  } });
+  assert.match(elements.get('status').textContent, /資料已載入.*尚未執行語義驗證/);
+  assert.match(elements.get('holds').innerHTML, /此來源未列出 Hold/);
+  assert.match(elements.get('dcp-holds').innerHTML, /此來源未列出 Hold／Conflict/);
+  assert.match(elements.get('dcp-pending').innerHTML, /此來源未列出 Pending Return/);
+});
+
+test('committed specimen collections remain readable without claiming semantic validation', async () => {
+  const elements = await render({ payloadOverrides: collectionPayloads });
+  assert.match(elements.get('status').textContent, /資料已載入.*尚未執行語義驗證/);
+  assert.match(elements.get('holds').innerHTML, /GLMODEL_EXACT_GEOMETRY_VALIDATION_PENDING/);
+  assert.match(elements.get('dcp-holds').innerHTML, /HOLD-GUI-LU-GEOMETRY-EVIDENCE/);
+  assert.match(elements.get('dcp-pending').innerHTML, /RET-GLMODEL-DOMAIN-NATIVE-BINDING/);
+});

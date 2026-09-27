@@ -9,6 +9,14 @@ async function loadWorldJSON(name){return getJSON(worldBase+name)}
 async function loadWorldText(name){return getText(worldBase+name)}
 async function loadEvents(){const t=await loadWorldText('events.jsonl');return t.trim().split(/\n+/).filter(Boolean).map(JSON.parse)}
 
+// Only an explicit array can support a source-local empty-list claim.
+// This is a viewer input check, not full schema or semantic validation.
+function requiredCollection(record,key,source){
+  const value=record?.[key];
+  if(!Array.isArray(value))throw new Error(`${source}: ${key} 必須提供陣列；缺值或格式錯誤不代表沒有資料`);
+  return value;
+}
+
 function metric(label,value){return `<div class="metric"><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`}
 function row(title,detail=''){return `<div class="row"><strong>${esc(title)}</strong>${detail?`<small>${esc(detail)}</small>`:''}</div>`}
 function basicMarkdown(md){return md.split('\n').map(line=>{
@@ -23,10 +31,11 @@ async function loadWorld(){
   const [world,visual,rebuild,events,human]=await Promise.all([
     loadWorldJSON('world.json'),loadWorldJSON('visual-bindings.json'),loadWorldJSON('rebuild-manifest.json'),loadEvents(),loadWorldText('HUMAN.zh-TW.md')
   ]);
+  const holds=requiredCollection(rebuild,'holds','rebuild-manifest.json');
   $('summary').innerHTML=[metric('Stable Identity',world.stable_id),metric('Lifecycle',world.state.lifecycle),metric('Rebuild',rebuild.rebuild_status),metric('Visual Bindings',visual.bindings.length)].join('');
   $('relations').innerHTML=(world.relations||[]).map(r=>row(`${r.type} → ${r.target}`,r.state)).join('');
   $('anchors').innerHTML=visual.bindings.map(v=>row(v.view_id,`${v.evidence_role} · ${(v.drift_checks||[]).join(' / ')}`)).join('');
-  $('holds').innerHTML=(rebuild.holds||[]).map(h=>row(h)).join('')||row('目前沒有 Hold');
+  $('holds').innerHTML=holds.map(h=>row(h)).join('')||row('此來源未列出 Hold');
   $('events').innerHTML=events.map(e=>`<div class="event"><strong>${esc(e.event_type)} · ${esc(e.event_id)}</strong><p>${esc(e.state_effect?.after||'')}<br>${esc(e.claim_ceiling||'')}</p></div>`).join('');
   $('human').innerHTML=basicMarkdown(human);
 }
@@ -44,6 +53,9 @@ async function loadDCP(){
     getText(dcpBase+'visuals/dependency-current.mmd'),
     getText(dcpBase+'visuals/state-authority-matrix.csv')
   ]);
+  const activeHolds=requiredCollection(active,'active_holds','active-state.json');
+  const activeConflicts=requiredCollection(active,'active_conflicts','active-state.json');
+  const pendingReturns=requiredCollection(active,'pending_returns','active-state.json');
   $('dcp-summary').innerHTML=[
     metric('Profile',index.profile),
     metric('Current Surfaces',Object.keys(index.current_surfaces||{}).length),
@@ -53,11 +65,11 @@ async function loadDCP(){
   $('dcp-families').innerHTML=(families.families||[]).map(f=>row(f.family_id,f.purpose)).join('');
   $('dcp-guards').innerHTML=(state.forbidden_inferences||[]).map(x=>row(x)).join('');
   const holdRows=[
-    ...(active.active_holds||[]).map(x=>row(x.hold_id,`${x.owner} · ${x.reason}`)),
-    ...(active.active_conflicts||[]).map(x=>row(x.conflict_id||'CONFLICT',x.reason||JSON.stringify(x)))
+    ...activeHolds.map(x=>row(x.hold_id,`${x.owner} · ${x.reason}`)),
+    ...activeConflicts.map(x=>row(x.conflict_id||'CONFLICT',x.reason||JSON.stringify(x)))
   ];
-  $('dcp-holds').innerHTML=holdRows.join('')||row('目前沒有 Hold／Conflict');
-  $('dcp-pending').innerHTML=(active.pending_returns||[]).map(x=>row(x.return_id,`${x.from} → ${x.to} · ${x.closure}`)).join('')||row('目前沒有 Pending Return');
+  $('dcp-holds').innerHTML=holdRows.join('')||row('此來源未列出 Hold／Conflict');
+  $('dcp-pending').innerHTML=pendingReturns.map(x=>row(x.return_id,`${x.from} → ${x.to} · ${x.closure}`)).join('')||row('此來源未列出 Pending Return');
   $('dcp-rights').innerHTML=(authority.rights||[]).map(x=>row(x)).join('');
   $('dcp-returns').innerHTML=(returns.entries||[]).map(x=>row(x.return_id,`${x.state} · ${x.reconciliation}`)).join('');
   $('dcp-growth').innerHTML=[...(growth.capability_levels||[]).map(x=>row(x,'Capability maturity')),...(growth.growth_evidence||[]).map(x=>row(x,'Growth evidence'))].join('');

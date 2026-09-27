@@ -82,8 +82,10 @@ async function main(){
     // Both loaders write the DOM. Set final status only after both settle,
     // so a later world render cannot overwrite an earlier DCP error.
     const results=await Promise.allSettled([loadWorld(),loadDCP()]);
-    const failure=results.find(result=>result.status==='rejected');
-    if(failure)throw failure.reason;
+    const failures=results.flatMap((result,index)=>result.status==='rejected'
+      ? [`${index===0?'世界視圖':'DCP 視圖'}：${result.reason?.message??String(result.reason)}`]
+      : []);
+    if(failures.length)throw new Error(failures.join('；'));
     $('status').textContent='資料已載入；尚未執行語義驗證';
     $('status').classList.add('warning');
   }catch(err){

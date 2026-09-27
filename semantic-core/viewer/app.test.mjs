@@ -6,7 +6,7 @@ import vm from 'node:vm';
 // Synthetic DOM/fetch checks only: not a browser or semantic validator.
 const source = readFileSync(new URL('./app.js', import.meta.url), 'utf8');
 
-async function render({ drift = false, failedURL, malformedURL } = {}) {
+async function render({ drift = false, failedURL, failedURLs = [], malformedURL } = {}) {
   const elements = new Map();
   const document = {
     getElementById(id) {
@@ -29,7 +29,8 @@ async function render({ drift = false, failedURL, malformedURL } = {}) {
   await vm.runInNewContext(source, { document, fetch: async url => {
     const name = url.split('/').pop();
     return {
-      ok: name !== failedURL, status: name === failedURL ? 503 : 200,
+      ok: name !== failedURL && !failedURLs.includes(name),
+      status: name === failedURL || failedURLs.includes(name) ? 503 : 200,
       json: async () => {
         if (name === malformedURL) throw new SyntaxError('Invalid fixture JSON');
         return payloads[name] ?? {};
@@ -76,4 +77,15 @@ test('load error alert belongs to neither toggleable view', () => {
   assert.ok(alert < html.indexOf('id="world-view"'));
   assert.ok(alert < html.indexOf('id="dcp-view"'));
   assert.match(html, /id="load-error"[^>]*role="alert"[^>]*hidden/);
+});
+
+test('simultaneous world and DCP failures both remain visible', async () => {
+  const elements = await render({ failedURLs: ['world.json', 'authority-gate-matrix.json'] });
+  assert.equal(elements.get('status').textContent, 'LOAD ERROR');
+  const error = elements.get('load-error');
+  assert.equal(error.hidden, false);
+  for (const message of ['world.json: 503', 'authority-gate-matrix.json: 503']) {
+    assert.ok(error.textContent.includes(message), `missing diagnostic: ${message}`);
+    assert.ok(elements.get('summary').innerHTML.includes(message));
+  }
 });

@@ -1,5 +1,10 @@
 # GitHub Normalization Phase Plan
 
+> **HISTORICAL / REFERENCE ONLY — 歷史參考。**
+> 下文保留原階段正文與當時的 Completed／Active 等標籤；它們不自動形成現行任務、完成證明、全域 roadmap 或操作效力。
+> Current public boundaries are described by [README.md](README.md) and [CURRENT-SURFACE-MANIFEST.json](CURRENT-SURFACE-MANIFEST.json); historical phase labels do not select current work.
+> 本次載體邊界候選的範圍與未完審查見 [PR #8](https://github.com/chenchienheng/GLModel-Pole-Projection/pull/8)；逐檔前身證據見[刪除候選證據](docs/review/carrier-boundary-r1-00-deletion-evidence.md)。本註記不核准刪除、合併或退役。
+
 > Durable phase plan for turning the current GitHub repository from a growing architecture corpus into a stable primary bone.
 > Purpose: establish the rule that GitHub must be normalized first before broader agent expansion and ecosystem scaling.
 

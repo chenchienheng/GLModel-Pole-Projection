@@ -79,9 +79,13 @@ function bindNavigation(){
 async function main(){
   bindNavigation();
   try{
-    await Promise.all([loadWorld(),loadDCP()]);
-    $('status').textContent='PASS BOUNDED';
-    $('status').classList.add('ok');
+    // Both loaders write the DOM. Set final status only after both settle,
+    // so a later world render cannot overwrite an earlier DCP error.
+    const results=await Promise.allSettled([loadWorld(),loadDCP()]);
+    const failure=results.find(result=>result.status==='rejected');
+    if(failure)throw failure.reason;
+    $('status').textContent='資料已載入；尚未執行語義驗證';
+    $('status').classList.add('warning');
   }catch(err){
     $('status').textContent='LOAD ERROR';
     $('status').classList.add('warning');

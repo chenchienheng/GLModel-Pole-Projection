@@ -90,6 +90,9 @@ async function main(){
     $('status').textContent='LOAD ERROR';
     $('status').classList.add('warning');
     $('summary').innerHTML=metric('錯誤',err.message);
+    // Keep details visible when either view is selected; never render errors as HTML.
+    $('load-error').textContent=`載入失敗：${err.message}`;
+    $('load-error').hidden=false;
   }
 }
 main();

@@ -62,5 +62,18 @@ for (const options of [
     assert.equal(elements.get('status').textContent, 'LOAD ERROR');
     assert.equal(elements.get('status').classes.has('ok'), false);
     assert.match(elements.get('summary').innerHTML, /錯誤/);
+    // The detailed error must remain outside the toggleable view panels.
+    const error = elements.get('load-error');
+    assert.equal(error?.hidden, false);
+    assert.ok(error.textContent.length > 0);
   });
 }
+
+test('load error alert belongs to neither toggleable view', () => {
+  const html = readFileSync(new URL('./index.html', import.meta.url), 'utf8');
+  const alert = html.indexOf('id="load-error"');
+  assert.ok(alert >= 0);
+  assert.ok(alert < html.indexOf('id="world-view"'));
+  assert.ok(alert < html.indexOf('id="dcp-view"'));
+  assert.match(html, /id="load-error"[^>]*role="alert"[^>]*hidden/);
+});

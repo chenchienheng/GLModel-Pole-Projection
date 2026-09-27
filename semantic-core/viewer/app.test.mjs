@@ -62,7 +62,8 @@ for (const options of [
     const elements = await render(options);
     assert.equal(elements.get('status').textContent, 'LOAD ERROR');
     assert.equal(elements.get('status').classes.has('ok'), false);
-    assert.match(elements.get('summary').innerHTML, /錯誤/);
+    const failedSummary = options.failedURL === 'authority-gate-matrix.json' ? 'dcp-summary' : 'summary';
+    assert.match(elements.get(failedSummary).innerHTML, /錯誤/);
     // The detailed error must remain outside the toggleable view panels.
     const error = elements.get('load-error');
     assert.equal(error?.hidden, false);
@@ -86,6 +87,20 @@ test('simultaneous world and DCP failures both remain visible', async () => {
   assert.equal(error.hidden, false);
   for (const message of ['world.json: 503', 'authority-gate-matrix.json: 503']) {
     assert.ok(error.textContent.includes(message), `missing diagnostic: ${message}`);
-    assert.ok(elements.get('summary').innerHTML.includes(message));
+    const summary = message.startsWith('world') ? 'summary' : 'dcp-summary';
+    assert.ok(elements.get(summary).innerHTML.includes(message));
   }
 });
+
+for (const [failedURL, preservedSummary] of [
+  ['authority-gate-matrix.json', 'summary'],
+  ['world.json', 'dcp-summary'],
+]) {
+  test(`failure in ${failedURL} preserves the other view's successful summary`, async () => {
+    const baseline = await render();
+    const failed = await render({ failedURL });
+    assert.ok(baseline.get(preservedSummary).innerHTML.length > 0);
+    assert.equal(failed.get(preservedSummary).innerHTML, baseline.get(preservedSummary).innerHTML);
+    assert.equal(failed.get('status').textContent, 'LOAD ERROR');
+  });
+}

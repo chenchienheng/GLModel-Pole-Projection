@@ -82,16 +82,19 @@ async function main(){
     // Both loaders write the DOM. Set final status only after both settle,
     // so a later world render cannot overwrite an earlier DCP error.
     const results=await Promise.allSettled([loadWorld(),loadDCP()]);
-    const failures=results.flatMap((result,index)=>result.status==='rejected'
-      ? [`${index===0?'世界視圖':'DCP 視圖'}：${result.reason?.message??String(result.reason)}`]
-      : []);
+    const failures=results.flatMap((result,index)=>{
+      if(result.status!=='rejected')return [];
+      const message=`${index===0?'世界視圖':'DCP 視圖'}：${result.reason?.message??String(result.reason)}`;
+      // A failed view must not replace the other view's successful summary.
+      $(index===0?'summary':'dcp-summary').innerHTML=metric('錯誤',message);
+      return [message];
+    });
     if(failures.length)throw new Error(failures.join('；'));
     $('status').textContent='資料已載入；尚未執行語義驗證';
     $('status').classList.add('warning');
   }catch(err){
     $('status').textContent='LOAD ERROR';
     $('status').classList.add('warning');
-    $('summary').innerHTML=metric('錯誤',err.message);
     // Keep details visible when either view is selected; never render errors as HTML.
     $('load-error').textContent=`載入失敗：${err.message}`;
     $('load-error').hidden=false;

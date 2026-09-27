@@ -32,12 +32,15 @@ async function loadWorld(){
     loadWorldJSON('world.json'),loadWorldJSON('visual-bindings.json'),loadWorldJSON('rebuild-manifest.json'),loadEvents(),loadWorldText('HUMAN.zh-TW.md')
   ]);
   const holds=requiredCollection(rebuild,'holds','rebuild-manifest.json');
-  $('summary').innerHTML=[metric('Stable Identity',world.stable_id),metric('Lifecycle',world.state.lifecycle),metric('Rebuild',rebuild.rebuild_status),metric('Visual Bindings',visual.bindings.length)].join('');
-  $('relations').innerHTML=(world.relations||[]).map(r=>row(`${r.type} → ${r.target}`,r.state)).join('');
-  $('anchors').innerHTML=visual.bindings.map(v=>row(v.view_id,`${v.evidence_role} · ${(v.drift_checks||[]).join(' / ')}`)).join('');
-  $('holds').innerHTML=holds.map(h=>row(h)).join('')||row('此來源未列出 Hold');
-  $('events').innerHTML=events.map(e=>`<div class="event"><strong>${esc(e.event_type)} · ${esc(e.event_id)}</strong><p>${esc(e.state_effect?.after||'')}<br>${esc(e.claim_ceiling||'')}</p></div>`).join('');
-  $('human').innerHTML=basicMarkdown(human);
+  // Prepare all display content before changing this view's DOM.
+  const html={};
+  html['summary']=[metric('Stable Identity',world.stable_id),metric('Lifecycle',world.state.lifecycle),metric('Rebuild',rebuild.rebuild_status),metric('Visual Bindings',visual.bindings.length)].join('');
+  html['relations']=(world.relations||[]).map(r=>row(`${r.type} → ${r.target}`,r.state)).join('');
+  html['anchors']=visual.bindings.map(v=>row(v.view_id,`${v.evidence_role} · ${(v.drift_checks||[]).join(' / ')}`)).join('');
+  html['holds']=holds.map(h=>row(h)).join('')||row('此來源未列出 Hold');
+  html['events']=events.map(e=>`<div class="event"><strong>${esc(e.event_type)} · ${esc(e.event_id)}</strong><p>${esc(e.state_effect?.after||'')}<br>${esc(e.claim_ceiling||'')}</p></div>`).join('');
+  html['human']=basicMarkdown(human);
+  for(const [id,markup] of Object.entries(html))$(id).innerHTML=markup;
 }
 
 async function loadDCP(){
@@ -56,27 +59,30 @@ async function loadDCP(){
   const activeHolds=requiredCollection(active,'active_holds','active-state.json');
   const activeConflicts=requiredCollection(active,'active_conflicts','active-state.json');
   const pendingReturns=requiredCollection(active,'pending_returns','active-state.json');
-  $('dcp-summary').innerHTML=[
+  // Prepare all display content before changing this view's DOM.
+  const html={};
+  html['dcp-summary']=[
     metric('Profile',index.profile),
     metric('Current Surfaces',Object.keys(index.current_surfaces||{}).length),
     metric('Runtime',String(active.state?.runtime??index.runtime)),
     metric('Historical Metabolism',active.state?.historical_metabolism||'UNKNOWN')
   ].join('');
-  $('dcp-families').innerHTML=(families.families||[]).map(f=>row(f.family_id,f.purpose)).join('');
-  $('dcp-guards').innerHTML=(state.forbidden_inferences||[]).map(x=>row(x)).join('');
+  html['dcp-families']=(families.families||[]).map(f=>row(f.family_id,f.purpose)).join('');
+  html['dcp-guards']=(state.forbidden_inferences||[]).map(x=>row(x)).join('');
   const holdRows=[
     ...activeHolds.map(x=>row(x.hold_id,`${x.owner} · ${x.reason}`)),
     ...activeConflicts.map(x=>row(x.conflict_id||'CONFLICT',x.reason||JSON.stringify(x)))
   ];
-  $('dcp-holds').innerHTML=holdRows.join('')||row('此來源未列出 Hold／Conflict');
-  $('dcp-pending').innerHTML=pendingReturns.map(x=>row(x.return_id,`${x.from} → ${x.to} · ${x.closure}`)).join('')||row('此來源未列出 Pending Return');
-  $('dcp-rights').innerHTML=(authority.rights||[]).map(x=>row(x)).join('');
-  $('dcp-returns').innerHTML=(returns.entries||[]).map(x=>row(x.return_id,`${x.state} · ${x.reconciliation}`)).join('');
-  $('dcp-growth').innerHTML=[...(growth.capability_levels||[]).map(x=>row(x,'Capability maturity')),...(growth.growth_evidence||[]).map(x=>row(x,'Growth evidence'))].join('');
-  $('dcp-claims').innerHTML=(active.not_to_claim||[]).map(x=>row(x)).join('');
+  html['dcp-holds']=holdRows.join('')||row('此來源未列出 Hold／Conflict');
+  html['dcp-pending']=pendingReturns.map(x=>row(x.return_id,`${x.from} → ${x.to} · ${x.closure}`)).join('')||row('此來源未列出 Pending Return');
+  html['dcp-rights']=(authority.rights||[]).map(x=>row(x)).join('');
+  html['dcp-returns']=(returns.entries||[]).map(x=>row(x.return_id,`${x.state} · ${x.reconciliation}`)).join('');
+  html['dcp-growth']=[...(growth.capability_levels||[]).map(x=>row(x,'Capability maturity')),...(growth.growth_evidence||[]).map(x=>row(x,'Growth evidence'))].join('');
+  html['dcp-claims']=(active.not_to_claim||[]).map(x=>row(x)).join('');
+  html['dcp-human']=basicMarkdown(human);
+  for(const [id,markup] of Object.entries(html))$(id).innerHTML=markup;
   $('dcp-diagram').textContent=diagram;
   $('dcp-matrix').textContent=matrix;
-  $('dcp-human').innerHTML=basicMarkdown(human);
 }
 
 function bindNavigation(){

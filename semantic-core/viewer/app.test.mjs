@@ -6,7 +6,7 @@ import vm from 'node:vm';
 // Synthetic DOM/fetch checks only: not a browser or semantic validator.
 const source = readFileSync(new URL('./app.js', import.meta.url), 'utf8');
 
-async function render({ drift = false, failedURL, failedURLs = [], malformedURL, payloadOverrides = {} } = {}) {
+async function render({ drift = false, failedURL, failedURLs = [], malformedURL, payloadOverrides = {}, textOverrides = {} } = {}) {
   const elements = new Map();
   const document = {
     getElementById(id) {
@@ -35,7 +35,7 @@ async function render({ drift = false, failedURL, failedURLs = [], malformedURL,
         if (name === malformedURL) throw new SyntaxError('Invalid fixture JSON');
         return Object.hasOwn(payloadOverrides, name) ? payloadOverrides[name] : payloads[name] ?? {};
       },
-      text: async () => '',
+      text: async () => textOverrides[url] ?? '',
     };
   } });
   return elements;
@@ -150,3 +150,34 @@ test('committed specimen collections remain readable without claiming semantic v
   assert.match(elements.get('dcp-holds').innerHTML, /HOLD-GUI-LU-GEOMETRY-EVIDENCE/);
   assert.match(elements.get('dcp-pending').innerHTML, /RET-GLMODEL-DOMAIN-NATIVE-BINDING/);
 });
+
+for (const scenario of [
+  {
+    name: 'malformed world event after hold formatting',
+    options: { textOverrides: { '../specimens/gui-lu/events.jsonl': 'null' } },
+    failedSummary: 'summary', failedPanels: ['relations', 'anchors', 'holds', 'events', 'human'],
+    preservedPanels: ['dcp-summary', 'dcp-holds', 'dcp-pending'],
+  },
+  {
+    name: 'malformed DCP growth after hold and return formatting',
+    options: { payloadOverrides: { 'growth-memory-model.json': { capability_levels: {} } } },
+    failedSummary: 'dcp-summary',
+    failedPanels: ['dcp-families', 'dcp-guards', 'dcp-holds', 'dcp-pending', 'dcp-rights', 'dcp-returns', 'dcp-growth', 'dcp-claims', 'dcp-diagram', 'dcp-matrix', 'dcp-human'],
+    preservedPanels: ['summary', 'holds'],
+  },
+]) {
+  test(`late formatting failure leaves no partial view: ${scenario.name}`, async () => {
+    const baseline = await render();
+    const failed = await render(scenario.options);
+    assert.equal(failed.get('status').textContent, 'LOAD ERROR');
+    assert.equal(failed.get('load-error').hidden, false);
+    assert.match(failed.get(scenario.failedSummary).innerHTML, /錯誤/);
+    for (const id of scenario.failedPanels) {
+      assert.equal(failed.get(id)?.innerHTML ?? '', '', `${id} contains a partial result`);
+      assert.equal(failed.get(id)?.textContent ?? '', '', `${id} contains partial text`);
+    }
+    for (const id of scenario.preservedPanels) {
+      assert.equal(failed.get(id).innerHTML, baseline.get(id).innerHTML, `${id} must remain usable`);
+    }
+  });
+}

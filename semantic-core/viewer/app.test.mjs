@@ -6,7 +6,7 @@ import vm from 'node:vm';
 // Synthetic DOM/fetch checks only: not a browser or semantic validator.
 const source = readFileSync(new URL('./app.js', import.meta.url), 'utf8');
 
-async function render({ drift = false, failedURL, failedURLs = [], malformedURL, payloadOverrides = {}, textOverrides = {} } = {}) {
+async function render({ drift = false, failedURL, failedURLs = [], malformedURL, rejectedURL, unreadableTextURL, payloadOverrides = {}, textOverrides = {} } = {}) {
   const elements = new Map();
   const document = {
     getElementById(id) {
@@ -27,6 +27,7 @@ async function render({ drift = false, failedURL, failedURLs = [], malformedURL,
     'active-state.json': { active_holds: [{ hold_id: 'TEST_DCP_HOLD', owner: 'fixture', reason: 'unresolved' }], active_conflicts: [], pending_returns: [] },
   };
   await vm.runInNewContext(source, { document, fetch: async url => {
+    if (url === rejectedURL) throw new TypeError('Failed to fetch');
     const name = url.split('/').pop();
     return {
       ok: name !== failedURL && !failedURLs.includes(name),
@@ -35,7 +36,10 @@ async function render({ drift = false, failedURL, failedURLs = [], malformedURL,
         if (name === malformedURL) throw new SyntaxError('Invalid fixture JSON');
         return Object.hasOwn(payloadOverrides, name) ? payloadOverrides[name] : payloads[name] ?? {};
       },
-      text: async () => textOverrides[url] ?? '',
+      text: async () => {
+        if (url === unreadableTextURL) throw new TypeError('Body read failed');
+        return textOverrides[url] ?? '';
+      },
     };
   } });
   return elements;
@@ -181,3 +185,27 @@ for (const scenario of [
     }
   });
 }
+
+for (const scenario of [
+  { options: { rejectedURL: '../specimens/gui-lu/world.json' }, file: '../specimens/gui-lu/world.json', stage: '請求失敗' },
+  { options: { rejectedURL: '../dcp/current/authority-gate-matrix.json' }, file: '../dcp/current/authority-gate-matrix.json', stage: '請求失敗' },
+  { options: { malformedURL: 'visual-bindings.json' }, file: '../specimens/gui-lu/visual-bindings.json', stage: 'JSON 讀取或解析失敗' },
+  { options: { malformedURL: 'active-state.json' }, file: '../dcp/instances/active-state.json', stage: 'JSON 讀取或解析失敗' },
+  { options: { unreadableTextURL: '../dcp/HUMAN.zh-TW.md' }, file: '../dcp/HUMAN.zh-TW.md', stage: '文字讀取失敗' },
+]) {
+  test(`load diagnostics locate ${scenario.file}: ${scenario.stage}`, async () => {
+    const elements = await render(scenario.options);
+    assert.equal(elements.get('status').textContent, 'LOAD ERROR');
+    const detail = elements.get('load-error').textContent;
+    assert.ok(detail.includes(scenario.file), `missing source: ${detail}`);
+    assert.ok(detail.includes(scenario.stage), `missing stage: ${detail}`);
+  });
+}
+
+test('malformed JSONL reports the original line including preceding blanks', async () => {
+  const elements = await render({ textOverrides: {
+    '../specimens/gui-lu/events.jsonl': '\n{"event_id":"TEST","event_type":"TEST"}\n\ninvalid-json',
+  } });
+  assert.equal(elements.get('status').textContent, 'LOAD ERROR');
+  assert.ok(elements.get('load-error').textContent.includes('../specimens/gui-lu/events.jsonl:4:'));
+});

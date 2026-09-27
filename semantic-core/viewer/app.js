@@ -3,11 +3,34 @@ const dcpBase='../dcp/';
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-async function getJSON(url){const r=await fetch(url);if(!r.ok)throw new Error(`${url}: ${r.status}`);return r.json()}
-async function getText(url){const r=await fetch(url);if(!r.ok)throw new Error(`${url}: ${r.status}`);return r.text()}
+async function getResponse(url){
+  let response;
+  try{response=await fetch(url)}
+  catch{throw new Error(`${url}: 請求失敗`)}
+  if(!response.ok)throw new Error(`${url}: ${response.status}`);
+  return response;
+}
+async function getJSON(url){
+  const response=await getResponse(url);
+  try{return await response.json()}
+  catch{throw new Error(`${url}: JSON 讀取或解析失敗`)}
+}
+async function getText(url){
+  const response=await getResponse(url);
+  try{return await response.text()}
+  catch{throw new Error(`${url}: 文字讀取失敗`)}
+}
 async function loadWorldJSON(name){return getJSON(worldBase+name)}
 async function loadWorldText(name){return getText(worldBase+name)}
-async function loadEvents(){const t=await loadWorldText('events.jsonl');return t.trim().split(/\n+/).filter(Boolean).map(JSON.parse)}
+async function loadEvents(){
+  const url=worldBase+'events.jsonl';
+  const text=await getText(url);
+  return text.split('\n').flatMap((line,index)=>{
+    if(!line.trim())return [];
+    try{return [JSON.parse(line)]}
+    catch{throw new Error(`${url}:${index+1}: JSON 解析失敗`)}
+  });
+}
 
 // Only an explicit array can support a source-local empty-list claim.
 // This is a viewer input check, not full schema or semantic validation.

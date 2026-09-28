@@ -34,6 +34,8 @@ Use this README for human orientation, then resolve Current-for-purpose from `CU
 
 本 README 提供人類入口與倉庫定位；Current-for-purpose 請由 `CURRENT-SURFACE-MANIFEST.json` 解析，受影響的 World／Build Material 再進入 `semantic-core/index.json` 與相關 family index。根目錄舊 layer/runtime/orchestration family 在未具名 re-admission 前只作 Historical／Compatibility。
 
+檢視器的開啟、狀態判讀、故障隔離及恢復，見 [語義核心使用說明](semantic-core/README.md#6-檢視器的開啟判讀與恢復)。它是唯讀投影檢視器；載入成功不代表語義驗證或 Living 世界編輯能力。
+
 `STATUS.md` is a compatibility/status page and does not establish Runtime, Native identity or World Authority. Current public projection boundaries are defined by this README plus `CURRENT-SURFACE-MANIFEST.json`.
 
 `STATUS.md` 是相容／狀態頁，不建立 Runtime、Native Identity 或 World Authority；現行公開投影邊界以本 README 與 `CURRENT-SURFACE-MANIFEST.json` 為準。

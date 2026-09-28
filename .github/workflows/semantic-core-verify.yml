@@ -49,8 +49,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          # A PR merge checkout includes its event base as a direct parent.
-          fetch-depth: 2
+          # The event base can lag the merge checkout's current base.
+          # Preserve ancestry for the exact event SHA; never substitute main
+          # or skip the deletion guard when a shallow checkout hides it.
+          fetch-depth: 0
       - name: Setup Node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
@@ -93,6 +95,8 @@ jobs:
           node tools/check-legacy-hold-deletions.mjs --base "$LEGACY_PR_BASE_SHA" --head "$LEGACY_CHECKOUT_SHA"
       - name: Verify cross-surface semantic alignment
         run: node semantic-core/tools/verify-specimen.mjs
+      - name: Verify viewer loading does not claim semantic validation
+        run: node --test semantic-core/viewer/app.test.mjs
       - name: Verify DCP semantic core invariants
         run: node semantic-core/tools/verify-dcp-core.mjs
       - name: Verify carrier abstraction invariants

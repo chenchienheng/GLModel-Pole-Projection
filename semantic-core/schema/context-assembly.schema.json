@@ -21,7 +21,7 @@
         "rights_gate_required": {"type": "boolean"}
       }
     },
-    "output_profiles": {"type": "array", "items": {"enum": ["HUMAN_ZH_TW", "EXTERNAL_EN_GATED", "CANONICAL_MACHINE", "VISUAL_SPATIAL", "DOMAIN_NATIVE"]}},
+    "output_profiles": {"type": "array", "items": {"enum": ["HUMAN_ZH_TW", "PROFESSIONAL_EN", "EXTERNAL_EN_GATED", "CANONICAL_MACHINE", "VISUAL_SPATIAL", "DOMAIN_NATIVE"]}},
     "preferred_artifact_kinds": {"type": "array", "items": {"type": "string"}},
     "fallback_order": {"type": "array", "items": {"type": "string"}},
     "state": {"enum": ["CANDIDATE", "VALIDATED", "HOLD", "RETIRED"]}

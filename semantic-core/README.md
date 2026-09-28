@@ -15,11 +15,13 @@ One stable semantic object may be rendered through several synchronized represen
 
 These representations share stable identity and semantic invariants. None becomes a second source of truth.
 
-## 2. Human / External / Machine profiles
+## 2. Human / Professional / Machine profiles
 
 - Human Profile: Traditional Chinese first; explains meaning, state, risk, evidence, and next action.
-- External Profile: English public-safe technical projection generated only after release classification.
+- Professional Profile: discipline-facing English for terminology, assumptions, interfaces, constraints and evidence; the DCP internal/professional profile is not an external publication approval.
 - Machine Profile: stable IDs, typed relations, state, events, policy, hashes/revisions, and evidence pointers.
+
+An External English projection remains a separately release-classified output. Keep `EXTERNAL_EN_GATED` distinct from the `PROFESSIONAL_EN` profile; public placement does not approve additional protected source material.
 
 A mismatch in identity, state, authority, claim ceiling, successor, or rebuild relation is `SURFACE_DRIFT`.
 

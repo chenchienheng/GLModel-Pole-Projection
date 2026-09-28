@@ -6,6 +6,6 @@ Rights,What actions are permitted?,Read/Copy/Derive/Learn/Retain/Write-back/Dele
 Evidence,What can be claimed?,Claim ceiling follows evidence state,Projection/demo becomes proven truth
 Return,What came back?,Return receipt is distinct from reconciliation,ACK becomes closure
 Rebuild,Can it be reconstructed?,Last-valid checkpoint + accepted delta + holds/invalidations,Latest artifact becomes current truth
-Representation,How is it expressed?,Human zh-TW / External EN gated / Canonical machine / Visual-domain are aligned,Translation or surface drift changes meaning
+Representation,How is it expressed?,Human zh-TW / Professional EN / Canonical machine are aligned; External EN is separately release-gated; Visual-domain shares stable identity,Translation or surface drift changes meaning
 Carrier,Where is it stored?,GitHub/Drive/Local/DB/CDE are replaceable carriers,Repository or folder becomes authority
 Learning,What was learned?,Observation -> candidate -> gate -> admission -> behavior change,Read source becomes core learning

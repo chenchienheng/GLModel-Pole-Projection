@@ -15,7 +15,7 @@ The same stable semantic existence has three core profiles: Human zh-TW for owne
 
 These profiles are not sentence-level translations and must not become separate truths. They preserve the same stable identity, lifecycle state, authority, claim ceiling, lineage, return ownership and rebuild relation. Any material mismatch is `SURFACE_DRIFT` and blocks propagation until reconciled.
 
-Professional English identifies a discipline-facing semantic profile; it does not identify an access-control level. This page is already publicly placed. Publication of additional material remains a separate source-, purpose- and rights-qualified decision; public-safe does not mean public-approved.
+Professional English remains the internal/professional semantic profile specified by `index.json` as `INTERNAL_PROFESSIONAL_PROFILE_NOT_PUBLIC_RELEASE`. It is distinct from an external/public English projection. This page's existing public placement does not promote the profile or additional source material to an approved external release; external publication remains separately gated, and public-safe does not mean public-approved.
 
 ## Affected state recorded in this version
 These statements describe the committed active-state instance in the same revision. They do not automatically track the latest Native state; resolve the named source before cross-domain use.

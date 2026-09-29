@@ -15,11 +15,13 @@ One stable semantic object may be rendered through several synchronized represen
 
 These representations share stable identity and semantic invariants. None becomes a second source of truth.
 
-## 2. Human / External / Machine profiles
+## 2. Human / Professional / Machine profiles
 
 - Human Profile: Traditional Chinese first; explains meaning, state, risk, evidence, and next action.
-- External Profile: English public-safe technical projection generated only after release classification.
+- Professional Profile: discipline-facing English for terminology, assumptions, interfaces, constraints and evidence; the DCP internal/professional profile is not an external publication approval.
 - Machine Profile: stable IDs, typed relations, state, events, policy, hashes/revisions, and evidence pointers.
+
+An External English projection remains a separately release-classified output. Keep `EXTERNAL_EN_GATED` distinct from the `PROFESSIONAL_EN` profile; public placement does not approve additional protected source material.
 
 A mismatch in identity, state, authority, claim ceiling, successor, or rebuild relation is `SURFACE_DRIFT`.
 
@@ -41,6 +43,10 @@ Start with bounded specimens. A specimen is valid only when the same stable iden
 
 ## 6. 檢視器的開啟、判讀與恢復
 
+日常取用以目前已採用的 main 為入口；驗證或恢復以完整固定 commit 為準。PR、截圖與已撤下的預覽保存各自版本的證據，不是另一個現在入口。GitHub 管理程式與版本，GitHub Pages 只是其中一種網站承載；檢視器本身的語義資料與畫面不等於 GitHub 管理介面。
+
+畫面中的「目前」指同版已提交的 specimen／DCP 投影，不會自動同步 Living 或其他 Native。程式修復被採用，不會解除來源的 Hold／Pending Return，也不會把來源的 WORKING_CANDIDATE 或 PARTIALLY_PROVEN 改成完成。跨端使用前仍須核對具名來源。
+
 [檢視器入口](viewer/index.html)讀取同一版本的歸廬 specimen 與 DCP 投影，用於閱讀來源中的關係、Hold、待回流及說明。它不是可編輯的 Living 世界，也沒有保存、匯出、採購、部署或語義驗證功能。Stable Identity 與未閉條件來自原資料；顯示成功不代表工程條件或 Return 已驗收。
 
 在已獲授權的 HTTP(S) 預覽環境，保留整個 `semantic-core/` 相對目錄，開啟 `semantic-core/viewer/index.html`。GitHub 的檔案閱讀頁不是運行畫面；直接開啟本機 `file://` 也不能保證 fetch 可用。若沒有合法預覽入口，只保留瀏覽器驗收未完成，不以部署或變更存取限制補過。
@@ -51,6 +57,8 @@ Start with bounded specimens. A specimen is valid only when the same stable iden
 |此來源未列出 Hold／Conflict／Pending Return|該來源明確提供空陣列|不推論整個世界沒有未閉事項|
 |LOAD ERROR 與具名路徑|至少一個視圖未完整載入|依路徑查 HTTP、JSON、文字或集合格式；另一成功視圖仍可讀|
 |來源不存在、集合缺值或格式錯誤|無法支持該視圖的完整顯示|修復同版本來源或回到完整已知版本；不得把缺值改成空陣列掩蓋|
+
+長識別碼可在卡片內換行；依存圖與矩陣原文保留預格式，過長時在個別面板內水平捲動，以免撐寬整頁。這是版面約束，不改來源文字或語義。
 
 世界視圖與 DCP 視圖可用上方按鈕切換；錯誤訊息位於兩者外，切換不會把錯誤消掉。格式化失敗的視圖不應留下半套新內容。載入錯誤只列來源與失敗階段，不顯示完整回應本文；單一視圖內多個來源同時失敗時，目前只保證呈現該 loader 回報的失敗，不保證列出全部根因。
 

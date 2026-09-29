@@ -1,6 +1,6 @@
 # DCP Semantic Core | Professional English Surface
 
-This is the professional English projection of the existing CoreTri_DCP R0.10 semantic core. It is not a second contract, public release, native source root, or independent authority surface.
+This is the professional English projection of the existing CoreTri_DCP R0.10 semantic core. It is a bounded supporting projection in this public GLModel-oriented repository, not a second contract, native source root, or independent authority surface. Existing public placement does not approve publication of additional source material.
 
 ## Reader position
 Read `index.json` → `instances/active-state.json` → `instances/return-ledger.json` → this professional surface / purpose-fit visual or table → affected technical slice. Historical, superseded, invalidated, and retired bodies remain excluded from Current context assembly unless a named provenance, audit, failure-learning, regression, conflict-resolution, or rebuild purpose explicitly re-enters them.
@@ -15,9 +15,10 @@ The same stable semantic existence has three core profiles: Human zh-TW for owne
 
 These profiles are not sentence-level translations and must not become separate truths. They preserve the same stable identity, lifecycle state, authority, claim ceiling, lineage, return ownership and rebuild relation. Any material mismatch is `SURFACE_DRIFT` and blocks propagation until reconciled.
 
-Professional English is an internal/professional semantic profile. It is distinct from an external/public English projection. External publication remains separately gated; public-safe does not mean public-approved.
+Professional English remains the internal/professional semantic profile specified by `index.json` as `INTERNAL_PROFESSIONAL_PROFILE_NOT_PUBLIC_RELEASE`. It is distinct from an external/public English projection. This page's existing public placement does not promote the profile or additional source material to an approved external release; external publication remains separately gated, and public-safe does not mean public-approved.
 
-## Current affected state
+## Affected state recorded in this version
+These statements describe the committed active-state instance in the same revision. They do not automatically track the latest Native state; resolve the named source before cross-domain use.
 WP-B Mother Suite Window remains `TRACE_PARTIAL / HOLD_WITH_NEXT_TRIGGER`. Current evidence proves only the requirement gap and missing native engineering evidence. A lawful protected-intent / Requirement pointer and exact Mother Space plus Window / Host / Opening identities with domain-native evidence are still required before requirement satisfaction or engineering acceptance can be claimed.
 
 ## Claim ceiling

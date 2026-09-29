@@ -17,7 +17,7 @@
       "enum": ["CANDIDATE", "CURRENT", "HOLD", "SUPERSEDED", "HISTORICAL", "INVALIDATED", "RETIRED", "RECLAIM_CANDIDATE"]
     },
     "representation_profile": {
-      "enum": ["HUMAN_ZH_TW", "EXTERNAL_EN_GATED", "CANONICAL_MACHINE", "VISUAL_SPATIAL", "DOMAIN_NATIVE"]
+      "enum": ["HUMAN_ZH_TW", "PROFESSIONAL_EN", "EXTERNAL_EN_GATED", "CANONICAL_MACHINE", "VISUAL_SPATIAL", "DOMAIN_NATIVE"]
     },
     "carrier_binding": {
       "type": "object",

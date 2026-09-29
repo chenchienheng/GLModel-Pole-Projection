@@ -8,8 +8,28 @@ const triad = readJson('semantic-core/specimens/gui-lu/triadic-representation-se
 
 const fail = msg => { console.error(msg); process.exit(1); };
 
-for (const p of ['HUMAN_ZH_TW','EXTERNAL_EN_GATED','CANONICAL_MACHINE','VISUAL_SPATIAL','DOMAIN_NATIVE']) {
+for (const p of ['HUMAN_ZH_TW','PROFESSIONAL_EN','EXTERNAL_EN_GATED','CANONICAL_MACHINE','VISUAL_SPATIAL','DOMAIN_NATIVE']) {
   if (!index.representation_profiles.includes(p)) fail(`REPRESENTATION_PROFILE_MISSING:${p}`);
+}
+
+for (const key of ['artifact_component','triadic_representation_set','context_assembly']) {
+  const p = index.schemas[key];
+  if (!p || !fs.existsSync(`semantic-core/${p}`)) fail(`SCHEMA_POINTER_MISSING:${key}`);
+}
+
+const profileEnums = {
+  artifact_component: readJson(`semantic-core/${index.schemas.artifact_component}`).properties.representation_profile.enum,
+  context_assembly: readJson(`semantic-core/${index.schemas.context_assembly}`).properties.output_profiles.items.enum
+};
+// This checks the advertised profile contract, not every JSON Schema constraint.
+for (const [schema, profiles] of Object.entries(profileEnums)) {
+  if (!Array.isArray(profiles)) fail(`SCHEMA_PROFILE_ENUM_MISSING:${schema}`);
+  for (const profile of index.representation_profiles) {
+    if (!profiles.includes(profile)) fail(`SCHEMA_PROFILE_MISSING:${schema}:${profile}`);
+  }
+  for (const profile of profiles) {
+    if (!index.representation_profiles.includes(profile)) fail(`SCHEMA_PROFILE_UNDECLARED:${schema}:${profile}`);
+  }
 }
 
 for (const p of [
@@ -24,6 +44,7 @@ const artifacts = registry.artifacts || [];
 if (!artifacts.length) fail('ARTIFACT_REGISTRY_EMPTY');
 
 for (const a of artifacts) {
+  if (!index.representation_profiles.includes(a.representation_profile)) fail(`ARTIFACT_PROFILE_UNDECLARED:${a.artifact_id}`);
   if (!a.artifact_id || !a.stable_subject_id) fail('ARTIFACT_IDENTITY_MISSING');
   if (a.lifecycle_state === 'CURRENT' && !a.carrier_binding?.pointer) fail(`CURRENT_ARTIFACT_POINTER_MISSING:${a.artifact_id}`);
   if (['SUPERSEDED','HISTORICAL','INVALIDATED','RETIRED','RECLAIM_CANDIDATE'].includes(a.lifecycle_state) && a.semantic_role === 'STATE' && a.claim_ceiling === 'CURRENT') {
@@ -41,6 +62,10 @@ for (const [subject, list] of bySubject) {
   if (!profiles.has('CANONICAL_MACHINE')) fail(`CURRENT_SUBJECT_MACHINE_PROFILE_MISSING:${subject}`);
 }
 
+for (const profile of assembly.output_profiles) {
+  if (!index.representation_profiles.includes(profile)) fail(`ASSEMBLY_PROFILE_UNDECLARED:${profile}`);
+}
+
 if (!assembly.selection_rules.exclude_superseded_without_explicit_request) fail('ASSEMBLY_MUST_EXCLUDE_SUPERSEDED_BY_DEFAULT');
 if (!assembly.selection_rules.exclude_invalidated) fail('ASSEMBLY_MUST_EXCLUDE_INVALIDATED');
 if (!assembly.output_profiles.includes('HUMAN_ZH_TW')) fail('ASSEMBLY_HUMAN_PROFILE_MISSING');
@@ -54,10 +79,5 @@ for (const a of triad.profiles.visual_spatial || []) {
 }
 if (triad.profiles.external_en_gated !== null) fail('EXTERNAL_PROFILE_MUST_REMAIN_GATED_UNTIL_RELEASE');
 if (!['ALIGNED','PARTIAL','HOLD'].includes(triad.alignment_state)) fail('INVALID_TRIAD_ALIGNMENT_STATE');
-
-for (const key of ['artifact_component','triadic_representation_set','context_assembly']) {
-  const p = index.schemas[key];
-  if (!p || !fs.existsSync(`semantic-core/${p}`)) fail(`SCHEMA_POINTER_MISSING:${key}`);
-}
 
 console.log(`ARTIFACT_ECOSYSTEM_OK:${triad.alignment_state}`);

@@ -15,8 +15,8 @@
 ### Human／人類中文
 負責讓 Owner、設計者與使用者理解：現在是什麼、為什麼、風險在哪裡、下一步是什麼。
 
-### External／外部英文
-負責跨組織、專業標準、公開研究與外部協作。只在 Release Gate 通過後產生，不是中文逐句翻譯，也不自動包含內部核心。
+### Professional／專業英文與對外發布
+專業英文負責術語、介面、假設、限制、證據與專業交接，與人類中文、機器表徵描述同一個存在，不是中文逐句翻譯。是否對外發布另依來源、用途、權利與 Release Gate 判定；語言本身不建立發布許可。本頁及既有英文頁已位於公開倉庫，也不表示額外原始資料已獲公開授權。
 
 ### Canonical Machine／機器規範
 負責 Stable ID、typed state、dependency、authority、evidence、event、return、rebuild 與 validation。它不是給人閱讀的文章。

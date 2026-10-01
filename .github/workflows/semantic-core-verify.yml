@@ -95,8 +95,8 @@ jobs:
           node tools/check-legacy-hold-deletions.mjs --base "$LEGACY_PR_BASE_SHA" --head "$LEGACY_CHECKOUT_SHA"
       - name: Verify cross-surface semantic alignment
         run: node semantic-core/tools/verify-specimen.mjs
-      - name: Verify viewer loading does not claim semantic validation
-        run: node --test semantic-core/viewer/app.test.mjs
+      - name: Verify viewer loading and personal judgment recovery
+        run: node --test semantic-core/viewer/app.test.mjs semantic-core/viewer/personal-judgment.test.mjs
       - name: Verify DCP semantic core invariants
         run: node semantic-core/tools/verify-dcp-core.mjs
       - name: Verify carrier abstraction invariants

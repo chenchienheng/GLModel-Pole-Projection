@@ -1,10 +1,11 @@
-import {assessRecord,buildSourceItems,createRecord,exportBatch,importBatch} from './personal-judgment.mjs';
+import {assessRecord,buildSourceItems,createRecord,exportBatch,importBatch,sameItemIdentity} from './personal-judgment.mjs';
 
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let items=[];
 let records=[];
 let dirty=false;
+const backedUpIds=new Set();
 
 function option(value,label){return `<option value="${esc(value)}">${esc(label)}</option>`}
 function setMessage(message,error=false){$('judgment-message').textContent=message;$('judgment-message').classList.toggle('warning',error)}
@@ -14,11 +15,14 @@ function renderBinding(){
   $('judgment-binding').textContent=item
     ? `${item.binding.source_path} · ${item.binding.source_revision} · ${item.binding.item_id} · ${item.binding.item_sha256}`
     : '沒有可判讀的具名未閉項目';
+  renderDerivedFrom();
 }
 function renderDerivedFrom(){
   const chosen=$('judgment-derived-from').value;
-  $('judgment-derived-from').innerHTML=option('','不是重驗判讀')+records.map(record=>option(record.judgment_id,record.judgment_id)).join('');
-  if(records.some(record=>record.judgment_id===chosen))$('judgment-derived-from').value=chosen;
+  const item=selectedItem();
+  const eligible=item?records.filter(record=>sameItemIdentity(record.binding,item.binding)):[];
+  $('judgment-derived-from').innerHTML=option('','不是重驗判讀')+eligible.map(record=>option(record.judgment_id,record.judgment_id)).join('');
+  $('judgment-derived-from').value=eligible.some(record=>record.judgment_id===chosen)?chosen:'';
 }
 function renderRecords(){
   $('judgment-records').innerHTML=records.map(record=>{
@@ -62,7 +66,7 @@ function addRecord(event){
     renderBinding();
     renderRecords();
     markDirty(true);
-    setMessage('個人判讀已加入記憶體；尚未保存，請明確匯出。');
+    setMessage('個人判讀已加入記憶體；請匯出後選取下載檔匯入確認備份。');
   }catch(error){setMessage(`未新增：${error.message}`,true)}
 }
 
@@ -73,9 +77,8 @@ function download(){
     link.href=URL.createObjectURL(blob);
     link.download='xuanling-personal-judgments.json';
     link.click();
-    URL.revokeObjectURL(link.href);
-    markDirty(false);
-    setMessage(`已匯出 ${records.length} 筆；下載成立不代表來源 Hold／Return 已解除。`);
+    setTimeout(()=>URL.revokeObjectURL(link.href),60_000);
+    setMessage(`已發起下載 ${records.length} 筆；請選取下載檔匯入確認備份。尚未確認的判讀仍保留離開警告，來源 Hold／Return 不變。`);
   }catch(error){setMessage(`匯出失敗：${error.message}`,true)}
 }
 
@@ -83,12 +86,14 @@ async function upload(event){
   const file=event.target.files?.[0];
   if(!file)return;
   try{
-    const wasDirty=dirty;
-    const result=importBatch(records,await file.text());
+    const text=await file.text();
+    const backup=importBatch([],text);
+    const result=importBatch(records,text);
     records=result.records;
+    for(const record of backup.records)backedUpIds.add(record.judgment_id);
     renderRecords();
-    markDirty(wasDirty);
-    setMessage(`整批匯入成立：新增 ${result.imported}，相同略過 ${result.duplicates}。`);
+    markDirty(records.some(record=>!backedUpIds.has(record.judgment_id)));
+    setMessage(`整批匯入成立：新增 ${result.imported}，相同略過 ${result.duplicates}。${dirty?'仍有判讀不在已讀回的備份內，請再匯出完整備份。':'目前判讀均有已讀回的備份。'}`);
   }catch(error){setMessage(`整批拒收，既有判讀未變：${error.message}`,true)}
   finally{event.target.value=''}
 }

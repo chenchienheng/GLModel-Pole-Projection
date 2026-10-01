@@ -85,17 +85,41 @@ function validateBinding(value){
 export function validateRecord(value){
   exactKeys(value,['schema','judgment_id','binding','decision','reason','next_step','created_at','derived_from'],'RECORD_FIELDS_INVALID');
   if(value.schema!==RECORD_SCHEMA)fail('RECORD_SCHEMA_UNSUPPORTED');
-  if(!ID.test(value.judgment_id))fail('JUDGMENT_ID_INVALID');
+  if(typeof value.judgment_id!=='string'||!ID.test(value.judgment_id))fail('JUDGMENT_ID_INVALID');
   validateBinding(value.binding);
   for(const key of ['decision','reason','next_step'])nonEmpty(value[key],`RECORD_${key.toUpperCase()}_INVALID`);
   if(typeof value.created_at!=='string'||Number.isNaN(Date.parse(value.created_at)))fail('RECORD_CREATED_AT_INVALID');
-  if(value.derived_from!==null&&!ID.test(value.derived_from??''))fail('RECORD_DERIVED_FROM_INVALID');
+  if(value.derived_from!==null&&(typeof value.derived_from!=='string'||!ID.test(value.derived_from)))fail('RECORD_DERIVED_FROM_INVALID');
   if(value.derived_from===value.judgment_id)fail('RECORD_SELF_DERIVATION');
   return value;
 }
 
 export function createRecord({judgment_id,binding,decision,reason,next_step,created_at,derived_from=null}){
   return validateRecord({schema:RECORD_SCHEMA,judgment_id,binding:{...binding},decision,reason,next_step,created_at,derived_from});
+}
+
+export function sameItemIdentity(first,second){
+  return ['source_path','subject_id','item_id'].every(key=>first[key]===second[key]);
+}
+
+function validateLineage(records){
+  const byId=new Map(records.map(record=>[record.judgment_id,record]));
+  for(const record of records){
+    if(record.derived_from===null)continue;
+    const parent=byId.get(record.derived_from);
+    if(!parent)fail(`DERIVED_FROM_MISSING:${record.judgment_id}`);
+    if(!sameItemIdentity(parent.binding,record.binding))fail(`DERIVED_FROM_IDENTITY_MISMATCH:${record.judgment_id}`);
+  }
+  const complete=new Set();
+  for(const record of records){
+    const visiting=new Set();let current=record;
+    while(current&&!complete.has(current.judgment_id)){
+      if(visiting.has(current.judgment_id))fail(`DERIVED_FROM_CYCLE:${current.judgment_id}`);
+      visiting.add(current.judgment_id);
+      current=current.derived_from===null?null:byId.get(current.derived_from);
+    }
+    for(const id of visiting)complete.add(id);
+  }
 }
 
 function validateBatch(value){
@@ -131,6 +155,7 @@ export function importBatch(existing,text){
     combined.push(structuredClone(record));
     imported++;
   }
+  validateLineage(combined);
   return {records:combined,imported,duplicates};
 }
 
@@ -138,7 +163,7 @@ export function assessRecord(record,currentItems){
   validateRecord(record);
   const exact=currentItems.find(item=>canonicalJSON(item.binding)===canonicalJSON(record.binding));
   if(exact)return {state:'CURRENT_SOURCE_MATCH',reason:null,item:exact};
-  const identity=currentItems.find(item=>item.binding.source_path===record.binding.source_path&&item.binding.item_id===record.binding.item_id);
+  const identity=currentItems.find(item=>sameItemIdentity(item.binding,record.binding));
   return {
     state:'HISTORICAL_PENDING_REVALIDATION',
     reason:identity?'SOURCE_VERSION_OR_CONTENT_CHANGED':'SOURCE_ITEM_MISSING',

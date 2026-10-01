@@ -49,9 +49,11 @@ Start with bounded specimens. A specimen is valid only when the same stable iden
 
 [檢視器入口](viewer/index.html)讀取同一版本的歸廬 specimen 與 DCP 投影，用於閱讀來源中的關係、Hold、待回流及說明。它不是可編輯的 Living 世界，也沒有採購、部署或語義驗證功能。Stable Identity 與未閉條件來自原資料；顯示成功不代表工程條件或 Return 已驗收。
 
-檢視器另提供「個人判讀、匯出與恢復」：使用者可針對具名 Hold／Conflict／Pending Return 記錄自己的決定、理由及下一步，再以明確下載保存 JSON，日後整批匯入恢復。頁面只在記憶體保留個人判讀，不使用資料庫、API、`localStorage` 或背景蒐集；未匯出時會顯示離開警告。個人判讀與來源投影分離，不會改寫來源，也不能解除 Hold、Authority 或 Return。
+檢視器另提供「個人判讀、匯出與恢復」：使用者可針對具名 Hold／Conflict／Pending Return 記錄自己的決定、理由及下一步，再以明確下載保存 JSON，日後整批匯入恢復。頁面只在記憶體保留個人判讀，不使用資料庫、API、`localStorage` 或背景蒐集。點擊匯出只代表發起下載；取消、阻擋或未完成下載都不能證明備份成立。請選取下載檔匯入，逐筆讀回確認；尚未出現在已讀回備份中的判讀仍顯示離開警告。個人判讀與來源投影分離，不會改寫來源，也不能解除 Hold、Authority 或 Return。
 
-每筆判讀綁定來源路徑、來源 revision、來源內容 SHA-256、subject、具名項目與項目 SHA-256。匯入時拒絕未知欄位、缺綁定、錯誤 schema、同 ID 不同內容及任何不完整紀錄；任一筆錯誤即整批拒收，既有記憶體資料不變。完全相同的紀錄只略過，不重複新增。來源版本或內容改變、或原項目消失時，舊判讀保留為 `HISTORICAL_PENDING_REVALIDATION`，不會自動附著新版來源；使用者可選前身紀錄並明確建立帶 `derived_from` 的新判讀。
+每筆判讀綁定來源路徑、來源 revision、來源內容 SHA-256、subject、具名項目與項目 SHA-256。匯入時拒絕未知欄位、缺綁定、錯誤 schema、非文字 ID、同 ID 不同內容及任何不完整紀錄；任一筆錯誤即整批拒收，既有記憶體資料不變。完全相同的紀錄只略過，不重複新增。讀檔完成後才與最新記憶體資料合併，讀檔期間新增的判讀不會被較早的陣列覆蓋；若新判讀不在讀回檔中，離開警告繼續保留。
+
+來源版本或內容改變、或原項目消失時，舊判讀保留為 `HISTORICAL_PENDING_REVALIDATION`，不會自動附著新版來源；使用者可選同一來源路徑、subject 與項目 ID 的前身，明確建立帶 `derived_from` 的新判讀。合併後的前身必須存在且不能形成循環；不把別的項目判讀當成重驗前身。完整匯出會保留前身；介面匯入的備份檔本身也須包含完整前身，不接受只含 child、父筆只存在記憶體中的增量檔。恢復應使用完整 JSON，不擅自刪除前身紀錄。
 
 在已獲授權的 HTTP(S) 預覽環境，保留整個 `semantic-core/` 相對目錄，開啟 `semantic-core/viewer/index.html`。GitHub 的檔案閱讀頁不是運行畫面；直接開啟本機 `file://` 也不能保證 fetch 可用。若沒有合法預覽入口，只保留瀏覽器驗收未完成，不以部署或變更存取限制補過。
 
@@ -66,7 +68,7 @@ Start with bounded specimens. A specimen is valid only when the same stable iden
 
 世界視圖與 DCP 視圖可用上方按鈕切換；錯誤訊息位於兩者外，切換不會把錯誤消掉。格式化失敗的視圖不應留下半套新內容。載入錯誤只列來源與失敗階段，不顯示完整回應本文；單一視圖內多個來源同時失敗時，目前只保證呈現該 loader 回報的失敗，不保證列出全部根因。
 
-修復後重新整理頁面，會重新讀取來源；來源投影仍沒有本地編輯狀態。個人判讀必須先明確匯出，再以原 JSON 匯入才能恢復；未匯出就重新整理會遺失。應使用完整、同一 commit 的 HTML、JS、CSS、specimen 與 DCP 檔案，避免混搭版本及快取。重新整理後仍須核對 Stable Identity、Hold／Pending Return 與狀態文字，不能只看畫面出現。
+修復後重新整理頁面，會重新讀取來源；來源投影仍沒有本地編輯狀態。個人判讀必須先明確匯出、選取下載檔匯入確認備份，再於重開後以原 JSON 匯入恢復；未確認備份就重新整理可能遺失。讀回只證明選取檔含有判讀，不保證檔案會永久保留，請保存完整備份。應使用完整、同一 commit 的 HTML、JS、CSS、specimen 與 DCP 檔案，避免混搭版本及快取。重新整理後仍須核對 Stable Identity、Hold／Pending Return 與狀態文字，不能只看畫面出現。
 
 真瀏覽器驗收需在該合法預覽入口記錄 exact commit、瀏覽器、來源與結果：正常載入並切換兩視圖；新增、匯出、重開、匯入後逐欄核對判讀；以改版或移除的來源項目確認舊判讀只成為歷史待重驗；以錯誤 schema 或同 ID 不同內容確認整批拒收；讓其中一個讀取失敗後確認另一視圖仍可讀、錯誤跨分頁可見；恢復來源並重新整理後核對原身分與未閉條件。故障注入限本地驗收副本或已授權攔截，不修改正式來源。沒有完成這些觀測，就維持 browser/reload 未驗收。`node --test semantic-core/viewer/*.test.mjs` 是合成回歸，不能代替上述觀測。
 

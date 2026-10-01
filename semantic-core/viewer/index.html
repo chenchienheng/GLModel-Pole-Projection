@@ -62,7 +62,29 @@
       </section>
       <section class="panel human-panel"><h2>DCP 人類可讀說明</h2><div id="dcp-human" class="human-copy"></div></section>
     </div>
+
+    <section class="panel judgment-panel" aria-labelledby="judgment-title">
+      <h2 id="judgment-title">個人判讀、匯出與恢復</h2>
+      <p>選取具名未閉項目後，可記錄自己的決定、理由與下一步。個人判讀不會改寫來源，也不會解除 Hold、Authority 或 Return。</p>
+      <form id="judgment-form" class="judgment-form">
+        <label>來源未閉項目<select id="judgment-source" required></select></label>
+        <p id="judgment-binding" class="binding"></p>
+        <label>決定<textarea id="judgment-decision" required></textarea></label>
+        <label>理由<textarea id="judgment-reason" required></textarea></label>
+        <label>下一步<textarea id="judgment-next" required></textarea></label>
+        <label>重驗前身（選填）<select id="judgment-derived-from"><option value="">不是重驗判讀</option></select></label>
+        <button type="submit">加入個人判讀</button>
+      </form>
+      <p id="judgment-unsaved" class="warning" role="status" hidden>有尚未匯出的個人判讀；關閉或重新整理會遺失。</p>
+      <div class="judgment-actions">
+        <button id="judgment-export" type="button">匯出 JSON</button>
+        <label class="file-button">匯入 JSON<input id="judgment-import" type="file" accept="application/json,.json" /></label>
+      </div>
+      <p id="judgment-message" role="status"></p>
+      <div id="judgment-records" class="list"></div>
+    </section>
   </main>
   <script type="module" src="./app.js"></script>
+  <script type="module" src="./personal-judgment-ui.js"></script>
 </body>
 </html>

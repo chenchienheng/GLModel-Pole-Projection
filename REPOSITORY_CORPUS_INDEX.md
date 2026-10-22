@@ -1,5 +1,7 @@
 # Repository Corpus Index
 
+> Historical reference. This document preserves an earlier design or index snapshot, not current runtime, authority, writer assignment, or verified operational status. Terms such as “Active”, “current”, and “verified” below belong to that historical context. Consult the repository’s [current surface manifest](CURRENT-SURFACE-MANIFEST.json) for present source qualification. Historical content is retained unchanged; reuse requires current evidence.
+
 > Reconciled durable index for repository continuity.
 > Maps every verified artifact to its architectural role.
 
